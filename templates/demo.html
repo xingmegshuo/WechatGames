@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content=" initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="icon" href="/static/favicon-1.ico" type="image/ico">
+
+    <title>萌果果首页</title>
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        img {
+            -webkit-user-drag:none;
+        }
+    </style>
+    <script type="text/javascript">
+        {#function change_gif() {#}
+        {#    var gir = document.getElementById('girl');#}
+        {#    var b = new RegExp('girl_.gif').test(gir.src);#}
+        {#    if (b)  {#}
+        {#        gir.src = '/static/images/gir__.gif'#}
+        {#    } else {#}
+        {#        gir.src = '/static/images/girl_.gif'#}
+        {#    }#}
+        {# }#}
+        {##}
+        {#setInterval(change_gif, 6000);#}
+
+        var num = 0
+        var dd = true;
+        var value;
+
+
+        window.onload = function () {
+            {#setInterval('open()', 1)#}
+            var box1 = document.getElementById("box1");
+            var wid = box1.style.width.split('p')[0];
+            var wid1 = document.body.clientWidth;
+            var heig = window.screen.height;
+
+            if (/AppleWebKit.*mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+                window.onresize = function () {
+                    var height = window.screen.height;
+                    var width = document.body.clientWidth;
+                    var dor = document.getElementById('dor_');
+                    var dor_ = document.getElementById('dor__');
+
+                    if (height < width) {
+                        box1.style.width = 120 + '%';
+                        box1.style.height = 120 + '%';
+                        value = document.body.clientWidth * 0.51
+                        dor.style.marginLeft = 0 + 'px';
+                        dor_.style.marginLeft = 0 + 'px';
+
+
+                    } else {
+                        box1.style.width = 420 + '%';
+                        box1.style.height = 100 + '%';
+                        {#document.body.scrollBy(800, 0)#}
+                        document.documentElement.scrollTo(width * 2.4, 0)
+                        value = document.body.clientWidth * 1.8
+                        dor.style.marginLeft = -value + 'px';
+                        dor_.style.marginLeft = -value + 'px';
+
+
+                    }
+                }
+                if (heig > wid1) {
+                    box1.style.width = 420 + '%';
+                    box1.style.height = 100 + '%';
+                    {#document.body.scrollBy(800, 0)#}
+                    document.documentElement.scrollTo(wid1 * 2.4, 0)
+                    value = document.body.clientWidth * 1.8
+
+                } else {
+                    box1.style.width = 120 + '%';
+                    box1.style.height = 120 + '%';
+                    value = document.body.clientWidth * 0.51
+                }
+            } else {
+                value = document.body.clientWidth * 0.6
+                box1.style.marginLeft = -20 + '%';
+                box1.onmousedown = function (event) {
+                    /*再次点击时使http://0.0.0.0:8000/static/images/background.jpg得图标任然在那个位置，鼠标可以点击到图标上*/
+                    var ol = event.clientX - box1.offsetLeft;
+                    var other = document.getElementsByClassName('box_other');
+                    /*鼠标点击*/
+                    document.onmousemove = function (event) {
+                        var left = event.clientX - ol;
+                        if (left > 0) {
+                            box1.style.marginLeft = 0 + "px";/*赋值*/
+                        } else if (left < -wid1 * 0.4) {
+                            box1.style.marginLeft = -wid1 * 0.4 + 'px';/*赋值*/
+                        } else {
+                            box1.style.marginLeft = left + 'px';
+                        }
+                    };
+                    /*鼠标松开*/
+                    document.onmouseup = function (event) {
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+                    }
+                }
+            }
+        }
+
+        function d() {
+            var dor = document.getElementById('dor_');
+            var dor_ = document.getElementById('dor__');
+            var interval;
+            if (dd == true) {
+                interval = setInterval(function () {
+                    if (Math.abs(dor.style.marginLeft.split('p')[0]) < value) {
+                        num -= 0.5;
+                        dor.style.marginLeft = num + 'px';
+                        dor_.style.marginLeft = num + 'px';
+                    } else {
+                        clearInterval(interval);
+                        dd = false;
+                    }
+                }, 0.01)
+            } else {
+                num = -value;
+                interval = setInterval(function () {
+
+                    if (num < 0) {
+                        num += 0.5;
+                        dor.style.marginLeft = num + 'px';
+                        dor_.style.marginLeft = num + 'px';
+                    } else {
+                        clearInterval(interval);
+                        dd = true;
+                    }
+                }, 0.01);
+
+            }
+        }
+
+
+    </script>
+
+    {#window.onscroll = function () {#}
+    {#    //为了保证兼容性，这里取两个值，哪个有值取哪一个#}
+    {#    //scrollTop就是触发滚轮事件时滚轮的高度#}
+    {#    var scrollTop = document.documentElement.scrollLeft || document.body.scrollLeft;#}
+    {#    alert("滚动距离" + scrollTop);#}
+    {# }#}
+</head>
+<body style=" overflow:auto" id="body">
+<div id="box1"
+     style="height:110%;width: 140%;position: absolute;top: 0px;left: 0px">
+    <img src="/static/images/background.jpg" style="width: 100%;height: 100%">
+
+    <div
+            style="position: absolute;top:5%;left: 15%;height: 21%;width: 17%;">
+        <img src="/static/images/牌子.png" style="width: 100%;height: 100%">
+    </div>
+    <div
+            style="position: absolute;top:0;height: 70%;width: 11%;z-index: 9999">
+        <img src="/static/images/dow.gif" style="width: 100%;height: 100%">
+    </div>
+
+    <div
+            style="position: absolute; height: 65%;width: 35%;top:35%;left: 65%;z-index: 99999">
+        <img src="/static/images/床.png" style="width: 100%;height: 100%">
+    </div>
+    <div
+            style="position: absolute;top:23%;height: 30%;width: 30%;margin-left:10%;">
+        <img src="/static/images/大沙发.png" style="width: 100%;height: 100%">
+    </div>
+
+    <div
+            style="position: absolute;top:19%;height: 31.5%;width: 6%;left: 39%;z-index: 999">
+        <img src="/static/images/dianshan.gif" style="width: 100%;height: 100%">
+    </div>
+    <div
+            style="position: absolute;top:57%;height: 26%;width: 32%;left: 13%">
+        <img src="/static/images/不规则垫子.png" style="width: 100%;height: 100%">
+    </div>
+    <div
+            style="position: absolute;top:52%;height: 32%;width: 23%;left: 15%">
+        <img src="/static/images/桌子.png" style="width: 100%;height: 100%">
+    </div>
+    <div
+            style="position: absolute;top:54%;height: 46%;width: 23%;">
+        <img src="/static/images/抱枕们.png" style="width: 100%;height: 100%">
+    </div>
+
+    <div
+            style="position: absolute;top:60%;height: 40%;width: 10%;z-index: 99999">
+        <img src="/static/images/花花.png" style="width: 100%;height: 100%">
+    </div>
+    <div
+            style="position: absolute;top:52%;height: 30%;width: 14%;left: 48%">
+        <img src="/static/images/爪爪.png" style="width: 100%;height: 100%">
+    </div>
+    <div
+            style="position: absolute;top:62%;height: 6%;width: 2.5%;left: 60%">
+        <img src="/static/images/拖孩.png" style="width: 100%;height: 100%">
+    </div>
+    <div
+            style="position: absolute;top:25%;height: 15%;width: 32%;left: 47%">
+        <img src="/static/images/小青蛙.png" style="width: 100%;height: 100%">
+    </div>
+    <div
+            style="position: absolute;top:13%;height: 32%;width: 20%;left: 56%">
+        <img src="/static/images/电脑桌.png" style="width: 100%;height: 100%">
+    </div>
+    <div
+            style="position: absolute;top:27%;height: 10%;width: 3%;left: 77%">
+        <img src="/static/images/袋子.png" style="width: 100%;height: 100%">
+    </div>
+    <div
+            style="position: absolute;top:34%;height: 10%;width: 5%;left: 73%">
+        <img src="/static/images/cat.gif" style="width: 100%;height: 100%">
+    </div>
+
+    <div
+            style="position: absolute;top:16%;height: 55%;width: 27%;left: 62%">
+        <img src="/static/images/猫爬架.png" style="width: 100%;height: 100%">
+    </div>
+
+    <div
+            style="position: absolute;top:0;height: 47%;width: 46.6%;left: 44.4%;">
+        <img src="/static/images/光.png" style="width: 100%;height: 100%;">
+    </div>
+    <div
+            style="position: absolute;top:15%;height: 58%;width: 15%;left: 82%">
+        <img src="/static/images/壁纸.png" style="width: 100%;height: 100%">
+    </div>
+    <div id="dor"
+         style="position: absolute;top:0;height: 47%;width: 46.6%;left: 44.4%;overflow: scroll;overflow-y: hidden;overflow-x: hidden;">
+        <img id="dor_" src="/static/images/拉门.png" style="width: 100%;height: 100%;">
+        <div id="dor__" style="position: absolute;height: 15%;width: 1.8%;left: 93%;top: 45%">
+            <img src="/static/images/门把.png" style="width: 100%;height: 100%" onclick="d()">
+        </div>
+    </div>
+
+    <div
+            style="position: absolute;top:52%;height: 27%;width: 15%;left: 64%;z-index: 999999">
+        <img id="girl" src="/static/images/gir.gif" style="width: 100%;height: 100%">
+    </div>
+</div>
+</body>
+</html>

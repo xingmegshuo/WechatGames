@@ -1,0 +1,24 @@
+{
+  "name": "微信小游戏，小程序接口文档",
+  "version": "0.0.1",
+  "description": "接口的使用，参数信息",
+  "header": {
+    "title": "about me",
+    "content": "<h2><em><strong>code for wechat games api</strong></em></h2>\n<h4>Author:                   small_ant</h4>\n<h4>Created time :      2020.09.22</h4>\n<h4>Mail:                         xms.chnb@gamil.com</h4>\n<h4>Github:                      <a href=\"https://github.com/xingmegshuo\"><img src=\"/static/fluidicon.png\" width=\"40\" height=\"40\"></a></h4>\n"
+  },
+  "title": "微信小游戏API",
+  "url": "https://www.menguoli.com",
+  "footer": {
+    "title": "the end",
+    "content": "<h2><em><strong>Thanks for browsing</strong></em></h2>\n<h3>Go use it now!</h3>\n"
+  },
+  "sampleUrl": false,
+  "defaultVersion": "0.0.0",
+  "apidoc": "0.3.0",
+  "generator": {
+    "name": "apidoc",
+    "time": "2020-09-22T07:47:47.378Z",
+    "url": "http://apidocjs.com",
+    "version": "0.23.0"
+  }
+}

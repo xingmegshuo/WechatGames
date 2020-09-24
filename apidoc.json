@@ -1,0 +1,15 @@
+{
+    "header": {
+    "title": "about me",
+    "filename": "header.md"
+  },
+  "name": "微信小游戏，小程序接口文档",
+  "version": "0.0.1",
+  "description": "接口的使用，参数信息",
+  "title": "微信小游戏API",
+  "url" : "https://www.menguoli.com",
+    "footer": {
+    "title": "the end",
+    "filename": "footer.md"
+  }
+}
