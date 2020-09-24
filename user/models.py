@@ -132,6 +132,19 @@ class Userip(models.Model):
         return self.ip
 
 
+# 用户登录记录
+class RecordLogin(models.Model):
+    user = models.ForeignKey(MyUser, on_delete=models.CASCADE, verbose_name=_('用户'), help_text=_('用户'))
+    login_time = models.DateTimeField(verbose_name=_('登录时间'), help_text=_('登录时间'), auto_now_add=True)
+
+    def __str__(self):
+        return self.user.nick_name
+
+    class Meta:
+        verbose_name = '用户登录记录表'
+        verbose_name_plural = verbose_name
+
+
 # 用户收货地址  用户敏感信息 建议加密
 class Address(models.Model):
     unionId = models.CharField(max_length=200, help_text=_('用户唯一标识'), verbose_name=_('用户标识'))

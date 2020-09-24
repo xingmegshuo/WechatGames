@@ -207,6 +207,8 @@ class WxLoginView(APIView):
                 user = create_or_update_user_info(openid, None)
                 record_time(user)
                 token = TokenObtainPairSerializer.get_token(user).access_token
+                login_record = RecordLogin.objects.create(user=user)
+                login_record.save()
                 try:
                     GameInfo.objects.get(user_id=user, game_id=app)
                 except:
