@@ -8002,3 +8002,858 @@ TypeError: The `fields` option must be a list or tuple or "__all__". Got str.
 [2020-09-24 15:57:52,536][MainThread:139765040476544][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
 [2020-09-24 15:57:52,536][MainThread:139765040476544][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
 [2020-09-24 15:57:52,548][MainThread:139765040476544][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 17:00:25,221][Dummy-1:139742313998080][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 17:00:25,221][Dummy-1:139742313998080][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 17:00:25,239][Dummy-1:139742313998080][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 17:00:37,704][MainThread:140453998192384][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 17:00:37,705][MainThread:140453998192384][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 17:00:37,723][MainThread:140453998192384][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 17:00:57,236][Dummy-1:139695688103680][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 17:00:57,237][Dummy-1:139695688103680][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 17:00:57,255][Dummy-1:139695688103680][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 17:08:48,793][Dummy-1:140709335537408][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 17:08:48,794][Dummy-1:140709335537408][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 17:08:48,813][Dummy-1:140709335537408][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 17:09:45,441][MainThread:140632548415232][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 17:09:45,442][MainThread:140632548415232][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 17:09:45,461][MainThread:140632548415232][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 17:14:55,714][Dummy-1:140643169314560][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 17:14:55,715][Dummy-1:140643169314560][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 17:14:55,733][Dummy-1:140643169314560][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 17:15:11,409][Dummy-1:140613711017728][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 17:15:11,410][Dummy-1:140613711017728][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 17:15:11,428][Dummy-1:140613711017728][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 17:15:34,332][Dummy-1:139763462067968][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 17:15:34,333][Dummy-1:139763462067968][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 17:15:34,352][Dummy-1:139763462067968][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 17:15:36,750][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET / HTTP/1.1" 200 9493]
+[2020-09-24 17:15:36,928][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E7%94%B5%E8%84%91%E6%A1%8C.png HTTP/1.1" 200 98405]
+[2020-09-24 17:15:36,934][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E5%B0%8F%E9%9D%92%E8%9B%99.png HTTP/1.1" 200 49873]
+[2020-09-24 17:15:36,941][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E5%85%89.png HTTP/1.1" 200 104346]
+[2020-09-24 17:15:36,949][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E6%8A%B1%E6%9E%95%E4%BB%AC.png HTTP/1.1" 200 84968]
+[2020-09-24 17:15:36,955][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E6%8B%89%E9%97%A8.png HTTP/1.1" 200 161088]
+[2020-09-24 17:15:36,971][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E4%B8%8D%E8%A7%84%E5%88%99%E5%9E%AB%E5%AD%90.png HTTP/1.1" 200 39626]
+[2020-09-24 17:15:36,980][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/background.jpg HTTP/1.1" 200 288206]
+[2020-09-24 17:15:37,004][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E6%A1%8C%E5%AD%90.png HTTP/1.1" 200 94810]
+[2020-09-24 17:15:37,017][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E7%8C%AB%E7%88%AC%E6%9E%B6.png HTTP/1.1" 200 63549]
+[2020-09-24 17:15:37,036][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E7%88%AA%E7%88%AA.png HTTP/1.1" 200 29563]
+[2020-09-24 17:15:37,081][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E8%8A%B1%E8%8A%B1.png HTTP/1.1" 200 100545]
+[2020-09-24 17:15:37,092][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E6%8B%96%E5%AD%A9.png HTTP/1.1" 200 6141]
+[2020-09-24 17:15:37,102][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E7%89%8C%E5%AD%90.png HTTP/1.1" 200 54176]
+[2020-09-24 17:15:37,190][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E5%A4%A7%E6%B2%99%E5%8F%91.png HTTP/1.1" 200 132466]
+[2020-09-24 17:15:37,680][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E5%BA%8A.png HTTP/1.1" 200 381873]
+[2020-09-24 17:15:38,052][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E5%A3%81%E7%BA%B8.png HTTP/1.1" 200 48645]
+[2020-09-24 17:15:38,246][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E8%A2%8B%E5%AD%90.png HTTP/1.1" 200 121431]
+[2020-09-24 17:15:38,350][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/%E9%97%A8%E6%8A%8A.png HTTP/1.1" 200 1340]
+[2020-09-24 17:15:38,930][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/cat.gif HTTP/1.1" 200 518631]
+[2020-09-24 17:15:39,517][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/dianshan.gif HTTP/1.1" 200 1080453]
+[2020-09-24 17:15:41,800][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/gir.gif HTTP/1.1" 200 3756192]
+[2020-09-24 17:15:41,932][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /static/images/dow.gif HTTP/1.1" 200 3292293]
+[2020-09-24 17:15:42,126][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /static/favicon-1.ico HTTP/1.1" 200 1684]
+[2020-09-24 17:15:42,483][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc HTTP/1.1" 301 0]
+[2020-09-24 17:15:42,563][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/ HTTP/1.1" 200 29411]
+[2020-09-24 17:15:42,634][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/prettify.css HTTP/1.1" 200 1956]
+[2020-09-24 17:15:42,634][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/css/style.css HTTP/1.1" 200 10577]
+[2020-09-24 17:15:42,640][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/polyfill.js HTTP/1.1" 200 2900]
+[2020-09-24 17:15:42,640][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/bootstrap.min.css HTTP/1.1" 200 121457]
+[2020-09-24 17:15:42,656][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/require.min.js HTTP/1.1" 200 15825]
+[2020-09-24 17:15:42,806][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/img/favicon.ico HTTP/1.1" 200 894]
+[2020-09-24 17:15:42,873][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/main.js HTTP/1.1" 200 32631]
+[2020-09-24 17:15:42,959][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/utils/send_sample_request.js?v=1600938942926 HTTP/1.1" 200 10211]
+[2020-09-24 17:15:42,960][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/api_project.js?v=1600938942926 HTTP/1.1" 200 1053]
+[2020-09-24 17:15:42,961][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/api_data.js?v=1600938942926 HTTP/1.1" 200 33708]
+[2020-09-24 17:15:42,962][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/locale.js?v=1600938942926 HTTP/1.1" 200 1249]
+[2020-09-24 17:15:42,963][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/lodash.custom.min.js?v=1600938942926 HTTP/1.1" 200 20022]
+[2020-09-24 17:15:42,965][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/jquery.min.js?v=1600938942926 HTTP/1.1" 200 88145]
+[2020-09-24 17:15:43,027][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/semver.min.js?v=1600938942926 HTTP/1.1" 200 12950]
+[2020-09-24 17:15:43,032][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/webfontloader.js?v=1600938942926 HTTP/1.1" 200 12492]
+[2020-09-24 17:15:43,035][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/path-to-regexp/index.js?v=1600938942926 HTTP/1.1" 200 5147]
+[2020-09-24 17:15:43,038][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/list.min.js?v=1600938942926 HTTP/1.1" 200 15952]
+[2020-09-24 17:15:43,073][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/prettify/prettify.js?v=1600938942926 HTTP/1.1" 200 15261]
+[2020-09-24 17:15:43,082][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/handlebars.min.js?v=1600938942926 HTTP/1.1" 200 80257]
+[2020-09-24 17:15:43,095][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/utils/send_sample_request_utils.js?v=1600938942926 HTTP/1.1" 200 3229]
+[2020-09-24 17:15:43,105][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/ca.js?v=1600938942926 HTTP/1.1" 200 1225]
+[2020-09-24 17:15:43,111][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/cs.js?v=1600938942926 HTTP/1.1" 200 1246]
+[2020-09-24 17:15:43,115][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/de.js?v=1600938942926 HTTP/1.1" 200 1234]
+[2020-09-24 17:15:43,143][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/es.js?v=1600938942926 HTTP/1.1" 200 1244]
+[2020-09-24 17:15:43,159][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/fr.js?v=1600938942926 HTTP/1.1" 200 1264]
+[2020-09-24 17:15:43,161][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/it.js?v=1600938942926 HTTP/1.1" 200 1249]
+[2020-09-24 17:15:43,176][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/nl.js?v=1600938942926 HTTP/1.1" 200 1241]
+[2020-09-24 17:15:43,186][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/pl.js?v=1600938942926 HTTP/1.1" 200 1226]
+[2020-09-24 17:15:43,190][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/pt_br.js?v=1600938942926 HTTP/1.1" 200 1236]
+[2020-09-24 17:15:43,214][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/ro.js?v=1600938942926 HTTP/1.1" 200 1238]
+[2020-09-24 17:15:43,234][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/ru.js?v=1600938942926 HTTP/1.1" 200 1481]
+[2020-09-24 17:15:43,235][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/tr.js?v=1600938942926 HTTP/1.1" 200 1246]
+[2020-09-24 17:15:43,247][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/vi.js?v=1600938942926 HTTP/1.1" 200 1328]
+[2020-09-24 17:15:43,260][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/zh.js?v=1600938942926 HTTP/1.1" 200 1157]
+[2020-09-24 17:15:43,264][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/zh_cn.js?v=1600938942926 HTTP/1.1" 200 1292]
+[2020-09-24 17:15:43,285][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/bootstrap.min.js?v=1600938942926 HTTP/1.1" 200 39680]
+[2020-09-24 17:15:43,302][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/utils/handlebars_helper.js?v=1600938942926 HTTP/1.1" 200 10752]
+[2020-09-24 17:15:43,376][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/diff_match_patch.min.js?v=1600938942926 HTTP/1.1" 200 19192]
+[2020-09-24 17:15:43,745][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /static/fluidicon.png HTTP/1.1" 200 33270]
+[2020-09-24 17:15:57,163][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/ HTTP/1.1" 304 0]
+[2020-09-24 17:15:57,437][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/img/favicon.ico HTTP/1.1" 200 894]
+[2020-09-24 17:15:57,580][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/lodash.custom.min.js?v=1600938957392 HTTP/1.1" 200 20022]
+[2020-09-24 17:15:57,583][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/locale.js?v=1600938957392 HTTP/1.1" 200 1249]
+[2020-09-24 17:15:57,584][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/api_data.js?v=1600938957392 HTTP/1.1" 200 33708]
+[2020-09-24 17:15:57,585][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/api_project.js?v=1600938957392 HTTP/1.1" 200 1053]
+[2020-09-24 17:15:57,585][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/utils/send_sample_request.js?v=1600938957392 HTTP/1.1" 200 10211]
+[2020-09-24 17:15:57,587][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/jquery.min.js?v=1600938957392 HTTP/1.1" 200 88145]
+[2020-09-24 17:15:57,652][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/webfontloader.js?v=1600938957392 HTTP/1.1" 200 12492]
+[2020-09-24 17:15:57,655][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/semver.min.js?v=1600938957392 HTTP/1.1" 200 12950]
+[2020-09-24 17:15:57,658][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/path-to-regexp/index.js?v=1600938957392 HTTP/1.1" 200 5147]
+[2020-09-24 17:15:57,660][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/list.min.js?v=1600938957392 HTTP/1.1" 200 15952]
+[2020-09-24 17:15:57,661][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/prettify/prettify.js?v=1600938957392 HTTP/1.1" 200 15261]
+[2020-09-24 17:15:57,720][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/handlebars.min.js?v=1600938957392 HTTP/1.1" 200 80257]
+[2020-09-24 17:15:57,759][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/ca.js?v=1600938957392 HTTP/1.1" 200 1225]
+[2020-09-24 17:15:57,763][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/cs.js?v=1600938957392 HTTP/1.1" 200 1246]
+[2020-09-24 17:15:57,764][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/fr.js?v=1600938957392 HTTP/1.1" 200 1264]
+[2020-09-24 17:15:57,764][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/es.js?v=1600938957392 HTTP/1.1" 200 1244]
+[2020-09-24 17:15:57,765][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/de.js?v=1600938957392 HTTP/1.1" 200 1234]
+[2020-09-24 17:15:57,824][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/it.js?v=1600938957392 HTTP/1.1" 200 1249]
+[2020-09-24 17:15:57,832][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/pl.js?v=1600938957392 HTTP/1.1" 200 1226]
+[2020-09-24 17:15:57,833][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/pt_br.js?v=1600938957392 HTTP/1.1" 200 1236]
+[2020-09-24 17:15:57,834][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/nl.js?v=1600938957392 HTTP/1.1" 200 1241]
+[2020-09-24 17:15:57,836][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/ro.js?v=1600938957392 HTTP/1.1" 200 1238]
+[2020-09-24 17:15:57,841][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/ru.js?v=1600938957392 HTTP/1.1" 200 1481]
+[2020-09-24 17:15:57,891][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/tr.js?v=1600938957392 HTTP/1.1" 200 1246]
+[2020-09-24 17:15:57,901][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/vi.js?v=1600938957392 HTTP/1.1" 200 1328]
+[2020-09-24 17:15:57,904][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/zh.js?v=1600938957392 HTTP/1.1" 200 1157]
+[2020-09-24 17:15:57,905][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/zh_cn.js?v=1600938957392 HTTP/1.1" 200 1292]
+[2020-09-24 17:15:57,912][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/utils/send_sample_request_utils.js?v=1600938957392 HTTP/1.1" 200 3229]
+[2020-09-24 17:15:57,917][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/bootstrap.min.js?v=1600938957392 HTTP/1.1" 200 39680]
+[2020-09-24 17:15:57,955][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/utils/handlebars_helper.js?v=1600938957392 HTTP/1.1" 200 10752]
+[2020-09-24 17:15:58,028][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/diff_match_patch.min.js?v=1600938957392 HTTP/1.1" 200 19192]
+[2020-09-24 17:16:07,042][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/lodash.custom.min.js?v=1600938966847 HTTP/1.1" 200 20022]
+[2020-09-24 17:16:07,047][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/utils/send_sample_request.js?v=1600938966847 HTTP/1.1" 200 10211]
+[2020-09-24 17:16:07,048][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/locale.js?v=1600938966847 HTTP/1.1" 200 1249]
+[2020-09-24 17:16:07,048][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/api_project.js?v=1600938966847 HTTP/1.1" 200 1053]
+[2020-09-24 17:16:07,048][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/api_data.js?v=1600938966847 HTTP/1.1" 200 33708]
+[2020-09-24 17:16:07,049][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/jquery.min.js?v=1600938966847 HTTP/1.1" 200 88145]
+[2020-09-24 17:16:07,117][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/webfontloader.js?v=1600938966847 HTTP/1.1" 200 12492]
+[2020-09-24 17:16:07,119][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/semver.min.js?v=1600938966847 HTTP/1.1" 200 12950]
+[2020-09-24 17:16:07,122][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/list.min.js?v=1600938966847 HTTP/1.1" 200 15952]
+[2020-09-24 17:16:07,123][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/path-to-regexp/index.js?v=1600938966847 HTTP/1.1" 200 5147]
+[2020-09-24 17:16:07,126][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/prettify/prettify.js?v=1600938966847 HTTP/1.1" 200 15261]
+[2020-09-24 17:16:07,176][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/handlebars.min.js?v=1600938966847 HTTP/1.1" 200 80257]
+[2020-09-24 17:16:07,186][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/utils/send_sample_request_utils.js?v=1600938966847 HTTP/1.1" 200 3229]
+[2020-09-24 17:16:07,189][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/ca.js?v=1600938966847 HTTP/1.1" 200 1225]
+[2020-09-24 17:16:07,199][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/cs.js?v=1600938966847 HTTP/1.1" 200 1246]
+[2020-09-24 17:16:07,201][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/de.js?v=1600938966847 HTTP/1.1" 200 1234]
+[2020-09-24 17:16:07,202][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/es.js?v=1600938966847 HTTP/1.1" 200 1244]
+[2020-09-24 17:16:07,256][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/it.js?v=1600938966847 HTTP/1.1" 200 1249]
+[2020-09-24 17:16:07,258][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/fr.js?v=1600938966847 HTTP/1.1" 200 1264]
+[2020-09-24 17:16:07,275][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/pl.js?v=1600938966847 HTTP/1.1" 200 1226]
+[2020-09-24 17:16:07,276][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/nl.js?v=1600938966847 HTTP/1.1" 200 1241]
+[2020-09-24 17:16:07,278][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/pt_br.js?v=1600938966847 HTTP/1.1" 200 1236]
+[2020-09-24 17:16:07,279][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/ro.js?v=1600938966847 HTTP/1.1" 200 1238]
+[2020-09-24 17:16:07,324][Thread-5:139763166922496][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/ru.js?v=1600938966847 HTTP/1.1" 200 1481]
+[2020-09-24 17:16:07,328][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/tr.js?v=1600938966847 HTTP/1.1" 200 1246]
+[2020-09-24 17:16:07,345][Thread-2:139763192100608][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/vi.js?v=1600938966847 HTTP/1.1" 200 1328]
+[2020-09-24 17:16:07,350][Thread-7:139763150137088][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/zh_cn.js?v=1600938966847 HTTP/1.1" 200 1292]
+[2020-09-24 17:16:07,351][Thread-4:139763175315200][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/locales/zh.js?v=1600938966847 HTTP/1.1" 200 1157]
+[2020-09-24 17:16:07,353][Thread-6:139763158529792][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/bootstrap.min.js?v=1600938966847 HTTP/1.1" 200 39680]
+[2020-09-24 17:16:07,397][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/utils/handlebars_helper.js?v=1600938966847 HTTP/1.1" 200 10752]
+[2020-09-24 17:16:07,476][Thread-3:139763183707904][task_id:django.server][basehttp.py:154][INFO]["GET /api/doc/vendor/diff_match_patch.min.js?v=1600938966847 HTTP/1.1" 200 19192]
+[2020-09-24 17:32:20,726][Dummy-1:139885399463680][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 17:32:20,727][Dummy-1:139885399463680][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 17:32:20,747][Dummy-1:139885399463680][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 18:19:58,069][uWSGIWorker1Core0:140685605828352][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 18:19:58,069][uWSGIWorker1Core0:140685605828352][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 18:19:58,089][uWSGIWorker1Core0:140685605828352][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 18:19:58,166][uWSGIWorker1Core0:140685605828352][task_id:django.request][log.py:228][ERROR][Internal Server Error: /]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 111, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/urls/resolvers.py", line 491, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/urls/resolvers.py", line 533, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/urls/resolvers.py", line 526, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/local/python3.6.5/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "./Mypro/urls.py", line 18, in <module>
+    from web.views import *
+  File "./web/views.py", line 115, in <module>
+    scheduler.start()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/apscheduler/schedulers/background.py", line 33, in start
+    BaseScheduler.start(self, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/apscheduler/schedulers/base.py", line 140, in start
+    self._check_uwsgi()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/apscheduler/schedulers/base.py", line 839, in _check_uwsgi
+    raise RuntimeError('The scheduler seems to be running under uWSGI, but threads have '
+RuntimeError: The scheduler seems to be running under uWSGI, but threads have been disabled. You must run uWSGI with the --enable-threads option for the scheduler to work.
+[2020-09-24 18:19:58,484][uWSGIWorker1Core0:140685605828352][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 18:19:58,540][uWSGIWorker1Core0:140685605828352][task_id:django.request][log.py:228][ERROR][Internal Server Error: /favicon.ico]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/middleware/common.py", line 52, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/middleware/common.py", line 70, in should_redirect_with_slash
+    not is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/urls/base.py", line 157, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/urls/resolvers.py", line 491, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/urls/resolvers.py", line 533, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/urls/resolvers.py", line 526, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/local/python3.6.5/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "./Mypro/urls.py", line 18, in <module>
+    from web.views import *
+  File "./web/views.py", line 115, in <module>
+    scheduler.start()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/apscheduler/schedulers/background.py", line 33, in start
+    BaseScheduler.start(self, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/apscheduler/schedulers/base.py", line 140, in start
+    self._check_uwsgi()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/apscheduler/schedulers/base.py", line 839, in _check_uwsgi
+    raise RuntimeError('The scheduler seems to be running under uWSGI, but threads have '
+RuntimeError: The scheduler seems to be running under uWSGI, but threads have been disabled. You must run uWSGI with the --enable-threads option for the scheduler to work.
+[2020-09-24 18:20:56,646][uWSGIWorker1Core0:139658428831488][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 18:20:56,647][uWSGIWorker1Core0:139658428831488][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 18:20:56,665][uWSGIWorker1Core0:139658428831488][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 18:21:41,797][uWSGIWorker1Core0:140515201148672][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 18:21:41,798][uWSGIWorker1Core0:140515201148672][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 18:21:41,816][uWSGIWorker1Core0:140515201148672][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 18:21:48,429][uWSGIWorker1Core5:140514975909632][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
+[2020-09-24 18:27:53,527][uWSGIWorker1Core0:140073528084224][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 18:27:53,528][uWSGIWorker1Core0:140073528084224][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 18:27:53,545][uWSGIWorker1Core0:140073528084224][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 18:27:58,258][uWSGIWorker1Core17:140073202132736][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
+[2020-09-24 18:29:57,326][uWSGIWorker1Core0:139929037711104][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 18:29:57,327][uWSGIWorker1Core0:139929037711104][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 18:29:57,345][uWSGIWorker1Core0:139929037711104][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 18:31:01,953][uWSGIWorker1Core0:139681886820096][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 18:31:01,954][uWSGIWorker1Core0:139681886820096][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 18:31:01,982][uWSGIWorker1Core0:139681886820096][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 18:31:05,052][ThreadPoolExecutor-0_0:139681050781440][task_id:django][views.py:76][INFO][添加定时任务change_status]
+[2020-09-24 18:31:05,113][ThreadPoolExecutor-0_0:139681050781440][task_id:django][views.py:76][INFO][添加定时任务test]
+[2020-09-24 18:31:55,061][ThreadPoolExecutor-0_7:139680918005504][task_id:django][views.py:76][INFO][添加定时任务change_status]
+[2020-09-24 18:31:55,135][ThreadPoolExecutor-0_7:139680918005504][task_id:django][views.py:76][INFO][添加定时任务test]
+[2020-09-24 18:32:02,436][ThreadPoolExecutor-0_4:139681017210624][task_id:django][views.py:25][INFO][修改状态]
+[2020-09-24 18:32:12,444][ThreadPoolExecutor-0_1:139681042388736][task_id:django][views.py:25][INFO][修改状态]
+[2020-09-24 18:41:19,567][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-24 18:41:19,568][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-24 18:41:19,584][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-24 18:47:59,832][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:196][INFO][Code: 031F0T000dlamK1jMm400fZHUa4F0T0f]
+[2020-09-24 18:47:59,832][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-24 18:47:59,850][uWSGIWorker1Core1:139842828732160][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/wx_login/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./user/views.py", line 197, in post
+    app = get_app_config(name)
+  File "./user/views.py", line 105, in get_app_config
+    app = APP.objects.get(name=app_name)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+user.models.APP.DoesNotExist: APP matching query does not exist.
+[2020-09-24 18:48:09,357][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:196][INFO][Code: 031FanFa1oT1Gz0uWuJa118vST3FanFo]
+[2020-09-24 18:48:09,357][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-24 18:48:09,370][uWSGIWorker1Core0:139843019896576][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/wx_login/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./user/views.py", line 197, in post
+    app = get_app_config(name)
+  File "./user/views.py", line 105, in get_app_config
+    app = APP.objects.get(name=app_name)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+user.models.APP.DoesNotExist: APP matching query does not exist.
+[2020-09-24 18:49:37,364][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:196][INFO][Code: 071lmVFa1aVzGz0W1nFa1FmLxD2lmVFY]
+[2020-09-24 18:49:37,364][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-24 18:49:37,494][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-24 18:49:37,526][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-24 18:49:46,517][uWSGIWorker1Core3:139842811946752][task_id:django.request][log.py:228][WARNING][Not Found: /data/apps/]
+[2020-09-24 18:49:54,086][uWSGIWorker1Core2:139842820339456][task_id:django][views.py:196][INFO][Code: 051v461w3gdyZU2TrX2w3VDYRR1v461V]
+[2020-09-24 18:49:54,087][uWSGIWorker1Core2:139842820339456][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-24 18:49:54,203][uWSGIWorker1Core2:139842820339456][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-24 18:49:54,239][uWSGIWorker1Core2:139842820339456][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-24 18:49:59,015][uWSGIWorker1Core5:139842795161344][task_id:django.request][log.py:228][WARNING][Not Found: /data/apps/]
+[2020-09-24 18:51:02,137][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:196][INFO][Code: 071Z24000BqllK1a9a000LbNGk3Z240G]
+[2020-09-24 18:51:02,138][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-24 18:51:02,276][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-24 18:51:02,298][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-24 18:51:38,584][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:196][INFO][Code: 021XqEFa1jdjGz0Y59Ha1xXYM43XqEFU]
+[2020-09-24 18:51:38,585][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-24 18:51:38,699][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-24 18:51:38,720][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-24 18:51:47,225][uWSGIWorker1Core0:139843019896576][task_id:django.request][log.py:228][WARNING][Not Found: /data/apps/]
+[2020-09-25 03:47:47,253][uWSGIWorker1Core2:139842820339456][task_id:django.request][log.py:228][WARNING][Not Found: /webfig/]
+[2020-09-25 11:07:07,076][uWSGIWorker1Core4:139842803554048][task_id:django][views.py:196][INFO][Code: 051XBi1005NGkK1E1l300EVKRb1XBi1J]
+[2020-09-25 11:07:07,076][uWSGIWorker1Core4:139842803554048][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 11:07:07,202][uWSGIWorker1Core4:139842803554048][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 11:07:07,232][uWSGIWorker1Core4:139842803554048][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 11:07:16,232][uWSGIWorker1Core2:139842820339456][task_id:django.request][log.py:228][WARNING][Not Found: /data/apps/]
+[2020-09-25 11:07:47,424][uWSGIWorker1Core7:139842778375936][task_id:django][views.py:196][INFO][Code: 051Wl80w3hf61V2sTx1w3biqDs3Wl809]
+[2020-09-25 11:07:47,424][uWSGIWorker1Core7:139842778375936][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 11:07:47,534][uWSGIWorker1Core7:139842778375936][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 11:07:47,554][uWSGIWorker1Core7:139842778375936][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 11:08:09,546][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:196][INFO][Code: 081Sanll2BFXG54nQfml2FG3OZ1Sanlt]
+[2020-09-25 11:08:09,546][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 11:08:09,674][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 11:08:09,700][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 11:21:27,776][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:196][INFO][Code: 0814id000XMIlK1THC200dbpN434id0b]
+[2020-09-25 11:21:27,776][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 11:21:27,912][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 11:21:27,946][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 11:22:27,622][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:196][INFO][Code: 041qiq0w3FkL0V2O2A2w3X3vt52qiq0T]
+[2020-09-25 11:22:27,622][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 11:22:27,729][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 11:22:27,750][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 11:22:35,824][uWSGIWorker1Core7:139842778375936][task_id:django.request][log.py:228][WARNING][Not Found: /data/apps/]
+[2020-09-25 11:22:44,215][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 11:22:44,221][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:337][INFO][user_info: {'openId': 'oD14e5EbFTcftfXV7p4WMPmDWiSk', 'nickName': 'small ant', 'gender': 1, 'language': 'zh_CN', 'city': '', 'province': '', 'country': 'China', 'avatarUrl': 'https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83epgjuGZNgB6sWVakqfGKEtcW04pvhADmXeLqtXCT4CS8bDRfGHyWTfv9XXH16vVKLsYicZ9p4yuTicw/132', 'unionId': 'oE8ED6v4RjalG3ZFN0xvXHTHPk5Q', 'watermark': {'timestamp': 1601004164, 'appid': 'wx5d0e478b403bf76b'}}]
+[2020-09-25 11:22:44,221][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 11:22:44,484][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 11:22:44,486][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:39][INFO][返回授权用户的所有信息]
+[2020-09-25 11:26:45,431][uWSGIWorker1Core0:139843019896576][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
+[2020-09-25 13:49:37,804][uWSGIWorker1Core5:139842795161344][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
+[2020-09-25 13:56:06,392][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:196][INFO][Code: 041c4XFa1jD0Hz0YOIIa1QqWhw1c4XF9]
+[2020-09-25 13:56:06,392][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 13:56:06,516][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 13:56:06,536][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 13:56:19,008][uWSGIWorker1Core2:139842820339456][task_id:django.request][log.py:228][WARNING][Not Found: /data/apps/]
+[2020-09-25 13:56:58,730][uWSGIWorker1Core4:139842803554048][task_id:django][views.py:196][INFO][Code: 041v7XFa1lD0Hz0URlIa1XfkKc3v7XFg]
+[2020-09-25 13:56:58,730][uWSGIWorker1Core4:139842803554048][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 13:56:58,828][uWSGIWorker1Core4:139842803554048][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 13:56:58,847][uWSGIWorker1Core4:139842803554048][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 13:57:00,934][uWSGIWorker1Core5:139842795161344][task_id:django.request][log.py:228][WARNING][Not Found: /data/apps/]
+[2020-09-25 13:57:21,517][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:196][INFO][Code: 061qQD000fKjmK1Yza2008bBQC3qQD0X]
+[2020-09-25 13:57:21,517][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 13:57:21,638][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 13:57:21,656][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 13:57:49,194][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:196][INFO][Code: 031HIi0w30TN0V2DG70w3H27qY3HIi0T]
+[2020-09-25 13:57:49,195][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 13:57:49,294][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 13:57:49,323][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 13:58:41,882][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:196][INFO][Code: 081W7pFa1PlsGz0lWqIa1UU2sf4W7pFG]
+[2020-09-25 13:58:41,882][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 13:58:42,003][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 13:58:42,024][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 13:59:34,592][uWSGIWorker1Core2:139842820339456][task_id:django][views.py:196][INFO][Code: 071MVm0002zvlK1fkO100aak9W3MVm0T]
+[2020-09-25 13:59:34,593][uWSGIWorker1Core2:139842820339456][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 13:59:34,693][uWSGIWorker1Core2:139842820339456][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 13:59:34,713][uWSGIWorker1Core2:139842820339456][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:00:26,368][uWSGIWorker1Core3:139842811946752][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
+[2020-09-25 14:01:01,744][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:196][INFO][Code: 061LgpFa12gtGz0Gg5Ia1vMZ0p0LgpF1]
+[2020-09-25 14:01:01,744][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:01:01,867][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:01:01,904][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:01:34,514][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:196][INFO][Code: 061kBIkl2Y6pG54LITll20P4DH1kBIkd]
+[2020-09-25 14:01:34,515][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:01:34,627][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:01:34,649][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:03:19,833][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:196][INFO][Code: 071v3j0w3o7O0V2tEe2w39wR4X0v3j0X]
+[2020-09-25 14:03:19,833][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:03:19,958][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:03:19,976][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:04:02,547][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:196][INFO][Code: 051b320w3Vb51V2VBP1w3xGGCM2b320S]
+[2020-09-25 14:04:02,547][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:04:02,649][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:04:02,671][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:04:27,282][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:196][INFO][Code: 021QFvGa1pqmFz0hylHa1yySC62QFvGi]
+[2020-09-25 14:04:27,283][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:04:27,422][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:04:27,439][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:07:42,961][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:196][INFO][Code: 0116MXFa1SR0Hz0L8eJa1Un2s306MXFv]
+[2020-09-25 14:07:42,961][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:07:43,086][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:07:43,111][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:08:20,704][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:196][INFO][Code: 061xUvGa1BMnFz0hyJIa1Tf9XL3xUvGS]
+[2020-09-25 14:08:20,704][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:08:20,817][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:08:20,837][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:15:55,106][uWSGIWorker1Core5:139842795161344][task_id:django.request][log.py:228][ERROR][Internal Server Error: /admin/mini/productinfo/add/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'virtual' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/contrib/admin/options.py", line 604, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1637, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/utils/decorators.py", line 45, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1525, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1564, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1091, in save_model
+    obj.save()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "Column 'virtual' cannot be null")
+[2020-09-25 14:23:54,992][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:196][INFO][Code: 051PsF000TVkmK1t0S300xbzkI0PsF0a]
+[2020-09-25 14:23:54,992][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:23:55,110][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:23:55,128][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:24:20,335][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:196][INFO][Code: 061UJHFa10tcGz0rU7Ga1eMvgQ0UJHFL]
+[2020-09-25 14:24:20,336][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:24:20,434][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:24:20,452][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:24:23,416][uWSGIWorker1Core4:139842803554048][task_id:django.request][log.py:228][WARNING][Unauthorized: /data/product/]
+[2020-09-25 14:24:52,282][uWSGIWorker1Core7:139842778375936][task_id:django][views.py:196][INFO][Code: 001tzW000rS3mK1hWq000Dk4Nj1tzW0y]
+[2020-09-25 14:24:52,282][uWSGIWorker1Core7:139842778375936][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:24:52,385][uWSGIWorker1Core7:139842778375936][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:24:52,406][uWSGIWorker1Core7:139842778375936][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:25:04,434][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:196][INFO][Code: 031c51ll22q8G54vPIll2EZC0u1c51ld]
+[2020-09-25 14:25:04,434][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:25:04,552][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:25:04,611][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:25:20,954][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:196][INFO][Code: 021f61ll2hp8G544gXnl2dHC9W3f61lI]
+[2020-09-25 14:25:20,955][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:25:21,071][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:25:21,090][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:34:01,565][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:196][INFO][Code: 051vkIFa1EXdGz0UfpFa1vqhHu0vkIFr]
+[2020-09-25 14:34:01,565][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:34:01,679][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:34:01,704][uWSGIWorker1Core0:139843019896576][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:34:20,000][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:196][INFO][Code: 051a3p000XaxlK1sVf400E0gXr4a3p0Y]
+[2020-09-25 14:34:20,000][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:34:20,108][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:34:20,127][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:44:48,349][uWSGIWorker1Core0:139843019896576][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
+[2020-09-25 14:56:09,395][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:56:09,397][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:39][INFO][返回授权用户的所有信息]
+[2020-09-25 14:58:34,886][uWSGIWorker1Core7:139842778375936][task_id:django][views.py:196][INFO][Code: 001Nt9000zzzlK1qAF200zuzIQ1Nt90a]
+[2020-09-25 14:58:34,886][uWSGIWorker1Core7:139842778375936][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:58:35,005][uWSGIWorker1Core7:139842778375936][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:58:35,043][uWSGIWorker1Core7:139842778375936][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:58:38,405][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:196][INFO][Code: 061J47Ha1RbIFz0j8LGa1zrxeO3J47H9]
+[2020-09-25 14:58:38,405][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:58:38,515][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:58:38,534][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 14:58:57,838][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:196][INFO][Code: 041j93ll2E8VF54gsBnl2NuAdY0j93l1]
+[2020-09-25 14:58:57,838][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 14:58:57,946][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 14:58:57,967][uWSGIWorker1Core1:139842828732160][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 15:00:18,508][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:196][INFO][Code: 071wq9ml26SOE544NWkl2sy2Hp4wq9mu]
+[2020-09-25 15:00:18,508][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 15:00:18,634][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 15:00:18,652][uWSGIWorker1Core5:139842795161344][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 15:00:47,200][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 15:00:47,201][uWSGIWorker1Core6:139842786768640][task_id:django][views.py:39][INFO][返回授权用户的所有信息]
+[2020-09-25 15:01:22,849][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:196][INFO][Code: 001Wx50w3WoR0V2jg23w34gMAg4Wx50a]
+[2020-09-25 15:01:22,849][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 15:01:22,976][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 15:01:22,995][uWSGIWorker1Core3:139842811946752][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 15:07:36,273][uWSGIWorker1Core0:140394680420096][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-25 15:07:36,273][uWSGIWorker1Core0:140394680420096][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-25 15:07:36,299][uWSGIWorker1Core0:140394680420096][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-25 15:07:55,525][uWSGIWorker1Core1:140394489255680][task_id:django][views.py:196][INFO][Code: 051dcZ000OUOlK1at4000HRGDH1dcZ0v]
+[2020-09-25 15:07:55,526][uWSGIWorker1Core1:140394489255680][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 15:07:55,664][uWSGIWorker1Core1:140394489255680][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 15:07:55,685][uWSGIWorker1Core1:140394489255680][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 15:10:05,439][uWSGIWorker1Core0:140394680420096][task_id:django][views.py:196][INFO][Code: 031PttFa16tfGz0DvGGa1R4yr30PttFX]
+[2020-09-25 15:10:05,439][uWSGIWorker1Core0:140394680420096][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 15:10:05,564][uWSGIWorker1Core0:140394680420096][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 15:10:05,583][uWSGIWorker1Core0:140394680420096][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 15:11:49,149][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-25 15:11:49,149][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-25 15:11:49,166][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-25 15:11:59,723][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:196][INFO][Code: 031xlr000MSglK1KfF100vs3l42xlr0j]
+[2020-09-25 15:11:59,724][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 15:11:59,855][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 15:11:59,876][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 15:12:16,839][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:196][INFO][Code: 0418d60w3KeR0V2YwM2w34x7C628d60H]
+[2020-09-25 15:12:16,841][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 15:12:16,953][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 15:12:16,970][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 15:21:57,387][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:196][INFO][Code: 051GcuFa1hhiGz0hanGa1S8TBl0GcuFs]
+[2020-09-25 15:21:57,388][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 15:21:57,520][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 15:21:57,544][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:27:48,024][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:196][INFO][Code: 033S7Ekl2j0mG54x11ol2ZkFff1S7EkN]
+[2020-09-25 17:27:48,024][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:27:48,219][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:27:48,245][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:29:22,024][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:196][INFO][Code: 053kwXZv3BI11V2vyw3w3Fqv8l4kwXZV]
+[2020-09-25 17:29:22,025][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:29:22,200][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:29:22,236][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:29:41,486][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:196][INFO][Code: 0332fEkl2v1lG54KDiml2n3Nlv42fEkC]
+[2020-09-25 17:29:41,487][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:29:41,667][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:29:41,686][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:32:56,420][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:196][INFO][Code: 083VSM0w3bXi1V2PtS1w3QCld32VSM0P]
+[2020-09-25 17:32:56,421][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:32:56,609][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:32:56,627][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:43:53,869][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:196][INFO][Code: 033rHC1w3Cvt0V2u0m3w3o0nD62rHC1e]
+[2020-09-25 17:43:53,869][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:43:53,995][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:276][INFO][用户登录失败]
+[2020-09-25 17:44:12,957][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:196][INFO][Code: 023sqYZv3Cz11V2y3D3w37LAgV1sqYZr]
+[2020-09-25 17:44:12,958][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:44:13,138][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:44:13,162][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:44:44,878][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:196][INFO][Code: 093FKC1w3bft0V2WkN2w3cQqjS2FKC1F]
+[2020-09-25 17:44:44,878][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:44:45,051][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:44:45,071][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:44:46,424][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:196][INFO][Code: 033FBN0w3Joi1V2b6Y1w3yiLon4FBN0n]
+[2020-09-25 17:44:46,424][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:44:46,598][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:44:46,616][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:45:15,502][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:196][INFO][Code: 093qxf0w3ZjK0V28ZS1w3Hf0U31qxf05]
+[2020-09-25 17:45:15,502][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:45:15,700][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:45:15,717][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:46:21,341][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:196][INFO][Code: 023bv2ml2mtXE54L9Nml2sM40T1bv2mv]
+[2020-09-25 17:46:21,341][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:46:21,539][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:46:21,555][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:47:29,758][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:196][INFO][Code: 053R4DFa1yn7Gz0TRRHa1IopRR1R4DFD]
+[2020-09-25 17:47:29,759][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:47:29,951][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:47:29,969][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:47:38,605][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:196][INFO][Code: 083BVC1w3bVs0V25Fq0w3uGCb61BVC1t]
+[2020-09-25 17:47:38,605][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:47:38,790][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:47:38,806][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:49:36,703][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:196][INFO][Code: 003QcDFa14w7Gz0JYQHa1b7Dep3QcDF5]
+[2020-09-25 17:49:36,703][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:49:36,905][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:49:36,919][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:50:39,266][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:196][INFO][Code: 083jzWkl2Ck3G54UlHll2EKCFT0jzWkB]
+[2020-09-25 17:50:39,267][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:50:39,464][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:50:39,483][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:51:19,303][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:196][INFO][Code: 013opbGa1BaFGz02nrFa1pbkXB1opbGA]
+[2020-09-25 17:51:19,304][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:51:19,490][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:51:19,510][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:52:17,390][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:196][INFO][Code: 043gms2w3LfxYU2wPH3w3brop81gms2p]
+[2020-09-25 17:52:17,391][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:52:17,582][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:52:17,601][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:52:52,694][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:196][INFO][Code: 023g3x0w3CKy1V2BT33w37qZgQ0g3x0J]
+[2020-09-25 17:52:52,694][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:52:52,862][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:52:52,879][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:55:15,206][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:196][INFO][Code: 053hHsGa1aLhFz091AGa1WMCmj0hHsGy]
+[2020-09-25 17:55:15,207][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:55:15,401][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:55:15,418][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:56:05,184][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:196][INFO][Code: 003k9ZZv3Bx01V28pl0w3LwySn0k9ZZu]
+[2020-09-25 17:56:05,184][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:56:05,353][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:56:05,403][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:56:42,773][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:196][INFO][Code: 003j5Mll29JdF54WRFol2mruqR0j5Mlj]
+[2020-09-25 17:56:42,774][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:56:42,951][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:56:42,992][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:57:15,189][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:196][INFO][Code: 063i1ell2LYRG54hNwll2nhxwI3i1elp]
+[2020-09-25 17:57:15,190][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:57:15,380][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:57:15,399][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 17:57:27,827][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:196][INFO][Code: 033zhg0w3kpJ0V2rhN2w3S1d8U1zhg0K]
+[2020-09-25 17:57:27,828][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 17:57:28,019][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 17:57:28,037][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:02:05,627][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:196][INFO][Code: 003Ivkml2PESF54kHUkl2Tmtnv4Ivkm0]
+[2020-09-25 18:02:05,627][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:02:05,811][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:02:05,831][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:02:14,658][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:196][INFO][Code: 0236eGkl2sMqG54n51nl23QGzU26eGkl]
+[2020-09-25 18:02:14,658][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:02:14,829][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:02:14,846][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:03:36,011][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:196][INFO][Code: 093JBZZv3Ey71V2Fry3w3QDabM1JBZZz]
+[2020-09-25 18:03:36,013][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:03:36,178][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:03:36,198][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:04:20,598][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:196][INFO][Code: 083w3nFa1M1vGz0GDuHa1nSrSs1w3nFx]
+[2020-09-25 18:04:20,598][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:04:20,758][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:04:20,778][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:04:55,142][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:196][INFO][Code: 083mD3ml2JD3F54dYdml2TlUAP1mD3m6]
+[2020-09-25 18:04:55,143][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:04:55,342][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:04:55,358][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:04:57,481][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:196][INFO][Code: 033WMx0w3vGF1V2K802w31nn3c4WMx01]
+[2020-09-25 18:04:57,482][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:04:57,649][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:04:57,668][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:05:06,519][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:196][INFO][Code: 033tKg0w3zEQ0V2GP12w3GFyDs3tKg0Y]
+[2020-09-25 18:05:06,520][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:05:06,689][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:05:06,713][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:05:08,459][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:196][INFO][Code: 043CfcGa1K9MGz0oBXGa1JYvGk3CfcGS]
+[2020-09-25 18:05:08,460][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:05:08,657][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:05:08,678][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:06:43,666][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:196][INFO][Code: 023yNZZv3LO71V22L52w3xyyc32yNZZO]
+[2020-09-25 18:06:43,666][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:06:43,849][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:06:43,862][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:07:13,268][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:196][INFO][Code: 073WzXkl2lY9G54KQAll2f5zLy4WzXkr]
+[2020-09-25 18:07:13,268][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:07:13,429][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:07:13,445][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:07:40,534][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:196][INFO][Code: 053DyGkl2H0rG54yuuml2odBsu2DyGkm]
+[2020-09-25 18:07:40,535][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:07:40,703][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:07:40,721][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:07:40,963][uWSGIWorker1Core2:140141112182528][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:08:13,244][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:196][INFO][Code: 013eWg0w3HGQ0V2OvP0w3zeDsJ0eWg0P]
+[2020-09-25 18:08:13,245][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:08:13,443][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:08:13,460][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:08:13,629][uWSGIWorker1Core7:140141070219008][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:08:15,793][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:196][INFO][Code: 073YMMll2P2lF5439Gol2lGZFi1YMMl4]
+[2020-09-25 18:08:15,794][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:08:15,964][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:08:15,982][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:08:16,145][uWSGIWorker1Core1:140141120575232][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:08:48,450][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:196][INFO][Code: 093u1y0w361G1V2ux32w3nhuQW2u1y0u]
+[2020-09-25 18:08:48,450][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:08:48,623][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:08:48,642][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:08:48,828][uWSGIWorker1Core4:140141095397120][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:09:08,302][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:196][INFO][Code: 073bHXkl21aaG54zjill20Uw3m1bHXkC]
+[2020-09-25 18:09:08,304][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:09:08,481][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:09:08,498][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:09:08,675][uWSGIWorker1Core2:140141112182528][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:10:19,078][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:196][INFO][Code: 093eaP0w3i9p1V2dEx3w3ZxHH04eaP0j]
+[2020-09-25 18:10:19,078][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:10:19,286][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:10:19,308][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:10:19,391][uWSGIWorker1Core2:140141112182528][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:11:29,879][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:196][INFO][Code: 063Qtc2w3zuVYU26CR0w3rMyGQ1Qtc29]
+[2020-09-25 18:11:29,879][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:11:30,064][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:11:30,079][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:11:30,211][uWSGIWorker1Core3:140141103789824][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:12:12,249][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:196][INFO][Code: 073YaCml2a7CF54e5aml2dOCPq4YaCm-]
+[2020-09-25 18:12:12,249][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:12:12,419][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:12:12,455][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:12:12,624][uWSGIWorker1Core5:140141087004416][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:12:31,339][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:196][INFO][Code: 043acCml2f5CF54C8Sll2JvrhV1acCmn]
+[2020-09-25 18:12:31,341][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:12:31,524][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:12:31,540][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:12:31,784][uWSGIWorker1Core1:140141120575232][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:12:51,385][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:196][INFO][Code: 013Tpn1w3EvCZU2mNr0w38G7Wp2Tpn13]
+[2020-09-25 18:12:51,386][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:12:51,569][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:12:51,587][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:12:51,822][uWSGIWorker1Core0:140141311739648][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:14:43,750][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:196][INFO][Code: 063Rny0w3sSx1V2zPJ2w3whsr30Rny0y]
+[2020-09-25 18:14:43,750][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:14:43,881][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:276][INFO][用户登录失败]
+[2020-09-25 18:14:44,026][uWSGIWorker1Core6:140141078611712][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:15:18,444][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:196][INFO][Code: 0633qy0w3jLx1V2yv42w3Qn66j23qy00]
+[2020-09-25 18:15:18,445][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:15:18,623][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:15:18,646][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:15:18,833][uWSGIWorker1Core4:140141095397120][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:15:54,743][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:196][INFO][Code: 063N6Ykl25R1G54EG5nl2utsr30N6Ykb]
+[2020-09-25 18:15:54,744][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:15:54,933][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:15:54,954][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:15:55,150][uWSGIWorker1Core7:140141070219008][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:17:40,101][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:196][INFO][Code: 043qdYkl23k2G54rPMol2F6Lcn1qdYk2]
+[2020-09-25 18:17:40,102][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:17:40,295][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:17:40,316][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:17:40,355][uWSGIWorker1Core0:140141311739648][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:18:02,805][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:196][INFO][Code: 063XnNll2V9dF5465Pol2yFU4m1XnNl7]
+[2020-09-25 18:18:02,806][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:18:02,987][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:18:03,005][uWSGIWorker1Core0:140141311739648][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:18:03,181][uWSGIWorker1Core3:140141103789824][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:18:28,919][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:196][INFO][Code: 0131zh0w3zYI0V2AoL3w3qEdb101zh0z]
+[2020-09-25 18:18:28,920][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:18:29,086][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:18:29,102][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:18:29,320][uWSGIWorker1Core5:140141087004416][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:20:59,775][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:196][INFO][Code: 073EUn1w3VxCZU2L4i3w314dha0EUn1r]
+[2020-09-25 18:20:59,775][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:20:59,957][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:20:59,974][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:21:00,080][uWSGIWorker1Core1:140141120575232][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:26:36,347][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:196][INFO][Code: 013JvWFa1zGVGz0Q5mFa1eIU2G0JvWFb]
+[2020-09-25 18:26:36,348][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:26:36,539][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:26:36,599][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:26:36,640][uWSGIWorker1Core6:140141078611712][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:30:19,466][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:196][INFO][Code: 013gZYkl2Fk3G549I7ml2fmzic2gZYki]
+[2020-09-25 18:30:19,467][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:30:19,656][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:30:19,675][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:30:19,712][uWSGIWorker1Core5:140141087004416][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:30:47,546][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:196][INFO][Code: 06344gll2ltSG54SAYll2rrW6j244glV]
+[2020-09-25 18:30:47,547][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:30:47,722][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:30:47,761][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:30:47,848][uWSGIWorker1Core1:140141120575232][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:30:57,030][uWSGIWorker1Core1:140141120575232][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:31:05,601][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:196][INFO][Code: 033b2Zkl2qi3G54dUrml28TkvB0b2ZkU]
+[2020-09-25 18:31:05,602][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:31:05,788][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:31:05,805][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:31:05,986][uWSGIWorker1Core3:140141103789824][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:31:15,404][uWSGIWorker1Core3:140141103789824][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:31:45,786][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:196][INFO][Code: 023I4Zkl2Rk3G54HXRnl2bBSZ70I4Zk9]
+[2020-09-25 18:31:45,786][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:31:45,967][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:87][INFO][创建或者更新用户信息]
+[2020-09-25 18:31:45,983][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:227][INFO][用户登录成功None]
+[2020-09-25 18:31:46,204][uWSGIWorker1Core7:140141070219008][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:35:51,208][uWSGIWorker1Core5:140141087004416][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/wx_auth/]
+[2020-09-25 18:36:25,582][uWSGIWorker1Core5:140141087004416][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:37:06,575][uWSGIWorker1Core2:140141112182528][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:37:08,326][uWSGIWorker1Core1:140141120575232][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:37:09,304][uWSGIWorker1Core4:140141095397120][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:37:30,118][uWSGIWorker1Core3:140141103789824][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:37:54,935][uWSGIWorker1Core6:140141078611712][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:38:08,210][uWSGIWorker1Core7:140141070219008][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:40:02,685][Dummy-1:140079498536704][task_id:django][views.py:63][INFO][返回所有游戏和项目信息!]
+[2020-09-25 18:40:02,686][Dummy-1:140079498536704][task_id:django][views.py:77][INFO][返回所有用户信息,不经常使用]
+[2020-09-25 18:40:02,704][Dummy-1:140079498536704][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-09-25 18:40:32,253][Thread-2:140079175542528][task_id:django][views.py:103][INFO][获取游戏配置]
+[2020-09-25 18:40:32,259][Thread-2:140079175542528][task_id:django.server][basehttp.py:154][INFO]["POST /api/wx_auth/ HTTP/1.1" 200 36]

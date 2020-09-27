@@ -18,8 +18,9 @@ def deal_ip(request):
             response = reader.city(ip)
             # 有多种语言，我们这里主要输出英文和中文
             user = Userip()
+            user.ip = ip
             user.area = response.continent.names["es"] + '/' + response.continent.names["zh-CN"]
-            user.count = response.country.name + '/' + response.country.names["zh-CN"] + '/' + response.country.iso_code
+            user.country = response.country.name + '/' + response.country.names["zh-CN"] + '/' + response.country.iso_code
             user.province = response.subdivisions.most_specific.name + '/' + response.subdivisions.most_specific.names[
                 "zh-CN"]
             user.city = response.city.name + '/' + response.city.names["zh-CN"]

@@ -111,7 +111,7 @@ def start_job():
 
 try:
     logger.info("Starting scheduler...")
-    # scheduler.add_job(func=start_job, trigger='cron', id='检测任务', second='*/5')
+    scheduler.add_job(func=start_job, trigger='cron', id='检测任务', second='*/5')
     scheduler.start()
 
 except KeyboardInterrupt:

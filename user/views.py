@@ -329,18 +329,18 @@ class WxAuthView(APIView):
     def post(self, request):
         params = get_parameter_dic(request)
         user_info = {}
-        try:
-            encryptedData = params['encrypteData'].replace(' ', '+')
-            iv = params['iv'].replace(' ', '+')
-            crypt = WXBizDataCrypt(get_app_config(params.get('name')).app_id, params.get('session_key'))
-            user_info_raw = crypt.decrypt(encryptedData, iv)
-            logger.info("user_info: {0}".format(user_info_raw))
-            if user_info_raw:
-                for k, v in self.fields.items():
-                    user_info[k] = user_info_raw.get(v)
-            user_info['is_auth'] = 'True'
-            user = create_or_update_user_info(params.get('openid'), user_info)
-            return Response(
+ #       try:
+        encryptedData = params['encrypteData'].replace(' ', '+')
+        iv = params['iv'].replace(' ', '+')
+        crypt = WXBizDataCrypt(get_app_config(params.get('name')).app_id, params.get('session_key'))
+        user_info_raw = crypt.decrypt(encryptedData, iv)
+        logger.info("user_info: {0}".format(user_info_raw))
+        if user_info_raw:
+            for k, v in self.fields.items():
+                user_info[k] = user_info_raw.get(v)
+        user_info['is_auth'] = 'True'
+        user = create_or_update_user_info(params.get('openid'), user_info)
+        return Response(
                 {
                     'status': 1,
                     'mes': '授权成功',
@@ -354,8 +354,8 @@ class WxAuthView(APIView):
                         ])
                 },
                 status=HTTP_200_OK)
-        except:
-            return Response({
-                'status': 1,
-                'mes': '请检查参数'
-            })
+  #      except:
+   #         return Response({
+    #            'status': 1,
+     #           'mes': '请检查参数'
+      #      })
