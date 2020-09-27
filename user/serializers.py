@@ -41,6 +41,6 @@ class APPSerializer(serializers.ModelSerializer):
     def get_app_config(self, obj):
         config = App_config.objects.filter(app_id=obj).filter(on_line='1', name__exact='name')
         if len(config) > 0:
-            return config[0].value
+            return {i.name: i.value for i in config}
         else:
             return 'none'
