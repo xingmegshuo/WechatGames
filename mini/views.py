@@ -40,7 +40,7 @@ class Games(APIView):
                 status = 1
                 mes = '该用户所有游戏信息'
                 info = [{**(model_to_dict(info, fields=['level', 'grade', 'score', 'property', 'ortherInfo'])),
-                         **(model_to_dict(info.game_id, fields=['name', ]))}
+                         **(model_to_dict(info.game_id, fields=['id', ]))}
                         for info in gameInfo]
             else:
                 status = 0
