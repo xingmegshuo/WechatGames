@@ -39,7 +39,7 @@ class APPSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'img', 'app_config', 'app_id')
 
     def get_app_config(self, obj):
-        config = App_config.objects.filter(app_id=obj).filter(on_line='1', name__exact='name')
+        config = App_config.objects.filter(app_id=obj).filter(on_line='1')
         if len(config) > 0:
             return {i.name: i.value for i in config}
         else:
