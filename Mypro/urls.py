@@ -19,7 +19,7 @@ from web.views import *
 from Mypro import settings
 from django.views.static import serve
 from rest_framework import routers
-from user.views import AppViewSet, UserViewSet, AddressSerializer
+from user.views import AppViewSet, UserViewSet, AddressViewSet
 from games.views import KnowViewSet
 from mini.views import ActivityViewSet, ProductViewSet
 
@@ -29,7 +29,7 @@ router.register(r'app', AppViewSet)
 router.register(r'know', KnowViewSet)
 router.register(r'activity', ActivityViewSet)
 router.register(r'product', ProductViewSet)
-router.register(r'shopping_address', AddressSerializer)
+router.register(r'shopping_address', AddressViewSet)
 
 urlpatterns = [
     re_path(r'^startConfig', start_config),
