@@ -338,7 +338,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>jwt验证秘钥必须添加次内容请求</p>"
+            "description": "<p>jwt验证秘钥必须添加此内容请求</p>"
           }
         ]
       }
@@ -761,6 +761,212 @@ define({ "api": [
     "groupTitle": "GAME"
   },
   {
+    "type": "POST",
+    "url": "/api/order/",
+    "title": "修改订单",
+    "version": "0.0.1",
+    "description": "<p>修改订单状态</p>",
+    "name": "修改订单",
+    "group": "小程序",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加此内容请求</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orderId",
+            "description": "<p>订单选项,开通给用户付款，删除功能</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "pay",
+            "description": "<p>付款状态,0,1</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "delete",
+            "description": "<p>删除状态,0,1</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>提示信息</p>"
+          }
+        ]
+      }
+    },
+    "filename": "./mini/views.py",
+    "groupTitle": "小程序"
+  },
+  {
+    "type": "POST",
+    "url": "/api/order/",
+    "title": "创建订单",
+    "version": "0.0.1",
+    "description": "<p>购物车创建订单</p>",
+    "name": "创建订单",
+    "group": "小程序",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加此内容请求</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "catId",
+            "description": "<p>购物车内容,逗号分隔id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "remark",
+            "description": "<p>订单备注</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>提示信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "info",
+            "description": "<p>订单详情</p>"
+          }
+        ]
+      }
+    },
+    "filename": "./mini/views.py",
+    "groupTitle": "小程序"
+  },
+  {
+    "type": "POST",
+    "url": "/api/cat/",
+    "title": "添加购物车",
+    "version": "0.0.1",
+    "description": "<p>用户添加购物车</p>",
+    "name": "添加购物车",
+    "group": "小程序",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加此内容请求</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>商品id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "num",
+            "description": "<p>商品数量</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>提示信息</p>"
+          }
+        ]
+      }
+    },
+    "filename": "./mini/views.py",
+    "groupTitle": "小程序"
+  },
+  {
     "type": "GET",
     "url": "/data/activity/",
     "title": "商品信息",
@@ -779,6 +985,70 @@ define({ "api": [
     "description": "<p>可通过加id来获取单个活动</p>",
     "name": "获取全部活动",
     "group": "小程序",
+    "filename": "./mini/views.py",
+    "groupTitle": "小程序"
+  },
+  {
+    "type": "GET",
+    "url": "/api/productImg/",
+    "title": "商品图片信息",
+    "version": "0.0.1",
+    "description": "<p>获取该商品图片信息</p>",
+    "name": "获取商品图片",
+    "group": "小程序",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加此内容请求</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>商品id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>提示信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "info",
+            "description": "<p>该商品的所有图片属性等级不为0的信息</p>"
+          }
+        ]
+      }
+    },
     "filename": "./mini/views.py",
     "groupTitle": "小程序"
   },
@@ -819,6 +1089,115 @@ define({ "api": [
             "optional": false,
             "field": "mes",
             "description": "<p>提示信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "info",
+            "description": "<p>该用户在此平台授权的所有游戏数据，包括红包信息等等</p>"
+          }
+        ]
+      }
+    },
+    "filename": "./mini/views.py",
+    "groupTitle": "小程序"
+  },
+  {
+    "type": "POST",
+    "url": "/api/order/",
+    "title": "获取订单",
+    "version": "0.0.1",
+    "description": "<p>获取全部订单</p>",
+    "name": "获取订单信息",
+    "group": "小程序",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加此内容请求</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>提示信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "info",
+            "description": "<p>订单详情</p>"
+          }
+        ]
+      }
+    },
+    "filename": "./mini/views.py",
+    "groupTitle": "小程序"
+  },
+  {
+    "type": "GET",
+    "url": "/api/cat/",
+    "title": "获取购物车",
+    "version": "0.0.1",
+    "description": "<p>获取用户添加购物车内容</p>",
+    "name": "获取购物车",
+    "group": "小程序",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加此内容请求</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>提示信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "info",
+            "description": "<p>购物车中的商品信息</p>"
           }
         ]
       }
