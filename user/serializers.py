@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from user.models import *
+from .models import *
 import django_filters
 
 
@@ -44,3 +44,10 @@ class APPSerializer(serializers.ModelSerializer):
             return {i.name: i.value for i in config}
         else:
             return 'none'
+
+
+class AddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = \
+            '__all__'

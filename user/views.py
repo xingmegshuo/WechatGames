@@ -50,6 +50,11 @@ def api_doc(request, path):
     return response
 
 
+class AddressViewSet(viewsets.ModelViewSet):
+    queryset = Address.objects.filter(is_show=False)
+    serializer_class = AddressSerializer
+
+
 class AppViewSet(viewsets.ModelViewSet):
     """
         @api {GET} /data/app/ 游戏配置信息

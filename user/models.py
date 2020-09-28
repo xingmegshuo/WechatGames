@@ -151,7 +151,7 @@ class Address(models.Model):
     human = models.CharField(max_length=200, verbose_name=_('收货人'), help_text=_('收货人'))
     phone = models.CharField(max_length=20, verbose_name=_('电话号码'), help_text=_('电话号码'))
     address = models.CharField(max_length=200, verbose_name=_('收货地址'), help_text=_('收货地址'))
-    is_show = models.BooleanField(verbose_name=_('是否删除'), help_text=_('用户删除不做物理删除'), default=True,
+    is_show = models.BooleanField(verbose_name=_('是否删除'), help_text=_('用户删除不做物理删除'), default=False,
                                   choices=DELETE_CHOICE)
 
     class Meta:
