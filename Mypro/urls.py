@@ -29,7 +29,7 @@ router.register(r'app', AppViewSet)
 router.register(r'know', KnowViewSet)
 router.register(r'activity', ActivityViewSet)
 router.register(r'product', ProductViewSet)
-router.register(r'address', AddressSerializer)
+router.register(r'shopping_address', AddressSerializer)
 
 urlpatterns = [
     re_path(r'^startConfig', start_config),
