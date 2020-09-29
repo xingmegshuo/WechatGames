@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from user.models import MyUser
+from user.models import MyUser, Address
 from user.views import get_parameter_dic, get_app_config, logger, Response, APIView
 from django.forms import model_to_dict
 from games.models import GameInfo
@@ -129,7 +129,7 @@ class CatApi(APIView):
         status = 1
         mes = '购物车信息' if len(cats) > 0 else '购物车暂无信息'
         info = [model_to_dict(i, fields=['id', 'product', 'num', 'create_time', 'status']) for i in cats]
-        return Response({'status': status, 'mes': mes, 'info':info}, status=HTTP_200_OK)
+        return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)
 
     def post(self, request):
         """
@@ -241,4 +241,75 @@ class OrderApi(APIView):
             mes = '用户删除了'
 
         order.save()
+        return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
+
+
+class AddressApi(APIView):
+    def get(self, request):
+        """
+            @api {GET} /api/address/ 获取收货地址
+            @apiVersion 0.0.1
+            @apiDescription 获取用户收货地址
+            @apiName 获取收货地址
+            @apiGroup 小程序
+            @apiHeader {string} Authorization jwt验证秘钥必须添加此内容请求
+
+            @apiSuccess {String} status 请求状态
+            @apiSuccess {String} mes 提示信息
+            @apiSuccess {String} info 用户的收货地址
+        """
+        user = MyUser.objects.get(id=request.user.id)
+        address = Address.objects.filter(unionId=user.unionId)
+        if len(address) > 0:
+            status = 1
+            mes = '用户收货地址'
+            info = [model_to_dict(i) for i in address]
+        else:
+            status = 0
+            mes = '暂无收货地址'
+            info = None
+        return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)
+
+    def post(self, request):
+        """
+            @api {GET} /api/address/ 新建收货地址
+            @apiVersion 0.0.1
+            @apiDescription 用户新建收货地址
+            @apiName 新建收货地址
+            @apiGroup 小程序
+            @apiHeader {string} Authorization jwt验证秘钥必须添加此内容请求
+
+            @apiSuccess {String} status 请求状态
+            @apiSuccess {String} mes 提示信息
+            @apiSuccess {String} info 用户新建的收货地址
+        """
+        user = MyUser.objects.get(id=request.user.id)
+        params = get_parameter_dic(request)
+        address = Address.objects.create(unionId=user.unionId, human=params.get('human'), phone=params.get('phone'),
+                                         address=params.get('address'))
+        address.save()
+        status = 1
+        mes = '新建地址成功'
+        return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
+
+    def put(self, request):
+        """
+            @api {GET} /api/address/ 修改收货地址
+            @apiVersion 0.0.1
+            @apiDescription 用户修改收货地址
+            @apiName 修改收货地址
+            @apiGroup 小程序
+            @apiHeader {string} Authorization jwt验证秘钥必须添加此内容请求
+
+            @apiSuccess {String} status 请求状态
+            @apiSuccess {String} mes 提示信息
+            @apiSuccess {String} info 用户修改的收货地址
+        """
+        user = MyUser.objects.get(id=request.user.id)
+        params = get_parameter_dic(request)
+        address = Address.objects.get(id=params.get('id')).update(human=params.get('human'), phone=params.get('phone'),
+                                                                  address=params.get('address'))
+        address.save()
+        status = 1
+        mes = '地址修改成功'
         return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)

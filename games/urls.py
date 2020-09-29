@@ -18,5 +18,6 @@ urlpatterns = format_suffix_patterns([
     re_path(r'^product/$', ProductApi.as_view(), name='product'),
     re_path(r'^cat/$', CatApi.as_view(), name='cat'),
     re_path(r'^order/$', OrderApi.as_view(), name='order'),
+    re_path(r'^address/$', AddressApi.as_view(), name='address'),
     re_path(r'^doc/(?P<path>.*)', api_doc),
 ])

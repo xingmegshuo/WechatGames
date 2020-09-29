@@ -761,6 +761,57 @@
     "groupTitle": "GAME"
   },
   {
+    "type": "GET",
+    "url": "/api/address/",
+    "title": "修改收货地址",
+    "version": "0.0.1",
+    "description": "<p>用户修改收货地址</p>",
+    "name": "修改收货地址",
+    "group": "小程序",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加此内容请求</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>提示信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "info",
+            "description": "<p>用户修改的收货地址</p>"
+          }
+        ]
+      }
+    },
+    "filename": "./mini/views.py",
+    "groupTitle": "小程序"
+  },
+  {
     "type": "POST",
     "url": "/api/order/",
     "title": "修改订单",
@@ -895,6 +946,57 @@
             "optional": false,
             "field": "info",
             "description": "<p>订单详情</p>"
+          }
+        ]
+      }
+    },
+    "filename": "./mini/views.py",
+    "groupTitle": "小程序"
+  },
+  {
+    "type": "GET",
+    "url": "/api/address/",
+    "title": "新建收货地址",
+    "version": "0.0.1",
+    "description": "<p>用户新建收货地址</p>",
+    "name": "新建收货地址",
+    "group": "小程序",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加此内容请求</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>提示信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "info",
+            "description": "<p>用户新建的收货地址</p>"
           }
         ]
       }
@@ -1096,6 +1198,57 @@
             "optional": false,
             "field": "info",
             "description": "<p>该用户在此平台授权的所有游戏数据，包括红包信息等等</p>"
+          }
+        ]
+      }
+    },
+    "filename": "./mini/views.py",
+    "groupTitle": "小程序"
+  },
+  {
+    "type": "GET",
+    "url": "/api/address/",
+    "title": "获取收货地址",
+    "version": "0.0.1",
+    "description": "<p>获取用户收货地址</p>",
+    "name": "获取收货地址",
+    "group": "小程序",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加此内容请求</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>提示信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "info",
+            "description": "<p>用户的收货地址</p>"
           }
         ]
       }
