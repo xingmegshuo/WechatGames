@@ -101,7 +101,7 @@ class ProductApi(APIView):
             img = ProductImg.objects.filter(product=product, is_show=False).exclude(property=0)
             status = 1
             mes = '返回商品所有图片信息'
-            Img = [model_to_dict(i, fields=['img.url', 'property']) for i in img]
+            Img = [{'图片': i.img.url, '等级': i.property} for i in img]
         except:
             status = 0
             mes = 'error， 查看参数传递'
