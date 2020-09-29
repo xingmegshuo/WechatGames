@@ -259,7 +259,7 @@ class AddressApi(APIView):
             @apiSuccess {String} info 用户的收货地址
         """
         user = MyUser.objects.get(id=request.user.id)
-        address = Address.objects.filter(unionId=user.unionId)
+        address = Address.objects.filter(unionId=user.unionId, is_show=False)
         if len(address) > 0:
             status = 1
             mes = '用户收货地址'
