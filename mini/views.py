@@ -307,8 +307,9 @@ class AddressApi(APIView):
         """
         user = MyUser.objects.get(id=request.user.id)
         params = get_parameter_dic(request)
-        address = Address.objects.get(id=params.get('id')).update(human=params.get('human'), phone=params.get('phone'),
-                                                                  address=params.get('address'))
+        address = Address.objects.get(id=params.get('id'))
+        if params.get('is_show'):
+            address.is_show = params.get('is_show')
         address.save()
         status = 1
         mes = '地址修改成功'
