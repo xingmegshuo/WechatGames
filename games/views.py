@@ -454,7 +454,7 @@ class GameInfoView(APIView):
         user = request.user.id
         game_info = GameInfo.objects.get(user_id=int(user),
                                          game_id=int(get_app_config(params.get('name')).id))
-        logger.info(game_info.id)
+        logger.info(game_info.id, '用户获取游戏信息')
         return Response(
             {
                 'status': 1,
