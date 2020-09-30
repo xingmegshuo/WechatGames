@@ -147,15 +147,15 @@ class CatApi(APIView):
         """
         params = get_parameter_dic(request)
         user = MyUser.objects.get(id=request.user.id)
-        try:
-            cat = ShoppingCat.objects.create(unionId=user.unionId, product_id=params.get('productId'),
-                                             num=int(params.get('num')))
-            cat.save()
-            status = 1
-            mes = '添加购物车成功'
-        except:
-            status = 0
-            mes = '添加购物车失败'
+        # try:
+        cat = ShoppingCat.objects.create(unionId=user.unionId, product_id=params.get('productId'),
+                                         num=int(params.get('num')))
+        cat.save()
+        status = 1
+        mes = '添加购物车成功'
+        # except:
+        #     status = 0
+        #     mes = '添加购物车失败'
         return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
 
 
