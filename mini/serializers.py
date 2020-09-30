@@ -22,5 +22,5 @@ class ProductSerializer(serializers.ModelSerializer):
             'productImg')
 
     def get_productImg(self, obj):
-        img = ProductImg.objects.filter(product=obj, is_show=False, property=0)[0]
+        img = ProductImg.objects.filter(product=obj, )[0]
         return img.img.url
