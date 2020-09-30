@@ -128,7 +128,9 @@ class CatApi(APIView):
         cats = ShoppingCat.objects.filter(unionId=user.unionId, is_show=False)
         status = 1
         mes = '购物车信息' if len(cats) > 0 else '购物车暂无信息'
-        info = [model_to_dict(i, fields=['id', 'product', 'num', 'create_time', 'status']) for i in cats]
+        info = [{**(model_to_dict(i, fields=['id', 'num', 'create_time', 'status'])),
+                 **(model_to_dict(i.product))}
+                for i in cats]
         return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)
 
     def post(self, request):
