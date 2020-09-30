@@ -125,10 +125,11 @@ class CatApi(APIView):
 
         """
         user = MyUser.objects.get(id=request.user.id)
+        logger.info('购物车信息' + user.nick_name)
         cats = ShoppingCat.objects.filter(unionId=user.unionId, is_show=False)
         status = 1
         mes = '购物车信息' if len(cats) > 0 else '购物车暂无信息'
-        info = [{**(model_to_dict(i, fields=['id', 'num', 'create_time', 'status'])),
+        info = [{**(model_to_dict(i, fields=['id', 'product', 'num', 'create_time', 'status'])),
                  **(model_to_dict(i.product))}.update(
             {'img': ProductImg.objects.filter(product=i.product, is_show=False, property=0)[0].img.url})
             for i in cats]
