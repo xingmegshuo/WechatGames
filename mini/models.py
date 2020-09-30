@@ -71,7 +71,7 @@ class ProductImg(models.Model):
 
 
 class ShoppingCat(models.Model):
-    unionId = models.CharField(max_length=20, verbose_name=_('用户'), help_text=_('用户'))
+    unionId = models.CharField(max_length=100, verbose_name=_('用户'), help_text=_('用户'))
     product = models.ForeignKey(ProductInfo, on_delete=models.CASCADE, verbose_name=_('商品'), help_text=_('商品'),
                                 related_name='catProduct')
     num = models.IntegerField(verbose_name=_('数量'), help_text=_('数量'))
