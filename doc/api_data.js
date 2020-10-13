@@ -954,6 +954,63 @@ define({ "api": [
     "groupTitle": "小程序"
   },
   {
+    "type": "PUT",
+    "url": "/api/cat/",
+    "title": "删除购物车",
+    "version": "0.0.1",
+    "description": "<p>用户删除购物车信息</p>",
+    "name": "删除购物车",
+    "group": "小程序",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加此内容请求</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>购物车id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>提示信息</p>"
+          }
+        ]
+      }
+    },
+    "filename": "./mini/views.py",
+    "groupTitle": "小程序"
+  },
+  {
     "type": "GET",
     "url": "/api/address/",
     "title": "新建收货地址",

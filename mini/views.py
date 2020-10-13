@@ -164,6 +164,27 @@ class CatApi(APIView):
             mes = '添加购物车失败'
         return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
 
+    def put(self, request):
+        """
+            @api {PUT} /api/cat/ 删除购物车
+            @apiVersion 0.0.1
+            @apiDescription 用户删除购物车信息
+            @apiName 删除购物车
+            @apiGroup 小程序
+            @apiHeader {string} Authorization jwt验证秘钥必须添加此内容请求
+
+            @apiParam {String} productId 购物车id
+            @apiSuccess {String} status 请求状态
+            @apiSuccess {String} mes 提示信息
+        """
+        params = get_parameter_dic(request)
+        cat = ShoppingCat.objects.get(id=params.get('id'))
+        cat.is_show = True
+        cat.save()
+        status = 1
+        mes = '删除购物车成功'
+        return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
+
 
 class OrderApi(APIView):
     def get(self, request):
