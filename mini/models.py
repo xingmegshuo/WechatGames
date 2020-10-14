@@ -112,7 +112,7 @@ class Order(models.Model):
     date = models.DateTimeField(verbose_name=_('订单创建时间'), help_text=_('订单创建时间'), auto_now_add=True)
 
     def on_save(self):
-        self.number = self.unionId + str(self.date)
+        self.number = self.unionId + str(self.id)
         money = []
         self.money = 233
         self.virtualMoney=1112
