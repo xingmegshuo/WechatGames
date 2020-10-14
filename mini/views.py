@@ -228,7 +228,7 @@ class OrderApi(APIView):
         """
         params = get_parameter_dic(request)
         user = MyUser.objects.get(id=request.user.id)
-        cats = params.get('catId').split(',')
+        cats = params.get('catId')
         order = Order.objects.create(unionId=user.unionId, remarks=params.get('remark'),
                                      product=[ShoppingCat.objects.get(id=i) for i in cats])
         order.save()
