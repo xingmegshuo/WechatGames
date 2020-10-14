@@ -85,7 +85,7 @@ class ShoppingCat(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.unionId+'_'+str(self.id)
+        return self.unionId + '_' + str(self.id)
 
     class Meta:
         ordering = ('-create_time',)
@@ -115,18 +115,19 @@ class Order(models.Model):
         self.number = self.unionId + str(self.date)
         money = []
         virtual_money = []
-        if self.product.product.is_discount is True:
-            money.append(self.product.product.price * self.product.num * self.product.product.discount)
-            if self.product.product.property == 0:
-                virtual_money.append(self.product.product.virtual * self.product.num * self.product.product.discount)
-        else:
-            money.append(self.product.product.price * self.product.num)
-            if self.product.product.property == 0:
-                virtual_money.append(self.product.product.virtual * self.product.num)
+        for i in self.product:
+            if i.is_discount is True:
+                money.append(i.price * i.num * i.discount)
+                if i.property == 0:
+                    virtual_money.append(i.virtual * i.num * i.discount)
+            else:
+                money.append(i.price * i.num)
+                if self.product.product.property == 0:
+                    virtual_money.append(i.virtual * i.num)
+            if i.product.property != 0:
+                self.is_virtual = False
         self.money = sum(money)
         self.virtualMoney = sum(virtual_money)
-        if self.product.product.property != 0:
-            self.is_virtual = False
 
     def __str__(self):
         return self.number + self.unionId
