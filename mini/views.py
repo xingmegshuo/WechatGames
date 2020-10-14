@@ -230,7 +230,7 @@ class OrderApi(APIView):
         user = MyUser.objects.get(id=request.user.id)
         cats = params.get('catId')
         order = Order.objects.create(unionId=user.unionId, remarks=params.get('remark'))
-        order.product.add(','.join(cats))
+        order.product.add(','.join([ShoppingCat.objects.get(id=i) for i in cats]))
         order.save()
         status = 1
         mes = '订单创建完成，请付款'
