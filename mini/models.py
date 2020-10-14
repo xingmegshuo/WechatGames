@@ -4,7 +4,7 @@ from user.models import DELETE_CHOICE
 
 PRODUCT_CHOICE = ((0, '支持萌度/微信/余额支付'), (1, '不支持萌度支付'), (2, '仅支持微信/支付宝/银行卡支付'))
 DISCOUNT_CHOICE = ((False, '不打折'), (True, '打折'))
-STAATUS_CHOICE = ((False, '订单失效'), (True, '订单正常'))
+STAATUS_CHOICE = ((False, '订单失效订单正常'), (True, '订单失效'))
 OVER_CHOICE = ((False, '订单未完成'), (True, '订单完成'))
 SEND_CHOICE = ((False, '订单未发货'), (True, '订单已发货'))
 VIRTU_CHOICE = ((False, '不支持萌度'), (True, '支持萌度'))
@@ -114,22 +114,22 @@ class Order(models.Model):
     def on_save(self):
         self.number = self.unionId + str(self.id)
         money = []
-        self.money = 233
-        self.virtualMoney=1112
+        # self.money = 233
+        # self.virtualMoney = 1112
         virtual_money = []
-        # for i in self.product:
-        #     if i.is_discount is True:
-        #         money.append(i.price * i.num * i.discount)
-        #         if i.property == 0:
-        #             virtual_money.append(i.virtual * i.num * i.discount)
-        #     else:
-        #         money.append(i.price * i.num)
-        #         if self.product.product.property == 0:
-        #             virtual_money.append(i.virtual * i.num)
-        #     if i.product.property != 0:
-        #         self.is_virtual = False
-        # self.money = sum(money)
-        # self.virtualMoney = sum(virtual_money)
+        for i in self.product:
+            if i.is_discount is True:
+                money.append(i.price * i.num * i.discount)
+                if i.property == 0:
+                    virtual_money.append(i.virtual * i.num * i.discount)
+            else:
+                money.append(i.price * i.num)
+                if self.product.product.property == 0:
+                    virtual_money.append(i.virtual * i.num)
+            if i.product.property != 0:
+                self.is_virtual = False
+        self.money = sum(money)
+        self.virtualMoney = sum(virtual_money)
 
     def __str__(self):
         return self.number + self.unionId
