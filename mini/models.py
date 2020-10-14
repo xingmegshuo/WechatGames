@@ -135,7 +135,6 @@ def model_post_save(sender, created, instance, *args, **kwargs):
     if created:
         if len(instance.product.all()) > 0:
             money = []
-
             virtual_money = []
             for i in instance.product:
                 if i.product.is_discount is True:
@@ -150,4 +149,8 @@ def model_post_save(sender, created, instance, *args, **kwargs):
                     instance.is_virtual = False
             instance.money = sum(money)
             instance.virtualMoney = sum(virtual_money)
+            instance.save()
+        else:
+            instance.money = 1
+            instance.virtualMoney = 1
             instance.save()
