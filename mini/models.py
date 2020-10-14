@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from user.models import DELETE_CHOICE
-
+from user.views import logger
 from django.db.models import signals
 from django.dispatch import receiver
 
@@ -133,6 +133,7 @@ class Order(models.Model):
 @receiver(signals.post_save, sender=Order)
 def model_post_save(sender, created, instance, *args, **kwargs):
     if created:
+        logger.info(instance.product.all(), '购物车')
         if len(instance.product.all()) > 0:
             money = []
             virtual_money = []
@@ -151,6 +152,7 @@ def model_post_save(sender, created, instance, *args, **kwargs):
             instance.virtualMoney = sum(virtual_money)
             instance.save()
         else:
+            logger.info(instance.product.all(), '购物车')
             instance.money = 1
             instance.virtualMoney = 1
             instance.save()

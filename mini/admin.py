@@ -29,11 +29,11 @@ class ProductImgAdmin(admin.ModelAdmin):
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     def product_show(self, obj):
-        return [bt.product.name+'数量：'+str(bt.num)+'个' for bt in obj.product.all()]
+        return ['名称：' + bt.product.name + '数量：' + str(bt.num) + '个' for bt in obj.product.all()]
 
     list_display = ('unionId', 'product_show', 'money', 'is_send', 'remarks', 'is_over', 'number')
     list_filter = ('is_show', 'is_send', 'is_over', 'is_fail', 'is_virtual')
-    search_fields = ('product__name', 'unionId', 'number')
+    search_fields = ('unionId', 'number')
 
 
 @admin.register(ShoppingCat)
