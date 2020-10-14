@@ -114,6 +114,8 @@ class Order(models.Model):
     def on_save(self):
         self.number = self.unionId + str(self.date)
         money = []
+        self.money = 233
+        self.virtualMoney=1112
         virtual_money = []
         # for i in self.product:
         #     if i.is_discount is True:
