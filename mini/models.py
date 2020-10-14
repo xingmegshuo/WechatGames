@@ -99,7 +99,7 @@ class ShoppingCat(models.Model):
 class Order(models.Model):
     number = models.CharField(max_length=200, verbose_name=_('订单号'), help_text=_('订单号'))
     unionId = models.CharField(max_length=200, verbose_name=_('用户标识'), help_text=_('用户标识'))
-    remarks = models.CharField(max_length=500, verbose_name=_('订单备注'), help_text=_('订单备注'), blank=True)
+    remarks = models.CharField(max_length=500, verbose_name=_('订单备注'), help_text=_('订单备注'), blank=True, default='')
     status = models.BooleanField(verbose_name=_('订单状态'), help_text=_('订单状态，付款还是未付款'), default=False)
     is_fail = models.BooleanField(verbose_name=_('订单是否失效'), help_text=_('超过时间未付款,或者其他状态订单失效'), default=False,
                                   choices=STAATUS_CHOICE)
@@ -108,8 +108,8 @@ class Order(models.Model):
     is_show = models.BooleanField(verbose_name=_('是否删除'), help_text=_('用户删除不做物理删除,是否向用户展示'), default=False,
                                   choices=DELETE_CHOICE)
     product = models.ManyToManyField(ShoppingCat, verbose_name=_('购物车'), help_text=_('购物车'))
-    money = models.FloatField(verbose_name=_('支付金额'), help_text=_('支付金额'))
-    virtualMoney = models.FloatField(verbose_name=_('萌度支付'), help_text=_('萌度兑换支付'))
+    money = models.FloatField(verbose_name=_('支付金额'), help_text=_('支付金额'), default=0)
+    virtualMoney = models.FloatField(verbose_name=_('萌度支付'), help_text=_('萌度兑换支付'), default=0)
     is_virtual = models.BooleanField(verbose_name=_('是否支持萌度兑换'), help_text=_('是否支持萌度兑换'), default=True,
                                      choices=VIRTU_CHOICE)
     date = models.DateTimeField(verbose_name=_('订单创建时间'), help_text=_('订单创建时间'), auto_now_add=True)
