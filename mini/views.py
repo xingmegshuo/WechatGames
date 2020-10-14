@@ -236,7 +236,8 @@ class OrderApi(APIView):
         order.save()
         status = 1
         mes = '订单创建完成，请付款'
-        info = model_to_dict(order)
+        # info = model_to_dict(order)
+        info = 'none'
         return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)
 
     def put(self, request):
