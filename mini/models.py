@@ -96,7 +96,7 @@ class ShoppingCat(models.Model):
 class Order(models.Model):
     number = models.CharField(max_length=20, verbose_name=_('订单号'), help_text=_('订单号'))
     unionId = models.CharField(max_length=20, verbose_name=_('用户标识'), help_text=_('用户标识'))
-    remarks = models.CharField(max_length=500, verbose_name=_('订单备注'), help_text=_('订单备注'))
+    remarks = models.CharField(max_length=500, verbose_name=_('订单备注'), help_text=_('订单备注'), blank=True)
     status = models.BooleanField(verbose_name=_('订单状态'), help_text=_('订单状态，付款还是未付款'), default=False)
     is_fail = models.BooleanField(verbose_name=_('订单是否失效'), help_text=_('超过时间未付款,或者其他状态订单失效'), default=False,
                                   choices=STAATUS_CHOICE)
@@ -115,19 +115,19 @@ class Order(models.Model):
         self.number = self.unionId + str(self.date)
         money = []
         virtual_money = []
-        for i in self.product:
-            if i.is_discount is True:
-                money.append(i.price * i.num * i.discount)
-                if i.property == 0:
-                    virtual_money.append(i.virtual * i.num * i.discount)
-            else:
-                money.append(i.price * i.num)
-                if self.product.product.property == 0:
-                    virtual_money.append(i.virtual * i.num)
-            if i.product.property != 0:
-                self.is_virtual = False
-        self.money = sum(money)
-        self.virtualMoney = sum(virtual_money)
+        # for i in self.product:
+        #     if i.is_discount is True:
+        #         money.append(i.price * i.num * i.discount)
+        #         if i.property == 0:
+        #             virtual_money.append(i.virtual * i.num * i.discount)
+        #     else:
+        #         money.append(i.price * i.num)
+        #         if self.product.product.property == 0:
+        #             virtual_money.append(i.virtual * i.num)
+        #     if i.product.property != 0:
+        #         self.is_virtual = False
+        # self.money = sum(money)
+        # self.virtualMoney = sum(virtual_money)
 
     def __str__(self):
         return self.number + self.unionId
