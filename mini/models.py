@@ -94,7 +94,7 @@ class ShoppingCat(models.Model):
 
 
 class Order(models.Model):
-    number = models.CharField(max_length=20, verbose_name=_('订单号'), help_text=_('订单号'))
+    number = models.CharField(max_length=200, verbose_name=_('订单号'), help_text=_('订单号'))
     unionId = models.CharField(max_length=20, verbose_name=_('用户标识'), help_text=_('用户标识'))
     remarks = models.CharField(max_length=500, verbose_name=_('订单备注'), help_text=_('订单备注'), blank=True)
     status = models.BooleanField(verbose_name=_('订单状态'), help_text=_('订单状态，付款还是未付款'), default=False)
