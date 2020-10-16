@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import *
+from user.models import MyUser
 
 
 # Register your models here.
@@ -31,13 +32,19 @@ class OrderAdmin(admin.ModelAdmin):
     def product_show(self, obj):
         return ['名称：' + bt.product.name + '数量：' + str(bt.num) + '个' for bt in obj.product.all()]
 
-    list_display = ('unionId', 'product_show', 'money', 'is_send', 'remarks', 'is_over', 'number')
+    def user_show(self, obj):
+        return MyUser.objects.filter(unionId=obj.unionId)[0].nick_name
+
+    list_display = ('user_show', 'product_show', 'money', 'is_send', 'remarks', 'is_over', 'number')
     list_filter = ('is_show', 'is_send', 'is_over', 'is_fail', 'is_virtual')
     search_fields = ('unionId', 'number')
 
 
 @admin.register(ShoppingCat)
 class CatAdmin(admin.ModelAdmin):
-    list_display = ('unionId', 'product', 'num', 'create_time', 'is_show')
+    def user_show(self, obj):
+        return MyUser.objects.filter(unionId=obj.unionId)[0].nick_name
+
+    list_display = ('user_show', 'product', 'num', 'create_time', 'is_show')
     list_filter = ('unionId', 'product__name', 'create_time', 'is_show')
     search_fields = ('unionId', 'product__name')

@@ -206,7 +206,12 @@ class OrderApi(APIView):
         orders = Order.objects.filter(unionId=user.unionId, is_show=False)
         status = 1
         mes = '该用户所有订单，购买记录' if len(orders) > 0 else '该用户还没有订单'
-        info = [model_to_dict(order) for order in orders]
+        info = [({**(model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
+                                                  'is_show',
+                                                  'money', 'virtual_money', 'is_virtual', 'date'])),
+                  **({i.product.product.name: i.product.num
+                      for i in order.product.all()})
+                  }) for order in orders]
         return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)
 
     def post(self, request):
@@ -233,11 +238,28 @@ class OrderApi(APIView):
         for id in cats:
             cat = ShoppingCat.objects.get(id=id)
             order.product.add(cat)
+
+        money = []
+        virtual_money = []
+        for i in order.product.all():
+            if i.product.is_discount is True:
+                money.append(i.product.price * i.num * i.product.discount)
+                if i.product.property == 0:
+                    virtual_money.append(i.product.virtual * i.num * i.product.discount)
+            else:
+                money.append(i.product.price * i.num)
+                if i.product.property == 0:
+                    virtual_money.append(i.product.virtual * i.num)
+            if i.product.property != 0:
+                order.is_virtual = False
+        order.money = sum(money)
+        order.virtualMoney = sum(virtual_money)
         order.save()
         status = 1
         mes = '订单创建完成，请付款'
-        # info = model_to_dict(order)
-        info = 'none'
+        info = model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
+                                            'money', 'virtual_money', 'is_virtual'])
+
         return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)
 
     def put(self, request):

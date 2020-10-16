@@ -32,5 +32,25 @@ class MY_KAdmin(admin.ModelAdmin):
 class MY_RAdmin(admin.ModelAdmin):
     list_display = ('game_info', 'knowlage', 'send_time', 'is_over')
     list_filter = ('game_info__user_id__nick_name', 'is_over', 'send_time')
-    search_fields = ('game_info__name', 'knowlage')
+    search_fields = ('game_info__user_id__nick_name', 'knowlage')
     readonly_fields = ('send_time', 'game_info', 'knowlage')
+
+
+@admin.register(Diray)
+class DirayAdmin(admin.ModelAdmin):
+    def user_show(self, obj):
+        return obj.game_info.user_id.nick_name
+
+    list_display = ('user_show', 'title', 'date', 'public', 'status')
+    list_filter = ('game_info__user_id__nick_name', 'public', 'status')
+    search_fields = ('title', 'game_info__user_id__nick_name')
+
+
+@admin.register(Mailbox)
+class MailboxAdmin(admin.ModelAdmin):
+    def user_show(self, obj):
+        return obj.game_info.user_id.nick_name
+
+    list_display = ('user_show', 'diray', 'date', 'status', 'favor')
+    list_filter = ('game_info__user_id__nick_name', 'diray', 'status', 'favor')
+    search_fields = ('diray__title', 'game_info__user_id__nick_name', 'diray__game_info__user_id__nick_name')

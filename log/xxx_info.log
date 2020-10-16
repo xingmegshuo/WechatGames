@@ -8857,3 +8857,63 @@ django.db.utils.IntegrityError: (1048, "Column 'virtual' cannot be null")
 [2020-09-25 18:40:02,704][Dummy-1:140079498536704][task_id:django][views.py:113][INFO][Starting scheduler...]
 [2020-09-25 18:40:32,253][Thread-2:140079175542528][task_id:django][views.py:103][INFO][获取游戏配置]
 [2020-09-25 18:40:32,259][Thread-2:140079175542528][task_id:django.server][basehttp.py:154][INFO]["POST /api/wx_auth/ HTTP/1.1" 200 36]
+[2020-10-14 17:30:26,883][MainThread:139650902188416][task_id:django][views.py:68][INFO][返回所有游戏和项目信息!]
+[2020-10-14 17:30:26,893][MainThread:139650902188416][task_id:django][views.py:82][INFO][返回所有用户信息,不经常使用]
+[2020-10-14 17:30:31,032][MainThread:140054629425536][task_id:django][views.py:68][INFO][返回所有游戏和项目信息!]
+[2020-10-14 17:30:31,032][MainThread:140054629425536][task_id:django][views.py:82][INFO][返回所有用户信息,不经常使用]
+[2020-10-14 17:30:33,461][Dummy-1:140054450702080][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-10-14 17:31:17,490][MainThread:140015289770368][task_id:django][views.py:68][INFO][返回所有游戏和项目信息!]
+[2020-10-14 17:31:17,490][MainThread:140015289770368][task_id:django][views.py:82][INFO][返回所有用户信息,不经常使用]
+[2020-10-14 17:31:18,214][MainThread:139931163365760][task_id:django][views.py:68][INFO][返回所有游戏和项目信息!]
+[2020-10-14 17:31:18,214][MainThread:139931163365760][task_id:django][views.py:82][INFO][返回所有用户信息,不经常使用]
+[2020-10-14 17:31:18,338][Dummy-1:139930984642304][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-10-14 17:31:25,361][MainThread:140049465192832][task_id:django][views.py:68][INFO][返回所有游戏和项目信息!]
+[2020-10-14 17:31:25,361][MainThread:140049465192832][task_id:django][views.py:82][INFO][返回所有用户信息,不经常使用]
+[2020-10-14 17:31:25,465][Dummy-1:140049320023808][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-10-14 17:34:14,010][MainThread:140416430408064][task_id:django][views.py:68][INFO][返回所有游戏和项目信息!]
+[2020-10-14 17:34:14,011][MainThread:140416430408064][task_id:django][views.py:82][INFO][返回所有用户信息,不经常使用]
+[2020-10-14 17:34:14,142][Dummy-1:140416251684608][task_id:django][views.py:113][INFO][Starting scheduler...]
+[2020-10-14 17:39:41,129][Thread-2:140416335578880][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order/]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/xms/PycharmProjects/Mypro/mini/views.py", line 234, in post
+    cat = ShoppingCat.objects.get(id=id)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/db/models/query.py", line 390, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/db/models/query.py", line 844, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/db/models/query.py", line 862, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1263, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1287, in _add_q
+    split_subq=split_subq,
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1225, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1096, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/db/models/lookups.py", line 20, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/db/models/lookups.py", line 70, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/db/models/fields/__init__.py", line 965, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: '['
+[2020-10-14 17:39:41,145][Thread-2:140416335578880][task_id:django.server][basehttp.py:154][ERROR]["POST /api/order/ HTTP/1.1" 500 20724]

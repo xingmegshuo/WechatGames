@@ -15,7 +15,7 @@ class MyUserAdmin(UserAdmin):
     )
     list_filter = ('is_auth', 'login')
     search_fields = [
-        'username', 'openid', 'email', 'nick_name'
+        'username', 'openid', 'email', 'nick_name', 'unionId'
     ]
     fieldsets = (
         (_('基础信息'), {'fields': ('username', 'password', 'openid', 'unionId')}),

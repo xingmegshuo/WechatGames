@@ -1,6 +1,6 @@
 from django.urls import re_path
 from rest_framework.urlpatterns import format_suffix_patterns
-from .views import SignView, KnowView, Ranking, GameInfoView
+from .views import SignView, KnowView, Ranking, GameInfoView, DirayView, MailboxView
 from user.views import WxAuthView, WxLoginView
 from web.views import api_doc
 from voice.views import GetVoiceView
@@ -19,5 +19,8 @@ urlpatterns = format_suffix_patterns([
     re_path(r'^cat/$', CatApi.as_view(), name='cat'),
     re_path(r'^order/$', OrderApi.as_view(), name='order'),
     re_path(r'^address/$', AddressApi.as_view(), name='address'),
+    re_path(r'^diray/$', DirayView.as_view()),
+    re_path(r'^mailbox/$', MailboxView.as_view()),
     re_path(r'^doc/(?P<path>.*)', api_doc),
+
 ])

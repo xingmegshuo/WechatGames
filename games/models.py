@@ -10,6 +10,22 @@ SUBSRAIPTION_CHOICE = ((False, '不接受订阅'), (True, '接受订阅'))
 STAATUS_CHOICE = ((False, '未审核'), (True, '已经审核'))
 CHECK_CHOICE = ((False, '不通过'), (True, '通过'))
 OVER_CHOICE = ((False, '未完成学习'), (True, '完成学习'))
+PUBLIC_CHOICE = ((False, '不公开'), (True, '公开'))
+DELETE_CHOICE = ((False, '未删除'), (True, '删除'))
+FAVOR_CHOICE = ((False, '不收藏'), (True, '收藏'))
+
+WEATHER_CHOICE = (
+    (0, '晴天'),
+    (1, '多云'),
+    (2, '雨天')
+)
+MOOD_CHOICE = (
+    (0, '开心'),
+    (1, '平静'),
+    (2, '生气'),
+    (3, '伤心'),
+    (4, '委屈')
+)
 
 
 # Create your models here.
@@ -125,4 +141,43 @@ class MengYou_recoding(models.Model):
 
     class Meta:
         verbose_name = _('萌游知知，学习记录')
+        verbose_name_plural = verbose_name
+
+
+# 萌上日记 日记表
+class Diray(models.Model):
+    game_info = models.ForeignKey(GameInfo, on_delete=models.CASCADE, verbose_name=_('日记用户'),
+                                  help_text=_('日记与游戏角色绑定'))
+    img = models.ImageField(verbose_name=_('图片'), help_text=_('日记图片'), upload_to='MengShang', null=True, blank=True)
+    text = models.TextField(verbose_name=_('日记内容'), help_text=_("日记内容"), null=True)
+    date = models.DateTimeField(verbose_name=_('日记时间'), help_text=_('日记时间'), auto_now_add=True)
+    title = models.CharField(max_length=200, verbose_name=_('日记标题'), help_text=_('日记标题'))
+    weather = models.IntegerField(verbose_name=_('天气状态'), help_text=_('天气状态'), choices=WEATHER_CHOICE, null=True,
+                                  blank=True)
+    mood = models.IntegerField(verbose_name=_('心情状态'), help_text=_('心情状态'), choices=MOOD_CHOICE, null=True, blank=True)
+    public = models.BooleanField(verbose_name=_('是否公开'), help_text=_('是否公开'), default=True, choices=PUBLIC_CHOICE)
+    status = models.BooleanField(verbose_name=_('是否删除'), help_text=_('是否删除'), default=False, choices=DELETE_CHOICE)
+
+    def __str__(self):
+        return self.game_info.user_id.__str__() + '-' + self.title
+
+    class Meta:
+        verbose_name = _('萌上日记,日记库')
+        verbose_name_plural = verbose_name
+
+
+# 萌上日记 信箱表
+class Mailbox(models.Model):
+    game_info = models.ForeignKey(GameInfo, on_delete=models.CASCADE, verbose_name=_('日记用户'),
+                                  help_text=_('信箱与游戏角色绑定'))
+    diray = models.ForeignKey(Diray, on_delete=models.CASCADE, verbose_name=_('日记'), help_text=_('日记'))
+    status = models.BooleanField(verbose_name=_('是否删除'), help_text=_('是否删除'), default=False, choices=DELETE_CHOICE)
+    date = models.DateTimeField(verbose_name=_('日记进入时间'), help_text=_('日记进入时间'), auto_now_add=True)
+    favor = models.BooleanField(verbose_name=_('是否收藏'), help_text=_('是否收藏'), default=False, choices=FAVOR_CHOICE)
+
+    def __str__(self):
+        return self.game_info.user_id.__str__() + '-' + self.diray.title
+
+    class Meta:
+        verbose_name = _('萌上日记,信箱')
         verbose_name_plural = verbose_name

@@ -114,15 +114,8 @@ class Order(models.Model):
                                      choices=VIRTU_CHOICE)
     date = models.DateTimeField(verbose_name=_('订单创建时间'), help_text=_('订单创建时间'), auto_now_add=True)
 
-    def on_save(self):
-        self.number = self.unionId + str(self.id)
-
     def __str__(self):
         return self.number + self.unionId
-
-    def save(self, *args, **kwargs):
-        self.on_save()
-        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ('-date',)
@@ -133,26 +126,5 @@ class Order(models.Model):
 @receiver(signals.post_save, sender=Order)
 def model_post_save(sender, created, instance, *args, **kwargs):
     if created:
-        logger.info(instance.product.all(), '购物车')
-        if len(instance.product.all()) > 0:
-            money = []
-            virtual_money = []
-            for i in instance.product:
-                if i.product.is_discount is True:
-                    money.append(i.product.price * i.num * i.product.discount)
-                    if i.property == 0:
-                        virtual_money.append(i.product.virtual * i.num * i.product.discount)
-                else:
-                    money.append(i.product.price * i.num)
-                    if i.product.product.property == 0:
-                        virtual_money.append(i.product.virtual * i.num)
-                if i.product.property != 0:
-                    instance.is_virtual = False
-            instance.money = sum(money)
-            instance.virtualMoney = sum(virtual_money)
-            instance.save()
-        else:
-            logger.info(instance.product.all(), '购物车')
-            instance.money = 1
-            instance.virtualMoney = 1
-            instance.save()
+        instance.number = instance.unionId + str(instance.id)
+

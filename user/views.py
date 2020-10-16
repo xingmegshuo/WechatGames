@@ -195,7 +195,6 @@ class WxLoginView(APIView):
     def post(self, request):
         deal_ip(request)
         params = get_parameter_dic(request)
-        user_info = dict()
         name = params.get('name')
         code = params.get('code')
         logger.info("Code: {0}".format(code))

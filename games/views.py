@@ -338,15 +338,17 @@ class Ranking(APIView):
 
     def post(self, request):
         params = get_parameter_dic(request)
+        name = params.get('name', None)
+        app = get_app_config(name).id
         cod = params.get('cod', None)
         As_ds = params.get('As_ds', None)
         num = params.get('num', 100)
 
         try:
-            if As_ds == None or As_ds == 'as':
-                game_info = GameInfo.objects.all().order_by('-' + cod)[:num]
+            if As_ds is None or As_ds == 'as':
+                game_info = GameInfo.objects.filter(game_id=app).order_by('-' + cod)[:num]
             else:
-                game_info = GameInfo.objects.all().order_by(cod)[:num]
+                game_info = GameInfo.objects.filter(game_id=app).order_by(cod)[:num]
             status = 1
             mes = '排序数据'
             info = [{**(model_to_dict(info, fields=['level', 'grade', 'score', 'property'])),
@@ -541,3 +543,300 @@ class GameInfoView(APIView):
                     )
                 },
                 status=HTTP_200_OK)
+
+
+class DirayView(APIView):
+    def get(self, request):
+        """
+              @api {GET} /api/diray/ 获取个人日记内容接口
+              @apiVersion 0.0.1
+              @apiName 获取日记信息
+              @apiGroup 萌上日记
+
+              @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
+              @apiParam {String} name 游戏名字
+              @apiError {String} message token 错误,或者没有携带
+
+              @apiErrorExample Error-Response:
+              {
+                  "detail": "Given token not valid for any token type",
+                  "code": "token_not_valid",
+                  "messages": [
+                      {
+                          "token_class": "AccessToken",
+                          "token_type": "access",
+                          "message": "Token is invalid or expired"
+                      }
+                  ]
+              }
+              '请求需要携带token '
+
+          """
+        user = request.user.id
+        name = get_parameter_dic(request).get('name')
+        game_info = GameInfo.objects.get(user_id=int(user), game_id=get_app_config(name))
+        diray = Diray.objects.filter(game_info=game_info, status=False)
+        if len(diray) > 0:
+            status = 1
+            mes = '用户日记信息'
+            # try:
+            info = []
+
+            for i in diray:
+                try:
+                    info.append({**(model_to_dict(i,
+                                                  fields=('id', 'title', 'text', 'date', 'public', 'status', 'weather',
+                                                          'mood'))),
+                                 **({'img': i.img.url})
+                                 })
+                except:
+                    info.append(
+                        {**(model_to_dict(i,
+                                          fields=(
+                                              'id', 'title', 'text', 'date', 'public', 'status', 'weather', 'mood'))),
+                         **({'img': None})
+                         })
+        else:
+            status = 0
+            mes = '暂时没有日记'
+            info = None
+        return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)
+
+    def post(self, request):
+        """
+              @api {POST} /api/diray/ 上传日记
+              @apiVersion 0.0.1
+              @apiName 上传日记
+              @apiGroup 萌上日记
+
+              @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
+              @apiParam {String} name 游戏名字
+              @apiParam {String} title 日记标题
+              @apiParam {String} content 日记内容
+               @apiParam  {String} img 日记图片 可以为空
+               @apiParam  {String} weather 天气 ,可以为空
+               @apiParam  {String} mood 心情,可以为空
+               @apiParam  {boolean} public 是否公开
+               @apiParam  {boolean} status 日记状态
+
+
+              @apiError {String} message token 错误,或者没有携带
+
+              @apiErrorExample Error-Response:
+              {
+                  "detail": "Given token not valid for any token type",
+                  "code": "token_not_valid",
+                  "messages": [
+                      {
+                          "token_class": "AccessToken",
+                          "token_type": "access",
+                          "message": "Token is invalid or expired"
+                      }
+                  ]
+              }
+              '请求需要携带token '
+        """
+        user = request.user.id
+        params = get_parameter_dic(request)
+        app = get_app_config(params.get('name'))
+        game_info = GameInfo.objects.get(user_id=int(user), game_id=app)
+        diray = Diray.objects.create(game_info=game_info, title=params.get('title'), text=params.get('content'))
+        if params.get('img'):
+            diray.img = params.get('img')
+        if params.get('status'):
+            diray.status = params.get('status')
+        if params.get('public'):
+            diray.public = params.get('public')
+        try:
+            diray.weather = int(params.get('weather'))
+            diray.mood = int(params.get('mood'))
+            diray.save()
+        except:
+            diray.save()
+        status = 1
+        mes = '日记新建成功'
+        return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
+
+    def put(self, request):
+        """
+              @api {PUT} /api/diray/ 修改日记
+              @apiVersion 0.0.1
+              @apiName 修改日记
+              @apiGroup 萌上日记
+
+              @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
+
+              @apiParam {String} id 日记id
+               @apiParam {String} title 日记标题
+              @apiParam {String} content 日记内容
+              @apiParam {String} img 日记图片 可以为空
+               @apiParam {String} weather 天气 ,可以为空
+              @apiParam {String} mood 心情,可以为空
+               @apiParam  {boolean} public 是否公开
+               @apiParam {boolean} status 日记状态
+
+
+              @apiError {String} message token 错误,或者没有携带
+
+              @apiErrorExample Error-Response:
+              {
+                  "detail": "Given token not valid for any token type",
+                  "code": "token_not_valid",
+                  "messages": [
+                      {
+                          "token_class": "AccessToken",
+                          "token_type": "access",
+                          "message": "Token is invalid or expired"
+                      }
+                  ]
+              }
+              '请求需要携带token '
+        """
+
+        params = get_parameter_dic(request)
+        diray = Diray.objects.get(id=int(params.get('id')))
+        diray.title = params.get('title')
+        diray.text = params.get('content')
+        if params.get('img'):
+            diray.img = params.get('img')
+        if params.get('status'):
+            diray.status = params.get('status')
+        if params.get('public'):
+            diray.public = params.get('public')
+        try:
+            diray.weather = int(params.get('weather'))
+            diray.mood = int(params.get('mood'))
+            diray.save()
+        except:
+            diray.save()
+
+        status = 1
+        mes = '日记修改完成'
+        return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
+
+
+class MailboxView(APIView):
+    def get(self, request):
+        """
+              @api {GET} /api/mailbox/ 获取信箱
+              @apiVersion 0.0.1
+              @apiName 获取信箱
+              @apiGroup 萌上日记
+
+              @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
+              @apiParam {String} name 游戏名字
+              @apiError {String} message token 错误,或者没有携带
+              @apiErrorExample Error-Response:
+              {
+                  "detail": "Given token not valid for any token type",
+                  "code": "token_not_valid",
+                  "messages": [
+                      {
+                          "token_class": "AccessToken",
+                          "token_type": "access",
+                          "message": "Token is invalid or expired"
+                      }
+                  ]
+              }
+              '请求需要携带token '
+        """
+        user = request.user.id
+        params = get_parameter_dic(request)
+        game_info = GameInfo.objects.get(user_id=int(user), game_id=get_app_config(params.get('name')))
+        mailbox = Mailbox.objects.filter(game_info=game_info, status=False)
+        if len(mailbox) > 0:
+            status = 1
+            mes = '信箱信息'
+            info = []
+            for i in mailbox:
+                try:
+                    info.append({
+                        **(model_to_dict(i, fields=['id', 'favor', 'status'])),
+                        **({**(model_to_dict(i.diray, fields=['title', 'text', 'date', 'weather', 'mood'])),
+                            **({'img': i.diray.img.url})})
+                    })
+                except:
+                    info.append({
+                        **(model_to_dict(i, fields=['id', 'favor', 'status'])),
+                        **({**(model_to_dict(i.diray, fields=['title', 'text', 'date', 'weather', 'mood'])),
+                            **({'img': None})})
+                    })
+        else:
+            status = 0
+            mes = '信箱暂无信息'
+            info = None
+        return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)
+
+    def post(self, request):
+        """
+              @api {GET} /api/mailbox/ 获取一条信箱
+              @apiVersion 0.0.1
+              @apiName 获取一条到信箱
+              @apiGroup 萌上日记
+
+              @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
+              @apiParam {String} name 游戏名字
+              @apiError {String} message token 错误,或者没有携带
+              @apiErrorExample Error-Response:
+              {
+                  "detail": "Given token not valid for any token type",
+                  "code": "token_not_valid",
+                  "messages": [
+                      {
+                          "token_class": "AccessToken",
+                          "token_type": "access",
+                          "message": "Token is invalid or expired"
+                      }
+                  ]
+              }
+              '请求需要携带token '
+        """
+        user = request.user.id
+        params = get_parameter_dic(request)
+        game_info = GameInfo.objects.get(user_id=int(user), game_id=get_app_config(params.get('name')))
+        mailbox = [i.diray.id for i in Mailbox.objects.filter(game_info=game_info)]
+        new_Diray = Diray.objects.filter(public=True, status=False).exclude(game_info=game_info, id__in=mailbox).first()
+        if new_Diray:
+            mail = Mailbox.objects.create(game_info=game_info, diray=new_Diray)
+            status = 1
+            mes = '新增一条信箱'
+        else:
+            status = 0
+            mes = '没有公开日记了'
+        return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
+
+    def put(self, request):
+        """
+              @api {GET} /api/mailbox/ 修改一条信箱
+              @apiVersion 0.0.1
+              @apiName 修改一条信箱
+              @apiGroup 萌上日记
+
+              @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
+              @apiParam {String} id 信箱信息id
+              @apiParam {String} favor 是否收藏
+              @apiParam {String} status 是否删除
+
+              @apiError {String} message token 错误,或者没有携带
+              @apiErrorExample Error-Response:
+              {
+                  "detail": "Given token not valid for any token type",
+                  "code": "token_not_valid",
+                  "messages": [
+                      {
+                          "token_class": "AccessToken",
+                          "token_type": "access",
+                          "message": "Token is invalid or expired"
+                      }
+                  ]
+              }
+              '请求需要携带token '
+        """
+        params = get_parameter_dic(request)
+        mailbox = Mailbox.objects.get(id=params.get('id'))
+        if params.get('status'):
+            mailbox.status = params.get('status')
+        if params.get('favor'):
+            mailbox.favor = params.get('favor')
+        mailbox.save()
+        return Response({'status': 1, 'mes': '修改信箱'}, status=HTTP_200_OK)
