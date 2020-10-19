@@ -65,3 +65,4 @@ class AddressAdmin(admin.ModelAdmin):
 @admin.register(RecordLogin)
 class LoginAdmin(admin.ModelAdmin):
     list_display = ('user', 'login_time')
+    list_filter = ('user__nick_name',)
