@@ -1521,7 +1521,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"mes\": \"日记新建成功\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"mes\": \"日记新建成功\"\n}",
           "type": "json"
         }
       ]
@@ -1600,7 +1600,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"mes\": \"修改信箱\"\n}",
+          "content": "HTTP/1.1 200 OK\nHTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"mes\": \"修改信箱\"\n}",
           "type": "json"
         }
       ]
@@ -1714,7 +1714,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"mes\": \"日记修改完成\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"mes\": \"日记修改完成\"\n}",
           "type": "json"
         }
       ]
@@ -1779,7 +1779,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"mes\": \"新增一条信箱\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"mes\": \"新增一条信箱\"\n}",
           "type": "json"
         }
       ]
@@ -1844,7 +1844,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"mes\": \"信箱信息\",\n    \"info\": [\n        {\n            \"id\": 1,\n            \"status\": false,\n            \"favor\": false,\n            \"text\": \"dkfglfkldlkklgflk\",\n            \"title\": \"dlflgkkglkkl\",\n            \"weather\": null,\n            \"mood\": null,\n            \"img\": null\n        }\n    ]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"mes\": \"信箱信息\",\n  \"info\": [\n      {\n          \"id\": 1,\n          \"status\": false,\n          \"favor\": false,\n          \"text\": \"dkfglfkldlkklgflk\",\n          \"title\": \"dlflgkkglkkl\",\n          \"weather\": null,\n          \"mood\": null,\n          \"img\": null\n      }\n  ]\n}",
           "type": "json"
         }
       ]
@@ -1909,7 +1909,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\"status\": 1,\n\"mes\": \"用户日记信息\",\n\"info\": [\n        {\n            \"id\": 1,\n            \"text\": \"dkfglfkldlkklgflk\",\n            \"title\": \"dlflgkkglkkl\",\n            \"weather\": null,\n            \"mood\": null,\n            \"public\": false,\n            \"status\": false,\n            \"img\": null\n        },\n        {\n            \"id\": 2,\n            \"text\": \"这样很好111\",\n            \"title\": \"这样不好2222\",\n            \"weather\": null,\n            \"mood\": null,\n            \"public\": true,\n            \"status\": false,\n            \"img\": \"/media/MengShang/b0ee657175d1421dc9fd0e03a9191d4b_u5rTjY4.jpg\"\n        }\n    ]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"mes\": \"用户日记信息\",\n  \"info\": [\n          {\n              \"id\": 1,\n              \"text\": \"dkfglfkldlkklgflk\",\n              \"title\": \"dlflgkkglkkl\",\n              \"weather\": null,\n              \"mood\": null,\n              \"public\": false,\n              \"status\": false,\n              \"img\": null\n          },\n          {\n              \"id\": 2,\n              \"text\": \"这样很好111\",\n              \"title\": \"这样不好2222\",\n              \"weather\": null,\n              \"mood\": null,\n              \"public\": true,\n              \"status\": false,\n              \"img\": \"/media/MengShang/b0ee657175d1421dc9fd0e03a9191d4b_u5rTjY4.jpg\"\n          }\n      ]\n}",
           "type": "json"
         }
       ]

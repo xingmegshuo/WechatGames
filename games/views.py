@@ -556,7 +556,34 @@ class DirayView(APIView):
               @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
               @apiParam {String} name 游戏名字
               @apiError {String} message token 错误,或者没有携带
-
+              @apiSuccessExample Success-Response:
+              HTTP/1.1 200 OK
+              {
+                "status": 1,
+                "mes": "用户日记信息",
+                "info": [
+                        {
+                            "id": 1,
+                            "text": "dkfglfkldlkklgflk",
+                            "title": "dlflgkkglkkl",
+                            "weather": null,
+                            "mood": null,
+                            "public": false,
+                            "status": false,
+                            "img": null
+                        },
+                        {
+                            "id": 2,
+                            "text": "这样很好111",
+                            "title": "这样不好2222",
+                            "weather": null,
+                            "mood": null,
+                            "public": true,
+                            "status": false,
+                            "img": "/media/MengShang/b0ee657175d1421dc9fd0e03a9191d4b_u5rTjY4.jpg"
+                        }
+                    ]
+              }
               @apiErrorExample Error-Response:
               {
                   "detail": "Given token not valid for any token type",
@@ -570,34 +597,7 @@ class DirayView(APIView):
                   ]
               }
               '请求需要携带token '
-            @apiSuccessExample Success-Response:
-            HTTP/1.1 200 OK
-            {
-            "status": 1,
-            "mes": "用户日记信息",
-            "info": [
-                    {
-                        "id": 1,
-                        "text": "dkfglfkldlkklgflk",
-                        "title": "dlflgkkglkkl",
-                        "weather": null,
-                        "mood": null,
-                        "public": false,
-                        "status": false,
-                        "img": null
-                    },
-                    {
-                        "id": 2,
-                        "text": "这样很好111",
-                        "title": "这样不好2222",
-                        "weather": null,
-                        "mood": null,
-                        "public": true,
-                        "status": false,
-                        "img": "/media/MengShang/b0ee657175d1421dc9fd0e03a9191d4b_u5rTjY4.jpg"
-                    }
-                ]
-            }
+
           """
         user = request.user.id
         name = get_parameter_dic(request).get('name')
@@ -648,7 +648,12 @@ class DirayView(APIView):
 
 
               @apiError {String} message token 错误,或者没有携带
-
+              @apiSuccessExample Success-Response:
+              HTTP/1.1 200 OK
+              {
+                "status": 1,
+                "mes": "日记新建成功"
+              }
               @apiErrorExample Error-Response:
               {
                   "detail": "Given token not valid for any token type",
@@ -662,12 +667,7 @@ class DirayView(APIView):
                   ]
               }
               '请求需要携带token '
-            @apiSuccessExample Success-Response:
-            HTTP/1.1 200 OK
-            {
-                "status": 1,
-                "mes": "日记新建成功"
-            }
+
         """
         user = request.user.id
         params = get_parameter_dic(request)
@@ -710,7 +710,12 @@ class DirayView(APIView):
 
 
               @apiError {String} message token 错误,或者没有携带
-
+              @apiSuccessExample Success-Response:
+              HTTP/1.1 200 OK
+              {
+                "status": 1,
+                "mes": "日记修改完成"
+              }
               @apiErrorExample Error-Response:
               {
                   "detail": "Given token not valid for any token type",
@@ -724,12 +729,7 @@ class DirayView(APIView):
                   ]
               }
               '请求需要携带token '
-            @apiSuccessExample Success-Response:
-            HTTP/1.1 200 OK
-            {
-                "status": 1,
-                "mes": "日记修改完成"
-            }
+
         """
 
         params = get_parameter_dic(request)
@@ -765,22 +765,9 @@ class MailboxView(APIView):
               @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
               @apiParam {String} name 游戏名字
               @apiError {String} message token 错误,或者没有携带
-              @apiErrorExample Error-Response:
+              @apiSuccessExample Success-Response:
+              HTTP/1.1 200 OK
               {
-                  "detail": "Given token not valid for any token type",
-                  "code": "token_not_valid",
-                  "messages": [
-                      {
-                          "token_class": "AccessToken",
-                          "token_type": "access",
-                          "message": "Token is invalid or expired"
-                      }
-                  ]
-              }
-              '请求需要携带token '
-            @apiSuccessExample Success-Response:
-            HTTP/1.1 200 OK
-            {
                 "status": 1,
                 "mes": "信箱信息",
                 "info": [
@@ -795,7 +782,21 @@ class MailboxView(APIView):
                         "img": null
                     }
                 ]
-            }
+              }
+              @apiErrorExample Error-Response:
+              {
+                  "detail": "Given token not valid for any token type",
+                  "code": "token_not_valid",
+                  "messages": [
+                      {
+                          "token_class": "AccessToken",
+                          "token_type": "access",
+                          "message": "Token is invalid or expired"
+                      }
+                  ]
+              }
+              '请求需要携带token '
+
         """
         user = request.user.id
         params = get_parameter_dic(request)
@@ -834,6 +835,12 @@ class MailboxView(APIView):
               @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
               @apiParam {String} name 游戏名字
               @apiError {String} message token 错误,或者没有携带
+              @apiSuccessExample Success-Response:
+              HTTP/1.1 200 OK
+              {
+                "status": 1,
+                "mes": "新增一条信箱"
+              }
               @apiErrorExample Error-Response:
               {
                   "detail": "Given token not valid for any token type",
@@ -847,12 +854,7 @@ class MailboxView(APIView):
                   ]
               }
               '请求需要携带token '
-            @apiSuccessExample Success-Response:
-            HTTP/1.1 200 OK
-            {
-                "status": 1,
-                "mes": "新增一条信箱"
-            }
+
         """
         user = request.user.id
         params = get_parameter_dic(request)
@@ -881,6 +883,13 @@ class MailboxView(APIView):
               @apiParam {String} status 是否删除
 
               @apiError {String} message token 错误,或者没有携带
+              @apiSuccessExample Success-Response:
+              HTTP/1.1 200 OK
+              HTTP/1.1 200 OK
+              {
+                "status": 1,
+                "mes": "修改信箱"
+              }
               @apiErrorExample Error-Response:
               {
                   "detail": "Given token not valid for any token type",
@@ -894,12 +903,7 @@ class MailboxView(APIView):
                   ]
               }
               '请求需要携带token '
-            @apiSuccessExample Success-Response:
-            HTTP/1.1 200 OK
-            {
-                "status": 1,
-                "mes": "修改信箱"
-            }
+
         """
         params = get_parameter_dic(request)
         mailbox = Mailbox.objects.get(id=params.get('id'))
