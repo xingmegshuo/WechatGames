@@ -570,7 +570,34 @@ class DirayView(APIView):
                   ]
               }
               '请求需要携带token '
-
+            @apiSuccessExample Success-Response:
+            HTTP/1.1 200 OK
+            {
+            "status": 1,
+            "mes": "用户日记信息",
+            "info": [
+                    {
+                        "id": 1,
+                        "text": "dkfglfkldlkklgflk",
+                        "title": "dlflgkkglkkl",
+                        "weather": null,
+                        "mood": null,
+                        "public": false,
+                        "status": false,
+                        "img": null
+                    },
+                    {
+                        "id": 2,
+                        "text": "这样很好111",
+                        "title": "这样不好2222",
+                        "weather": null,
+                        "mood": null,
+                        "public": true,
+                        "status": false,
+                        "img": "/media/MengShang/b0ee657175d1421dc9fd0e03a9191d4b_u5rTjY4.jpg"
+                    }
+                ]
+            }
           """
         user = request.user.id
         name = get_parameter_dic(request).get('name')
@@ -635,6 +662,12 @@ class DirayView(APIView):
                   ]
               }
               '请求需要携带token '
+            @apiSuccessExample Success-Response:
+            HTTP/1.1 200 OK
+            {
+                "status": 1,
+                "mes": "日记新建成功"
+            }
         """
         user = request.user.id
         params = get_parameter_dic(request)
@@ -691,6 +724,12 @@ class DirayView(APIView):
                   ]
               }
               '请求需要携带token '
+            @apiSuccessExample Success-Response:
+            HTTP/1.1 200 OK
+            {
+                "status": 1,
+                "mes": "日记修改完成"
+            }
         """
 
         params = get_parameter_dic(request)
@@ -739,6 +778,24 @@ class MailboxView(APIView):
                   ]
               }
               '请求需要携带token '
+            @apiSuccessExample Success-Response:
+            HTTP/1.1 200 OK
+            {
+                "status": 1,
+                "mes": "信箱信息",
+                "info": [
+                    {
+                        "id": 1,
+                        "status": false,
+                        "favor": false,
+                        "text": "dkfglfkldlkklgflk",
+                        "title": "dlflgkkglkkl",
+                        "weather": null,
+                        "mood": null,
+                        "img": null
+                    }
+                ]
+            }
         """
         user = request.user.id
         params = get_parameter_dic(request)
@@ -769,7 +826,7 @@ class MailboxView(APIView):
 
     def post(self, request):
         """
-              @api {GET} /api/mailbox/ 获取一条信箱
+              @api {POST} /api/mailbox/ 获取一条信箱
               @apiVersion 0.0.1
               @apiName 获取一条到信箱
               @apiGroup 萌上日记
@@ -790,6 +847,12 @@ class MailboxView(APIView):
                   ]
               }
               '请求需要携带token '
+            @apiSuccessExample Success-Response:
+            HTTP/1.1 200 OK
+            {
+                "status": 1,
+                "mes": "新增一条信箱"
+            }
         """
         user = request.user.id
         params = get_parameter_dic(request)
@@ -807,7 +870,7 @@ class MailboxView(APIView):
 
     def put(self, request):
         """
-              @api {GET} /api/mailbox/ 修改一条信箱
+              @api {PUT} /api/mailbox/ 修改一条信箱
               @apiVersion 0.0.1
               @apiName 修改一条信箱
               @apiGroup 萌上日记
@@ -831,6 +894,12 @@ class MailboxView(APIView):
                   ]
               }
               '请求需要携带token '
+            @apiSuccessExample Success-Response:
+            HTTP/1.1 200 OK
+            {
+                "status": 1,
+                "mes": "修改信箱"
+            }
         """
         params = get_parameter_dic(request)
         mailbox = Mailbox.objects.get(id=params.get('id'))

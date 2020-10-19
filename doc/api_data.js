@@ -1517,11 +1517,20 @@ define({ "api": [
         }
       ]
     },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"mes\": \"日记新建成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
     "filename": "./games/views.py",
     "groupTitle": "萌上日记"
   },
   {
-    "type": "GET",
+    "type": "PUT",
     "url": "/api/mailbox/",
     "title": "修改一条信箱",
     "version": "0.0.1",
@@ -1583,6 +1592,15 @@ define({ "api": [
         {
           "title": "Error-Response:",
           "content": "{\n    \"detail\": \"Given token not valid for any token type\",\n    \"code\": \"token_not_valid\",\n    \"messages\": [\n        {\n            \"token_class\": \"AccessToken\",\n            \"token_type\": \"access\",\n            \"message\": \"Token is invalid or expired\"\n        }\n    ]\n}\n'请求需要携带token '",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"mes\": \"修改信箱\"\n}",
           "type": "json"
         }
       ]
@@ -1692,11 +1710,20 @@ define({ "api": [
         }
       ]
     },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"mes\": \"日记修改完成\"\n}",
+          "type": "json"
+        }
+      ]
+    },
     "filename": "./games/views.py",
     "groupTitle": "萌上日记"
   },
   {
-    "type": "GET",
+    "type": "POST",
     "url": "/api/mailbox/",
     "title": "获取一条信箱",
     "version": "0.0.1",
@@ -1744,6 +1771,15 @@ define({ "api": [
         {
           "title": "Error-Response:",
           "content": "{\n    \"detail\": \"Given token not valid for any token type\",\n    \"code\": \"token_not_valid\",\n    \"messages\": [\n        {\n            \"token_class\": \"AccessToken\",\n            \"token_type\": \"access\",\n            \"message\": \"Token is invalid or expired\"\n        }\n    ]\n}\n'请求需要携带token '",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"mes\": \"新增一条信箱\"\n}",
           "type": "json"
         }
       ]
@@ -1804,6 +1840,15 @@ define({ "api": [
         }
       ]
     },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"mes\": \"信箱信息\",\n    \"info\": [\n        {\n            \"id\": 1,\n            \"status\": false,\n            \"favor\": false,\n            \"text\": \"dkfglfkldlkklgflk\",\n            \"title\": \"dlflgkkglkkl\",\n            \"weather\": null,\n            \"mood\": null,\n            \"img\": null\n        }\n    ]\n}",
+          "type": "json"
+        }
+      ]
+    },
     "filename": "./games/views.py",
     "groupTitle": "萌上日记"
   },
@@ -1856,6 +1901,15 @@ define({ "api": [
         {
           "title": "Error-Response:",
           "content": "{\n    \"detail\": \"Given token not valid for any token type\",\n    \"code\": \"token_not_valid\",\n    \"messages\": [\n        {\n            \"token_class\": \"AccessToken\",\n            \"token_type\": \"access\",\n            \"message\": \"Token is invalid or expired\"\n        }\n    ]\n}\n'请求需要携带token '",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\"status\": 1,\n\"mes\": \"用户日记信息\",\n\"info\": [\n        {\n            \"id\": 1,\n            \"text\": \"dkfglfkldlkklgflk\",\n            \"title\": \"dlflgkkglkkl\",\n            \"weather\": null,\n            \"mood\": null,\n            \"public\": false,\n            \"status\": false,\n            \"img\": null\n        },\n        {\n            \"id\": 2,\n            \"text\": \"这样很好111\",\n            \"title\": \"这样不好2222\",\n            \"weather\": null,\n            \"mood\": null,\n            \"public\": true,\n            \"status\": false,\n            \"img\": \"/media/MengShang/b0ee657175d1421dc9fd0e03a9191d4b_u5rTjY4.jpg\"\n        }\n    ]\n}",
           "type": "json"
         }
       ]
