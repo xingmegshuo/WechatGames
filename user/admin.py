@@ -56,7 +56,12 @@ class IpAdmin(admin.ModelAdmin):
 
 @admin.register(Address)
 class AddressAdmin(admin.ModelAdmin):
-    list_display = ('unionId', 'human', 'phone','address','is_show')
+    list_display = ('unionId', 'human', 'phone', 'address', 'is_show')
     search_fields = ['phone', 'human', 'unionId', 'address']
     readonly_fields = ('unionId', 'human', 'phone', 'is_show', 'address')
     list_filter = ('is_show', 'human')
+
+
+@admin.register(RecordLogin)
+class LoginAdmin(admin.ModelAdmin):
+    list_display = ('user', 'login_time')
