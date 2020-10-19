@@ -124,8 +124,7 @@ def record_time(user):
     user.last_login = user.login
     user.login = timezone.now()
     user.save()
-    record_login = RecordLogin.objects.create(user=user)
-    record_login.save()
+
 
 
 class WxLoginView(APIView):
