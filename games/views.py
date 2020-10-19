@@ -690,68 +690,68 @@ class DirayView(APIView):
         mes = '日记新建成功'
         return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
 
-    # def put(self, request):
-    #     """
-    #           @api {PUT} /api/diray/ 修改日记
-    #           @apiVersion 0.0.1
-    #           @apiName 修改日记
-    #           @apiGroup 萌上日记
-    #
-    #           @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
-    #
-    #           @apiParam {String} id 日记id
-    #            @apiParam {String} title 日记标题
-    #           @apiParam {String} content 日记内容
-    #           @apiParam {String} img 日记图片 可以为空
-    #            @apiParam {String} weather 天气 ,可以为空
-    #           @apiParam {String} mood 心情,可以为空
-    #            @apiParam  {boolean} public 是否公开
-    #            @apiParam {boolean} status 日记状态
-    #
-    #
-    #           @apiError {String} message token 错误,或者没有携带
-    #           @apiSuccessExample Success-Response:
-    #           HTTP/1.1 200 OK
-    #           {
-    #             "status": 1,
-    #             "mes": "日记修改完成"
-    #           }
-    #           @apiErrorExample Error-Response:
-    #           {
-    #               "detail": "Given token not valid for any token type",
-    #               "code": "token_not_valid",
-    #               "messages": [
-    #                   {
-    #                       "token_class": "AccessToken",
-    #                       "token_type": "access",
-    #                       "message": "Token is invalid or expired"
-    #                   }
-    #               ]
-    #           }
-    #           '请求需要携带token '
-    #
-    #     """
-    #
-    #     params = get_parameter_dic(request)
-    #     diray = Diray.objects.get(id=int(params.get('id')))
-    #     diray.title = params.get('title')
-    #     diray.text = params.get('content')
-    #     if params.get('img'):
-    #         diray.img = params.get('img')
-    #     if params.get('status'):
-    #         diray.status = params.get('status')
-    #     if params.get('public'):
-    #         diray.public = params.get('public')
-    #     try:
-    #         diray.weather = int(params.get('weather'))
-    #         diray.mood = int(params.get('mood'))
-    #         diray.save()
-    #     except:
-    #         diray.save()
-    #
-    #     status = 1
-    #     mes = '日记修改完成'
-    #     return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
+    def put(self, request):
+        """
+              @api {PUT} /api/diray/ 修改日记
+              @apiVersion 0.0.1
+              @apiName 修改日记
+              @apiGroup 萌上日记
+
+              @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
+
+              @apiParam {String} id 日记id
+               @apiParam {String} title 日记标题
+              @apiParam {String} content 日记内容
+              @apiParam {String} img 日记图片 可以为空
+               @apiParam {String} weather 天气 ,可以为空
+              @apiParam {String} mood 心情,可以为空
+               @apiParam  {boolean} public 是否公开
+               @apiParam {boolean} status 日记状态
+
+
+              @apiError {String} message token 错误,或者没有携带
+              @apiSuccessExample Success-Response:
+              HTTP/1.1 200 OK
+              {
+                "status": 1,
+                "mes": "日记修改完成"
+              }
+              @apiErrorExample Error-Response:
+              {
+                  "detail": "Given token not valid for any token type",
+                  "code": "token_not_valid",
+                  "messages": [
+                      {
+                          "token_class": "AccessToken",
+                          "token_type": "access",
+                          "message": "Token is invalid or expired"
+                      }
+                  ]
+              }
+              '请求需要携带token '
+
+        """
+
+        params = get_parameter_dic(request)
+        diray = Diray.objects.get(id=int(params.get('id')))
+        diray.title = params.get('title')
+        diray.text = params.get('content')
+        if params.get('img'):
+            diray.img = params.get('img')
+        if params.get('status'):
+            diray.status = params.get('status')
+        if params.get('public'):
+            diray.public = params.get('public')
+        try:
+            diray.weather = int(params.get('weather'))
+            diray.mood = int(params.get('mood'))
+            diray.save()
+        except:
+            diray.save()
+
+        status = 1
+        mes = '日记修改完成'
+        return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
 
 
 class MailboxView(APIView):
