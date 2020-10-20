@@ -606,23 +606,12 @@ class DirayView(APIView):
         if len(diray) > 0:
             status = 1
             mes = '用户日记信息'
-            # try:
             info = []
-
             for i in diray:
-                try:
-                    info.append({**(model_to_dict(i,
-                                                  fields=('id', 'title', 'text', 'date', 'public', 'status', 'weather',
-                                                          'mood'))),
-                                 **({'img': i.img.url})
-                                 })
-                except:
-                    info.append(
-                        {**(model_to_dict(i,
-                                          fields=(
-                                              'id', 'title', 'text', 'date', 'public', 'status', 'weather', 'mood'))),
-                         **({'img': None})
-                         })
+                info.append({**(model_to_dict(i,
+                                              fields=('id', 'title', 'text', 'date', 'public', 'status', 'weather',
+                                                      'mood'))),
+                             **({'img': [j.img.url for j in DirayImage.objects.filter(diray=i)]})})
         else:
             status = 0
             mes = '暂时没有日记'
@@ -640,7 +629,6 @@ class DirayView(APIView):
               @apiParam {String} name 游戏名字
               @apiParam {String} title 日记标题
               @apiParam {String} content 日记内容
-               @apiParam  {String} img 日记图片 可以为空
                @apiParam  {String} weather 天气 ,可以为空
                @apiParam  {String} mood 心情,可以为空
                @apiParam  {boolean} public 是否公开
@@ -674,8 +662,6 @@ class DirayView(APIView):
         app = get_app_config(params.get('name'))
         game_info = GameInfo.objects.get(user_id=int(user), game_id=app)
         diray = Diray.objects.create(game_info=game_info, title=params.get('title'), text=params.get('content'))
-        if params.get('img'):
-            diray.img = params.get('img')
         if params.get('status'):
             diray.status = params.get('status')
         if params.get('public'):
@@ -688,7 +674,8 @@ class DirayView(APIView):
             diray.save()
         status = 1
         mes = '日记新建成功'
-        return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
+        info = {'id': diray.id}
+        return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)
 
     def put(self, request):
         """
@@ -700,9 +687,6 @@ class DirayView(APIView):
               @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
 
               @apiParam {String} id 日记id
-               @apiParam {String} title 日记标题
-              @apiParam {String} content 日记内容
-              @apiParam {String} img 日记图片 可以为空
                @apiParam {String} weather 天气 ,可以为空
               @apiParam {String} mood 心情,可以为空
                @apiParam  {boolean} public 是否公开
@@ -734,10 +718,6 @@ class DirayView(APIView):
 
         params = get_parameter_dic(request)
         diray = Diray.objects.get(id=int(params.get('id')))
-        diray.title = params.get('title')
-        diray.text = params.get('content')
-        if params.get('img'):
-            diray.img = params.get('img')
         if params.get('status'):
             diray.status = params.get('status')
         if params.get('public'):
@@ -807,18 +787,10 @@ class MailboxView(APIView):
             mes = '信箱信息'
             info = []
             for i in mailbox:
-                try:
-                    info.append({
-                        **(model_to_dict(i, fields=['id', 'favor', 'status'])),
-                        **({**(model_to_dict(i.diray, fields=['title', 'text', 'date', 'weather', 'mood'])),
-                            **({'img': i.diray.img.url})})
-                    })
-                except:
-                    info.append({
-                        **(model_to_dict(i, fields=['id', 'favor', 'status'])),
-                        **({**(model_to_dict(i.diray, fields=['title', 'text', 'date', 'weather', 'mood'])),
-                            **({'img': None})})
-                    })
+                info.append({
+                    **(model_to_dict(i, fields=['id', 'favor', 'status'])),
+                    **({**(model_to_dict(i.diray, fields=['title', 'text', 'date', 'weather', 'mood'])),
+                        **({'img': [j.img.url for j in DirayImage.objects.filter(diray=i.diray)]})})})
         else:
             status = 0
             mes = '信箱暂无信息'
@@ -913,3 +885,49 @@ class MailboxView(APIView):
             mailbox.favor = params.get('favor')
         mailbox.save()
         return Response({'status': 1, 'mes': '修改信箱'}, status=HTTP_200_OK)
+
+
+class DirayImage(APIView):
+    def post(self, request):
+        """
+              @api {POST} /api/dirayImage/ 日记加图片
+              @apiVersion 0.0.1
+              @apiName 日记加图片
+              @apiGroup 萌上日记
+
+              @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
+              @apiParam {String} id 日记id
+              @apiParam {String} img 图片内容
+
+              @apiError {String} message token 错误,或者没有携带
+              @apiSuccessExample Success-Response:
+              HTTP/1.1 200 OK
+              HTTP/1.1 200 OK
+              {
+                "status": 1,
+                "mes": "上传图片"
+              }
+              @apiErrorExample Error-Response:
+              {
+                  "detail": "Given token not valid for any token type",
+                  "code": "token_not_valid",
+                  "messages": [
+                      {
+                          "token_class": "AccessToken",
+                          "token_type": "access",
+                          "message": "Token is invalid or expired"
+                      }
+                  ]
+              }
+              '请求需要携带token '
+        """
+        params = get_parameter_dic(request)
+        diray = Diray.objects.get(id=params.get('id'))
+        diray_image = DirayImage()
+        diray_image.diray = diray
+        if params.get('img'):
+            diray_image.img = params.get('img')
+        diray_image.save()
+        status = 1
+        mes = '上传图片成功'
+        return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)

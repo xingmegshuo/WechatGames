@@ -8,7 +8,15 @@ import datetime
 from django.utils.timezone import utc
 
 
+def filter_data():
+    pass
+
+
 def parse_user_today():
+    """
+    :return games , peoples , keep_peoples, reg_peoples, all_peoples, user of every game , active people, keep people, register eople
+    """
+
     games = [App_config.objects.get(app_id=app, on_line='1', name='name').value if len(
         App_config.objects.filter(app_id=app, on_line='1', name__exact='name')) > 0
              else app.name for app in APP.objects.all()]
@@ -39,6 +47,10 @@ def parse_user_today():
 
 
 def parse_day(days):
+    """
+    :param days list date
+    :return sort to utc all days
+    """
     now = datetime.datetime.now(tz=utc)
     zeroToday = now - datetime.timedelta(hours=now.hour, minutes=now.minute, seconds=now.second,
                                          microseconds=now.microsecond)
@@ -48,12 +60,20 @@ def parse_day(days):
 
 
 def parse_app(day, app):
+    """
+    :param day the date , app the game
+    :return active user
+    """
     today_end = (day + datetime.timedelta(days=1)).replace(tzinfo=utc)
     active_user = GameInfo.objects.filter(user_id__login__gte=day, user_id__login__lt=today_end).count()
     return active_user
 
 
 def get_long(day):
+    """
+    :param： day the date
+    :return： active user, join user
+    """
     today_end = (day + datetime.timedelta(days=1)).replace(tzinfo=utc)
     active_user = GameInfo.objects.filter(user_id__login__gte=day, user_id__login__lt=today_end).count()
     join_user = GameInfo.objects.filter(user_id__create_time__gte=day, user_id__create_time__lt=today_end).count()
@@ -61,6 +81,9 @@ def get_long(day):
 
 
 def parse_local():
+    """
+    :return: the local of data
+    """
     geo = Geo()
     geo_province = list(geo._coordinates.keys())
     values = [[i, Userip.objects.filter(province__contains=i).count()] for i in geo_province if Userip.objects.filter(

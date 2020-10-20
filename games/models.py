@@ -148,7 +148,6 @@ class MengYou_recoding(models.Model):
 class Diray(models.Model):
     game_info = models.ForeignKey(GameInfo, on_delete=models.CASCADE, verbose_name=_('日记用户'),
                                   help_text=_('日记与游戏角色绑定'))
-    img = models.ImageField(verbose_name=_('图片'), help_text=_('日记图片'), upload_to='MengShang', null=True, blank=True)
     text = models.TextField(verbose_name=_('日记内容'), help_text=_("日记内容"), null=True)
     date = models.DateTimeField(verbose_name=_('日记时间'), help_text=_('日记时间'), auto_now_add=True)
     title = models.CharField(max_length=200, verbose_name=_('日记标题'), help_text=_('日记标题'))
@@ -162,6 +161,7 @@ class Diray(models.Model):
         return self.game_info.user_id.__str__() + '-' + self.title
 
     class Meta:
+        ordering = ('-date',)
         verbose_name = _('萌上日记,日记库')
         verbose_name_plural = verbose_name
 
@@ -179,5 +179,19 @@ class Mailbox(models.Model):
         return self.game_info.user_id.__str__() + '-' + self.diray.title
 
     class Meta:
+        ordering = ('-date',)
         verbose_name = _('萌上日记,信箱')
+        verbose_name_plural = verbose_name
+
+
+# 萌上日记 图片表
+class DirayImage(models.Model):
+    diray = models.ForeignKey(Diray, on_delete=models.CASCADE, verbose_name=_('日记图片'), help_text=_('日记图片'))
+    img = models.ImageField(verbose_name=_('图片'), help_text=_('日记图片'), upload_to='MengShang', null=True, blank=True)
+
+    def __str__(self):
+        return self.diray.game_info.user_id.__str__() + '-' + self.diray.title
+
+    class Meta:
+        verbose_name = _('萌上日记,图片库')
         verbose_name_plural = verbose_name

@@ -54,3 +54,8 @@ class MailboxAdmin(admin.ModelAdmin):
     list_display = ('user_show', 'diray', 'date', 'status', 'favor')
     list_filter = ('game_info__user_id__nick_name', 'diray', 'status', 'favor')
     search_fields = ('diray__title', 'game_info__user_id__nick_name', 'diray__game_info__user_id__nick_name')
+
+
+@admin.register(DirayImage)
+class DirayImageAdmin(admin.ModelAdmin):
+    list_display = ('diray', 'img')

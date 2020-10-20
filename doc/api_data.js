@@ -1463,13 +1463,6 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "img",
-            "description": "<p>日记图片 可以为空</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
             "field": "weather",
             "description": "<p>天气 ,可以为空</p>"
           },
@@ -1642,27 +1635,6 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "title",
-            "description": "<p>日记标题</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "content",
-            "description": "<p>日记内容</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "img",
-            "description": "<p>日记图片 可以为空</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
             "field": "weather",
             "description": "<p>天气 ,可以为空</p>"
           },
@@ -1715,6 +1687,78 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"mes\": \"日记修改完成\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./games/views.py",
+    "groupTitle": "萌上日记"
+  },
+  {
+    "type": "POST",
+    "url": "/api/dirayImage/",
+    "title": "日记加图片",
+    "version": "0.0.1",
+    "name": "日记加图片",
+    "group": "萌上日记",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加次内容请求</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>日记id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "img",
+            "description": "<p>图片内容</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>token 错误,或者没有携带</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n    \"detail\": \"Given token not valid for any token type\",\n    \"code\": \"token_not_valid\",\n    \"messages\": [\n        {\n            \"token_class\": \"AccessToken\",\n            \"token_type\": \"access\",\n            \"message\": \"Token is invalid or expired\"\n        }\n    ]\n}\n'请求需要携带token '",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\nHTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"mes\": \"上传图片\"\n}",
           "type": "json"
         }
       ]
