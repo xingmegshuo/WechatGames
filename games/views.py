@@ -923,10 +923,8 @@ class DirayImage(APIView):
         """
         params = get_parameter_dic(request)
         diray = Diray.objects.get(id=params.get('id'))
-        diray_image = DirayImage()
-        diray_image.diray = diray
-        if params.get('img'):
-            diray_image.img = params.get('img')
+        img = params.get('img')
+        diray_image = DirayImage.objects.create(diray=diray, img=img)
         diray_image.save()
         status = 1
         mes = '上传图片成功'
