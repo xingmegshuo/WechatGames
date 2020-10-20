@@ -2,14 +2,15 @@ from pyecharts import options as opts
 from pyecharts.charts import Bar, Tab, Pie, Geo, Grid, Line
 from pyecharts.faker import Faker
 from pyecharts.globals import ThemeType
-from user.models import APP, App_config, Userip
+from user.models import APP, App_config, Userip, RecordLogin
 from games.models import GameInfo
 import datetime
 from django.utils.timezone import utc
 
 
-def filter_data():
-    pass
+# def filter_data():
+#     num = RecordLogin.objects.filter(login_time__gte=, user_id__in=).count()
+#     return num
 
 
 def parse_user_today():
@@ -145,7 +146,7 @@ def user_local(title):
 # 每周统计
 def weak_user(title):
     all_day = parse_day(7)
-    x_data = [str(i.day)+'日' for i in all_day]
+    x_data = [str(i.day) + '日' for i in all_day]
     y_data = [get_long(i) for i in all_day]
     bar = (
         Bar(init_opts=opts.InitOpts(theme=ThemeType.DARK, width="1400px", height='1000px'))
@@ -209,12 +210,13 @@ def weak_user(title):
 
 def weak_app(title):
     all_day = parse_day(7)
-    x_data = [str(i.day)+'日' for i in all_day]
+    x_data = [str(i.day) + '日' for i in all_day]
     apps = APP.objects.all()
     c = Line(init_opts=opts.InitOpts(theme=ThemeType.DARK, width="1400px", height='1000px'))
     c.add_xaxis(x_data)
     for app in apps:
-        name = App_config.objects.get(app_id=app, on_line='1', name='name').value if len(App_config.objects.filter(app_id=app, on_line='1', name__exact='name')) > 0 else app.name
+        name = App_config.objects.get(app_id=app, on_line='1', name='name').value if len(
+            App_config.objects.filter(app_id=app, on_line='1', name__exact='name')) > 0 else app.name
         c.add_yaxis(
             series_name=name,
             stack='总量',
@@ -222,10 +224,11 @@ def weak_app(title):
             label_opts=opts.LabelOpts(is_show=False),
         )
     c.set_global_opts(
-            title_opts=opts.TitleOpts(title=title),
+        title_opts=opts.TitleOpts(title=title),
     )
     return c
 
 
+# todo: every month analy
 def moth(title):
     pass
