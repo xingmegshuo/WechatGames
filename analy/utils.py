@@ -8,9 +8,15 @@ import datetime
 from django.utils.timezone import utc
 
 
-# def filter_data():
-#     num = RecordLogin.objects.filter(login_time__gte=, user_id__in=).count()
-#     return num
+def filter_data(day, list_user):
+    num = RecordLogin.objects.filter(login_time__gte=day, user_id__in=list_user).values_list('user')
+    return len(set(num))
+
+
+def filter_two_day(first_day, end_day, list_user):
+    num = RecordLogin.objects.filter(login_time__gte=first_day, login_time_lt=end_day,
+                                     user_id__in=list_user).values_list(user)
+    return len(set(num))
 
 
 def parse_user_today():
@@ -29,21 +35,18 @@ def parse_user_today():
     all_peoples = [GameInfo.objects.filter(game_id=app.id,
                                            ).count() for app in APP.objects.all()]
 
-    peoples = [GameInfo.objects.filter(game_id=app.id,
-                                       user_id__login__gte=zeroToday
-                                       ).count() for app in
-               APP.objects.all()]
+    peoples = [filter_data(zeroToday, GameInfo.objects.filter(game_id=app.id).values_list('user_id_id'))
+               for app in APP.objects.all()]
     reg_peoples = [GameInfo.objects.filter(game_id=app.id,
                                            user_id__create_time__gte=zeroToday
                                            ).count() for app in
                    APP.objects.all()]
     keep_peoples = [
-        GameInfo.objects.filter(game_id=app.id,
-                                user_id__login__gte=zeroToday,
-                                user_id__create_time__gt=str(yesterday),
-                                user_id__create_time__lte=str(lastToday)
-                                ).count() for app in
-        APP.objects.all()]
+        filter_data(zeroToday, GameInfo.objects.filter(game_id=app.id,
+                                                       user_id__create_time__gt=str(yesterday),
+                                                       user_id__create_time__lte=str(lastToday)).values_list(
+            'user_id_id'))
+        for app in APP.objects.all()]
     return games, peoples, keep_peoples, reg_peoples, all_peoples
 
 
@@ -66,7 +69,7 @@ def parse_app(day, app):
     :return active user
     """
     today_end = (day + datetime.timedelta(days=1)).replace(tzinfo=utc)
-    active_user = GameInfo.objects.filter(user_id__login__gte=day, user_id__login__lt=today_end).count()
+    active_user = filter_two_day(day, today_end, GameInfo.objects.filter(game_id=app).values_list('user_id_id'))
     return active_user
 
 
@@ -76,7 +79,7 @@ def get_long(day):
     :return： active user, join user
     """
     today_end = (day + datetime.timedelta(days=1)).replace(tzinfo=utc)
-    active_user = GameInfo.objects.filter(user_id__login__gte=day, user_id__login__lt=today_end).count()
+    active_user = filter_two_day(day, today_end, GameInfo.objects.all().values_list('user_id_id'))
     join_user = GameInfo.objects.filter(user_id__create_time__gte=day, user_id__create_time__lt=today_end).count()
     return active_user, join_user
 
