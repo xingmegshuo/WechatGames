@@ -887,7 +887,7 @@ class MailboxView(APIView):
         return Response({'status': 1, 'mes': '修改信箱'}, status=HTTP_200_OK)
 
 
-class DirayImage(APIView):
+class DirayImageView(APIView):
     def post(self, request):
         """
               @api {POST} /api/dirayImage/ 日记加图片
