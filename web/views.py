@@ -100,7 +100,7 @@ def add_once(once_jobs):
 
 
 def start_job():
-    logger.info('检测' + str(datetime.datetime.now()))
+    #logger.info('检测' + str(datetime.datetime.now()))
     once_jobs = parse_job(Jobs.objects.filter(jobType='date', on_line=False))
     interval_jobs = parse_job(Jobs.objects.filter(jobType='interval', on_line=False))
     cron_jobs = parse_job(Jobs.objects.filter(jobType='cron', on_line=False))
