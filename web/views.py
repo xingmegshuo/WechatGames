@@ -13,7 +13,7 @@ from job.views import *
 from django.utils.timezone import utc
 import datetime
 
-job_defaults = {'max_instances': 100}
+job_defaults = {'max_instance': 100, 'coalesce': True, 'misfire_grace_time': 600}
 scheduler = BackgroundScheduler(timezone=settings.TIME_ZONE)
 scheduler.add_jobstore(DjangoJobStore(), job_defaults=job_defaults)
 
@@ -51,8 +51,8 @@ def parse_job(jobs):
 #                 i.save()
 
 
-def parse_arg(args):
-    arg = json.loads(args)
+def parse_arg(next_arg):
+    arg = json.loads(next_arg)
     return arg
 
 
@@ -100,6 +100,7 @@ def add_once(once_jobs):
 
 
 def start_job():
+    logger.info('检测' + str(datetime.datetime.now()))
     once_jobs = parse_job(Jobs.objects.filter(jobType='date', on_line=False))
     interval_jobs = parse_job(Jobs.objects.filter(jobType='interval', on_line=False))
     cron_jobs = parse_job(Jobs.objects.filter(jobType='cron', on_line=False))
@@ -111,7 +112,7 @@ def start_job():
 
 try:
     logger.info("Starting scheduler...")
-    scheduler.add_job(func=start_job, trigger='cron', id='检测任务', second='*/5')
+    scheduler.add_job(func=start_job, trigger='cron', id='检测任务', second='*/5',coalesce=True, misfire_grace_time=4)
     scheduler.start()
 
 except KeyboardInterrupt:
