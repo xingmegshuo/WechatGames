@@ -80,15 +80,16 @@ def add_once(once_jobs):
                 if j.on_line is False and j.is_over is False:
                     if j.parameters is None:
                         scheduler.add_job(eval(k), 'date', id=k + str(j.id),
-                                          run_date='2020-10-22 13:20:16'
-                                          # j.next_run
+                                          run_date=
+                                          # '2020-10-22 13:20:16'
+                                          j.next_run
                                           )
                     else:
                         arg = parse_arg(j.parameters)
                         scheduler.add_job(eval(k), id=k + str(j.id) + 'status',
                                           run_date=j.next_run,
-                                          args=[arg['job']]
-                                          # [arg['job'], arg['id']]
+                                          # args=[arg['job']]
+                                          args=[arg['job'], arg['id']]
                                           )
                     j.on_line = True
                     j.save()
