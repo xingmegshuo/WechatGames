@@ -13,14 +13,15 @@ from job.views import *
 from django.utils.timezone import utc
 import datetime
 
-job_defaults = {'max_instance': 100, 'coalesce': True, 'misfire_grace_time': 600}
-scheduler = BackgroundScheduler(timezone=settings.TIME_ZONE)
-scheduler.add_jobstore(DjangoJobStore(), job_defaults=job_defaults)
+job_defaults = {'max_instance': 100, 'misfire_grace_time': 15 * 60, ',coalesce': True}
+scheduler = BackgroundScheduler(timezone=settings.TIME_ZONE, job_defaults=job_defaults)
+scheduler.add_jobstore(DjangoJobStore())
 
 logger = logging.getLogger('django')
 
 
 def parse_job(jobs):
+    print('我在工作')
     if len(jobs) > 0:
         run_job = {}
         for j in jobs:
@@ -29,6 +30,7 @@ def parse_job(jobs):
             else:
                 run_job[j.name] = None
             j.on_line = True
+            logger.info('获取' + str(len(Job.objects.filter(job=j, on_line=False))) + '个任务:' + j.name)
             j.save()
     else:
         run_job = None
@@ -77,11 +79,17 @@ def add_once(once_jobs):
             for j in v:
                 if j.on_line is False and j.is_over is False:
                     if j.parameters is None:
-                        scheduler.add_job(eval(k), 'date', id=k + str(j.id), run_date=j.next_run)
+                        scheduler.add_job(eval(k), 'date', id=k + str(j.id),
+                                          run_date='2020-10-22 13:20:16'
+                                          # j.next_run
+                                          )
                     else:
                         arg = parse_arg(j.parameters)
                         scheduler.add_job(eval(k), id=k + str(j.id) + 'status',
-                                          run_date=j.next_run, args=[arg['job'], arg['id']])
+                                          run_date=j.next_run,
+                                          args=[arg['job']]
+                                          # [arg['job'], arg['id']]
+                                          )
                     j.on_line = True
                     j.save()
 
@@ -100,19 +108,19 @@ def add_once(once_jobs):
 
 
 def start_job():
-    #logger.info('检测' + str(datetime.datetime.now()))
     once_jobs = parse_job(Jobs.objects.filter(jobType='date', on_line=False))
-    interval_jobs = parse_job(Jobs.objects.filter(jobType='interval', on_line=False))
+    # interval_jobs = parse_job(Jobs.objects.filter(jobType='interval', on_line=False))
     cron_jobs = parse_job(Jobs.objects.filter(jobType='cron', on_line=False))
-    if once_jobs is not None:
-        add_once(once_jobs)
-    if cron_jobs is not None:
-        add_cron(cron_jobs)
+    # logger.info({'once_job': once_jobs, 'cron_jobs': cron_jobs})
+    # if once_jobs is not None:
+    #     add_once(once_jobs)
+    # if cron_jobs is not None:
+    #     add_cron(cron_jobs)
 
 
 try:
     logger.info("Starting scheduler...")
-    scheduler.add_job(func=start_job, trigger='cron', id='检测任务', second='*/5',coalesce=True, misfire_grace_time=4)
+    scheduler.add_job(func=start_job, trigger='interval', id='检测任务', seconds=5)
     scheduler.start()
 
 except KeyboardInterrupt:

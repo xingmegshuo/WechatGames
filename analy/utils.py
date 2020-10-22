@@ -23,7 +23,6 @@ def parse_user_today():
     """
     :return games , peoples , keep_peoples, reg_peoples, all_peoples, user of every game , active people, keep people, register eople
     """
-
     games = [App_config.objects.get(app_id=app, on_line='1', name='name').value if len(
         App_config.objects.filter(app_id=app, on_line='1', name__exact='name')) > 0
              else app.name for app in APP.objects.all()]
@@ -34,7 +33,6 @@ def parse_user_today():
     lastToday = (zeroToday - datetime.timedelta(seconds=1)).replace(tzinfo=utc)
     all_peoples = [GameInfo.objects.filter(game_id=app.id,
                                            ).count() for app in APP.objects.all()]
-
     peoples = [filter_data(zeroToday, GameInfo.objects.filter(game_id=app.id).values_list('user_id_id'))
                for app in APP.objects.all()]
     reg_peoples = [GameInfo.objects.filter(game_id=app.id,
@@ -90,8 +88,9 @@ def parse_local():
     """
     geo = Geo()
     geo_province = list(geo._coordinates.keys())
-    values = [[i, Userip.objects.filter(province__contains=i).count()] for i in geo_province if Userip.objects.filter(
-        province__contains=i).count() > 0]
+    list_province = [i[0].split('/')[1] for i in Userip.objects.values_list('province')]
+    search_list = list(set(geo_province) & set(list_province))
+    values = [[i, Userip.objects.filter(province__contains=i).count()] for i in search_list]
     return values
 
 
@@ -127,7 +126,6 @@ def user_today(title):
             title_opts=opts.TitleOpts(title=title),
         )
     )
-    print(datetime.datetime.now())
     return c
 
 

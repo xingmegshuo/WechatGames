@@ -116,6 +116,7 @@ class App_config(models.Model):
 # 访问网站的ip地址和次数
 class Userip(models.Model):
     ip = models.CharField(verbose_name='IP地址', max_length=30)  # ip地址
+    name = models.CharField(verbose_name=_('用户'), help_text=_('name'), max_length=200, default='unknow')
     count = models.IntegerField(verbose_name='访问次数', default=1)  # 该ip访问次数
     area = models.CharField(verbose_name=_('地区'), help_text=_('地区'), max_length=200)
     country = models.CharField(verbose_name=_('国家'), help_text=_('国家'), max_length=200)

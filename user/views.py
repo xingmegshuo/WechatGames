@@ -126,7 +126,6 @@ def record_time(user):
     user.save()
 
 
-
 class WxLoginView(APIView):
     """
     @api {POST} /api/wx_login/ 微信登录接口
@@ -198,7 +197,6 @@ class WxLoginView(APIView):
         params = get_parameter_dic(request)
         name = params.get('name')
         code = params.get('code')
-        logger.info("Code: {0}".format(code))
         app = get_app_config(name)
         if code:
             api = WXAPPAPI(appid=app.app_id, app_secret=app.secret)
@@ -229,7 +227,7 @@ class WxLoginView(APIView):
                         ])
                 else:
                     user = {'openid': openid, 'session_key': session_key}
-                logger.info('用户登录成功' + str(request.user.id))
+                logger.info('用户登录成功' + str(request.user) + name)
                 return Response(
                     {
                         'status': 1,
