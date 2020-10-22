@@ -1,1 +1,7 @@
 [2020-10-22 16:25:35,722][Dummy-1:139878299465472][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-10-22 16:30:50,849][uWSGIWorker1Core0:139991319414528][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-10-22 16:32:00,918][ThreadPoolExecutor-0_6:139990432478976][task_id:django][views.py:33][INFO][获取0个任务:change_status]
+[2020-10-22 16:32:00,934][ThreadPoolExecutor-0_6:139990432478976][task_id:django][views.py:33][INFO][获取0个任务:analyze_data]
+[2020-10-22 16:32:45,915][ThreadPoolExecutor-0_1:139990946985728][task_id:django][views.py:33][INFO][获取1个任务:analyze_data]
+[2020-10-22 16:32:45,923][ThreadPoolExecutor-0_1:139990946985728][task_id:django][views.py:64][INFO][添加cron任务analyze_data]
+[2020-10-22 16:34:56,261][uWSGIWorker1Core0:139963364493056][task_id:django][views.py:123][INFO][Starting scheduler...]
