@@ -21,7 +21,7 @@ logger = logging.getLogger('django')
 
 
 def parse_job(jobs):
-    print('我在工作')
+    # print('我在工作')
     if len(jobs) > 0:
         run_job = {}
         for j in jobs:
@@ -113,10 +113,10 @@ def start_job():
     # interval_jobs = parse_job(Jobs.objects.filter(jobType='interval', on_line=False))
     cron_jobs = parse_job(Jobs.objects.filter(jobType='cron', on_line=False))
     # logger.info({'once_job': once_jobs, 'cron_jobs': cron_jobs})
-    # if once_jobs is not None:
-    #     add_once(once_jobs)
-    # if cron_jobs is not None:
-    #     add_cron(cron_jobs)
+    if once_jobs is not None:
+        add_once(once_jobs)
+    if cron_jobs is not None:
+        add_cron(cron_jobs)
 
 
 try:
