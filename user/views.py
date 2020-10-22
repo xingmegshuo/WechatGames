@@ -65,7 +65,6 @@ class AppViewSet(viewsets.ModelViewSet):
     """
     queryset = APP.objects.all().order_by('id')
     serializer_class = APPSerializer
-    logger.info('返回所有游戏和项目信息!')
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -79,7 +78,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
     queryset = MyUser.objects.all().order_by('id')
     serializer_class = WxUserSerializer
-    logger.info('返回所有用户信息,不经常使用')
 
 
 def create_or_update_user_info(openid, user_info):
@@ -89,7 +87,6 @@ def create_or_update_user_info(openid, user_info):
     :param user_info: 微信用户信息
     :return: 返回用户对象
     """
-    logger.info('创建或者更新用户信息')
     if openid:
         if user_info:
             user, created = MyUser.objects.update_or_create(openid=openid, defaults=user_info)
@@ -105,7 +102,6 @@ def get_app_config(app_name):
     :param app_name: 游戏名称
     :return: 游戏小程序openid,secret秘钥
     """
-    logger.info('获取游戏配置')
     if app_name:
         app = APP.objects.get(name=app_name)
         return app
@@ -343,6 +339,7 @@ class WxAuthView(APIView):
                     user_info[k] = user_info_raw.get(v)
             user_info['is_auth'] = 'True'
             user = create_or_update_user_info(params.get('openid'), user_info)
+            logger.info('用户授权成功' + str(request.user) + user.nick_name)
             return Response(
                 {
                     'status': 1,
