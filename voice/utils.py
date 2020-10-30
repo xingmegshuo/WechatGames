@@ -21,9 +21,9 @@ STATUS_LAST_FRAME = 2  # 最后一帧的标识
 class Ws_Param(object):
     # 初始化
     def __init__(self, Text, human='xiaoyan', name='demo'):
-        self.APPID = '5db2a1e2'
-        self.APIKey = '991ba4ef4902381705794288582079ca'
-        self.APISecret = 'f87057dc5713bea064bf8dc1f4473bbd'
+        self.APPID = '5f979990'
+        self.APIKey = '359287e8a0a9f29271c683aa8bc49b1a'
+        self.APISecret = '4a42ea40e40a133294dcf22a8df76aa8'
         self.Text = Text
         self.name = name
         # 公共参数(common)
@@ -117,7 +117,3 @@ def on_close(ws):
 #
 #     thread.start_new_thread(run, ())
 
-
-class Jobs(object):
-    def __init__(self, ):
-        pass

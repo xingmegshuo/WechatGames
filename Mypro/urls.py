@@ -39,7 +39,11 @@ urlpatterns = [
     re_path(r'^data/', include(router.urls)),
     re_path(r'^api/', include(('games.urls', 'game'), namespace='api')),
     re_path(r'^media/(?P<path>.*)$', serve, {"document_root": settings.MEDIA_ROOT}),
-    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT})
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
+    re_path(r'^about/', about_me),
+    re_path(r'^profile/', about_company),
+    re_path(r'^project/', about_project),
+
 ]
 
 handler400 = bad_request

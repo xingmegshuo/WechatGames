@@ -1,0 +1,321 @@
+{% extends 'pc/base.html' %}
+{% block content %}
+    <div class="index-news index-hot ">
+        <div class="container ">
+            <ul class="navbar-nav" style="width:100%; font-size:48px;text-align:center;height:80px;">
+                <div style=" width:2.5%;height:100%;background-color:#afd7ff;border-radius:50px 0 0 50px; float:left;"></div>
+                <li class="nav-item"
+                    style="width:19%; height:100%;line-height:80px;background-color:#afd7ff;float:left">
+                    <a class="nav-link" href="#" style="color:#ff9eab;"
+                       onclick="nav_item(1)">
+                        公司简介</a>
+                </li>
+                <li class="nav-item"
+                    style="width:19%; height:100%;background-color:#afd7ff;line-height:80px;float:left">
+                    <a class="nav-link" href="#" style="color:#636363" onclick="nav_item(2)">
+                        发展历程
+                    </a>
+                </li>
+                <li class="nav-item"
+                    style="width:19%;height:100%; background-color:#afd7ff;line-height:80px;float:left">
+                    <a class="nav-link" href="#" style="color:#636363" onclick="nav_item(3)">企业文化</a>
+                </li>
+                <li class="nav-item"
+                    style="width:19%;height:100%;background-color:#afd7ff;line-height:80px;float:left ">
+                    <a class="nav-link" href="#" style="color:#636363" onclick="nav_item(4)">公司荣誉</a>
+                </li>
+                <li class="nav-item"
+                    style="width:19%; height:100%;background-color:#afd7ff;line-height:80px;float:left">
+                    <a class="nav-link" href="#" style="color:#636363; " onclick="nav_item(5)">合作伙伴</a>
+                </li>
+                <div style="width:2.5%;height:100%; background-color:#afd7ff;border-radius:0 50px 50px 0;float:left"></div>
+            </ul>
+
+        </div>
+    </div>
+    <div class="index-news index-hot " id="div_1">
+        <div class="container " style="margin-top: 50px">
+            <div style="float:left;width:50%">
+                <img src="/static/img/info.png" style="width:100%" draggable="false">
+            </div>
+            <div style="float:left;width:50%;height:681px;font-size:28px">
+                <p style=" text-indent:2em; line-height: 35px;letter-spacing:1px;margin-left: 10%;margin-right: 10%;margin-top:25%">
+                    成都萌果果软件开发有限公司成立于2019年9月，注册地：成都市高新区，自成立以来，主要在游戏程序软件开发、软件开发等相关领域内取得了优异的成果。
+                    公司拥有一支由年轻、高素质人才组成的创业团队，
+                    其领路人有着丰富的游戏软件程序开发的经验，形成了专业的管理体系。团队成员年轻而充满朝气，具有创新意识并勇于迎接挑战，具备良好的社会责任感。</p>
+            </div>
+        </div>
+        <div class="container ">
+            <div style="float:left;width:50%;height:681px;font-size:28px">
+                <p style=" text-indent:2em; line-height: 35px;letter-spacing:1px;margin-left: 10%;margin-right: 10%;margin-top:25%">
+                    本公司研发小游戏超过20款，经统计用户量的使用数据达到3360万。所有美术资源全部由美术部门自主设计创作，程序部门所有员工都有着非常丰富的相关经验。
+                    公司以“萌果果”二次元人物形象为核心，创作了萌果果相关游戏，如：萌游知知、萌动、萌上日记等。萌游知知初版现已完成，主要玩法包括人物换装，养成，交互。
+                </p>
+            </div>
+            <div style="float:left;width:50%">
+                <img src="/static/my.jpg" style="width:100%" draggable="false">
+            </div>
+
+        </div>
+    </div>
+    <div class="index-news index-hot " id="div_2" style="display:none;">
+        <div class="container " style="margin-top: 50px;background-image:url(/static/img/bg1.png);background-size:100% 100%  ">
+            <div class="timeline timeline-alternating timeline-collapsing timeline-with-arrows blue-red-red">
+
+                <div class="timeline-block">
+                    <div class="timeline-icon" style="background-color:blue;border-color: blue"></div>
+                    <div class="timeline-content" style="opacity:0">
+                        <div style="float:left"><img src="/static/img/2019-9.png" class="timeline-img"
+                                                     draggable="false"></div>
+                        <div style="float:left;height:100%;width:70%">
+                            <h1 style="text-align:center;font-weight:bold">2019.9</h1>
+                            <p style="margin-top:5%;font-size:18px;margin-left: 10%;margin-right: 10%">成都萌果果软件开发公司成立</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-icon" style="background-color:blue;border-color: blue"></div>
+                    <div class="timeline-content" style="opacity:0">
+                        <div style="float:left"><img src="/static/img/2019-10.png" class="timeline-img"
+                                                     draggable="false"></div>
+                        <div style="float:left;height:100%;width:70%">
+                            <h1 style="text-align:center;font-weight:bold">2019.10</h1>
+                            <p style="margin-top:5%;font-size:18px;margin-left: 10%;margin-right: 10%">萌果果
+                                开发制作的第一款游戏：“疯狂泊车王” 上线
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-icon" style="background-color:blue;border-color: blue"></div>
+                    <div class="timeline-content" style="opacity:0">
+                        <div style="float:left"><img src="/static/img/2020-7.jpg" class="timeline-img"
+                                                     draggable="false"></div>
+                        <div style="float:left;height:100%;width:70%">
+                            <h1 style="text-align:center;font-weight:bold">2020.7</h1>
+                            <p style="margin-top:5%;font-size:18px;margin-left: 10%;margin-right: 10%">
+                                截止2020年7月，萌果果获得软著共计16份</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-icon" style="background-color:blue;border-color: blue"></div>
+                    <div class="timeline-content" style="opacity:0">
+                        <div style="float:left"><img src="/static/img/2020-8.jpg" class="timeline-img"
+                                                     draggable="false"></div>
+                        <div style="float:left;height:100%;width:70%">
+                            <h1 style="text-align:center;font-weight:bold">2020.8</h1>
+                            <p style="margin-top:5%;font-size:18px;margin-left: 10%;margin-right: 10%">
+                                以公司人物形象萌果果为核心自主研发创作的游戏萌游知知初版完成</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-icon" style="background-color:blue;border-color: blue"></div>
+                    <div class="timeline-content" style="opacity:0">
+                        <div style="float:left"><img src="/static/img/2020-9.png" class="timeline-img"
+                                                     draggable="false"></div>
+                        <div style="float:left;height:100%;width:70%">
+                            <h1 style="text-align:center;font-weight:bold">2020.9</h1>
+                            <p style="margin-top:5%;font-size:18px;margin-left: 10%;margin-right: 10%">
+                                自成立以来一年间，萌果果自主设计制作小游戏已超过20款</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-icon" style="background-color:blue;border-color: blue"></div>
+                    <div class="timeline-content" style="opacity:0">
+                        <div style="float:left"><img src="/static/img/2020-10.jpg" class="timeline-img"
+                                                     draggable="false"></div>
+                        <div style="float:left;height:100%;width:70%">
+                            <h1 style="text-align:center;font-weight:bold">2020.10</h1>
+                            <p style="margin-top:5%;font-size:18px;margin-left: 10%;margin-right: 10%">
+                                萌果果第一款大型密室逃脱类游戏尘忆立项</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="index-news index-hot " id="div_3" style="display:none">
+        <div class="container " style="margin-top: 50px">
+            <div style="float:left;width:50%">
+                <img src="/static/img/clutrue_1.png" style="width:100%" draggable="false">
+            </div>
+            <div style="float:left;width:50%;height:681px;">
+                <div style="margin-left: 10%;margin-right: 10%;margin-top:35%">
+                    <div style="float:left;width:20%">
+                        <div style="width:100px;height:100px;border-radius:50%;overflow:hidden">
+                            <img src="/static/img/cltureicon1.png"
+                                 draggable="false">
+                        </div>
+                    </div>
+                    <div style="float:left;width:80%">
+                        <h2 style="font-size:36px">早会</h2>
+                        <p style=" text-indent:2em; line-height: 35px;letter-spacing:1px;font-size:22px">
+                            利用周一至周四上班前半小时进行学习交流互动环节，以此调动大家的工作积极性，增强团队凝聚力。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container ">
+            <div style="float:left;width:50%;height:681px;">
+                <div style="margin-left: 10%;margin-right: 10%;margin-top:35%">
+                    <div style="float:left;width:20%">
+                        <img src="/static/img/icon4.png"
+                             style="width:100px;height:100px;border-radius:50%;overflow:hidden"
+                             draggable="false">
+                    </div>
+                    <div style="float:left;width:80%">
+                        <h2 style="font-size:36px">萌果果策划大赛</h2>
+                        <p style=" text-indent:2em; line-height: 35px;letter-spacing:1px;font-size:22px">
+                            公司每月初举行一次内部策划大赛，大家自愿参加，根据一个大致的方向，策划出一款游戏方案，月底提交给策划部，被选中
+                            的优秀策划者回获得公司颁发的奖金。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div style="float:left;width:50%;background-color:black">
+                <img src="/static/img/colture3.png" style="width:100%" draggable="false">
+            </div>
+        </div>
+
+        <div class="container ">
+            <div style="float:left;width:50%">
+                <img src="/static/img/clutrue_2.png" style="width:100%" draggable="false">
+            </div>
+            <div style="float:left;width:50%;height:681px;">
+                <div style="margin-left: 10%;margin-right: 10%;margin-top:35%">
+                    <div style="float:left;width:20%">
+                        <img src="/static/img/icon3.png"
+                             style="width:100px;height:100px;border-radius:50%;overflow:hidden"
+                             draggable="false">
+                    </div>
+                    <div style="float:left;width:80%">
+                        <h2 style="font-size:36px">每周学习榜样评选</h2>
+                        <p style=" text-indent:2em; line-height: 35px;letter-spacing:1px;font-size:22px">
+                            通过员工们一周的表现，各部门主管选出每周部门表现优异的员工，在每周五周会上进行表彰。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container ">
+            <div style="width:100%;height:200px;margin-top:100px">
+                <div style="margin-left: 10%;margin-right: 10%;">
+                    <div style="float:left;width:20%">
+                        <img src="/static/img/icon2.png"
+                             style="width:100px;height:100px;border-radius:50%;overflow:hidden"
+                             draggable="false">
+                    </div>
+                    <div style="float:left;width:80%">
+                        <h2 style="font-size:36px">团建</h2>
+                        <p style=" text-indent:2em; line-height: 35px;letter-spacing:1px;font-size:22px">
+                            每月开展一次团建，包括聚餐、旅游等一系列休闲活动，增进各部门员工之间的交流，缓解员工工作压力，增强团队合作精神。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div style="width:100%">
+                <img src="/static/img/clture4.jpg" style="width:100%" draggable="false">
+            </div>
+        </div>
+
+    </div>
+    <div class="index-news index-hot " id="div_4" style="display:none">
+        <div class="container" style="margin-top: 50px">
+            <p style="text-align:center;font-size:38px">公司荣誉</p>
+            <div style="margin:50px 10%">
+                <div style="float:left"><img src="/static/img/ouricon1.png"
+                                             style="width:100px;height:100px;border-radius:50%;overflow:hidden"
+                                             draggable="false">
+                </div>
+                <p style="line-height:100px;font-size:28px;margin-left: 50px;float:left">四川可持续发展行业委员会副会长单位</p>
+                <br style="clear:both;"/>
+            </div>
+            <div style="margin:50px 10%">
+                <div style="float:left"><img src="/static/img/ouricon2.png"
+                                             style="width:100px;height:100px;border-radius:50%;overflow:hidden"
+                                             draggable="false">
+                </div>
+                <p style="line-height:100px;font-size:28px;margin-left: 50px;float:left">成都市成华区人才发展促进会理事单位</p>
+                <br style="clear:both;"/>
+            </div>
+            <div style="margin:50px 10%">
+                <div style="float:left"><img src="/static/img/ouricon3.png"
+                                             style="width:100px;height:100px;border-radius:50%;overflow:hidden"
+                                             draggable="false">
+                </div>
+                <p style="line-height:100px;font-size:28px;margin-left: 50px;float:left">重庆市沙坪坝区技术市场协会理事单位</p>
+                <br style="clear:both;"/>
+            </div>
+            <div style="margin:50px 10%">
+                <div style="float:left"><img src="/static/img/ouricon4.png"
+                                             style="width:100px;height:100px;border-radius:50%;overflow:hidden"
+                                             draggable="false">
+                </div>
+                <p style="line-height:100px;font-size:28px;margin-left: 50px;float:left">四川省创新创业促进会（青年创业家联席会）理事单位</p>
+                <br style="clear:both;"/>
+
+            </div>
+        </div>
+    </div>
+    <div class="index-news index-hot " id="div_5" style="display:none">
+        <div class="container" style="margin-top: 50px">
+            <p style="text-align:center;font-size:38px">合作伙伴</p>
+            <div style="background-color:white;width:100%;height:710px;background-image: url('/static/img/orther.png')">
+
+            </div>
+            <div style="margin:50px 5%">
+                <div style="width:60%;float:left;text-align:center;font-size:24px">
+                    <p style="line-height:50px">联合国可持续发展目标协作管理工作委员会</p>
+                    <p style="line-height:50px">四川省地理标志产品保护促进会</p>
+                    <p style="line-height:50px">成都市成华区群团服务中心</p>
+                    <p style="line-height:50px">贵州省贵阳市经开区数字党建管电子沙盘项目</p>
+                    <p style="line-height:50px">四川武盾实业总公司</p>
+                    <p style="line-height:50px">成都飞机工业（集团）有限责任公司</p>
+                    <p style="line-height:50px">湖南游东西网络科技有限公司</p>
+                    <p style="line-height:50px">中铁八局集团有限公司</p>
+                    <p style="line-height:50px">四川九州电气集团有限责任公司</p>
+                </div>
+
+                <div style="float:left;width:40%;height:100%">
+                    <img src="/static/img/orther_1.png" style="width:100%;height:100%;" draggable="false">
+                </div>
+            </div>
+            <br style="clear:both;"/>
+
+        </div>
+    </div>
+
+    <script>
+
+        function nav_item(num) {
+            let array_div = [1, 2, 3, 4, 5];
+            array_div.splice(num - 1, 1);
+            for (let i = 0; i < document.getElementsByClassName('nav-link').length; i++) {
+                if (num - 1 == i) {
+                    document.getElementsByClassName('nav-link')[i].style.color = '#ff9eab'
+                } else {
+                    document.getElementsByClassName('nav-link')[i].style.color = '#636363'
+                }
+                document.getElementById('div_' + num).style.display = 'inline'
+            }
+            for (let i = 0; i < array_div.length; i++) {
+                document.getElementById('div_' + array_div[i]).style.display = 'none'
+            }
+            if (num == 2) {
+                let data = document.getElementsByClassName('timeline-content')
+                for (let i = 0; i < data.length; i++) {
+                    setInterval(function show() {
+                        data[i].style.opacity = 1;
+                    }, (i + 1) * 2000)
+                }
+            }
+        }
+
+    </script>
+
+{% endblock %}

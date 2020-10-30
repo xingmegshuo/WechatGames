@@ -1,0 +1,139 @@
+{% extends 'pc/base.html' %}
+{% block content %}
+    <div class="index-news index-hot ">
+        <div class="container ">
+            <ul class="navbar-nav" style="width:100%; font-size:32px;text-align:center;height:50px;">
+                <div class="third"
+                     style=" width:2.5%;height:100%;background-color:#FFC0CB;border-radius:50px 0 0 50px; float:left;"></div>
+                <li class="nav-item"
+                    style="width:19%; height:100%;line-height:50px;background-color:#FFC0CB;float:left">
+                    <a class="nav-link" href="#" style="color:white"
+                       onclick="nav_item(1)">
+                        小游戏</a>
+                </li>
+                <div class="third"
+                     style="width:2.5%;height:100%; background-color:#FFC0CB;border-radius:0 50px 50px 0;float:left"></div>
+                <div class="third"
+                     style=" width:2.5%;height:100%;background-color:white;border-radius:50px 0 0 50px; float:left;margin-left: 5%"></div>
+                <li class="nav-item"
+                    style="width:19%; height:100%;background-color:white;line-height:50px;float:left">
+                    <a class="nav-link" href="#" style="color:blue" onclick="nav_item(2)">
+                        小程序
+                    </a>
+                </li>
+                <div class="third"
+                     style="width:2.5%;height:100%; background-color:white;border-radius:0 50px 50px 0;float:left"></div>
+                <div class="third"
+                     style=" width:2.5%;height:100%;background-color:white;border-radius:50px 0 0 50px; float:left;margin-left: 5%"></div>
+                <li class="nav-item"
+                    style="width:19%;height:100%; background-color:white;line-height:50px;float:left">
+                    <a class="nav-link" href="#" style="color:blue" onclick="nav_item(3)">其它</a>
+                </li>
+                <div class="third"
+                     style="width:2.5%;height:100%; background-color:white;border-radius:0 50px 50px 0;float:left"></div>
+            </ul>
+
+        </div>
+    </div>
+    <div style="position:fixed;_position:absolute; left:20px; top:200px;width:140px;height:800px">
+        <div style="height:50px;width:137px;border-radius:70px 70px 0 0;border-top: solid 1px #99ccff;border-left: solid 1px #99ccff;border-right: solid 1px #99ccff"></div>
+        <div id="box" style="height:700px;border-left:solid 2px #99ccff;border-right:solid 2px #99ccff"></div>
+        <div style="height:50px;width:137px;border-radius:0 0 70px 70px ;border-bottom: solid 1px #99ccff;border-left: solid 1px #99ccff;border-right: solid 1px #99ccff"></div>
+    </div>
+    <div class="index-news index-hot " id="div_1">
+
+        <div class="container " style="margin-top: 50px">
+            <div id="content">
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/jquery-1.12.3.min.js"></script>    　
+    <script>
+        function loadData() {
+            let data = [];
+            $.ajax(
+                {
+                    type: "GET",
+                    url: 'https://www.menguoli.com/data/app/',
+                    dataType: "json",
+                    async: false,
+                    success: function (result) {
+                        data = result.results;
+                    },
+                }
+            )
+            return data
+        }
+
+        data = loadData();
+        let miniGame = [];
+        let miniPrograme = [];
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].app_config.type) {
+                miniPrograme.push(data[i])
+            } else {
+                miniGame.push(data[i])
+            }
+        }
+
+        function addBox(data) {
+            let box_str = '';
+            let box_length = 5;
+            if (box_length > data.length) {
+                box_length = data.length
+            }
+            for (let i = 0; i < box_length; i++) {
+                box_str += '<a href="#' + data[i].id + '" >'
+                    + '<div style="width:100%;height:140px;font-size:24px;text-align:center">'
+                    + '<div style="width:100px;height:100px;margin:auto;border-radius:50%;overflow:hidden"><img src="' + data[i].img + '" style="width:100%;height:100%"></div>'
+                    + '<p style="margin:auto;height:30px;line-height:40px;color:black">' + data[i].app_config.name + '</p>'
+                    + '</div></a>'
+            }
+            document.getElementById('box').innerHTML = box_str
+        }
+
+        function addContent(data) {
+            let box_str = '';
+
+            for (let i = 0; i < data.length; i++) {
+                box_str += '<div id="' + data[i].id + '" style="height:500px;padding-left: 200px">'
+                    +'<div style="width:300px;height:100%;float:left"><img src="/static/my.jpg" style="width:100%;height:100%"></div>'
+                    +'<div style="float:left;height:100%;width:600px"><p style="text-indent:2em; line-height: 35px;letter-spacing:1px;font-size:22px;margin: 20% 10%">' +
+                    data[i].app_config.name +'公司每月初举行一次内部策划大赛，大家自愿参加，根据一个大致的方向，策划出一款游戏方案，月底提交给策划部，被选中的优秀策划者回获得公司颁发的奖金。</p>'
+                        +'<div style="margin-left:50%;width:120px;height:120px;border-radius:50%;overflow:hidden"><img src="/static/fluidicon.png"></div>'
+                    + '</div>'
+                    +'</div><div style="height:100px"></div>'
+            }
+            document.getElementById('content').innerHTML = box_str
+
+        }
+        addBox(miniGame);
+        addContent(miniGame);
+        function nav_item(num) {
+            for (let i = 0; i < document.getElementsByClassName('nav-link').length; i++) {
+                if (num - 1 == i) {
+                    document.getElementsByClassName('nav-link')[i].style.color = 'white'
+                    document.getElementsByClassName('nav-item')[i].style.backgroundColor = '#FFC0CB'
+                    document.getElementsByClassName('third')[2 * num - 1].style.backgroundColor = '#FFC0CB'
+                    document.getElementsByClassName('third')[2 * num - 2].style.backgroundColor = '#FFC0CB'
+                } else {
+                    document.getElementsByClassName('nav-link')[i].style.color = 'blue';
+                    document.getElementsByClassName('nav-item')[i].style.backgroundColor = 'white'
+                    document.getElementsByClassName('third')[2 * (i + 1) - 1].style.backgroundColor = 'white'
+                    document.getElementsByClassName('third')[2 * (i + 1) - 2].style.backgroundColor = 'white'
+                }
+            }
+            if (num == 1) {
+                addBox(miniGame)
+                addContent(miniGame)
+            }
+            if (num == 2) {
+                addBox(miniPrograme)
+                addContent(miniPrograme)
+            }
+        }
+
+    </script>
+
+{% endblock %}

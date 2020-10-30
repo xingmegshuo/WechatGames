@@ -138,7 +138,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':
         # 'pro',
-        #     'guo',
+        # 'guo',
             os.environ.get('MYSQL_DATABASE_NAME'),
         'USER': 'root',
         'PASSWORD': '528012',

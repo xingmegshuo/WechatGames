@@ -1,0 +1,153 @@
+[2020-10-23 15:22:08,800][Thread-4:139637741827840][task_id:django.request][log.py:228][ERROR][Internal Server Error: /]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 104, in find_template
+    template_name, skip=history,
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/engine.py", line 130, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 137, in index
+    return render(request, 'pc/company.html')
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/backends/django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/backends/django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: base.html
+[2020-10-23 15:22:08,815][Thread-3:139638454028032][task_id:django.request][log.py:228][ERROR][Internal Server Error: /]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 104, in find_template
+    template_name, skip=history,
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/engine.py", line 130, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 137, in index
+    return render(request, 'pc/company.html')
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/backends/django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/backends/django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: base.html
+[2020-10-23 15:22:08,821][Thread-5:139637733435136][task_id:django.request][log.py:228][ERROR][Internal Server Error: /]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 104, in find_template
+    template_name, skip=history,
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/engine.py", line 130, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 137, in index
+    return render(request, 'pc/company.html')
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/backends/django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/backends/django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: base.html
+[2020-10-23 15:22:08,823][Thread-4:139637741827840][task_id:django.server][basehttp.py:154][ERROR]["GET / HTTP/1.1" 500 137283]
+[2020-10-23 15:22:08,824][Thread-3:139638454028032][task_id:django.server][basehttp.py:154][ERROR]["GET / HTTP/1.1" 500 137283]
+[2020-10-23 15:22:08,825][Thread-5:139637733435136][task_id:django.server][basehttp.py:154][ERROR]["GET / HTTP/1.1" 500 137283]
+[2020-10-29 12:26:42,450][Thread-2:139827109852928][task_id:django.request][log.py:228][ERROR][Internal Server Error: /profile/]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 141, in about_company
+    return render(request, 'pc/company')
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/xms/.pyenv/versions/django/lib/python3.6/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: pc/company
+[2020-10-29 12:26:42,451][Thread-2:139827109852928][task_id:django.server][basehttp.py:154][ERROR]["GET /profile/ HTTP/1.1" 500 90628]

@@ -134,7 +134,19 @@ except KeyboardInterrupt:
 @csrf_exempt
 def index(request):
     change_info(request)
-    return render(request, 'demo.html')
+    return render(request, 'pc/base.html')
+
+
+def about_company(request):
+    return render(request, 'pc/company.html')
+
+
+def about_project(request):
+    return render(request, 'pc/project.html')
+
+
+def about_me(request):
+    return render(request, 'pc/about.html')
 
 
 def api_doc(request, path):

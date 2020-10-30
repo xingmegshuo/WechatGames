@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>萌果果官网</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="black" name=" apple-mobile-web-app-status-bar-style"/>
+    <meta content="email=no" name="format-detection"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta http-equiv="Content-Language" content="zh-CN"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10,11,12"/>
+    <meta name="keywords" content="萌果果官网"/>
+    <meta name="description" content="萌果果官网"/>
+    <link rel="icon" href="/static/favicon-1.ico" type="image/ico">
+{#    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">#}
+
+    {#    <link rel="Shortcut Icon" href="img/common-img/ShortcutIcon.ico"/>#}
+	<link rel="stylesheet" href="/static/css/timeline.css">
+    <link href="/static/css/awes1.css" rel=" stylesheet ">
+
+    <link type="text/css " rel="stylesheet " href="/static/css/reset.css "/>
+
+    <!--  swiper  -->
+    <link rel="stylesheet " type="text/css " href="/static/css/swiper.min.css "/>
+    <!--网页公用 CSS部分-->
+    <!--   这公司真垃圾！！！！ 不要来啦 !!!! @芶老板   拖欠工资，三个月了，孩子都吃不到奶粉了 %>_<%-->
+
+    <link type="text/css " rel="stylesheet " href="/static/css/common.css "/>
+    <!--内容部分 CSS-->
+    <link type="text/css " rel="stylesheet " href="/static/css/style.css "/>
+
+</head>
+
+
+<body>
+
+
+<div class="nav " style="background: white;border-bottom: solid 1px #ffa2ad;margin-bottom: 20px">
+    <div class="container ">
+        <ul class="clearfix " >
+            <span style="float:left; width:25%;height:180px"><img src="/static/indexlogo.png" draggable="false"></span>
+            <li class="firstItem "><a href="/ ">首页</a></li>
+            <li class="firstItem ">
+                <a href="/profile">公司概况</a>
+            </li>
+            <li class="firstItem ">
+                <a href="/project">项目介绍</a>
+            </li>
+            <li class="firstItem ">
+                <a href="/about">联系我们</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+{% block content %}
+    <div class="index-news index-hot ">
+        <div class="container ">
+            <div class="box-item " style="width:100%;">
+                <div class="banner banner-style ">
+                    <div class="con clearfix ">
+                        <a href="javascript:; " class="prev_btn ">
+                            <i class="fa fa-angle-left "></i>
+                        </a>
+                        <a href="javascript:; " class="next_btn ">
+                            <i class="fa fa-angle-right "></i>
+                        </a>
+                    </div>
+                    <div class="swiper-container ">
+                        <div class="swiper-wrapper ">
+                            <div class="swiper-slide ">
+                                <a style="background-image:url('/static/img/first.png'); "
+                                   class="bg_cover " href=" "></a>
+                            </div>
+
+                            <div class="swiper-slide ">
+                                <a style="background-image: url('/static/img/second.png'); "
+                                   class="bg_cover " href=" "></a>
+                            </div>
+
+                            <div class="swiper-slide ">
+                                <a style="background-image: url('/static/img/third.png'); "
+                                   class="bg_cover " href=" "></a>
+                            </div>
+
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+</body>
+<footer>
+    <div class="footer ">
+        <div class="container ">
+            <p>Copyright ©2020: xxxxxxxxx</p>
+            <p>地 址：xxxxxxxxxxx</p>
+            <p><a href="http://beian.miit.gov.cn/ " target="_blank ">京ICP备xxxxx号</a></p>
+        </div>
+    </div>
+</footer>
+<script src="/static/js/jquery-1.12.3.min.js "></script>
+<script src="/static/js/swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.banner .swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        keyboardControl: true,
+        autoplay: 6000,
+        speed: 600,
+        loop: true,
+        calculateHeight: true,
+        resizeReInit: true
+    })
+    $(".banner a.prev_btn ").click(function () {
+        console.log('prev_btn')
+        mySwiper.slidePrev();
+    })
+
+    $(".banner a.next_btn ").click(function () {
+        mySwiper.slideNext();
+    })
+</script>
+<script src="/static/js/common.js " type="text/javascript " charset="utf-8 "></script>
+</html>
