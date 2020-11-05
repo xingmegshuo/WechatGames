@@ -151,3 +151,14 @@ Traceback (most recent call last):
     raise TemplateDoesNotExist(template_name, chain=chain)
 django.template.exceptions.TemplateDoesNotExist: pc/company
 [2020-10-29 12:26:42,451][Thread-2:139827109852928][task_id:django.server][basehttp.py:154][ERROR]["GET /profile/ HTTP/1.1" 500 90628]
+[2020-11-02 15:25:05,169][Thread-42:140177646663424][task_id:django.server][basehttp.py:154][ERROR]["GET /static/img/clture4.jpg HTTP/1.1" 500 59]
+[2020-11-02 16:36:54,197][Thread-186:139722861045504][task_id:django.server][basehttp.py:154][ERROR]["GET /static/img/clutrue_1.png HTTP/1.1" 500 59]
+[2020-11-02 17:17:39,406][Thread-288:139722223494912][task_id:django.server][basehttp.py:154][ERROR]["GET /static/img/clture4.jpg HTTP/1.1" 500 59]
+[2020-11-03 17:07:52,599][Thread-41:140642638350080][task_id:django.server][basehttp.py:154][ERROR]["GET /static/my.jpg HTTP/1.1" 500 59]
+[2020-11-03 17:07:53,202][Thread-39:140643698366208][task_id:django.server][basehttp.py:154][ERROR]["GET /static/js/jquery-1.12.3.min.js HTTP/1.1" 500 59]
+[2020-11-05 16:57:44,067][Thread-82:139654334502656][task_id:django.server][basehttp.py:154][ERROR]["GET /static/scenes/kqdd.png HTTP/1.1" 500 59]
+[2020-11-05 16:57:44,068][Thread-87:139654317717248][task_id:django.server][basehttp.py:154][ERROR]["GET /static/scenes/md.jpg HTTP/1.1" 500 59]
+[2020-11-05 16:57:44,068][Thread-67:139654351288064][task_id:django.server][basehttp.py:154][ERROR]["GET /static/scenes/xzzz.png HTTP/1.1" 500 59]
+[2020-11-05 17:52:27,272][Thread-111:139689868416768][task_id:django.server][basehttp.py:154][ERROR]["GET /static/scenes/kqdd.png HTTP/1.1" 500 59]
+[2020-11-05 17:52:27,275][Thread-115:139690190964480][task_id:django.server][basehttp.py:154][ERROR]["GET /static/scenes/mhj.png HTTP/1.1" 500 59]
+[2020-11-05 17:52:27,277][Thread-114:139689516332800][task_id:django.server][basehttp.py:154][ERROR]["GET /static/scenes/xzzz.png HTTP/1.1" 500 59]
