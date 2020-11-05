@@ -21609,3 +21609,4 @@ user.models.APP.DoesNotExist: APP matching query does not exist.
 [2020-11-05 17:55:53,166][uWSGIWorker1Core1:140200076965632][task_id:django][views.py:226][INFO][用户登录成功AnonymousUserkqdd]
 [2020-11-05 17:59:33,292][uWSGIWorker1Core3:140200060180224][task_id:django][views.py:128][INFO][购物车信息夏萤｀]
 [2020-11-05 17:59:34,229][uWSGIWorker1Core4:140200051787520][task_id:django][views.py:128][INFO][购物车信息夏萤｀]
+[2020-11-05 19:33:58,296][uWSGIWorker1Core0:140041474774784][task_id:django][views.py:123][INFO][Starting scheduler...]
