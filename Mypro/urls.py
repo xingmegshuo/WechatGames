@@ -34,7 +34,7 @@ router.register(r'product', ProductViewSet)
 urlpatterns = [
     re_path(r'^startConfig', start_config),
     re_path(r'^passNo', review),
-    path('admin/', admin.site.urls),
+    path('MGG/', admin.site.urls),
     path('', index, name='首页'),
     re_path(r'^data/', include(router.urls)),
     re_path(r'^api/', include(('games.urls', 'game'), namespace='api')),

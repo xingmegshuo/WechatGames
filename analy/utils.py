@@ -88,7 +88,7 @@ def parse_local():
     """
     geo = Geo()
     geo_province = list(geo._coordinates.keys())
-    list_province = [i[0].split('/')[1] for i in Userip.objects.values_list('province')]
+    list_province = [i[0].split('/')[1] for i in Userip.objects.values_list('city')]
     search_list = list(set(geo_province) & set(list_province))
     values = [[i, Userip.objects.filter(province__contains=i).count()] for i in search_list]
     return values

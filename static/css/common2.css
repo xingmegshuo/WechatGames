@@ -62,7 +62,7 @@ body {
 
 .header .nav {
     position: fixed;
-    top: 68px;
+    top: 140px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -109,7 +109,7 @@ body {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    background: #da251c;
+    background: blueviolet;
     text-align: center;
     padding: 0 16px;
     overflow: hidden;

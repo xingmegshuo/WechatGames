@@ -48,16 +48,17 @@ class AppConfigAdmin(admin.ModelAdmin):
 
 @admin.register(Userip)
 class IpAdmin(admin.ModelAdmin):
-    list_display = ('ip','name' ,'count', 'area', 'city', 'country', 'LaL', 'Tl')
+    list_display = ('ip', 'name', 'count', 'area', 'city', 'country', 'LaL', 'Tl')
     search_fields = ['city', 'ip', 'name']
     readonly_fields = ('ip', 'count', 'area', 'country', 'province', 'city', 'LaL', 'Tl')
-    list_filter = ('city', 'province','name')
+    list_filter = ('city', 'province', 'name')
 
 
 @admin.register(Address)
 class AddressAdmin(admin.ModelAdmin):
     def user_show(self, obj):
         return MyUser.objects.filter(unionId=obj.unionId)[0].nick_name
+
     list_display = ('user_show', 'human', 'phone', 'address', 'is_show')
     search_fields = ['phone', 'human', 'unionId', 'address']
     readonly_fields = ('unionId', 'human', 'phone', 'is_show', 'address')
@@ -68,3 +69,7 @@ class AddressAdmin(admin.ModelAdmin):
 class LoginAdmin(admin.ModelAdmin):
     list_display = ('user', 'login_time')
     list_filter = ('user__nick_name',)
+
+
+admin.site.site_title = "萌果果后台管理"
+admin.site.site_header = "萌果果"
