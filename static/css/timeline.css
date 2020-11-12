@@ -74,6 +74,7 @@
     padding: 12px;
     background-color: #EEE;
     border: 1px solid #e5e5e5;
+    border-radius:10px;
     line-height: 20px;
     min-height: 64px;
     height: 150px;
@@ -302,8 +303,8 @@
 }
 
 .timeline.blue-red-red .timeline-content {
-    border-color: #C23B22;
-    background-color:#abd5ff;
+    border-color: #808080;
+    background-color:#dedede;
 }
 
 .timeline.blue-red-red.timeline-with-arrows .timeline-content::before {

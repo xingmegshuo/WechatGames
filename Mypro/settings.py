@@ -144,7 +144,7 @@ DATABASES = {
         'PASSWORD': '528012',
         'HOST':
         # 'localhost',
-        #     '119.45.126.111',
+        # '119.45.126.111',
         # 'PORT': '3306',
         # 'PORT': '3307',
             os.environ.get('MYSQL_PORT_3306_TCP_ADDR'),

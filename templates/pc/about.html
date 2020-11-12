@@ -1,21 +1,26 @@
 {% extends 'pc/base.html' %}
 {% block content %}
     <div class="index-news index-hot ">
-        <div class="container " id="map" style="height:800px;font-size:26px;">
-        </div>
-        <div class="container" style="margin-top: 50px">
-            <div style="float:left;width:400px;height:400px">
-                <img src="/static/my.jpg">
+
+        <div class="container" style="margin-top: 50px;display:-webkit-box">
+            <div id="map" style="width:60%;font-size:26px;">
             </div>
-            <div style="float: left;width:600px;height:400px">
-                <div style="font-size:36px;margin:10% auto ;text-align:center">座机：61543314</div>
-                <div style="font-size:36px;margin:10% auto ;text-align:center;">电话：18080489102</div>
+            <div style="width:40%;">
+                <img src="/static/img/about.jpg">
+                <div style="font-size:28px;margin:10% auto ;text-align:center;line-height:80px"><span
+                        style="margin-right: 20px"><img src="/static/img/phone.jpg" draggable="false"
+                                                        style="height:80px;width:80px"></span>028-61543314
+                </div>
+                <div style="font-size:28px;margin:10% auto ;text-align:center;line-height:80px"><span
+                        style="margin-right: 20px"><img src="/static/img/telphone.jpg" draggable="false"
+                                                        style="height:70px;width:70px"></span>18080489102
+                </div>
 
             </div>
         </div>
     </div>
     <script type="text/javascript"
-            src="https?>/://api.map.baidu.com/api?type=webgl&v=1.0&ak=BPcf8wKiYkSOasqvlDFlTyZq9KMa5ilu">
+            src="https://api.map.baidu.com/api?type=webgl&v=1.0&ak=BPcf8wKiYkSOasqvlDFlTyZq9KMa5ilu">
     </script>
     <script>
         var map = new BMapGL.Map('map'); // 创建Map实例
