@@ -213,6 +213,7 @@ class WxLoginView(APIView):
                 except:
                     GameInfo.objects.create(user_id=user, game_id=app)
                 if user.is_auth is True:
+                    logger.info('用户登录成功' + user.nick_name)
                     user = model_to_dict(
                         user,
                         fields=[
@@ -221,10 +222,10 @@ class WxLoginView(APIView):
                             'company', 'restaurant', 'current_role',
                             'is_owner', 'is_client', 'is_manager', 'openid'
                         ])
+
                 else:
                     user = {'openid': openid, 'session_key': session_key}
-                this_user = MyUser.objects.get(id=request.user.id)
-                logger.info('用户登录成功' + this_user.nick_name)
+                    logger.info('用户登录成功' + openid)
                 return Response(
                     {
                         'status': 1,
