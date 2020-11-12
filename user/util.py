@@ -13,7 +13,7 @@ def deal_ip(request):
         try:
             user = Userip.objects.get(ip=ip)
             user.count += 1
-            user.name = request.user
+            user.name = request.user.id
             user.save()
         except:
             response = reader.city(ip)

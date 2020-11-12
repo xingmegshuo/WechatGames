@@ -162,3 +162,7 @@ django.template.exceptions.TemplateDoesNotExist: pc/company
 [2020-11-05 17:52:27,272][Thread-111:139689868416768][task_id:django.server][basehttp.py:154][ERROR]["GET /static/scenes/kqdd.png HTTP/1.1" 500 59]
 [2020-11-05 17:52:27,275][Thread-115:139690190964480][task_id:django.server][basehttp.py:154][ERROR]["GET /static/scenes/mhj.png HTTP/1.1" 500 59]
 [2020-11-05 17:52:27,277][Thread-114:139689516332800][task_id:django.server][basehttp.py:154][ERROR]["GET /static/scenes/xzzz.png HTTP/1.1" 500 59]
+[2020-11-11 14:50:58,820][Thread-3:140190328837888][task_id:django.server][basehttp.py:154][ERROR]["GET /static/img/first.png HTTP/1.1" 500 59]
+[2020-11-11 14:51:19,290][Thread-2:140190651643648][task_id:django.server][basehttp.py:154][ERROR]["GET /static/img/second.png HTTP/1.1" 500 59]
+[2020-11-11 14:51:43,877][Thread-5:140190312052480][task_id:django.server][basehttp.py:154][ERROR]["GET /static/img/third.png HTTP/1.1" 500 59]
+[2020-11-11 16:19:23,908][Thread-60:139834916062976][task_id:django.server][basehttp.py:154][ERROR]["GET /static/scenes/myzz.png HTTP/1.1" 500 59]

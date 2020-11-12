@@ -121,7 +121,7 @@ def start_job():
 
 try:
     logger.info("Starting scheduler...")
-    # scheduler.add_job(func=start_job, trigger='interval', id='检测任务', seconds=5)
+    scheduler.add_job(func=start_job, trigger='interval', id='检测任务', seconds=5)
     scheduler.start()
 
 except KeyboardInterrupt:
@@ -189,6 +189,7 @@ def about_me(request):
         return render(request, 'm/about.html')
     else:
         return render(request, 'pc/about.html')
+
 
 def api_doc(request, path):
     """

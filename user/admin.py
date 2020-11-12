@@ -48,8 +48,11 @@ class AppConfigAdmin(admin.ModelAdmin):
 
 @admin.register(Userip)
 class IpAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'name', 'count', 'area', 'city', 'country', 'LaL', 'Tl')
-    search_fields = ['city', 'ip', 'name']
+    def user_show(self, obj):
+        return MyUser.objects.filter(id=obj.name)[0].nick_name
+
+    list_display = ('ip', 'user_show', 'count', 'area', 'city', 'country', 'LaL', 'Tl')
+    search_fields = ['city', 'ip', 'user_show']
     readonly_fields = ('ip', 'count', 'area', 'country', 'province', 'city', 'LaL', 'Tl')
     list_filter = ('city', 'province', 'name')
 
