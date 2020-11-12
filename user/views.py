@@ -223,7 +223,8 @@ class WxLoginView(APIView):
                         ])
                 else:
                     user = {'openid': openid, 'session_key': session_key}
-                logger.info('用户登录成功' + str(request.user) + name)
+                this_user = MyUser.objects.get(id=request.user.id)
+                logger.info('用户登录成功' + this_user.nick_name)
                 return Response(
                     {
                         'status': 1,
