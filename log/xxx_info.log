@@ -21608,8 +21608,7 @@ user.models.APP.DoesNotExist: APP matching query does not exist.
 [2020-11-05 17:55:12,137][uWSGIWorker1Core7:140200026609408][task_id:django][views.py:226][INFO][用户登录成功AnonymousUserkqdd]
 [2020-11-05 17:55:53,166][uWSGIWorker1Core1:140200076965632][task_id:django][views.py:226][INFO][用户登录成功AnonymousUserkqdd]
 [2020-11-05 17:59:33,292][uWSGIWorker1Core3:140200060180224][task_id:django][views.py:128][INFO][购物车信息夏萤｀]
-[2020-11-05 17:59:34,229][uWSGIWorker1Core4:140200051787520][task_id:django][views.py:128][INFO][购物车信息夏萤｀]
-[2020-11-12 11:33:15,295][uWSGIWorker1Core0:139666197042944][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-05 17:59:34,229][uWSGIWorker1Core4:140200051787520][task_id:django][views.py:128][INFO][购物车信息夏萤｀][2020-11-12 11:33:15,295][uWSGIWorker1Core0:139666197042944][task_id:django][views.py:123][INFO][Starting scheduler...]
 [2020-11-12 12:50:05,991][uWSGIWorker1Core1:139665905391360][task_id:django.request][log.py:228][INFO][OK: /api/wx_login/]
 Traceback (most recent call last):
   File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
