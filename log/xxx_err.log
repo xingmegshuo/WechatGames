@@ -166,3 +166,4 @@ django.template.exceptions.TemplateDoesNotExist: pc/company
 [2020-11-11 14:51:19,290][Thread-2:140190651643648][task_id:django.server][basehttp.py:154][ERROR]["GET /static/img/second.png HTTP/1.1" 500 59]
 [2020-11-11 14:51:43,877][Thread-5:140190312052480][task_id:django.server][basehttp.py:154][ERROR]["GET /static/img/third.png HTTP/1.1" 500 59]
 [2020-11-11 16:19:23,908][Thread-60:139834916062976][task_id:django.server][basehttp.py:154][ERROR]["GET /static/scenes/myzz.png HTTP/1.1" 500 59]
+[2020-11-17 14:23:33,080][uWSGIWorker1Core7:139804253644544][task_id:django.security.TooManyFieldsSent][exception.py:77][ERROR][The number of GET/POST parameters exceeded settings.DATA_UPLOAD_MAX_NUMBER_FIELDS.]
