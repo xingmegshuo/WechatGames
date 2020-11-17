@@ -362,6 +362,8 @@ class AddressApi(APIView):
         address = Address.objects.get(id=params.get('id'))
         if params.get('is_show'):
             address.is_show = params.get('is_show')
+        if params.get('is_default'):
+            address.is_default = params.get('is_default')
         address.save()
         status = 1
         mes = '地址修改成功'

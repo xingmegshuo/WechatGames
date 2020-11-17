@@ -20,7 +20,7 @@ def deal_ip(request):
             # 有多种语言，我们这里主要输出英文和中文
             user = Userip()
             user.ip = ip
-            user.name = request.user
+            user.name = request.user.id
             user.area = response.continent.names["es"] + '/' + response.continent.names["zh-CN"]
             user.country = response.country.name + '/' + response.country.names[
                 "zh-CN"] + '/' + response.country.iso_code

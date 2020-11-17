@@ -154,6 +154,7 @@ class Address(models.Model):
     address = models.CharField(max_length=200, verbose_name=_('收货地址'), help_text=_('收货地址'))
     is_show = models.BooleanField(verbose_name=_('是否删除'), help_text=_('用户删除不做物理删除'), default=False,
                                   choices=DELETE_CHOICE)
+    is_default = models.BooleanField(verbose_name=_('是否为默认地址'), help_text=_('设置默认地址'), default=False)
 
     class Meta:
         verbose_name = '收货地址'

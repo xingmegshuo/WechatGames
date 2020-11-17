@@ -17,7 +17,7 @@ VIRTU_CHOICE = ((False, '不支持萌度'), (True, '支持萌度'))
 class Activity(models.Model):
     # 在可视化后台添加活动增加到api doc
     title = models.CharField(max_length=500, verbose_name=_('活动标题'), help_text=_('活动标题'), null=True)
-    description = models.CharField(verbose_name=_('简要介绍'), help_text=_('简要介绍'), max_length=1000, null=True)
+    description = models.BooleanField(verbose_name=_('是否置顶'), help_text=_('是否置顶'), default=False)
     content = models.TextField(verbose_name=_('活动内容'), help_text=_('活动内容'), null=True)
     img = models.ImageField(verbose_name=_('活动图片'), help_text=_('活动图片'), upload_to='active', null=True)
     date = models.DateField(verbose_name=_('发布时间'), help_text=_('发布时间'), auto_now_add=True, null=True)
