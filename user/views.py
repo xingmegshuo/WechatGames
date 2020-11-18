@@ -189,8 +189,6 @@ class WxLoginView(APIView):
     }
 
     def post(self, request):
-        logger.info('用户id:{}'.format(request.user.id))
-        # deal_ip(request)
         params = get_parameter_dic(request)
         name = params.get('name')
         code = params.get('code')
@@ -205,6 +203,8 @@ class WxLoginView(APIView):
                 openid = session_info.get('openid', None)
                 session_key = session_info.get('session_key', None)
                 user = create_or_update_user_info(openid, None)
+                logger.info('用户id:{}'.format(user.id))
+                deal_ip(request, user.id)
                 record_time(user)
                 token = TokenObtainPairSerializer.get_token(user).access_token
                 login_record = RecordLogin.objects.create(user=user)

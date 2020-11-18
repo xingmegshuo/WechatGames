@@ -49,7 +49,8 @@ class AppConfigAdmin(admin.ModelAdmin):
 @admin.register(Userip)
 class IpAdmin(admin.ModelAdmin):
     def user_show(self, obj):
-        return MyUser.objects.filter(id=obj.name)[0].nick_name
+        name = MyUser.objects.filter(id=obj.name)[0].nick_name
+        return name if name != '' else '暂无授权'
 
     list_display = ('ip', 'user_show', 'count', 'area', 'city', 'country', 'LaL', 'Tl')
     search_fields = ['city', 'ip', 'user_show']
@@ -62,8 +63,8 @@ class AddressAdmin(admin.ModelAdmin):
     def user_show(self, obj):
         return MyUser.objects.filter(unionId=obj.unionId)[0].nick_name
 
-    list_display = ('user_show', 'human', 'phone', 'address', 'is_show')
-    search_fields = ['phone', 'human', 'unionId', 'address']
+    list_display = ('user_show', 'human', 'phone', 'address', 'is_show', 'is_default')
+    search_fields = ['phone', 'human', 'unionId', 'address', 'is_default', 'is_show']
     readonly_fields = ('unionId', 'human', 'phone', 'is_show', 'address')
     list_filter = ('is_show', 'human')
 
