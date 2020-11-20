@@ -259,7 +259,7 @@ class OrderApi(APIView):
         status = 1
         mes = '订单创建完成，请付款'
         info = model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
-                                            'money', 'virtual_money', 'is_virtual'])
+                                            'money', 'virtualMoney', 'is_virtual'])
 
         return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)
 
