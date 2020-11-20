@@ -208,7 +208,8 @@ class OrderApi(APIView):
         mes = '该用户所有订单，购买记录' if len(orders) > 0 else '该用户还没有订单'
         info = [({**(
             {**(model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
-                                             'is_show', 'money'])), **({'time': order.date})}),
+                                             'is_show', 'money'])),
+             **({'time': order.date.strftime("%Y-%m-%d %H:%M:%S")})}),
                   **({'car': [{'product': i.product.name, 'num': i.num,
                                'img': ProductImg.objects.filter(product=i.product)[0].img.url}
                               for i in order.product.all()]})
