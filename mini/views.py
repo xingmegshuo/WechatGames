@@ -202,6 +202,7 @@ class OrderApi(APIView):
             @apiSuccess {String} info 订单详情
 
         """
+        import pytz
         from Mypro.settings import TIME_ZONE
         user = MyUser.objects.get(id=request.user.id)
         orders = Order.objects.filter(unionId=user.unionId, is_show=False)
@@ -210,7 +211,7 @@ class OrderApi(APIView):
         info = [({**(
             {**(model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
                                              'is_show', 'money'])),
-             **({'time': order.date.astimezone(TIME_ZONE).strftime("%Y-%m-%d %H:%M:%S")})}),
+             **({'time': order.date.astimezone(pytz.timezone(TIME_ZONE)).strftime("%Y-%m-%d %H:%M:%S")})}),
                   **({'car': [{'product': i.product.name, 'num': i.num,
                                'img': ProductImg.objects.filter(product=i.product)[0].img.url}
                               for i in order.product.all()]})
