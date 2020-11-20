@@ -213,7 +213,8 @@ class OrderApi(APIView):
                                              'is_show', 'money'])),
              **({'time': order.date.astimezone(pytz.timezone(TIME_ZONE)).strftime("%Y-%m-%d %H:%M:%S")})}),
                   **({'car': [{'product': i.product.name, 'num': i.num,
-                               'img': ProductImg.objects.filter(product=i.product)[0].img.url}
+                               'img': ProductImg.objects.filter(product=i.product)[0].img.url,
+                               'price': i.product.price}
                               for i in order.product.all()]})
                   }) for order in orders]
         return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)
