@@ -35,7 +35,7 @@ class OrderAdmin(admin.ModelAdmin):
     def user_show(self, obj):
         return MyUser.objects.filter(unionId=obj.unionId)[0].nick_name
 
-    list_display = ('user_show', 'product_show', 'money', 'is_send', 'remarks', 'is_over', 'number','date')
+    list_display = ('user_show', 'product_show', 'money', 'is_send', 'remarks', 'is_over', 'number', 'date')
     list_filter = ('is_show', 'is_send', 'is_over', 'is_fail', 'is_virtual')
     search_fields = ('unionId', 'number')
 
