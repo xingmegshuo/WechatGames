@@ -209,7 +209,8 @@ class OrderApi(APIView):
         info = [({**(model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
                                                   'is_show',
                                                   'money', 'virtual_money', 'is_virtual', 'date'])),
-                  **({'car': [{'product': i.product.name, 'num': i.num}
+                  **({'car': [{'product': i.product.name, 'num': i.num,
+                               'img': ProductImg.objects.filter(product=i.product)[0].img.url}
                               for i in order.product.all()]})
                   }) for order in orders]
         return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)

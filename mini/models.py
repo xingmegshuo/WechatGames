@@ -24,7 +24,6 @@ class Activity(models.Model):
     begin = models.DateField(verbose_name=_('活动开始时间'), help_text=_('活动开始时间'), null=True)
     over = models.DateField(verbose_name=_('活动结束时间'), help_text=_('活动结束时间'), null=True)
     is_show = models.BooleanField(verbose_name=_('是否上架'), help_text=_('是否展示在小程序'), default=False, choices=DELETE_CHOICE)
-
     def __str__(self):
         return self.title
 

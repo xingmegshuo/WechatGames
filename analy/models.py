@@ -35,8 +35,8 @@ class Analysis(models.Model):
         if self.table_type == '2':
             pass
         tab.render(
-            settings.MEDIA_ROOT + '/analy/' + self.title + str(datetime.date.today()) + self.table_type + '.html')
-        self.url.name = 'analy/' + self.title + str(datetime.date.today()) + self.table_type + '.html'
+            settings.MEDIA_ROOT + '/analy/' + self.title + str(datetime.date.today()) + '_' + self.table_type + '.html')
+        self.url.name = 'analy/' + self.title + str(datetime.date.today()) + '_' + self.table_type + '.html'
 
     def save(self, *args, **kwargs):
         self.on_save()
