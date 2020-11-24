@@ -278,8 +278,8 @@ class OrderApi(APIView):
                                  headers={'Content': 'application/xml'})
 
         import xmltodict
-        logger.info({'微信返回数据': response.content})
         content = xmltodict.parse(response.content)
+        logger.info({'微信返回数据': content})
         if content["return_code"] == 'SUCCESS':
             order.save()
             status = 1
