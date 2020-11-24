@@ -276,7 +276,9 @@ class OrderApi(APIView):
         import requests
         response = requests.post('https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi', bodyData.encode('utf-8'),
                                  headers={'Content': 'application/xml'})
+
         import xmltodict
+        logger.info({'微信返回数据': response.content})
         content = xmltodict.parse(response.content)
         if content["return_code"] == 'SUCCESS':
             order.save()
