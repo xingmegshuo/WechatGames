@@ -247,7 +247,7 @@ class OrderApi(APIView):
 
         money = []
         virtual_money = []
-        body = ''
+        body = '我的商品'
         for i in order.product.all():
             body += '名称:' + i.product.name + ';数量' + str(i.num) + '个'
             if i.product.is_discount is True:
