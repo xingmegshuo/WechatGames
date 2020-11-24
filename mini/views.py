@@ -278,7 +278,7 @@ class OrderApi(APIView):
                                  headers={'Content': 'application/xml'})
 
         import xmltodict
-        logger.info({'微信返回数据': response.content.decode('utf-8')})
+        logger.info({'微信返回数据': response.content.get('message').decode('utf-8')})
         content = xmltodict.parse(response.content)
         if content["return_code"] == 'SUCCESS':
             order.save()
