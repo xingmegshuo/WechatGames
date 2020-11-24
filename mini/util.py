@@ -54,12 +54,12 @@ def get_paySign(prepay_id, timeStamp, nonceStr):
     return sign.upper()
 
 
-def get_bodyData(openid, client_ip, price, body, out_trade_no,):
+def get_bodyData(openid, client_ip, price, body, out_trade_no, ):
     # body = 'Mytest'  # 商品描述
     notify_url = 'https://www.menguoli.com/api/payResult/'  # 填写支付成功的回调地址，微信确认支付成功会访问这个接口
     nonce_str = get_nonce_str()  # 随机字符串
     total_fee = str(price)  # 订单价格，单位是 分
-    Mch_id = 1602401179
+    Mch_id = '1602401179'
     appid = 'wx8b8965c9adb49d33'
     Mch_key = 'mgg12345678910abcdefghijklmnopqr'
     # 获取签名
