@@ -262,10 +262,14 @@ class OrderApi(APIView):
                 order.is_virtual = False
         order.money = sum(money)
         order.virtualMoney = sum(virtual_money)
-        client_ip, port = request.get_host().split(":")
+        if 'HTTP_X_FORWARDED_FOR' in request.META:  # 获取ip
+            ip = request.META['HTTP_X_FORWARDED_FOR']
+            ip = ip.split(",")[0]  # 所以这里是真实的ip
+        else:
+            ip = request.META['REMOTE_ADDR']  # 这里获得代理ip
         out_trade_no = getWxOrdrID()  # 商户订单号
         order.number = out_trade_no
-        bodyData = get_bodyData(client_ip=client_ip, openid=user.openid, price=sum(money), body=body,
+        bodyData = get_bodyData(client_ip=ip, openid=user.openid, price=sum(money), body=body,
                                 out_trade_no=out_trade_no)
         import time
         timestamp = str(int(time.time()))
