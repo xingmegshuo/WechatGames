@@ -249,7 +249,7 @@ class OrderApi(APIView):
         virtual_money = []
         body = ''
         for i in order.product.all():
-            body += '名称:' + i.product.name + ';数量' + i.num + '个'
+            body += '名称:' + i.product.name + ';数量' + str(i.num) + '个'
             if i.product.is_discount is True:
                 money.append(i.product.price * i.num * i.product.discount)
                 if i.product.property == 0:
