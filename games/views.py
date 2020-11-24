@@ -12,6 +12,7 @@ from user.views import get_parameter_dic, get_app_config, logger
 from web.views import scheduler
 from job.views import send_mes, change_status
 from .serializers import KnowlageSerializer
+from django.http import HttpResponse
 
 
 class SignView(APIView):
@@ -929,3 +930,12 @@ class DirayImageView(APIView):
         status = 1
         mes = '上传图片成功'
         return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
+
+
+class PayResultView(APIView):
+    def post(self, request):
+        params = request.body.decode('utf-8')
+        import xmltodict
+        content = xmltodict.parse(params)
+        logger.info({"支付回调": content.get("return_code")})
+        return HttpResponse(content)

@@ -7,6 +7,7 @@ from rest_framework.status import *
 from rest_framework import serializers, viewsets
 from .models import *
 from .serializers import *
+from .util import *
 
 
 # Create your views here.
@@ -246,7 +247,9 @@ class OrderApi(APIView):
 
         money = []
         virtual_money = []
+        body = ''
         for i in order.product.all():
+            body += '名称:' + i.product.name + ';数量' + i.num + '个'
             if i.product.is_discount is True:
                 money.append(i.product.price * i.num * i.product.discount)
                 if i.product.property == 0:
@@ -259,13 +262,35 @@ class OrderApi(APIView):
                 order.is_virtual = False
         order.money = sum(money)
         order.virtualMoney = sum(virtual_money)
-        order.save()
-        status = 1
-        mes = '订单创建完成，请付款'
-        info = model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
-                                            'money', 'virtualMoney', 'is_virtual'])
+        client_ip, port = request.get_host().split(":")
+        out_trade_no = getWxOrdrID()  # 商户订单号
+        order.number = out_trade_no
+        bodyData = get_bodyData(client_ip=client_ip, openid=user.openid, price=sum(money), body=body,
+                                out_trade_no=out_trade_no)
+        import time
+        timestamp = str(int(time.time()))
+        import requests
+        response = request.post('https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi', bodyData.encode('utf-8'),
+                                headers={'Content': 'application/xml'})
+        import xmltodict
+        content = xmltodict.parse(response.content)
+        if content["return_code"] == 'SUCCESS':
+            order.save()
+            status = 1
+            mes = '订单创建完成，请付款'
+            prepay_id = content.get("prepay_id")
+            nonceStr = content.get("nonce_str")
+            timestamp = str(int(time.time()))
+            paySign = get_paySign(prepay_id=prepay_id, nonceStr=nonceStr, timeStamp=timestamp)
+            info = model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
+                                                'money', 'virtualMoney', 'is_virtual'])
 
-        return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)
+            return Response({'status': status, 'mes': mes, 'info': info, 'prepay_id': prepay_id,
+                             'nonceStr': nonceStr, 'paySign': paySign, 'timestamp': timestamp}, status=HTTP_200_OK)
+        else:
+            status = 0
+            mes = '订单创建失败'
+            return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
 
     def put(self, request):
         """

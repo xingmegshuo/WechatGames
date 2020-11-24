@@ -122,8 +122,8 @@ class Order(models.Model):
         verbose_name_plural = verbose_name
 
 
-@receiver(signals.post_save, sender=Order)
-def model_post_save(sender, created, instance, *args, **kwargs):
-    if created:
-        instance.number = instance.unionId + str(instance.id)
+# @receiver(signals.post_save, sender=Order)
+# def model_post_save(sender, created, instance, *args, **kwargs):
+#     if created:
+#         instance.number = instance.unionId + str(instance.id)
 
