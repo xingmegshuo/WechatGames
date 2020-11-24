@@ -30141,3 +30141,155 @@ ValueError: invalid literal for int() with base 10: 'xuhao'
 [2020-11-24 14:49:38,240][uWSGIWorker1Core4:140328089667328][task_id:django][views.py:206][INFO][用户id:28]
 [2020-11-24 14:49:38,265][uWSGIWorker1Core4:140328089667328][task_id:django][views.py:217][INFO][用户登录成功small ant]
 [2020-11-24 14:51:00,760][uWSGIWorker1Core4:140328089667328][task_id:django][views.py:128][INFO][购物车信息small ant]
+[2020-11-24 17:30:07,170][uWSGIWorker1Core0:140098947602176][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 17:30:07,518][uWSGIWorker1Core0:140098947602176][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-24 17:30:07,559][uWSGIWorker1Core0:140098947602176][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-24 17:30:17,351][uWSGIWorker1Core7:140098605594368][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-24 17:30:17,445][uWSGIWorker1Core7:140098605594368][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-24 17:31:07,446][uWSGIWorker1Core0:140098947602176][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:31:12,771][uWSGIWorker1Core5:140098622379776][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:31:12,857][uWSGIWorker1Core4:140098630772480][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 252, in post
+    body += '名称:' + i.product.name + ';数量' + i.num + '个'
+TypeError: must be str, not int
+[2020-11-24 17:36:27,849][uWSGIWorker1Core0:140606220855040][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 17:36:44,914][uWSGIWorker1Core0:140606220855040][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-24 17:36:44,943][uWSGIWorker1Core0:140606220855040][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-24 17:36:52,383][uWSGIWorker1Core4:140605904025344][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:36:56,810][uWSGIWorker1Core2:140605920810752][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:36:56,889][uWSGIWorker1Core1:140605929203456][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 265, in post
+    client_ip, port = request.get_host().split(":")
+ValueError: not enough values to unpack (expected 2, got 1)
+[2020-11-24 17:40:32,530][uWSGIWorker1Core0:139804995049216][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 17:40:47,329][uWSGIWorker1Core0:139804995049216][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-24 17:40:47,365][uWSGIWorker1Core0:139804995049216][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-24 17:40:54,968][uWSGIWorker1Core3:139804686612224][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:40:58,118][uWSGIWorker1Core1:139804703397632][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:40:58,227][uWSGIWorker1Core7:139804653041408][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 273, in post
+    out_trade_no=out_trade_no)
+  File "./mini/util.py", line 71, in get_bodyData
+    bodyData += '<mch_id>' + Mch_id + '</mch_id>'  # 商户号
+TypeError: must be str, not int
+[2020-11-24 17:42:36,771][uWSGIWorker1Core0:140250344666880][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 17:42:50,564][uWSGIWorker1Core0:140250344666880][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-24 17:42:50,593][uWSGIWorker1Core0:140250344666880][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-24 17:42:58,062][uWSGIWorker1Core4:140250027837184][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:43:01,579][uWSGIWorker1Core2:140250044622592][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:43:01,665][uWSGIWorker1Core1:140250053015296][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/request.py", line 410, in __getattr__
+    return getattr(self._request, attr)
+AttributeError: 'WSGIRequest' object has no attribute 'post'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 277, in post
+    response = request.post('https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi', bodyData.encode('utf-8'),
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/request.py", line 412, in __getattr__
+    return self.__getattribute__(attr)
+AttributeError: 'Request' object has no attribute 'post'
+[2020-11-24 17:44:25,242][uWSGIWorker1Core0:140586449544960][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 17:44:37,261][uWSGIWorker1Core3:140586141107968][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-24 17:44:37,302][uWSGIWorker1Core3:140586141107968][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-24 17:44:47,518][uWSGIWorker1Core7:140586107537152][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:44:50,671][uWSGIWorker1Core5:140586124322560][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:44:50,746][uWSGIWorker1Core4:140586132715264][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/request.py", line 410, in __getattr__
+    return getattr(self._request, attr)
+AttributeError: 'WSGIRequest' object has no attribute 'post'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 277, in post
+    response = request.post('https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi', bodyData.encode('utf-8'),
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/request.py", line 412, in __getattr__
+    return self.__getattribute__(attr)
+AttributeError: 'Request' object has no attribute 'post'

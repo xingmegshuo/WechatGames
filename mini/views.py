@@ -274,7 +274,7 @@ class OrderApi(APIView):
         import time
         timestamp = str(int(time.time()))
         import requests
-        response = request.post('https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi', bodyData.encode('utf-8'),
+        response = requests.post('https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi', bodyData.encode('utf-8'),
                                 headers={'Content': 'application/xml'})
         import xmltodict
         content = xmltodict.parse(response.content)
