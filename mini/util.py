@@ -79,4 +79,6 @@ def get_bodyData(openid, client_ip, price, body, out_trade_no, ):
 
     bodyData += '<sign>' + sign + '</sign>'
     bodyData += '</xml>'
+    from .views import logger
+    logger.info({'生成的数据:'+bodyData})
     return bodyData
