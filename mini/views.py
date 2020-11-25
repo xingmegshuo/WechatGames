@@ -270,7 +270,7 @@ class OrderApi(APIView):
         # if i.product.property != 0:
         #     order.is_virtual = False
         logger.info({money})
-        order.money = 0.00
+        order.money = 10.00
         order.virtualMoney = 0.00
         # if 'HTTP_X_FORWARDED_FOR' in request.META:  # 获取ip
         #     ip = request.META['HTTP_X_FORWARDED_FOR']
