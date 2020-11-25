@@ -278,7 +278,7 @@ class OrderApi(APIView):
             ip = request.META['REMOTE_ADDR']  # 这里获得代理ip
         out_trade_no = getWxOrdrID()  # 商户订单号
         order.number = out_trade_no
-        bodyData = get_bodyData(client_ip=ip, openid=user.openid, price=sum(money), body=body,
+        bodyData = get_bodyData(client_ip=ip, openid=user.openid, price=sum(money)*100, body=body,
                                 out_trade_no=out_trade_no)
         import time
         timestamp = str(int(time.time()))
