@@ -252,7 +252,8 @@ class OrderApi(APIView):
             else:
                 money.append(cat.product.price * cat.num)
             order.product.add(cat)
-        logger.info(body, money)
+        logger.info(body)
+        logger.info(sum(money))
         # logger.info({'订单中的商品'+order.product.all()})
         # for i in order.product.all():
         #     # logger.info({'订单中的:' + i})
