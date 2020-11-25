@@ -241,18 +241,18 @@ class OrderApi(APIView):
         user = MyUser.objects.get(id=request.user.id)
         cats = params.get('catId')
         order = Order.objects.create(unionId=user.unionId, remarks=params.get('remark'))
-        # money = []
+        money = []
         # virtual_money = []
         body = ''
         for id in cats:
             cat = ShoppingCat.objects.get(id=id)
             body += '名称:' + cat.product.name + ';数量' + str(cat.num) + '个'
-            # if cat.product.is_discount is True:
-            #     money.append(cat.product.price * cat.num * cat.product.discount)
-            # else:
-            #     money.append(cat.product.price * cat.num)
+            if cat.product.is_discount is True:
+                money.append(cat.product.price * cat.num * cat.product.discount)
+            else:
+                money.append(cat.product.price * cat.num)
             order.product.add(cat)
-        logger.info(body)
+        logger.info(body, money)
         # logger.info({'订单中的商品'+order.product.all()})
         # for i in order.product.all():
         #     # logger.info({'订单中的:' + i})
