@@ -252,16 +252,18 @@ class OrderApi(APIView):
         for i in order.product.all():
             # logger.info({'订单中的:' + i})
             body += '名称:' + i.product.name + ';数量' + str(i.num) + '个'
+            logger.info("body:" + body)
             if i.product.is_discount is True:
                 money.append(i.product.price * i.num * i.product.discount)
-                if i.product.property == 0:
-                    virtual_money.append(i.product.virtual * i.num * i.product.discount)
             else:
                 money.append(i.product.price * i.num)
-                if i.product.property == 0:
-                    virtual_money.append(i.product.virtual * i.num)
-            if i.product.property != 0:
-                order.is_virtual = False
+            #     if i.product.property == 0:
+            #         virtual_money.append(i.product.virtual * i.num * i.product.discount)
+            # else:
+            #     if i.product.property == 0:
+            #         virtual_money.append(i.product.virtual * i.num)
+            # if i.product.property != 0:
+            #     order.is_virtual = False
         order.money = sum(money)
         order.virtualMoney = sum(virtual_money)
         if 'HTTP_X_FORWARDED_FOR' in request.META:  # 获取ip
@@ -271,7 +273,6 @@ class OrderApi(APIView):
             ip = request.META['REMOTE_ADDR']  # 这里获得代理ip
         out_trade_no = getWxOrdrID()  # 商户订单号
         order.number = out_trade_no
-        # logger.info("body:" + str(sum(money)))
         bodyData = get_bodyData(client_ip=ip, openid=user.openid, price=sum(money), body=body,
                                 out_trade_no=out_trade_no)
         import time
