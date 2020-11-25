@@ -411,13 +411,14 @@ class AddressApi(APIView):
         address = Address.objects.get(id=params.get('id'))
         logger.info(params)
         if params.get('is_show'):
-            if params.get('is_show') == '1':
+            if params.get('is_show') == 'y':
                 address.is_show = True
         if params.get('is_default'):
-            if params.get('is_default') == '1':
+            if params.get('is_default') == 'y':
                 address.is_default = True
             else:
                 address.is_default = False
+        address.save()
         status = 1
         mes = '地址修改成功'
         return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
