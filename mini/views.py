@@ -293,8 +293,8 @@ class OrderApi(APIView):
             order.save()
             status = 1
             mes = '订单创建完成，请付款'
-            prepay_id = content.get("prepay_id")
-            nonceStr = content.get("nonce_str")
+            prepay_id = content['xml']["prepay_id"]
+            nonceStr = content['xml']["nonce_str"]
             timestamp = str(int(time.time()))
             paySign = get_paySign(prepay_id=prepay_id, nonceStr=nonceStr, timeStamp=timestamp)
             info = model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
