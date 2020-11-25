@@ -406,17 +406,18 @@ class AddressApi(APIView):
             @apiSuccess {String} mes 提示信息
             @apiSuccess {String} info 用户修改的收货地址
         """
-        user = MyUser.objects.get(id=request.user.id)
+        # user = MyUser.objects.get(id=request.user.id)
         params = get_parameter_dic(request)
         address = Address.objects.get(id=params.get('id'))
-        if params.get('is_show'):
-            if params.get('is_show') == 1:
-                address.is_show = True
-        if params.get('is_default'):
-            if params.get('is_default') == 1:
-                address.is_default = True
-            else:
-                address.is_default = False
+        logger.info(params)
+        # if params.get('is_show'):
+        #     if params.get('is_show') == 1:
+        #         address.is_show = True
+        # if params.get('is_default'):
+        #     if params.get('is_default') == 1:
+        #         address.is_default = True
+        #     else:
+        #         address.is_default = False
         status = 1
         mes = '地址修改成功'
         return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
