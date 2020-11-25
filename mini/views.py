@@ -411,9 +411,10 @@ class AddressApi(APIView):
         address = Address.objects.get(id=params.get('id'))
         if params.get('is_show'):
             address.is_show = params.get('is_show')
-        if params.get('is_default'):
-            address.is_default = params.get('is_default')
-        address.save()
+        if params.get('is_default') == 'true':
+            address.is_default = True
+        else:
+            address.is_default = False
         status = 1
         mes = '地址修改成功'
         return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
