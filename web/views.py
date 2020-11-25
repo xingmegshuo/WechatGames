@@ -12,6 +12,7 @@ from job.models import Jobs, Job
 from job.views import *
 from django.utils.timezone import utc
 import datetime
+from django.http import HttpResponse
 
 job_defaults = {'max_instance': 100, 'misfire_grace_time': 15 * 60, ',coalesce': True}
 scheduler = BackgroundScheduler(timezone=settings.TIME_ZONE, job_defaults=job_defaults)
@@ -200,6 +201,15 @@ def api_doc(request, path):
         path = 'index.html'
     response = serve(request, path, document_root=settings.APIDOC_ROOT, show_indexes=True)
     return response
+
+
+# 支付回调
+def pay(request):
+    params = request.body.decode('utf-8')
+    import xmltodict
+    content = xmltodict.parse(params)
+    logger.info({"支付回调": content.get("return_code")})
+    return HttpResponse(content)
 
 
 def bad_request(request, exception, template_name='page_400.html'):

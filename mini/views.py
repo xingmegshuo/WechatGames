@@ -331,7 +331,7 @@ class OrderApi(APIView):
         status = 0
         mes = '没有信息修改'
         if params.get('pay') == '1':
-            order.state = True
+            order.status = True
             status = 1
             mes = '用户付款了'
         if params.get('delete') == '1':
@@ -386,7 +386,7 @@ class AddressApi(APIView):
         params = get_parameter_dic(request)
         address = Address.objects.create(unionId=user.unionId, human=params.get('human'), phone=params.get('phone'),
                                          address=params.get('address'))
-        if len(Address.objects.filter(unionId=user.unionId,is_show=True)) < 1:
+        if len(Address.objects.filter(unionId=user.unionId, is_show=True)) < 1:
             address.is_default = True
         address.save()
         status = 1

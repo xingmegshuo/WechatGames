@@ -932,10 +932,4 @@ class DirayImageView(APIView):
         return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
 
 
-class PayResultView(APIView):
-    def post(self, request):
-        params = request.body.decode('utf-8')
-        import xmltodict
-        content = xmltodict.parse(params)
-        logger.info({"支付回调": content.get("return_code")})
-        return HttpResponse(content)
+

@@ -43,6 +43,7 @@ urlpatterns = [
     re_path(r'^about/', about_me),
     re_path(r'^profile/', about_company),
     re_path(r'^project/', about_project),
+    re_path(r'^payResult/$', pay),
 
 ]
 

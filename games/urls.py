@@ -23,6 +23,5 @@ urlpatterns = format_suffix_patterns([
     re_path(r'^mailbox/$', MailboxView.as_view()),
     re_path(r'^dirayImage/$', DirayImageView.as_view()),
     re_path(r'^doc/(?P<path>.*)', api_doc),
-    re_path(r'^payResult/$', PayResultView.as_view()),
 
 ])
