@@ -386,6 +386,8 @@ class AddressApi(APIView):
         params = get_parameter_dic(request)
         address = Address.objects.create(unionId=user.unionId, human=params.get('human'), phone=params.get('phone'),
                                          address=params.get('address'))
+        if len(Address.objects.filter(unionId=user.unionId)) < 1:
+            address.is_default = True
         address.save()
         status = 1
         mes = '新建地址成功'
