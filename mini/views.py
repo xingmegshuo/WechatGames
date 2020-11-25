@@ -296,7 +296,7 @@ class OrderApi(APIView):
             prepay_id = content['xml']["prepay_id"]
             nonceStr = content['xml']["nonce_str"]
             timestamp = str(int(time.time()))
-            paySign = get_paySign(prepay_id=prepay_id, nonceStr=nonceStr, timeStamp=timestamp)
+            paySign = content['xml']['sign']
             info = model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
                                                 'money', 'virtualMoney', 'is_virtual'])
 
