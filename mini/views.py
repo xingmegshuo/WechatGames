@@ -252,8 +252,6 @@ class OrderApi(APIView):
             else:
                 money.append(cat.product.price * cat.num)
             order.product.add(cat)
-        logger.info(body)
-        logger.info(sum(money))
         # logger.info({'订单中的商品'+order.product.all()})
         # for i in order.product.all():
         #     # logger.info({'订单中的:' + i})
@@ -271,43 +269,43 @@ class OrderApi(APIView):
         # if i.product.property != 0:
         #     order.is_virtual = False
         # logger.info({money})
-        order.money = 10
+        order.money = sum(money)
         order.virtualMoney = 0.00
-        # if 'HTTP_X_FORWARDED_FOR' in request.META:  # 获取ip
-        #     ip = request.META['HTTP_X_FORWARDED_FOR']
-        #     ip = ip.split(",")[0]  # 所以这里是真实的ip
-        # else:
-        #     ip = request.META['REMOTE_ADDR']  # 这里获得代理ip
+        if 'HTTP_X_FORWARDED_FOR' in request.META:  # 获取ip
+            ip = request.META['HTTP_X_FORWARDED_FOR']
+            ip = ip.split(",")[0]  # 所以这里是真实的ip
+        else:
+            ip = request.META['REMOTE_ADDR']  # 这里获得代理ip
         out_trade_no = getWxOrdrID()  # 商户订单号
         order.number = out_trade_no
-        # bodyData = get_bodyData(client_ip=ip, openid=user.openid, price=sum(money), body=body,
-        #                         out_trade_no=out_trade_no)
-        # import time
-        # timestamp = str(int(time.time()))
-        # import requests
-        # response = requests.post('https://api.mch.weixin.qq.com/pay/unifiedorder', bodyData.encode('utf-8'),
-        #                          headers={'Content': 'application/xml'})
-        #
-        # import xmltodict
-        # content = xmltodict.parse(response.content)
-        # logger.info({'微信返回数据': content})
+        bodyData = get_bodyData(client_ip=ip, openid=user.openid, price=sum(money), body=body,
+                                out_trade_no=out_trade_no)
+        import time
+        timestamp = str(int(time.time()))
+        import requests
+        response = requests.post('https://api.mch.weixin.qq.com/pay/unifiedorder', bodyData.encode('utf-8'),
+                                 headers={'Content': 'application/xml'})
+
+        import xmltodict
+        content = xmltodict.parse(response.content)
+        logger.info({'微信返回数据': content})
         order.save()
-        # if content['xml']["return_code"] == 'SUCCESS':
-        #     status = 1
-        #     mes = '订单创建完成，请付款'
-        #     prepay_id = content.get("prepay_id")
-        #     nonceStr = content.get("nonce_str")
-        #     timestamp = str(int(time.time()))
-        #     paySign = get_paySign(prepay_id=prepay_id, nonceStr=nonceStr, timeStamp=timestamp)
-        #     info = model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
-        #                                         'money', 'virtualMoney', 'is_virtual'])
-        #
-        #     return Response({'status': status, 'mes': mes, 'info': info, 'prepay_id': prepay_id,
-        #                      'nonceStr': nonceStr, 'paySign': paySign, 'timestamp': timestamp}, status=HTTP_200_OK)
-        # else:
-        status = 0
-        mes = '订单创建失败'
-        return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
+        if content['xml']["return_code"] == 'SUCCESS':
+            status = 1
+            mes = '订单创建完成，请付款'
+            prepay_id = content.get("prepay_id")
+            nonceStr = content.get("nonce_str")
+            timestamp = str(int(time.time()))
+            paySign = get_paySign(prepay_id=prepay_id, nonceStr=nonceStr, timeStamp=timestamp)
+            info = model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
+                                                'money', 'virtualMoney', 'is_virtual'])
+
+            return Response({'status': status, 'mes': mes, 'info': info, 'prepay_id': prepay_id,
+                             'nonceStr': nonceStr, 'paySign': paySign, 'timestamp': timestamp}, status=HTTP_200_OK)
+        else:
+            status = 0
+            mes = '订单创建失败'
+            return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
 
     def put(self, request):
         """
