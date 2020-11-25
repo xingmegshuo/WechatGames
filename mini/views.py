@@ -278,7 +278,7 @@ class OrderApi(APIView):
             ip = request.META['REMOTE_ADDR']  # 这里获得代理ip
         out_trade_no = getWxOrdrID()  # 商户订单号
         order.number = out_trade_no
-        bodyData = get_bodyData(client_ip=ip, openid=user.openid, price=sum(money)*100, body=body,
+        bodyData = get_bodyData(client_ip=ip, openid=user.openid, price=sum(money) * 100, body=body,
                                 out_trade_no=out_trade_no)
         import time
         timestamp = str(int(time.time()))
@@ -289,8 +289,8 @@ class OrderApi(APIView):
         import xmltodict
         content = xmltodict.parse(response.content)
         logger.info({'微信返回数据': content})
-        order.save()
         if content['xml']["return_code"] == 'SUCCESS':
+            order.save()
             status = 1
             mes = '订单创建完成，请付款'
             prepay_id = content.get("prepay_id")
@@ -303,6 +303,8 @@ class OrderApi(APIView):
             return Response({'status': status, 'mes': mes, 'info': info, 'prepay_id': prepay_id,
                              'nonceStr': nonceStr, 'paySign': paySign, 'timestamp': timestamp}, status=HTTP_200_OK)
         else:
+            order.is_show = False
+            order.save()
             status = 0
             mes = '订单创建失败'
             return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
