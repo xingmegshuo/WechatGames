@@ -247,10 +247,10 @@ class OrderApi(APIView):
         for id in cats:
             cat = ShoppingCat.objects.get(id=id)
             body += '名称:' + cat.product.name + ';数量' + str(cat.num) + '个'
-            # if cat.product.is_discount is True:
-            #     money.append(cat.product.price * cat.num * cat.product.discount)
-            # else:
-            money.append(cat.product.price * cat.num)
+            if cat.product.is_discount:
+                money.append(cat.product.price * cat.num * cat.product.discount)
+            else:
+                money.append(cat.product.price * cat.num)
             order.product.add(cat)
         logger.info(body)
         logger.info(sum(money))
