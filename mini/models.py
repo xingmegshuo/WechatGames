@@ -110,7 +110,8 @@ class Order(models.Model):
                                   choices=DELETE_CHOICE)
     product = models.ManyToManyField(ShoppingCat, verbose_name=_('购物车'), help_text=_('购物车'))
     money = models.DecimalField(verbose_name=_('支付金额'), help_text=_('支付金额'), decimal_places=2, max_digits=10, null=True,
-                                blank=True)
+                                blank=True)  # what fuck
+
     virtualMoney = models.DecimalField(verbose_name=_('萌度支付'), help_text=_('萌度兑换支付'), decimal_places=2, max_digits=10)
     is_virtual = models.BooleanField(verbose_name=_('是否支持萌度兑换'), help_text=_('是否支持萌度兑换'), default=True,
                                      choices=VIRTU_CHOICE)
