@@ -241,22 +241,28 @@ class OrderApi(APIView):
         user = MyUser.objects.get(id=request.user.id)
         cats = params.get('catId')
         order = Order.objects.create(unionId=user.unionId, remarks=params.get('remark'))
-        for id in cats:
-            cat = ShoppingCat.objects.get(id=id)
-            order.product.add(cat)
-
         money = []
         virtual_money = []
         body = ''
-        # logger.info({'订单中的商品'+order.product.all()})
-        for i in order.product.all():
-            # logger.info({'订单中的:' + i})
-            body += '名称:' + i.product.name + ';数量' + str(i.num) + '个'
-            logger.info("body:" + body)
-            if i.product.is_discount is True:
-                money.append(i.product.price * i.num * i.product.discount)
+        for id in cats:
+            cat = ShoppingCat.objects.get(id=id)
+            body += '名称:' + cat.product.name + ';数量' + str(cat.num) + '个'
+            if cat.product.is_discount is True:
+                money.append(cat.product.price * cat.num * cat.product.discount)
             else:
-                money.append(i.product.price * i.num)
+                money.append(cat.product.price * cat.num)
+            order.product.add(cat)
+
+
+        # logger.info({'订单中的商品'+order.product.all()})
+        # for i in order.product.all():
+        #     # logger.info({'订单中的:' + i})
+        #     body += '名称:' + i.product.name + ';数量' + str(i.num) + '个'
+        #     logger.info("body:" + body)
+        #     if i.product.is_discount is True:
+        #         money.append(i.product.price * i.num * i.product.discount)
+        #     else:
+        #         money.append(i.product.price * i.num)
             #     if i.product.property == 0:
             #         virtual_money.append(i.product.virtual * i.num * i.product.discount)
             # else:
@@ -265,7 +271,7 @@ class OrderApi(APIView):
             # if i.product.property != 0:
             #     order.is_virtual = False
         order.money = sum(money)
-        order.virtualMoney = sum(virtual_money)
+        order.virtualMoney = 0.00
         if 'HTTP_X_FORWARDED_FOR' in request.META:  # 获取ip
             ip = request.META['HTTP_X_FORWARDED_FOR']
             ip = ip.split(",")[0]  # 所以这里是真实的ip
