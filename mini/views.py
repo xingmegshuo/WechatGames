@@ -269,10 +269,8 @@ class OrderApi(APIView):
         #         virtual_money.append(i.product.virtual * i.num)
         # if i.product.property != 0:
         #     order.is_virtual = False
-        if len(money) == 0:
-            order.money = 0.00
-        else:
-            order.money = sum(money)
+        logger.info({money})
+        order.money = 0.00
         order.virtualMoney = 0.00
         # if 'HTTP_X_FORWARDED_FOR' in request.META:  # 获取ip
         #     ip = request.META['HTTP_X_FORWARDED_FOR']
