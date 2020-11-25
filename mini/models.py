@@ -37,8 +37,9 @@ class Activity(models.Model):
 # 商品
 class ProductInfo(models.Model):
     name = models.CharField(max_length=400, verbose_name=_('商品名称'), help_text=_('商品名称'))
-    price = models.FloatField(verbose_name=_('单价'), help_text=_('商品单价'), decimal_places=2)
-    virtual = models.FloatField(verbose_name=_('萌度兑换需要的单价'), help_text=_('萌度兑换需要的价格'), blank=True, decimal_places=2)
+    price = models.DecimalField(verbose_name=_('单价'), help_text=_('商品单价'), max_digits=10, decimal_places=2)
+    virtual = models.DecimalField(verbose_name=_('萌度兑换需要的单价'), help_text=_('萌度兑换需要的价格'), blank=True, decimal_places=2,
+                                  max_digits=10)
     quantity = models.IntegerField(verbose_name=_('数量'), help_text=_('商品总数'))
     sail = models.IntegerField(verbose_name=_('卖出数量'), help_text=_('卖出数量'), default=0)
     property = models.IntegerField(verbose_name=_('商品属性'), help_text=_('商品属性等级, 支持支付方式,萌度,现金,余额'), default=0,
@@ -108,8 +109,8 @@ class Order(models.Model):
     is_show = models.BooleanField(verbose_name=_('是否删除'), help_text=_('用户删除不做物理删除,是否向用户展示'), default=False,
                                   choices=DELETE_CHOICE)
     product = models.ManyToManyField(ShoppingCat, verbose_name=_('购物车'), help_text=_('购物车'))
-    money = models.FloatField(verbose_name=_('支付金额'), help_text=_('支付金额'), decimal_places=2)
-    virtualMoney = models.FloatField(verbose_name=_('萌度支付'), help_text=_('萌度兑换支付'), decimal_places=2)
+    money = models.DecimalField(verbose_name=_('支付金额'), help_text=_('支付金额'), decimal_places=2, max_digits=10)
+    virtualMoney = models.DecimalField(verbose_name=_('萌度支付'), help_text=_('萌度兑换支付'), decimal_places=2, max_digits=10)
     is_virtual = models.BooleanField(verbose_name=_('是否支持萌度兑换'), help_text=_('是否支持萌度兑换'), default=True,
                                      choices=VIRTU_CHOICE)
     date = models.DateTimeField(verbose_name=_('订单创建时间'), help_text=_('订单创建时间'), auto_now_add=True)
