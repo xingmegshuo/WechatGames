@@ -253,7 +253,6 @@ class OrderApi(APIView):
                 money.append(cat.product.price * cat.num)
             order.product.add(cat)
 
-
         # logger.info({'订单中的商品'+order.product.all()})
         # for i in order.product.all():
         #     # logger.info({'订单中的:' + i})
@@ -263,14 +262,17 @@ class OrderApi(APIView):
         #         money.append(i.product.price * i.num * i.product.discount)
         #     else:
         #         money.append(i.product.price * i.num)
-            #     if i.product.property == 0:
-            #         virtual_money.append(i.product.virtual * i.num * i.product.discount)
-            # else:
-            #     if i.product.property == 0:
-            #         virtual_money.append(i.product.virtual * i.num)
-            # if i.product.property != 0:
-            #     order.is_virtual = False
-        order.money = sum(money)
+        #     if i.product.property == 0:
+        #         virtual_money.append(i.product.virtual * i.num * i.product.discount)
+        # else:
+        #     if i.product.property == 0:
+        #         virtual_money.append(i.product.virtual * i.num)
+        # if i.product.property != 0:
+        #     order.is_virtual = False
+        if len(money) == 0:
+            order.money = 0.00
+        else:
+            order.money = sum(money)
         order.virtualMoney = 0.00
         # if 'HTTP_X_FORWARDED_FOR' in request.META:  # 获取ip
         #     ip = request.META['HTTP_X_FORWARDED_FOR']
