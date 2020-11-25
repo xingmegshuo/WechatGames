@@ -44,7 +44,7 @@ def get_paySign(prepay_id, timeStamp, nonceStr):
         'appId': 'wx8b8965c9adb49d33',
         'nonceStr': nonceStr,
         'package': "prepay_id=" + prepay_id,
-        'siginType': 'MD5',
+        'signType': 'MD5',
         'timeStamp': timeStamp
     }
     stringA = '&'.join(["{0}={1}".format(k, pay_data.get(k)) for k in sorted(pay_data)])
