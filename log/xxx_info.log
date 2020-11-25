@@ -30576,3 +30576,250 @@ Traceback (most recent call last):
   File "./mini/views.py", line 284, in post
     if content["return_code"] == 'SUCCESS':
 KeyError: 'return_code'
+[2020-11-25 11:40:26,667][uWSGIWorker1Core0:139671729055488][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 11:40:26,967][uWSGIWorker1Core0:139671729055488][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 11:40:26,995][uWSGIWorker1Core0:139671729055488][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 11:40:36,781][uWSGIWorker1Core7:139671387047680][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 11:40:47,536][uWSGIWorker1Core5:139671403833088][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 273, in post
+    logger.info("body:" + money)
+TypeError: must be str, not list
+[2020-11-25 11:44:17,537][uWSGIWorker1Core0:140024350734080][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 11:45:13,048][uWSGIWorker1Core1:140024059082496][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 251, in post
+    logger.info({'订单中的商品'+order.product.all()})
+TypeError: must be str, not QuerySet
+[2020-11-25 11:46:31,620][uWSGIWorker1Core0:139923769206528][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 11:46:31,775][uWSGIWorker1Core0:139923769206528][task_id:django][views.py:274][INFO][body:0]
+[2020-11-25 11:46:31,775][uWSGIWorker1Core0:139923769206528][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>我的商品</body><mch_id>1602401179</mch_id><nonce_str>d75c01dc62ca457d985c969a9db34ba4</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606275991</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>0</total_fee><trade_type>JSAPI</trade_type><sign>5C0416831093EE6CB419BD30A3333A00</sign></xml>'}]
+[2020-11-25 11:46:31,996][uWSGIWorker1Core0:139923769206528][task_id:django][views.py:285][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'FAIL'), ('return_msg', 'invalid total_fee')]))])}]
+[2020-11-25 11:52:07,505][uWSGIWorker1Core0:140693726304000][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 11:52:07,654][uWSGIWorker1Core0:140693726304000][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body></body><mch_id>1602401179</mch_id><nonce_str>ab4738df88434009b809708366c6fced</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606276327</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>0</total_fee><trade_type>JSAPI</trade_type><sign>F64AB4591DF52F535776EF9D54F56690</sign></xml>'}]
+[2020-11-25 11:52:07,785][uWSGIWorker1Core0:140693726304000][task_id:django][views.py:285][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'FAIL'), ('return_msg', '缺少参数')]))])}]
+[2020-11-25 11:53:45,273][uWSGIWorker1Core4:140693409474304][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 11:53:45,326][uWSGIWorker1Core4:140693409474304][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 11:53:55,343][uWSGIWorker1Core0:140693726304000][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 11:53:59,678][uWSGIWorker1Core7:140693384296192][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:亚索;数量2个</body><mch_id>1602401179</mch_id><nonce_str>4e52e705de6c4844aed424908b929038</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606276439</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>40.0</total_fee><trade_type>JSAPI</trade_type><sign>67E3D24F3123FD1CC44E70E838150437</sign></xml>'}]
+[2020-11-25 11:53:59,873][uWSGIWorker1Core7:140693384296192][task_id:django][views.py:285][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'FAIL'), ('return_msg', 'invalid total_fee')]))])}]
+[2020-11-25 12:11:28,187][MainThread:139692516058880][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:11:36,665][MainThread:140388988806912][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:11:57,630][uWSGIWorker1Core0:140372197213952][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:13:01,000][uWSGIWorker1Core3:140371888776960][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'money' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 243, in post
+    order = Order.objects.create(unionId=user.unionId, remarks=params.get('remark'))
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "Column 'money' cannot be null")
+[2020-11-25 12:19:31,979][uWSGIWorker1Core0:140012971464448][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:19:32,149][uWSGIWorker1Core0:140012971464448][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'money' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 243, in post
+    order = Order.objects.create(unionId=user.unionId, remarks=params.get('remark'))
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "Column 'money' cannot be null")
