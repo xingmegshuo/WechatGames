@@ -30293,3 +30293,286 @@ Traceback (most recent call last):
   File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/request.py", line 412, in __getattr__
     return self.__getattribute__(attr)
 AttributeError: 'Request' object has no attribute 'post'
+[2020-11-24 17:47:45,531][uWSGIWorker1Core0:139694325036800][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 17:47:50,775][uWSGIWorker1Core0:140081354360576][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 17:48:01,885][uWSGIWorker1Core3:140081045923584][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-24 17:48:01,925][uWSGIWorker1Core3:140081045923584][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-24 17:48:11,987][uWSGIWorker1Core7:140081012352768][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:48:15,941][uWSGIWorker1Core5:140081029138176][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:48:16,086][uWSGIWorker1Core4:140081037530880][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 280, in post
+    content = xmltodict.parse(response.content)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/xmltodict.py", line 327, in parse
+    parser.Parse(xml_input, True)
+xml.parsers.expat.ExpatError: not well-formed (invalid token): line 1, column 0
+[2020-11-24 17:51:22,242][uWSGIWorker1Core0:139680172488448][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 17:51:22,515][uWSGIWorker1Core0:139680172488448][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-24 17:51:22,561][uWSGIWorker1Core0:139680172488448][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-24 17:51:29,834][uWSGIWorker1Core4:139679855658752][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:51:33,108][uWSGIWorker1Core2:139679872444160][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:51:33,275][uWSGIWorker1Core1:139679880836864][task_id:django][views.py:281][INFO][{'微信返回数据': b'{"code":"INVALID_REQUEST","message":"Http\xe5\xa4\xb4Content-Type\xe5\x80\xbc\xe5\xbf\x85\xe9\xa1\xbb\xe4\xb8\xbaapplication/json"}'}]
+[2020-11-24 17:51:33,292][uWSGIWorker1Core1:139679880836864][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 282, in post
+    content = xmltodict.parse(response.content)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/xmltodict.py", line 327, in parse
+    parser.Parse(xml_input, True)
+xml.parsers.expat.ExpatError: not well-formed (invalid token): line 1, column 0
+[2020-11-24 17:53:50,001][uWSGIWorker1Core3:139679864051456][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-24 17:53:50,030][uWSGIWorker1Core3:139679864051456][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-24 17:53:58,865][uWSGIWorker1Core7:139679830480640][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:54:05,667][uWSGIWorker1Core5:139679847266048][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:54:05,808][uWSGIWorker1Core4:139679855658752][task_id:django][views.py:281][INFO][{'微信返回数据': b'{"code":"INVALID_REQUEST","message":"Http\xe5\xa4\xb4Content-Type\xe5\x80\xbc\xe5\xbf\x85\xe9\xa1\xbb\xe4\xb8\xbaapplication/json"}'}]
+[2020-11-24 17:54:05,809][uWSGIWorker1Core4:139679855658752][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 282, in post
+    content = xmltodict.parse(response.content)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/xmltodict.py", line 327, in parse
+    parser.Parse(xml_input, True)
+xml.parsers.expat.ExpatError: not well-formed (invalid token): line 1, column 0
+[2020-11-24 17:56:41,178][uWSGIWorker1Core6:139679838873344][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-24 17:56:41,204][uWSGIWorker1Core6:139679838873344][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-24 17:56:54,967][uWSGIWorker1Core2:139679872444160][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-24 17:56:58,527][uWSGIWorker1Core1:139679880836864][task_id:django][views.py:281][INFO][{'微信返回数据': b'{"code":"INVALID_REQUEST","message":"Http\xe5\xa4\xb4Content-Type\xe5\x80\xbc\xe5\xbf\x85\xe9\xa1\xbb\xe4\xb8\xbaapplication/json"}'}]
+[2020-11-24 17:56:58,529][uWSGIWorker1Core1:139679880836864][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 282, in post
+    content = xmltodict.parse(response.content)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/xmltodict.py", line 327, in parse
+    parser.Parse(xml_input, True)
+xml.parsers.expat.ExpatError: not well-formed (invalid token): line 1, column 0
+[2020-11-24 17:58:03,561][uWSGIWorker1Core0:140713185081088][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 17:58:03,794][uWSGIWorker1Core0:140713185081088][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 281, in post
+    logger.info({'微信返回数据': response.content.get('message').decode('utf-8')})
+AttributeError: 'bytes' object has no attribute 'get'
+[2020-11-24 17:59:29,836][uWSGIWorker1Core0:140666974983936][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 17:59:30,070][uWSGIWorker1Core0:140666974983936][task_id:django][views.py:281][INFO][{'微信返回数据': <Response [415]>}]
+[2020-11-24 17:59:30,089][uWSGIWorker1Core0:140666974983936][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 282, in post
+    content = xmltodict.parse(response.content)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/xmltodict.py", line 327, in parse
+    parser.Parse(xml_input, True)
+xml.parsers.expat.ExpatError: not well-formed (invalid token): line 1, column 0
+[2020-11-24 18:02:10,566][uWSGIWorker1Core0:140501022398208][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 18:02:10,852][uWSGIWorker1Core0:140501022398208][task_id:django][views.py:206][INFO][用户id:26]
+[2020-11-24 18:02:10,888][uWSGIWorker1Core0:140501022398208][task_id:django][views.py:217][INFO][用户登录成功殊荣]
+[2020-11-24 18:02:34,290][uWSGIWorker1Core0:140641402242816][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 18:02:34,550][uWSGIWorker1Core0:140641402242816][task_id:django][views.py:281][INFO][{'微信返回数据': b'<xml><return_code><![CDATA[FAIL]]></return_code>\n<return_msg><![CDATA[\xe7\xbc\xba\xe5\xb0\x91\xe5\x8f\x82\xe6\x95\xb0]]></return_msg>\n</xml>'}]
+[2020-11-24 18:02:34,570][uWSGIWorker1Core0:140641402242816][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 283, in post
+    if content["return_code"] == 'SUCCESS':
+KeyError: 'return_code'
+[2020-11-24 18:04:13,394][uWSGIWorker1Core0:140610669823744][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 18:04:13,664][uWSGIWorker1Core0:140610669823744][task_id:django][views.py:282][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'FAIL'), ('return_msg', '缺少参数')]))])}]
+[2020-11-24 18:04:13,681][uWSGIWorker1Core0:140610669823744][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 283, in post
+    if content["return_code"] == 'SUCCESS':
+KeyError: 'return_code'
+[2020-11-24 18:22:00,992][uWSGIWorker1Core0:139684434536192][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 18:22:01,286][uWSGIWorker1Core0:139684434536192][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body></body><mch_id>1602401179</mch_id><nonce_str>96c69fc727e947608d80b86b33a12583</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606213321</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>0</total_fee><trade_type>JSAPI</trade_type><sign>E70B61B370FC4B956DD9596754BE9401</sign></xml>'}]
+[2020-11-24 18:22:01,433][uWSGIWorker1Core0:139684434536192][task_id:django][views.py:282][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'FAIL'), ('return_msg', '缺少参数')]))])}]
+[2020-11-24 18:22:01,450][uWSGIWorker1Core0:139684434536192][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 283, in post
+    if content["return_code"] == 'SUCCESS':
+KeyError: 'return_code'
+[2020-11-24 18:24:07,442][uWSGIWorker1Core0:140305930028800][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 18:24:07,621][uWSGIWorker1Core0:140305930028800][task_id:django][views.py:272][INFO][body:]
+[2020-11-24 18:24:07,621][uWSGIWorker1Core0:140305930028800][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body></body><mch_id>1602401179</mch_id><nonce_str>f086ed099ca1400d931505c82993586a</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606213447</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>0</total_fee><trade_type>JSAPI</trade_type><sign>7BAB5BB54A747A8CB33131F044E609DB</sign></xml>'}]
+[2020-11-24 18:24:07,734][uWSGIWorker1Core0:140305930028800][task_id:django][views.py:283][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'FAIL'), ('return_msg', '缺少参数')]))])}]
+[2020-11-24 18:24:07,750][uWSGIWorker1Core0:140305930028800][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 284, in post
+    if content["return_code"] == 'SUCCESS':
+KeyError: 'return_code'
+[2020-11-24 18:25:09,863][uWSGIWorker1Core0:140154085164800][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-24 18:25:09,997][uWSGIWorker1Core0:140154085164800][task_id:django][views.py:272][INFO][body:我的商品]
+[2020-11-24 18:25:09,997][uWSGIWorker1Core0:140154085164800][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>我的商品</body><mch_id>1602401179</mch_id><nonce_str>2d8e9a165ac74164908f3e31d850e85b</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606213509</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>0</total_fee><trade_type>JSAPI</trade_type><sign>85BD936DCAB96EFF3FDE220B67CF0151</sign></xml>'}]
+[2020-11-24 18:25:10,179][uWSGIWorker1Core0:140154085164800][task_id:django][views.py:283][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'FAIL'), ('return_msg', 'invalid total_fee')]))])}]
+[2020-11-24 18:25:10,197][uWSGIWorker1Core0:140154085164800][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 284, in post
+    if content["return_code"] == 'SUCCESS':
+KeyError: 'return_code'
