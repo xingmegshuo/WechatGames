@@ -248,7 +248,7 @@ class OrderApi(APIView):
         money = []
         virtual_money = []
         body = '我的商品'
-        logger.info({'订单中的商品'+order.product.all()})
+        # logger.info({'订单中的商品'+order.product.all()})
         for i in order.product.all():
             logger.info({'订单中的:' + i})
             body += '名称:' + i.product.name + ';数量' + str(i.num) + '个'
