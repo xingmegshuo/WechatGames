@@ -249,6 +249,7 @@ class OrderApi(APIView):
         virtual_money = []
         body = '我的商品'
         for i in order.product.all():
+            logger.info({'订单中的:' + i})
             body += '名称:' + i.product.name + ';数量' + str(i.num) + '个'
             if i.product.is_discount is True:
                 money.append(i.product.price * i.num * i.product.discount)
@@ -269,7 +270,7 @@ class OrderApi(APIView):
             ip = request.META['REMOTE_ADDR']  # 这里获得代理ip
         out_trade_no = getWxOrdrID()  # 商户订单号
         order.number = out_trade_no
-        logger.info("body:"+body)
+        logger.info("body:" + money)
         bodyData = get_bodyData(client_ip=ip, openid=user.openid, price=sum(money), body=body,
                                 out_trade_no=out_trade_no)
         import time
@@ -281,7 +282,7 @@ class OrderApi(APIView):
         import xmltodict
         content = xmltodict.parse(response.content)
         logger.info({'微信返回数据': content})
-        if content["return_code"] == 'SUCCESS':
+        if content['xml']["return_code"] == 'SUCCESS':
             order.save()
             status = 1
             mes = '订单创建完成，请付款'
