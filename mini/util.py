@@ -50,7 +50,7 @@ def get_paySign(prepay_id, timeStamp, nonceStr):
     stringA = '&'.join(["{0}={1}".format(k, pay_data.get(k)) for k in sorted(pay_data)])
     StringSignTemp = '{0}&key={1}'.format(stringA, Mch_key)
     import hashlib
-    sign = hashlib.md5(StringSignTemp.encode('utf')).hexdigest()
+    sign = hashlib.md5(StringSignTemp.encode('utf-8')).hexdigest()
     return sign.upper()
 
 
