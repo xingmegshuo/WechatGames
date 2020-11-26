@@ -241,16 +241,10 @@ class OrderApi(APIView):
         user = MyUser.objects.get(id=request.user.id)
         cats = params.get('catId')
         order = Order.objects.create(unionId=user.unionId, remarks=params.get('remark'))
-        money = []
-        # virtual_money = []
-        body = ''
+        order.status = True
+        order.address = Address.objects.get(id=params.get('addressId'))
         for id in cats:
             cat = ShoppingCat.objects.get(id=id)
-            body += '名称:' + cat.product.name + ';数量' + str(cat.num) + '个'
-            if cat.product.is_discount:
-                money.append(cat.product.price * cat.num * cat.product.discount)
-            else:
-                money.append(cat.product.price * cat.num)
             order.product.add(cat)
         # logger.info({'订单中的商品'+order.product.all()})
         # for i in order.product.all():
@@ -269,45 +263,16 @@ class OrderApi(APIView):
         # if i.product.property != 0:
         #     order.is_virtual = False
         # logger.info({money})
-        order.money = sum(money)
+        order.money = params.get('money')
         order.virtualMoney = 0.00
-        if 'HTTP_X_FORWARDED_FOR' in request.META:  # 获取ip
-            ip = request.META['HTTP_X_FORWARDED_FOR']
-            ip = ip.split(",")[0]  # 所以这里是真实的ip
-        else:
-            ip = request.META['REMOTE_ADDR']  # 这里获得代理ip
-        out_trade_no = getWxOrdrID()  # 商户订单号
-        order.number = out_trade_no
-        bodyData = get_bodyData(client_ip=ip, openid=user.openid, price=int(sum(money) * 100), body=body,
-                                out_trade_no=out_trade_no)
-        import time
-        timestamp = str(int(time.time()))
-        import requests
-        response = requests.post('https://api.mch.weixin.qq.com/pay/unifiedorder', bodyData.encode('utf-8'),
-                                 headers={'Content': 'application/xml'})
+        order.number = params.get('number')
+        order.save()
+        status = 1
+        mes = '用户付款，订单创建'
+        info = model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
+                                            'money', 'virtualMoney', 'is_virtual'])
 
-        import xmltodict
-        content = xmltodict.parse(response.content)
-        logger.info({'微信返回数据': content})
-        if content['xml']["return_code"] == 'SUCCESS':
-            order.save()
-            status = 1
-            mes = '订单创建完成，请付款'
-            prepay_id = content['xml']["prepay_id"]
-            nonceStr = content['xml']["nonce_str"]
-            timestamp = str(int(time.time()))
-            paySign = get_paySign(prepay_id=prepay_id, nonceStr=nonceStr, timeStamp=timestamp)
-            info = model_to_dict(order, fields=['id', 'number', 'remarks', 'status', 'is_fail', 'is_send', 'is_over',
-                                                'money', 'virtualMoney', 'is_virtual'])
-
-            return Response({'status': status, 'mes': mes, 'info': info, 'prepay_id': prepay_id,
-                             'nonceStr': nonceStr, 'paySign': paySign, 'timestamp': timestamp}, status=HTTP_200_OK)
-        else:
-            order.is_show = False
-            order.save()
-            status = 0
-            mes = '订单创建失败'
-            return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
+        return Response({'status': status, 'mes': mes, 'info': info}, status=HTTP_200_OK)
 
     def put(self, request):
         """
@@ -422,3 +387,40 @@ class AddressApi(APIView):
         status = 1
         mes = '地址修改成功'
         return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
+
+
+# 请求支付
+class PayApi(APIView):
+    def post(self, request):
+        user = MyUser.objects.get(id=request.user.id)
+        params = get_parameter_dic(request)
+        if 'HTTP_X_FORWARDED_FOR' in request.META:  # 获取ip
+            ip = request.META['HTTP_X_FORWARDED_FOR']
+            ip = ip.split(",")[0]  # 所以这里是真实的ip
+        else:
+            ip = request.META['REMOTE_ADDR']  # 这里获得代理ip
+        out_trade_no = getWxOrdrID()  # 商户订单号
+        money = params.get('money')
+        body = params.get('body')
+        bodyData = get_bodyData(client_ip=ip, openid=user.openid, price=int(money * 100), body=body,
+                                out_trade_no=out_trade_no)
+        import time
+        timestamp = str(int(time.time()))
+        import requests
+        response = requests.post('https://api.mch.weixin.qq.com/pay/unifiedorder', bodyData.encode('utf-8'),
+                                 headers={'Content': 'application/xml'})
+
+        import xmltodict
+        content = xmltodict.parse(response.content)
+        logger.info({'微信返回数据': content})
+        if content['xml']["return_code"] == 'SUCCESS':
+            mes = '订单创建完成，请付款'
+            prepay_id = content['xml']["prepay_id"]
+            nonceStr = content['xml']["nonce_str"]
+            timestamp = str(int(time.time()))
+            paySign = get_paySign(prepay_id=prepay_id, nonceStr=nonceStr, timeStamp=timestamp)
+            return Response({'status': 1, 'mes': mes, 'prepay_id': prepay_id,
+                             'nonceStr': nonceStr, 'paySign': paySign, 'timestamp': timestamp, 'number': out_trade_no},
+                            status=HTTP_200_OK)
+        else:
+            return Response({'status': 0, 'mes': '请求支付失败'}, status=HTTP_200_OK)

@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from user.models import DELETE_CHOICE
+from user.models import DELETE_CHOICE, Address
 from user.views import logger
 from django.db.models import signals
 from django.dispatch import receiver
@@ -117,6 +117,7 @@ class Order(models.Model):
     is_virtual = models.BooleanField(verbose_name=_('是否支持萌度兑换'), help_text=_('是否支持萌度兑换'), default=True,
                                      choices=VIRTU_CHOICE)
     date = models.DateTimeField(verbose_name=_('订单创建时间'), help_text=_('订单创建时间'), auto_now_add=True)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE, verbose_name=_('收货地址'), help_text=_('收货地址'))
 
     def __str__(self):
         return self.number + self.unionId
