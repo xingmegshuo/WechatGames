@@ -245,6 +245,9 @@ class OrderApi(APIView):
         order.address = Address.objects.get(id=params.get('addressId'))
         for id in cats:
             cat = ShoppingCat.objects.get(id=id)
+            product = ProductInfo.objects.get(id=cat.product.id)
+            product.sail = product.sail+cat.num
+            product.save()
             order.product.add(cat)
         # logger.info({'订单中的商品'+order.product.all()})
         # for i in order.product.all():

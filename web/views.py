@@ -204,8 +204,8 @@ def api_doc(request, path):
 
 
 # 支付回调
-def pay(request):
-    params = request.content
+def pay(request, *args, **kwargs):
+    params = request.body
     import xmltodict
     content = xmltodict.parse(params)
     logger.info({"支付回调": content})
