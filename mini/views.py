@@ -402,7 +402,7 @@ class PayApi(APIView):
         out_trade_no = getWxOrdrID()  # 商户订单号
         money = params.get('money')
         body = params.get('body')
-        bodyData = get_bodyData(client_ip=ip, openid=user.openid, price=int(money) * 100, body=body,
+        bodyData = get_bodyData(client_ip=ip, openid=user.openid, price=int(float(money) * 100), body=body,
                                 out_trade_no=out_trade_no)
         import time
         timestamp = str(int(time.time()))
