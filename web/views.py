@@ -205,10 +205,10 @@ def api_doc(request, path):
 
 # 支付回调
 def pay(request):
-    params = request.body.decode('utf-8')
+    params = request.content
     import xmltodict
     content = xmltodict.parse(params)
-    logger.info({"支付回调": content.get("return_code")})
+    logger.info({"支付回调": content})
     return HttpResponse(content)
 
 
