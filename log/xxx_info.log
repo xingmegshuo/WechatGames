@@ -30823,3 +30823,1561 @@ Traceback (most recent call last):
   File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
     raise errorclass(errno, errval)
 django.db.utils.IntegrityError: (1048, "Column 'money' cannot be null")
+[2020-11-25 12:38:34,398][uWSGIWorker1Core0:140024112670464][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:38:34,549][uWSGIWorker1Core0:140024112670464][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'money' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 243, in post
+    order = Order.objects.create(unionId=user.unionId, remarks=params.get('remark'))
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "Column 'money' cannot be null")
+[2020-11-25 12:45:10,325][uWSGIWorker1Core0:139942155581184][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:45:20,282][uWSGIWorker1Core0:140161289881344][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:46:00,926][uWSGIWorker1Core5:140160964658944][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 12:46:00,957][uWSGIWorker1Core5:140160964658944][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 12:46:10,969][uWSGIWorker1Core1:140160998229760][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 12:46:35,020][uWSGIWorker1Core3:140160981444352][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 12:46:37,816][uWSGIWorker1Core1:140160998229760][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 12:46:49,925][uWSGIWorker1Core4:140160973051648][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 12:46:54,114][uWSGIWorker1Core2:140160989837056][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'money' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 243, in post
+    order = Order.objects.create(unionId=user.unionId, remarks=params.get('remark'))
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "Column 'money' cannot be null")
+[2020-11-25 12:49:34,032][uWSGIWorker1Core0:140132311791360][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:49:55,964][uWSGIWorker1Core2:140132011747072][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'money' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 243, in post
+    order = Order.objects.create(unionId=user.unionId, remarks=params.get('remark'))
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "Column 'money' cannot be null")
+[2020-11-25 12:50:53,819][uWSGIWorker1Core0:139782550238976][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:50:59,904][uWSGIWorker1Core0:140327554946816][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:51:05,608][uWSGIWorker1Core5:140327229724416][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'money' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 243, in post
+    order = Order.objects.create(unionId=user.unionId, remarks=params.get('remark'))
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "Column 'money' cannot be null")
+[2020-11-25 12:54:24,571][uWSGIWorker1Core0:140110573172480][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:54:24,714][uWSGIWorker1Core0:140110573172480][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'money' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 243, in post
+    order = Order.objects.create(unionId=user.unionId, remarks=params.get('remark'))
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "Column 'money' cannot be null")
+[2020-11-25 12:57:56,469][MainThread:140541337450240][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:58:02,891][MainThread:140220861454080][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:58:23,878][uWSGIWorker1Core0:140385219782400][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:58:24,040][uWSGIWorker1Core0:140385219782400][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'virtualMoney' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 243, in post
+    order = Order.objects.create(unionId=user.unionId, remarks=params.get('remark'))
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 413, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "Column 'virtualMoney' cannot be null")
+[2020-11-25 12:59:22,903][MainThread:140590137689856][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:59:30,583][MainThread:140269316368128][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:59:49,342][uWSGIWorker1Core0:140520946341632][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 12:59:49,505][uWSGIWorker1Core0:140520946341632][task_id:django][views.py:255][INFO][名称:zzz;数量2个]
+[2020-11-25 13:01:12,048][uWSGIWorker1Core0:140695153297152][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 13:01:35,269][uWSGIWorker1Core5:140694828074752][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 13:01:35,297][uWSGIWorker1Core5:140694828074752][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 13:01:45,914][uWSGIWorker1Core1:140694861645568][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:04:02,338][uWSGIWorker1Core0:140077364610816][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 13:04:02,499][uWSGIWorker1Core0:140077364610816][task_id:django][views.py:255][INFO][]
+[2020-11-25 13:04:02,500][uWSGIWorker1Core0:140077364610816][task_id:django][views.py:256][INFO][0]
+[2020-11-25 13:07:45,375][uWSGIWorker1Core0:140174613128960][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 13:07:45,649][uWSGIWorker1Core0:140174613128960][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 13:07:45,679][uWSGIWorker1Core0:140174613128960][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 13:08:13,884][uWSGIWorker1Core7:140174271121152][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 13:08:13,928][uWSGIWorker1Core7:140174271121152][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 13:08:20,307][uWSGIWorker1Core3:140174304691968][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:08:40,610][uWSGIWorker1Core4:140174296299264][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:08:46,767][uWSGIWorker1Core2:140174313084672][task_id:django][views.py:255][INFO][名称:萌果果;数量1个]
+[2020-11-25 13:08:46,768][uWSGIWorker1Core2:140174313084672][task_id:django][views.py:256][INFO][1000.00]
+[2020-11-25 13:10:23,853][uWSGIWorker1Core0:139657822279424][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 13:10:24,008][uWSGIWorker1Core0:139657822279424][task_id:django][views.py:255][INFO][名称:萌果果;数量1个]
+[2020-11-25 13:10:24,008][uWSGIWorker1Core0:139657822279424][task_id:django][views.py:256][INFO][1000.00]
+[2020-11-25 13:12:44,028][uWSGIWorker1Core0:139814253225728][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 13:12:44,222][uWSGIWorker1Core0:139814253225728][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>51941fb7710e4c9192c4d2d228f5fa9a</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606281164</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>1000.00</total_fee><trade_type>JSAPI</trade_type><sign>0C0E1FD3BB04848352987AD397E7AE38</sign></xml>'}]
+[2020-11-25 13:12:44,405][uWSGIWorker1Core0:139814253225728][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'FAIL'), ('return_msg', 'invalid total_fee')]))])}]
+[2020-11-25 13:18:21,348][uWSGIWorker1Core0:139667828463360][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 13:18:21,534][uWSGIWorker1Core0:139667828463360][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>961f21910b4c4a91aff064064db0d2ae</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606281501</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000.00</total_fee><trade_type>JSAPI</trade_type><sign>14F5EEC0F1E8020758FFE4F7E8B747D6</sign></xml>'}]
+[2020-11-25 13:18:21,717][uWSGIWorker1Core0:139667828463360][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'FAIL'), ('return_msg', 'invalid total_fee')]))])}]
+[2020-11-25 13:20:16,322][uWSGIWorker1Core0:139660127885056][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 13:20:52,681][uWSGIWorker1Core4:139659811055360][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>8cc3983bdee44ba784472a6be3b21137</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606281652</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>3A61B7D6BC14F60DF1F2A98258844DFE</sign></xml>'}]
+[2020-11-25 13:20:52,912][uWSGIWorker1Core4:139659811055360][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'VBXFKhu4MhIbdVaV'), ('sign', 'D3E5BD1AAF902234AC428A9F53C2ACB8'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx251320528635914c51ddf6ee4e74e60000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 13:20:52,920][uWSGIWorker1Core4:139659811055360][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 299, in post
+    paySign = get_paySign(prepay_id=prepay_id, nonceStr=nonceStr, timeStamp=timestamp)
+  File "./mini/util.py", line 46, in get_paySign
+    'package': "prepay_id=" + prepay_id,
+TypeError: must be str, not NoneType
+[2020-11-25 13:23:56,121][uWSGIWorker1Core0:140434796766976][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 13:24:13,983][uWSGIWorker1Core3:140434488329984][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>a7060b3d32da42e88191970a2ece916a</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606281853</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>6387EC31792E389384BF2EFF4B79F407</sign></xml>'}]
+[2020-11-25 13:24:14,192][uWSGIWorker1Core3:140434488329984][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 't0LWHrQUfBGJzHyP'), ('sign', '28CF68E1C456EF650E424B324D08D66D'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25132414164145d64ede2e8d980a5c0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 13:25:46,082][uWSGIWorker1Core3:140434488329984][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:32:00,583][uWSGIWorker1Core5:140434471544576][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 13:32:00,610][uWSGIWorker1Core5:140434471544576][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 13:32:10,837][uWSGIWorker1Core1:140434505115392][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:32:18,109][uWSGIWorker1Core0:140434796766976][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>87ba285a00a04661ba2ec79059e26002</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606282338</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>6CFDC04777E1A76007D355DF22042596</sign></xml>'}]
+[2020-11-25 13:32:18,378][uWSGIWorker1Core0:140434796766976][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'HAutWkyMhJpDZevE'), ('sign', 'E73101880FA22C87CE3A4539759851CD'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25133218331227b1921d6a6fc2de950000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 13:34:39,178][uWSGIWorker1Core7:140434454759168][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 13:48:37,624][uWSGIWorker1Core6:140434463151872][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 13:48:37,658][uWSGIWorker1Core6:140434463151872][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 13:48:53,719][uWSGIWorker1Core3:140434488329984][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:48:57,714][uWSGIWorker1Core1:140434505115392][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>672b6679929f4d438b061fd43d39714b</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606283337</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>DD416996F01516B7EAF5F3F608F287D8</sign></xml>'}]
+[2020-11-25 13:48:57,977][uWSGIWorker1Core1:140434505115392][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'llDbsrCjTQgps8oq'), ('sign', '043EAFE07917AB5A43C64040B2A8BF94'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25134857940121f62dce6f744515810000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 13:50:14,549][uWSGIWorker1Core2:140434496722688][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 13:50:14,576][uWSGIWorker1Core2:140434496722688][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 13:50:20,723][uWSGIWorker1Core5:140434471544576][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:50:22,527][uWSGIWorker1Core4:140434479937280][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body></body><mch_id>1602401179</mch_id><nonce_str>ff5e838f837747aca22c958ab5ad16b8</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606283422</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>0</total_fee><trade_type>JSAPI</trade_type><sign>5DAB9C0A8EC296D31A9AB58057FBC4E1</sign></xml>'}]
+[2020-11-25 13:50:22,641][uWSGIWorker1Core4:140434479937280][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'FAIL'), ('return_msg', '缺少参数')]))])}]
+[2020-11-25 13:50:32,481][uWSGIWorker1Core3:140434488329984][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>9ae5d50080a84b858bbbd55f7be2c9ee</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606283432</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>B78F77B7032D2A3D44912EC35D7E3D49</sign></xml>'}]
+[2020-11-25 13:50:32,734][uWSGIWorker1Core3:140434488329984][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'doGPse7c5Xcxgsqp'), ('sign', '5523043ECA0E574A90AF39DD784D909F'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25135032712315268f3227be3ca0dc0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 13:50:54,599][uWSGIWorker1Core1:140434505115392][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>2946661d78ad4aac85412ba2f3b2743c</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606283454</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>B614556D1411F9749C0B859350074194</sign></xml>'}]
+[2020-11-25 13:50:54,807][uWSGIWorker1Core1:140434505115392][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'fA2rAhyARaKbQ1GG'), ('sign', '9EA7F870445243E18A62C654E4CE641C'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx251350547731045a52065498647ad80000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 13:51:17,245][uWSGIWorker1Core2:140434496722688][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 13:51:17,280][uWSGIWorker1Core2:140434496722688][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 13:51:35,539][uWSGIWorker1Core6:140434463151872][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:51:40,648][uWSGIWorker1Core4:140434479937280][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>6499452354004fa8bec3086274c643d9</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606283500</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>499FAB9285F1E32EEDF816C00EAECE07</sign></xml>'}]
+[2020-11-25 13:51:40,923][uWSGIWorker1Core4:140434479937280][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'c0JTFiDESXF4jaHX'), ('sign', '795172B99994B737DE229E606DEA87C8'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx251351408800463ef5d782a1877fdc0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 13:52:03,409][uWSGIWorker1Core5:140434471544576][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 13:52:03,460][uWSGIWorker1Core5:140434471544576][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 13:52:17,464][uWSGIWorker1Core2:140434496722688][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:52:25,058][uWSGIWorker1Core0:140434796766976][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>b9541b18a81f4c3d9bb3958dadfad113</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606283545</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>95408141E21198C5F559EB3BE01E2528</sign></xml>'}]
+[2020-11-25 13:52:25,307][uWSGIWorker1Core0:140434796766976][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'yLNSwvDa8B30BJll'), ('sign', '7E39E0FC43DF344F09F11B71F041FEDA'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25135225261744304d48369c311ad80000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 13:52:44,799][uWSGIWorker1Core7:140434454759168][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 13:52:44,844][uWSGIWorker1Core7:140434454759168][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 13:52:50,774][uWSGIWorker1Core6:140434463151872][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:52:53,315][uWSGIWorker1Core4:140434479937280][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>ecbd62ea766f4750adb925e3b9d8e185</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606283573</out_trade_no><spbill_create_ip>171.216.209.41</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>EFA87C44985ABAAE0CEA4823358EABE6</sign></xml>'}]
+[2020-11-25 13:52:53,562][uWSGIWorker1Core4:140434479937280][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'QyUo7QoSFgulU526'), ('sign', '06B679B6AB6464AB15532C75E53FAA2C'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx251352535182810a2456620510f4db0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 13:52:57,724][uWSGIWorker1Core3:140434488329984][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:53:39,808][uWSGIWorker1Core1:140434505115392][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:53:45,092][uWSGIWorker1Core2:140434496722688][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>9cc670892bd94e9996b159097ff543f9</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606283625</out_trade_no><spbill_create_ip>171.216.209.41</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>4AA27BDEA09C87B4127DE843E6E4E983</sign></xml>'}]
+[2020-11-25 13:53:45,311][uWSGIWorker1Core2:140434496722688][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'v7MhPjA1pjwU7414'), ('sign', '717382CAEB1E1BED0E1DEA9BB3B4AC5C'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25135345275044033f1096bcfbdd300000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 13:53:46,812][uWSGIWorker1Core0:140434796766976][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:55:15,273][uWSGIWorker1Core7:140434454759168][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:55:20,658][uWSGIWorker1Core6:140434463151872][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>a603a685e65c41178fdf262271d40bf1</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606283720</out_trade_no><spbill_create_ip>171.216.209.41</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>524C191E3602EEA3462B5EE275EC74DB</sign></xml>'}]
+[2020-11-25 13:55:20,864][uWSGIWorker1Core6:140434463151872][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', '7O0XZz7eeJMIraO3'), ('sign', '0E4B532EEB4C5EC2F270D026E2D6487C'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25135520819948086f8efef44e24290000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 13:55:22,310][uWSGIWorker1Core5:140434471544576][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:57:46,386][uWSGIWorker1Core3:140434488329984][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 13:57:50,356][uWSGIWorker1Core1:140434505115392][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>b44946acc89e452c9b3eba1191f5e980</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606283870</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>86513C636A3254E351F81EC92718D2E6</sign></xml>'}]
+[2020-11-25 13:57:50,619][uWSGIWorker1Core1:140434505115392][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'MkEm7tXlEXizUCay'), ('sign', '67C4FEA33269F8253B06C2D6E98E4386'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25135750576236f14e806f5d8aebce0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 13:58:14,433][uWSGIWorker1Core2:140434496722688][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 13:58:14,464][uWSGIWorker1Core2:140434496722688][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 14:00:39,412][uWSGIWorker1Core0:139799247439616][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 14:00:59,617][uWSGIWorker1Core0:140679820928768][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 14:01:20,163][uWSGIWorker1Core5:140679495706368][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:01:26,301][uWSGIWorker1Core4:140679504099072][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>0110a1cb25e745eb9a0753bca433d6d8</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606284086</out_trade_no><spbill_create_ip>171.216.209.41</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>0F4F041AAB7A7806A1A770D6386FB74C</sign></xml>'}]
+[2020-11-25 14:01:26,534][uWSGIWorker1Core4:140679504099072][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'PZcSZgJuMJABAPuN'), ('sign', '4B8CF1B459C136DD38C9FF452F2A9804'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx251401264978623df59166058d6caf0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 14:01:28,483][uWSGIWorker1Core3:140679512491776][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:01:45,862][uWSGIWorker1Core2:140679520884480][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:01:50,313][uWSGIWorker1Core1:140679529277184][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>ed7f06cf5a6d4dc59bde62df30599a27</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606284110</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>AFB0F2EE13E78E1D82D99BF9FDF92562</sign></xml>'}]
+[2020-11-25 14:01:50,548][uWSGIWorker1Core1:140679529277184][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'UoIMGH4bMPeoC9u1'), ('sign', '1B55E2D5B288DBCF559D80DA500BA9B2'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25140150509855696ed62c6ac96cc20000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 14:01:57,080][uWSGIWorker1Core0:140679820928768][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:04:16,728][uWSGIWorker1Core7:140679478920960][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 14:06:46,321][uWSGIWorker1Core4:140679504099072][task_id:django][views.py:206][INFO][用户id:26]
+[2020-11-25 14:06:46,367][uWSGIWorker1Core4:140679504099072][task_id:django][views.py:217][INFO][用户登录成功殊荣]
+[2020-11-25 14:09:08,102][uWSGIWorker1Core0:140223365273344][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 14:09:08,272][uWSGIWorker1Core0:140223365273344][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>8ac8012691b340b6b1648ebacd7a33a4</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606284548</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>35FA0828AB243ADE0C29D76D7C56E68E</sign></xml>'}]
+[2020-11-25 14:09:08,539][uWSGIWorker1Core0:140223365273344][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'TU06Q67uAtzVhVI4'), ('sign', 'EB4E019C3A9AB64C539635E467FB0573'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25140908496220ce1c490de4192ed70000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 14:16:13,465][uWSGIWorker1Core0:140223365273344][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>94867bc1e27a4f01a803d08ff235c542</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606284973</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>F31D950E6288B7965C5950176BBB9F95</sign></xml>'}]
+[2020-11-25 14:16:13,697][uWSGIWorker1Core0:140223365273344][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'd38b5KSSJuNjzhVn'), ('sign', '501055404BE0294A0D1F552F3CCE210F'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx2514161366649952b0aefe8ea849130000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 14:25:02,380][uWSGIWorker1Core0:140369889212160][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 14:25:02,563][uWSGIWorker1Core0:140369889212160][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>a4e6e8de9a54433d8e4fc12c7d667634</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606285502</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>100000</total_fee><trade_type>JSAPI</trade_type><sign>D3FC72781113B40DECEE1FD19FC17637</sign></xml>'}]
+[2020-11-25 14:25:02,827][uWSGIWorker1Core0:140369889212160][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'N1mQHOS31xSArdsj'), ('sign', 'B3F4E94B8FA550116CA927C5F07F56B5'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx251425027909189d8eac1c9e7ad1470000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 14:25:24,573][uWSGIWorker1Core7:140369547204352][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 14:25:24,602][uWSGIWorker1Core7:140369547204352][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 14:25:36,621][uWSGIWorker1Core0:140369889212160][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:25:39,450][uWSGIWorker1Core6:140369555597056][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:亚索;数量2个</body><mch_id>1602401179</mch_id><nonce_str>0bb23b2666984793ab40bd5d713eee73</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606285539</out_trade_no><spbill_create_ip>171.216.209.41</spbill_create_ip><total_fee>4000</total_fee><trade_type>JSAPI</trade_type><sign>6AC1F38F4F5BFFB4A10C43A098B935FF</sign></xml>'}]
+[2020-11-25 14:25:39,698][uWSGIWorker1Core6:140369555597056][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'RjI8o63Jgvico27G'), ('sign', '228A58DB87C3C0BFEDC2F312EF904D56'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25142539663930c461d67d7860864b0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 14:25:44,170][uWSGIWorker1Core5:140369563989760][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:31:35,844][uWSGIWorker1Core2:140369589167872][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:31:39,800][uWSGIWorker1Core1:140369597560576][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:zzz;数量1个</body><mch_id>1602401179</mch_id><nonce_str>100d47fa077d4b968766a55ee3f826d9</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606285899</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>20</total_fee><trade_type>JSAPI</trade_type><sign>8CF17FE3270F6138966A80F606990CDE</sign></xml>'}]
+[2020-11-25 14:31:40,067][uWSGIWorker1Core1:140369597560576][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'RnC60gqOqd7g0SNw'), ('sign', 'ACB9C35CE96CE7DA858C0A76A021D174'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25143140025171f743f1d6ac2dc7df0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 14:31:51,886][uWSGIWorker1Core0:140369889212160][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:31:53,019][uWSGIWorker1Core0:140369889212160][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:31:54,146][uWSGIWorker1Core6:140369555597056][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:31:55,248][uWSGIWorker1Core6:140369555597056][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:31:56,375][uWSGIWorker1Core4:140369572382464][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:31:57,829][uWSGIWorker1Core3:140369580775168][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:32:06,961][uWSGIWorker1Core2:140369589167872][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:32:13,002][uWSGIWorker1Core1:140369597560576][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:32:22,454][uWSGIWorker1Core0:140369889212160][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:32:28,133][uWSGIWorker1Core5:140369563989760][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:32:52,973][uWSGIWorker1Core6:140369555597056][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:32:58,355][uWSGIWorker1Core4:140369572382464][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:34:45,772][uWSGIWorker1Core3:140369580775168][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 14:34:45,813][uWSGIWorker1Core3:140369580775168][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 14:35:54,214][uWSGIWorker1Core5:140369563989760][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:35:58,519][uWSGIWorker1Core5:140369563989760][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:36:26,296][uWSGIWorker1Core7:140369547204352][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:36:28,059][uWSGIWorker1Core4:140369572382464][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:36:30,723][uWSGIWorker1Core3:140369580775168][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:36:38,588][uWSGIWorker1Core6:140369555597056][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:36:43,253][uWSGIWorker1Core4:140369572382464][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:36:59,051][uWSGIWorker1Core1:140369597560576][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:37:44,777][uWSGIWorker1Core6:140369555597056][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:zzz;数量1个名称:亚索;数量2个名称:萌果果;数量1个</body><mch_id>1602401179</mch_id><nonce_str>b8c7e9598ce04b34abc11cc8c18b210c</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606286264</out_trade_no><spbill_create_ip>171.216.209.41</spbill_create_ip><total_fee>104020</total_fee><trade_type>JSAPI</trade_type><sign>AFA4F3D9E63FA366C92BF0269E360DB1</sign></xml>'}]
+[2020-11-25 14:37:45,038][uWSGIWorker1Core6:140369555597056][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', '1M0gqSAWsxbgbMev'), ('sign', 'CB83309D12DB754C337CC8201D096B1D'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25143745002640fdb49ba5957c4fca0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 14:37:52,659][uWSGIWorker1Core0:140369889212160][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:38:07,242][uWSGIWorker1Core4:140369572382464][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body></body><mch_id>1602401179</mch_id><nonce_str>5aba2e5808524ac986ca51c7e43ae9b9</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606286287</out_trade_no><spbill_create_ip>171.216.209.41</spbill_create_ip><total_fee>0</total_fee><trade_type>JSAPI</trade_type><sign>F01184BA518E33A7D68500CC6D14BBE1</sign></xml>'}]
+[2020-11-25 14:38:07,362][uWSGIWorker1Core4:140369572382464][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'FAIL'), ('return_msg', '缺少参数')]))])}]
+[2020-11-25 14:38:17,442][uWSGIWorker1Core3:140369580775168][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:38:22,803][uWSGIWorker1Core7:140369547204352][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:38:32,057][uWSGIWorker1Core6:140369555597056][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:38:36,147][uWSGIWorker1Core4:140369572382464][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 14:42:31,392][uWSGIWorker1Core1:140369597560576][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 14:42:31,439][uWSGIWorker1Core1:140369597560576][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 14:45:55,835][uWSGIWorker1Core7:140369547204352][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:45:58,638][uWSGIWorker1Core1:140369597560576][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 14:47:04,519][uWSGIWorker1Core1:140369597560576][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 14:47:04,550][uWSGIWorker1Core1:140369597560576][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 14:50:13,474][uWSGIWorker1Core2:140369589167872][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 14:50:13,506][uWSGIWorker1Core2:140369589167872][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 14:51:19,144][uWSGIWorker1Core1:140369597560576][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 14:51:19,180][uWSGIWorker1Core1:140369597560576][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 14:55:27,032][uWSGIWorker1Core5:140369563989760][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 14:55:27,066][uWSGIWorker1Core5:140369563989760][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 14:56:40,365][uWSGIWorker1Core7:140369547204352][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 14:56:40,394][uWSGIWorker1Core7:140369547204352][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 14:57:31,812][uWSGIWorker1Core0:140369889212160][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 14:57:31,851][uWSGIWorker1Core0:140369889212160][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:05:06,724][uWSGIWorker1Core5:140369563989760][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:05:06,754][uWSGIWorker1Core5:140369563989760][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:05:57,514][uWSGIWorker1Core7:140369547204352][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 15:05:58,761][uWSGIWorker1Core6:140369555597056][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 15:06:43,069][uWSGIWorker1Core1:140369597560576][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:06:43,099][uWSGIWorker1Core1:140369597560576][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:07:37,633][uWSGIWorker1Core5:140369563989760][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:07:37,660][uWSGIWorker1Core5:140369563989760][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:09:24,199][uWSGIWorker1Core1:140369597560576][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:09:24,229][uWSGIWorker1Core1:140369597560576][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:11:27,347][uWSGIWorker1Core5:140369563989760][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:11:27,383][uWSGIWorker1Core5:140369563989760][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:11:47,526][uWSGIWorker1Core7:140369547204352][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:11:47,631][uWSGIWorker1Core7:140369547204352][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:12:02,318][uWSGIWorker1Core4:140369572382464][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:14:43,685][uWSGIWorker1Core0:140369889212160][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:16:23,705][uWSGIWorker1Core4:140369572382464][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:16:23,736][uWSGIWorker1Core4:140369572382464][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:16:34,754][uWSGIWorker1Core6:140369555597056][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:16:57,513][uWSGIWorker1Core5:140369563989760][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:16:57,546][uWSGIWorker1Core5:140369563989760][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:17:06,122][uWSGIWorker1Core3:140369580775168][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:17:21,551][uWSGIWorker1Core1:140369597560576][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:17:25,174][uWSGIWorker1Core0:140369889212160][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:22:55,949][uWSGIWorker1Core4:140369572382464][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:22:55,983][uWSGIWorker1Core4:140369572382464][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:23:03,469][uWSGIWorker1Core6:140369555597056][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:23:21,633][uWSGIWorker1Core7:140369547204352][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:23:26,970][uWSGIWorker1Core0:140369889212160][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:23:26,998][uWSGIWorker1Core0:140369889212160][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:23:38,754][uWSGIWorker1Core4:140369572382464][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:23:38,789][uWSGIWorker1Core4:140369572382464][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:23:51,125][uWSGIWorker1Core6:140369555597056][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:27:40,654][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:123][INFO][Starting scheduler...]
+[2020-11-25 15:28:38,498][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:28:38,527][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:28:57,104][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:29:20,661][uWSGIWorker1Core7:140273399555840][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:30:17,338][uWSGIWorker1Core3:140273433126656][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:30:25,091][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:31:42,499][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 15:32:12,375][uWSGIWorker1Core7:140273399555840][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:32:12,409][uWSGIWorker1Core7:140273399555840][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:32:24,382][uWSGIWorker1Core3:140273433126656][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:32:54,978][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 15:33:23,351][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:33:23,377][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:35:58,097][uWSGIWorker1Core7:140273399555840][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 15:35:58,948][uWSGIWorker1Core4:140273424733952][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 15:36:23,332][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:36:23,359][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:36:31,516][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:36:42,499][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:36:42,973][uWSGIWorker1Core7:140273399555840][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 15:36:54,450][uWSGIWorker1Core4:140273424733952][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 15:38:07,279][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:38:07,319][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:38:18,427][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:38:22,536][uWSGIWorker1Core7:140273399555840][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:38:23,324][uWSGIWorker1Core4:140273424733952][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:38:23,548][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:38:54,276][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:38:54,312][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:39:29,434][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 15:39:43,498][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:47:44,114][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:48:37,001][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 15:48:49,967][uWSGIWorker1Core3:140273433126656][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 15:49:20,064][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 15:49:43,336][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 15:49:56,685][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 15:53:07,834][uWSGIWorker1Core7:140273399555840][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:53:07,869][uWSGIWorker1Core7:140273399555840][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:53:52,115][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:53:52,139][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:54:52,162][uWSGIWorker1Core3:140273433126656][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:54:52,187][uWSGIWorker1Core3:140273433126656][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:55:05,478][uWSGIWorker1Core7:140273399555840][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:55:44,711][uWSGIWorker1Core4:140273424733952][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:55:44,736][uWSGIWorker1Core4:140273424733952][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:55:52,701][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:57:02,616][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:57:02,644][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:57:13,263][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 15:59:28,794][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 15:59:28,823][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 15:59:36,709][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:02:39,634][uWSGIWorker1Core7:140273399555840][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:02:39,669][uWSGIWorker1Core7:140273399555840][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:02:55,577][uWSGIWorker1Core3:140273433126656][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:04:07,706][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 16:04:30,258][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 16:04:43,670][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 16:05:30,774][uWSGIWorker1Core7:140273399555840][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 16:05:59,117][uWSGIWorker1Core4:140273424733952][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:06:03,397][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 16:08:26,758][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:08:26,788][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:08:32,094][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 16:08:43,240][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:08:54,868][uWSGIWorker1Core2:140273441519360][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:亚索;数量2个</body><mch_id>1602401179</mch_id><nonce_str>723879bc412e42acaa49051805c84181</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606291734</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>4000</total_fee><trade_type>JSAPI</trade_type><sign>5C2B9F9FD2EB8A01E581BB1C2DABB3A8</sign></xml>'}]
+[2020-11-25 16:08:55,132][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', '2im1ZzbaDYlR2TWT'), ('sign', '7441F5C3B5647B9081921BC7402D58E3'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx251608550986439f5647e15a7dea6e0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 16:08:55,244][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:09:56,623][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:09:56,653][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:10:07,137][uWSGIWorker1Core3:140273433126656][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 16:10:41,591][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 16:10:54,571][uWSGIWorker1Core4:140273424733952][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:11:08,205][uWSGIWorker1Core5:140273416341248][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:zzz;数量1个</body><mch_id>1602401179</mch_id><nonce_str>35ea152ada1345a596af488e6ed62bac</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606291868</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>20</total_fee><trade_type>JSAPI</trade_type><sign>112C72886BD1086B51E49E0A80A108A5</sign></xml>'}]
+[2020-11-25 16:11:08,619][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'hLmL7bVZxNH4Hr9Q'), ('sign', '6AB93EFCEB996236E1D6A07AABDA8B5F'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx251611084037045faf75318d48784b0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 16:11:08,743][uWSGIWorker1Core3:140273433126656][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:13:18,974][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:13:19,064][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:14:34,697][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:14:34,744][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:15:25,888][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:15:25,917][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:15:41,303][uWSGIWorker1Core3:140273433126656][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:15:50,733][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:15:50,795][uWSGIWorker1Core7:140273399555840][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:zzz;数量1个</body><mch_id>1602401179</mch_id><nonce_str>23d1d1a37f6248ebb6f63612af5b1aa9</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606292150</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>20</total_fee><trade_type>JSAPI</trade_type><sign>F882E56EF7376869318D0029E64B3844</sign></xml>'}]
+[2020-11-25 16:15:51,047][uWSGIWorker1Core7:140273399555840][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'hHAn6IGitFcd0ZOj'), ('sign', '46D77873C972D28235E7709B993A8A80'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25161551011990d06d1031f0b7a92e0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 16:16:14,517][uWSGIWorker1Core1:140273449912064][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:16:14,739][uWSGIWorker1Core4:140273424733952][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:16:15,635][uWSGIWorker1Core4:140273424733952][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:16:16,846][uWSGIWorker1Core5:140273416341248][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:16:17,990][uWSGIWorker1Core5:140273416341248][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:16:19,192][uWSGIWorker1Core2:140273441519360][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:16:20,339][uWSGIWorker1Core0:140273741563648][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:16:30,533][uWSGIWorker1Core7:140273399555840][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:16:35,458][uWSGIWorker1Core1:140273449912064][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:16:45,816][uWSGIWorker1Core1:140273449912064][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:16:50,582][uWSGIWorker1Core4:140273424733952][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:17:16,050][uWSGIWorker1Core4:140273424733952][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:17:20,693][uWSGIWorker1Core5:140273416341248][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:20:16,513][uWSGIWorker1Core3:140273433126656][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:20:20,891][uWSGIWorker1Core4:140273424733952][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:27:56,592][uWSGIWorker1Core3:140273433126656][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 16:28:33,056][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:28:33,085][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:28:39,458][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:28:52,900][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:28:52,979][uWSGIWorker1Core6:140273407948544][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:zzz;数量1个</body><mch_id>1602401179</mch_id><nonce_str>7eef631de0c54097ab70e68f3a18071c</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606292932</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>20</total_fee><trade_type>JSAPI</trade_type><sign>AF6B432718F1E252EB8B6D6ECF06E1F7</sign></xml>'}]
+[2020-11-25 16:28:53,225][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'C9DkLlsdY81EV2Dj'), ('sign', '1A27ABB02C5631A4DD9924CF1B937683'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25162853189673405ac57d2de19c3a0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 16:29:05,427][uWSGIWorker1Core5:140273416341248][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:29:05,989][uWSGIWorker1Core5:140273416341248][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:29:06,537][uWSGIWorker1Core7:140273399555840][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:29:07,664][uWSGIWorker1Core4:140273424733952][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:29:08,789][uWSGIWorker1Core4:140273424733952][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:29:09,906][uWSGIWorker1Core0:140273741563648][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:29:11,116][uWSGIWorker1Core1:140273449912064][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:29:21,456][uWSGIWorker1Core6:140273407948544][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:29:26,274][uWSGIWorker1Core3:140273433126656][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:29:36,681][uWSGIWorker1Core5:140273416341248][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:29:41,393][uWSGIWorker1Core7:140273399555840][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:29:45,467][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:29:45,494][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:29:50,783][uWSGIWorker1Core4:140273424733952][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:29:50,813][uWSGIWorker1Core4:140273424733952][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:30:03,002][uWSGIWorker1Core3:140273433126656][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:30:07,625][uWSGIWorker1Core2:140273441519360][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:30:11,528][uWSGIWorker1Core0:140273741563648][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:30:13,787][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:30:17,453][uWSGIWorker1Core3:140273433126656][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:30:21,040][uWSGIWorker1Core5:140273416341248][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:30:22,265][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:30:22,339][uWSGIWorker1Core4:140273424733952][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:zzz;数量2个</body><mch_id>1602401179</mch_id><nonce_str>b7100eca35a749ea9304993fd906bb27</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606293022</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>40</total_fee><trade_type>JSAPI</trade_type><sign>E2FAFD926AE6F33F8A1D264999342344</sign></xml>'}]
+[2020-11-25 16:30:22,597][uWSGIWorker1Core4:140273424733952][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'oEtulYYvoYbNxYxC'), ('sign', 'E4243713155067592133D1340A02198D'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25163022565202012e59b1ad4033bb0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 16:30:29,552][uWSGIWorker1Core0:140273741563648][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:30:29,934][uWSGIWorker1Core1:140273449912064][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:30:30,673][uWSGIWorker1Core6:140273407948544][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:30:31,783][uWSGIWorker1Core3:140273433126656][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:30:32,698][uWSGIWorker1Core5:140273416341248][task_id:django.request][log.py:228][INFO][OK: /api/order/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./mini/views.py", line 330, in put
+    order = Order.objects.get(id=params.get('orderId'))
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+mini.models.Order.DoesNotExist: Order matching query does not exist.
+[2020-11-25 16:30:32,903][uWSGIWorker1Core7:140273399555840][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:30:34,021][uWSGIWorker1Core2:140273441519360][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:30:35,146][uWSGIWorker1Core4:140273424733952][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:30:45,131][uWSGIWorker1Core0:140273741563648][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:30:50,355][uWSGIWorker1Core0:140273741563648][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:31:00,473][uWSGIWorker1Core6:140273407948544][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:31:05,584][uWSGIWorker1Core3:140273433126656][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:31:30,721][uWSGIWorker1Core5:140273416341248][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:31:35,729][uWSGIWorker1Core7:140273399555840][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:33:07,351][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:33:07,464][uWSGIWorker1Core2:140273441519360][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:33:07,853][uWSGIWorker1Core4:140273424733952][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:33:11,641][uWSGIWorker1Core0:140273741563648][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:33:22,810][uWSGIWorker1Core4:140273424733952][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:33:28,486][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 16:33:28,556][uWSGIWorker1Core6:140273407948544][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:zzz;数量1个</body><mch_id>1602401179</mch_id><nonce_str>a2aa216ffd714e4b846c63ff43c9e758</nonce_str><notify_url>https://www.menguoli.com/api/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606293208</out_trade_no><spbill_create_ip>171.88.29.188</spbill_create_ip><total_fee>20</total_fee><trade_type>JSAPI</trade_type><sign>4E52857F2E27F6573FDAD9EA3F492646</sign></xml>'}]
+[2020-11-25 16:33:28,809][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'i5Ka03nFoTBeMCNa'), ('sign', '124309F4433E63CC6733F8C61771488D'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx251633287707035e7e1b46560407fd0000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 16:33:38,150][uWSGIWorker1Core3:140273433126656][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:33:38,317][uWSGIWorker1Core3:140273433126656][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:33:39,275][uWSGIWorker1Core7:140273399555840][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:33:40,391][uWSGIWorker1Core2:140273441519360][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:33:41,495][uWSGIWorker1Core2:140273441519360][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:33:42,746][uWSGIWorker1Core0:140273741563648][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:33:43,873][uWSGIWorker1Core0:140273741563648][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:33:54,439][uWSGIWorker1Core0:140273741563648][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:33:59,096][uWSGIWorker1Core4:140273424733952][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:34:09,714][uWSGIWorker1Core2:140273441519360][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:34:14,290][uWSGIWorker1Core1:140273449912064][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:34:31,228][uWSGIWorker1Core7:140273399555840][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:34:35,858][uWSGIWorker1Core1:140273449912064][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:34:40,027][uWSGIWorker1Core3:140273433126656][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:34:44,435][uWSGIWorker1Core3:140273433126656][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:35:59,247][uWSGIWorker1Core1:140273449912064][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:36:05,719][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 16:36:50,244][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 16:37:40,490][uWSGIWorker1Core5:140273416341248][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:37:44,654][uWSGIWorker1Core5:140273416341248][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:39:33,825][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:39:33,862][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:42:01,201][uWSGIWorker1Core1:140273449912064][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 16:42:17,384][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 16:42:22,653][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:42:22,678][uWSGIWorker1Core0:140273741563648][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:42:51,801][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:42:51,841][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:43:09,045][uWSGIWorker1Core1:140273449912064][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:43:11,822][uWSGIWorker1Core6:140273407948544][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:43:16,841][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:43:16,866][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:43:56,083][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:43:56,118][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:44:31,468][uWSGIWorker1Core1:140273449912064][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:44:36,080][uWSGIWorker1Core0:140273741563648][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:45:43,526][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:45:43,553][uWSGIWorker1Core6:140273407948544][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:46:56,853][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:46:56,898][uWSGIWorker1Core5:140273416341248][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:47:41,615][uWSGIWorker1Core1:140273449912064][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:47:44,868][uWSGIWorker1Core1:140273449912064][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:50:18,605][uWSGIWorker1Core6:140273407948544][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:50:21,268][uWSGIWorker1Core3:140273433126656][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/payResult/]
+[2020-11-25 16:53:51,855][uWSGIWorker1Core0:139824294479616][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-25 16:55:26,592][Dummy-1:139812189845248][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-25 16:56:21,466][Dummy-1:140336423552768][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-25 16:56:45,032][uWSGIWorker1Core0:139624691504896][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-25 16:56:45,342][uWSGIWorker1Core0:139624691504896][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:56:45,378][uWSGIWorker1Core0:139624691504896][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 16:58:32,229][uWSGIWorker1Core2:139624391460608][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 16:58:32,261][uWSGIWorker1Core2:139624391460608][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:00:13,064][uWSGIWorker1Core7:139624349497088][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 17:00:35,367][uWSGIWorker1Core6:139624357889792][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 17:02:20,360][uWSGIWorker1Core5:139624366282496][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:02:20,386][uWSGIWorker1Core5:139624366282496][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:03:11,150][uWSGIWorker1Core0:139624691504896][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:03:11,184][uWSGIWorker1Core0:139624691504896][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:05:26,941][uWSGIWorker1Core7:139624349497088][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 17:05:43,251][uWSGIWorker1Core5:139624366282496][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 17:12:27,169][uWSGIWorker1Core6:139624357889792][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 17:12:40,711][uWSGIWorker1Core4:139624374675200][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 17:13:16,261][uWSGIWorker1Core5:139624366282496][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 17:20:27,531][uWSGIWorker1Core1:139624399853312][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:20:27,557][uWSGIWorker1Core1:139624399853312][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:21:03,514][uWSGIWorker1Core6:139624357889792][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:21:03,567][uWSGIWorker1Core6:139624357889792][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:21:57,218][uWSGIWorker1Core3:139624383067904][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:21:57,259][uWSGIWorker1Core3:139624383067904][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:22:07,997][uWSGIWorker1Core1:139624399853312][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:22:08,035][uWSGIWorker1Core1:139624399853312][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:23:23,619][uWSGIWorker1Core4:139624374675200][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:23:23,663][uWSGIWorker1Core4:139624374675200][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:30:20,039][uWSGIWorker1Core1:139624399853312][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:30:20,074][uWSGIWorker1Core1:139624399853312][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:32:04,804][uWSGIWorker1Core4:139624374675200][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:32:04,830][uWSGIWorker1Core4:139624374675200][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:32:22,690][uWSGIWorker1Core3:139624383067904][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:32:22,728][uWSGIWorker1Core3:139624383067904][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:32:55,135][uWSGIWorker1Core1:139624399853312][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 17:34:31,624][uWSGIWorker1Core2:139624391460608][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:34:31,663][uWSGIWorker1Core2:139624391460608][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:35:25,934][uWSGIWorker1Core1:139624399853312][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:35:25,962][uWSGIWorker1Core1:139624399853312][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:36:20,342][uWSGIWorker1Core2:139624391460608][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:36:20,382][uWSGIWorker1Core2:139624391460608][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:37:04,329][uWSGIWorker1Core3:139624383067904][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:37:04,364][uWSGIWorker1Core3:139624383067904][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:37:57,939][uWSGIWorker1Core2:139624391460608][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:37:57,978][uWSGIWorker1Core2:139624391460608][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:39:03,626][uWSGIWorker1Core3:139624383067904][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:39:03,659][uWSGIWorker1Core3:139624383067904][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:39:21,518][uWSGIWorker1Core4:139624374675200][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:39:21,556][uWSGIWorker1Core4:139624374675200][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:41:26,862][uWSGIWorker1Core0:140372495169280][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-25 17:43:10,043][uWSGIWorker1Core3:140372186732288][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:43:10,074][uWSGIWorker1Core3:140372186732288][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:48:30,450][uWSGIWorker1Core0:140372495169280][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:48:30,488][uWSGIWorker1Core0:140372495169280][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:49:42,321][uWSGIWorker1Core2:140372195124992][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:49:42,355][uWSGIWorker1Core2:140372195124992][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:50:58,243][uWSGIWorker1Core2:140372195124992][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:50:58,275][uWSGIWorker1Core2:140372195124992][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:51:31,793][uWSGIWorker1Core4:140372178339584][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:51:31,824][uWSGIWorker1Core4:140372178339584][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:54:42,563][uWSGIWorker1Core0:139685694433024][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-25 17:54:42,855][uWSGIWorker1Core0:139685694433024][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:54:42,885][uWSGIWorker1Core0:139685694433024][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:55:05,956][uWSGIWorker1Core3:139685385996032][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:55:05,992][uWSGIWorker1Core3:139685385996032][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:56:19,566][uWSGIWorker1Core6:139685360817920][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:56:19,593][uWSGIWorker1Core6:139685360817920][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 17:57:01,762][uWSGIWorker1Core6:139685360817920][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 17:57:01,815][uWSGIWorker1Core6:139685360817920][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:01:46,544][uWSGIWorker1Core0:139685694433024][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:01:46,585][uWSGIWorker1Core0:139685694433024][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:08:22,580][uWSGIWorker1Core5:139685369210624][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:08:22,629][uWSGIWorker1Core5:139685369210624][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:08:29,447][uWSGIWorker1Core3:139685385996032][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:08:29,476][uWSGIWorker1Core3:139685385996032][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:09:38,867][uWSGIWorker1Core0:139685694433024][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:09:38,892][uWSGIWorker1Core0:139685694433024][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:10:17,871][uWSGIWorker1Core3:139685385996032][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:10:17,895][uWSGIWorker1Core3:139685385996032][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:11:09,091][uWSGIWorker1Core7:139685352425216][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:11:09,133][uWSGIWorker1Core7:139685352425216][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:11:47,054][uWSGIWorker1Core6:139685360817920][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:11:47,087][uWSGIWorker1Core6:139685360817920][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:15:27,428][uWSGIWorker1Core1:139685402781440][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:15:27,472][uWSGIWorker1Core1:139685402781440][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:16:23,354][uWSGIWorker1Core0:139939121993472][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-25 18:17:33,877][uWSGIWorker1Core4:139938805163776][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:17:33,905][uWSGIWorker1Core4:139938805163776][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:18:03,293][uWSGIWorker1Core0:139939121993472][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:18:03,327][uWSGIWorker1Core0:139939121993472][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:18:56,855][uWSGIWorker1Core1:139938830341888][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 18:22:09,356][uWSGIWorker1Core0:139781697066752][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-25 18:22:09,729][uWSGIWorker1Core0:139781697066752][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:22:09,760][uWSGIWorker1Core0:139781697066752][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:22:23,009][uWSGIWorker1Core5:139781371844352][task_id:django][views.py:412][INFO][{'id': 45, 'is_default': 1}]
+[2020-11-25 18:25:34,197][uWSGIWorker1Core4:139781380237056][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:25:34,225][uWSGIWorker1Core4:139781380237056][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:25:50,396][uWSGIWorker1Core0:139781697066752][task_id:django][views.py:412][INFO][{'id': 45, 'is_default': '1'}]
+[2020-11-25 18:25:51,344][uWSGIWorker1Core7:139781355058944][task_id:django][views.py:412][INFO][{'id': 45, 'is_default': '1'}]
+[2020-11-25 18:25:51,774][uWSGIWorker1Core6:139781363451648][task_id:django][views.py:412][INFO][{'id': 45, 'is_default': '1'}]
+[2020-11-25 18:25:51,912][uWSGIWorker1Core5:139781371844352][task_id:django][views.py:412][INFO][{'id': 45, 'is_default': '1'}]
+[2020-11-25 18:25:52,107][uWSGIWorker1Core3:139781388629760][task_id:django][views.py:412][INFO][{'id': 45, 'is_default': '1'}]
+[2020-11-25 18:26:06,098][uWSGIWorker1Core5:139781371844352][task_id:django][views.py:412][INFO][{'id': 45, 'is_default': '1'}]
+[2020-11-25 18:26:23,978][uWSGIWorker1Core3:139781388629760][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:26:24,020][uWSGIWorker1Core3:139781388629760][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:26:51,747][uWSGIWorker1Core1:139781405415168][task_id:django][views.py:412][INFO][{'is_show': '1', 'id': 45}]
+[2020-11-25 18:27:37,883][uWSGIWorker1Core7:139781355058944][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:27:37,907][uWSGIWorker1Core7:139781355058944][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:28:12,885][uWSGIWorker1Core0:139781697066752][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:28:12,914][uWSGIWorker1Core0:139781697066752][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:30:59,334][uWSGIWorker1Core0:140154916775680][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-25 18:31:10,351][uWSGIWorker1Core1:140154625124096][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:31:10,382][uWSGIWorker1Core1:140154625124096][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:31:32,339][uWSGIWorker1Core1:140154625124096][task_id:django][views.py:412][INFO][{'is_show': '1', 'id': 48}]
+[2020-11-25 18:34:38,223][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-25 18:34:39,692][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:34:39,755][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:34:54,326][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:412][INFO][{'id': 48, 'is_default': 'n'}]
+[2020-11-25 18:34:54,382][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:412][INFO][{'id': 49, 'is_default': 'y'}]
+[2020-11-25 18:35:24,765][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:412][INFO][{'is_show': 'y', 'id': 49}]
+[2020-11-25 18:35:31,424][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:412][INFO][{'id': 48, 'is_default': 'y'}]
+[2020-11-25 18:35:39,662][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:412][INFO][{'is_show': 'y', 'id': 48}]
+[2020-11-25 18:37:48,120][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:206][INFO][用户id:29]
+[2020-11-25 18:37:48,158][uWSGIWorker1Core0:140515844081408][task_id:django.request][log.py:228][INFO][OK: /api/wx_login/]
+Traceback (most recent call last):
+  File "./user/util.py", line 14, in deal_ip
+    user = Userip.objects.get(ip=ip)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+user.models.Userip.DoesNotExist: Userip matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./user/views.py", line 207, in post
+    deal_ip(request, user.id)
+  File "./user/util.py", line 27, in deal_ip
+    user.province = response.subdivisions.most_specific.name + '/' + response.subdivisions.most_specific.names[
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+[2020-11-25 18:37:48,518][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:206][INFO][用户id:30]
+[2020-11-25 18:37:48,545][uWSGIWorker1Core4:140515527251712][task_id:django.request][log.py:228][INFO][OK: /api/wx_login/]
+Traceback (most recent call last):
+  File "./user/util.py", line 14, in deal_ip
+    user = Userip.objects.get(ip=ip)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+user.models.Userip.DoesNotExist: Userip matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./user/views.py", line 207, in post
+    deal_ip(request, user.id)
+  File "./user/util.py", line 27, in deal_ip
+    user.province = response.subdivisions.most_specific.name + '/' + response.subdivisions.most_specific.names[
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+[2020-11-25 18:37:51,827][uWSGIWorker1Core2:140515544037120][task_id:django.request][log.py:228][WARNING][Unauthorized: /data/activity/]
+[2020-11-25 18:38:02,644][uWSGIWorker1Core3:140515535644416][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/address/]
+[2020-11-25 18:38:05,899][uWSGIWorker1Core1:140515552429824][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/address/]
+[2020-11-25 18:38:05,917][uWSGIWorker1Core6:140515510466304][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/address/]
+[2020-11-25 18:38:06,891][uWSGIWorker1Core7:140515502073600][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/order/]
+[2020-11-25 18:38:11,121][uWSGIWorker1Core5:140515518859008][task_id:django.request][log.py:228][WARNING][Unauthorized: /data/product/]
+[2020-11-25 18:38:15,425][uWSGIWorker1Core0:140515844081408][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/address/]
+[2020-11-25 18:38:15,472][uWSGIWorker1Core4:140515527251712][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/cat/]
+[2020-11-25 18:38:18,177][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:38:18,275][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:38:18,703][uWSGIWorker1Core3:140515535644416][task_id:django.request][log.py:228][WARNING][Unauthorized: /api/cat/]
+[2020-11-25 18:39:40,498][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 18:40:04,261][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 18:40:49,531][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:206][INFO][用户id:31]
+[2020-11-25 18:40:49,638][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:229][INFO][用户登录成功ow_OS4kGhN6MzPZL9u3p5i1sPVVQ]
+[2020-11-25 18:40:50,542][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:206][INFO][用户id:32]
+[2020-11-25 18:40:50,573][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:229][INFO][用户登录成功ow_OS4oCI2_o_SVAvfOGL05FhiDc]
+[2020-11-25 18:40:56,375][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 18:41:09,751][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:339][INFO][user_info: {'openId': 'ow_OS4oCI2_o_SVAvfOGL05FhiDc', 'nickName': '王小八', 'gender': 2, 'language': 'zh_CN', 'city': '', 'province': '', 'country': 'China', 'avatarUrl': 'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTI7Y3lwuO2vzCeXbLyguibWpG1sUTvRBAvRQMbWHkCa0daYhbHzibKeVH1Wwxf4MonLtcia4gbqhNFOA/132', 'unionId': 'oE8ED6kByi9NoCBMFum80LCryDtc', 'watermark': {'timestamp': 1606300869, 'appid': 'wx8b8965c9adb49d33'}}]
+[2020-11-25 18:41:09,767][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:345][INFO][用户授权成功TokenUser 32王小八]
+[2020-11-25 18:41:15,759][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:339][INFO][user_info: {'openId': 'ow_OS4oCI2_o_SVAvfOGL05FhiDc', 'nickName': '王小八', 'gender': 2, 'language': 'zh_CN', 'city': '', 'province': '', 'country': 'China', 'avatarUrl': 'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTI7Y3lwuO2vzCeXbLyguibWpG1sUTvRBAvRQMbWHkCa0daYhbHzibKeVH1Wwxf4MonLtcia4gbqhNFOA/132', 'unionId': 'oE8ED6kByi9NoCBMFum80LCryDtc', 'watermark': {'timestamp': 1606300875, 'appid': 'wx8b8965c9adb49d33'}}]
+[2020-11-25 18:41:15,768][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:345][INFO][用户授权成功TokenUser 32王小八]
+[2020-11-25 18:41:22,583][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:339][INFO][user_info: {'openId': 'ow_OS4oCI2_o_SVAvfOGL05FhiDc', 'nickName': '王小八', 'gender': 2, 'language': 'zh_CN', 'city': '', 'province': '', 'country': 'China', 'avatarUrl': 'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTI7Y3lwuO2vzCeXbLyguibWpG1sUTvRBAvRQMbWHkCa0daYhbHzibKeVH1Wwxf4MonLtcia4gbqhNFOA/132', 'unionId': 'oE8ED6kByi9NoCBMFum80LCryDtc', 'watermark': {'timestamp': 1606300882, 'appid': 'wx8b8965c9adb49d33'}}]
+[2020-11-25 18:41:22,592][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:345][INFO][用户授权成功TokenUser 32王小八]
+[2020-11-25 18:41:27,521][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:41:27,579][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:41:39,444][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-25 18:41:39,469][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-25 18:42:04,112][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 18:42:11,233][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 18:42:16,853][uWSGIWorker1Core0:140515844081408][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:zzz;数量1个</body><mch_id>1602401179</mch_id><nonce_str>0e1d995c8a504cf98dd8c8d6d9a322e9</nonce_str><notify_url>https://www.menguoli.com/payResult/</notify_url><openid>ow_OS4scepAyIpTroaBR0_ipxNjU</openid><out_trade_no>1606300936</out_trade_no><spbill_create_ip>171.216.209.41</spbill_create_ip><total_fee>20</total_fee><trade_type>JSAPI</trade_type><sign>41CD3CB1A65B451235B8733171FDD56D</sign></xml>'}]
+[2020-11-25 18:42:17,090][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'vh9Tg5Symps1PuIA'), ('sign', '000EF8EAD862327910F1F416283E94FE'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25184217048766bf27be29832dcee10000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 18:42:23,275][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:42:24,379][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:42:24,745][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-25 18:42:25,482][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:42:26,598][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:42:27,700][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:42:28,812][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:42:38,469][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:42:43,925][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:42:53,955][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:42:59,023][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:43:24,324][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:43:29,127][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:44:02,284][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:339][INFO][user_info: {'openId': 'ow_OS4kGhN6MzPZL9u3p5i1sPVVQ', 'nickName': 's.u', 'gender': 1, 'language': 'zh_CN', 'city': '', 'province': '', 'country': '', 'avatarUrl': 'https://thirdwx.qlogo.cn/mmopen/vi_32/20v4zMFCNnMKrK5Qvsicvkl1M7qsia6fOuNU7jyL4gOmQUoXLRRSKzpp8WfU7IS8Dics7mlJujN8cChPTOGicO4ExA/132', 'unionId': 'oE8ED6r6jAK1rbdvz61kcPRUsO0M', 'watermark': {'timestamp': 1606301041, 'appid': 'wx8b8965c9adb49d33'}}]
+[2020-11-25 18:44:02,295][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:345][INFO][用户授权成功TokenUser 31s.u]
+[2020-11-25 18:44:05,495][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:339][INFO][user_info: {'openId': 'ow_OS4kGhN6MzPZL9u3p5i1sPVVQ', 'nickName': 's.u', 'gender': 1, 'language': 'zh_CN', 'city': '', 'province': '', 'country': '', 'avatarUrl': 'https://thirdwx.qlogo.cn/mmopen/vi_32/20v4zMFCNnMKrK5Qvsicvkl1M7qsia6fOuNU7jyL4gOmQUoXLRRSKzpp8WfU7IS8Dics7mlJujN8cChPTOGicO4ExA/132', 'unionId': 'oE8ED6r6jAK1rbdvz61kcPRUsO0M', 'watermark': {'timestamp': 1606301045, 'appid': 'wx8b8965c9adb49d33'}}]
+[2020-11-25 18:44:05,505][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:345][INFO][用户授权成功TokenUser 31s.u]
+[2020-11-25 18:44:13,225][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:339][INFO][user_info: {'openId': 'ow_OS4kGhN6MzPZL9u3p5i1sPVVQ', 'nickName': 's.u', 'gender': 1, 'language': 'zh_CN', 'city': '', 'province': '', 'country': '', 'avatarUrl': 'https://thirdwx.qlogo.cn/mmopen/vi_32/20v4zMFCNnMKrK5Qvsicvkl1M7qsia6fOuNU7jyL4gOmQUoXLRRSKzpp8WfU7IS8Dics7mlJujN8cChPTOGicO4ExA/132', 'unionId': 'oE8ED6r6jAK1rbdvz61kcPRUsO0M', 'watermark': {'timestamp': 1606301052, 'appid': 'wx8b8965c9adb49d33'}}]
+[2020-11-25 18:44:13,236][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:345][INFO][用户授权成功TokenUser 31s.u]
+[2020-11-25 18:44:17,690][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:206][INFO][用户id:31]
+[2020-11-25 18:44:17,761][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:217][INFO][用户登录成功s.u]
+[2020-11-25 18:44:37,257][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:206][INFO][用户id:31]
+[2020-11-25 18:44:37,289][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:217][INFO][用户登录成功s.u]
+[2020-11-25 18:44:47,062][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 18:44:56,523][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:129][INFO][购物车信息s.u]
+[2020-11-25 18:45:05,615][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:129][INFO][购物车信息s.u]
+[2020-11-25 18:45:10,227][uWSGIWorker1Core0:140515844081408][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:zzz;数量1个</body><mch_id>1602401179</mch_id><nonce_str>77e79299cf394cdb9eb65a449a3c9e49</nonce_str><notify_url>https://www.menguoli.com/payResult/</notify_url><openid>ow_OS4kGhN6MzPZL9u3p5i1sPVVQ</openid><out_trade_no>1606301110</out_trade_no><spbill_create_ip>117.136.62.59</spbill_create_ip><total_fee>20</total_fee><trade_type>JSAPI</trade_type><sign>60732862A8DF9F7E82904C2C1C0EBA80</sign></xml>'}]
+[2020-11-25 18:45:10,460][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'r0iDCJ7nNYlDNHLW'), ('sign', '55E9BC3221A5832857DE2F950C93C021'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx25184510424922a3352c968e72dcc90000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-25 18:45:16,443][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:45:16,537][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:45:17,567][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:45:18,026][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:129][INFO][购物车信息s.u]
+[2020-11-25 18:45:18,694][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:45:19,815][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:45:20,931][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:45:22,049][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:45:32,333][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:45:37,164][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:45:47,487][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:45:52,365][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:46:14,297][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:412][INFO][{'id': 52, 'is_default': 'y'}]
+[2020-11-25 18:46:14,299][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:412][INFO][{'id': 51, 'is_default': 'n'}]
+[2020-11-25 18:46:17,627][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:46:20,675][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:129][INFO][购物车信息s.u]
+[2020-11-25 18:46:22,481][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:46:24,509][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:46:29,239][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:46:35,821][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:129][INFO][购物车信息s.u]
+[2020-11-25 18:46:59,105][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:412][INFO][{'id': 51, 'is_default': 'y'}]
+[2020-11-25 18:46:59,110][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:412][INFO][{'id': 52, 'is_default': 'n'}]
+[2020-11-25 18:46:59,698][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:412][INFO][{'id': 52, 'is_default': 'y'}]
+[2020-11-25 18:46:59,702][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:412][INFO][{'id': 51, 'is_default': 'n'}]
+[2020-11-25 18:47:01,586][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:129][INFO][购物车信息s.u]
+[2020-11-25 18:47:04,059][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:412][INFO][{'id': 52, 'is_default': 'n'}]
+[2020-11-25 18:47:04,289][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:412][INFO][{'id': 51, 'is_default': 'y'}]
+[2020-11-25 18:47:08,921][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:129][INFO][购物车信息s.u]
+[2020-11-25 18:47:12,787][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:412][INFO][{'id': 52, 'is_default': 'y'}]
+[2020-11-25 18:47:12,789][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:412][INFO][{'id': 51, 'is_default': 'n'}]
+[2020-11-25 18:47:13,606][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:129][INFO][购物车信息s.u]
+[2020-11-25 18:47:15,514][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:412][INFO][{'id': 52, 'is_default': 'n'}]
+[2020-11-25 18:47:15,735][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:412][INFO][{'id': 51, 'is_default': 'y'}]
+[2020-11-25 18:47:16,246][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:129][INFO][购物车信息s.u]
+[2020-11-25 18:47:22,136][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:129][INFO][购物车信息s.u]
+[2020-11-25 18:49:18,090][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:49:22,591][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:52:52,968][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:206][INFO][用户id:33]
+[2020-11-25 18:52:53,044][uWSGIWorker1Core5:140515518859008][task_id:django.request][log.py:228][INFO][OK: /api/wx_login/]
+Traceback (most recent call last):
+  File "./user/util.py", line 14, in deal_ip
+    user = Userip.objects.get(ip=ip)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+user.models.Userip.DoesNotExist: Userip matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "./user/views.py", line 207, in post
+    deal_ip(request, user.id)
+  File "./user/util.py", line 27, in deal_ip
+    user.province = response.subdivisions.most_specific.name + '/' + response.subdivisions.most_specific.names[
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+[2020-11-25 18:52:56,019][uWSGIWorker1Core6:140515510466304][task_id:django.request][log.py:228][WARNING][Unauthorized: /data/activity/]
+[2020-11-25 18:52:58,124][uWSGIWorker1Core6:140515510466304][task_id:django.request][log.py:228][WARNING][Unauthorized: /data/product/]
+[2020-11-25 18:53:21,640][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:206][INFO][用户id:34]
+[2020-11-25 18:53:21,790][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:229][INFO][用户登录成功ow_OS4kBlgttH567iKaM-eOad8wc]
+[2020-11-25 18:56:24,619][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:56:29,351][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:59:18,807][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:59:22,710][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 18:59:41,851][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:05:12,976][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:06:08,779][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:06:44,123][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:07:02,189][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:07:22,525][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:07:54,282][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:08:16,780][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:11:37,937][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:12:30,220][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:13:03,764][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:13:43,180][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:14:17,330][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:14:47,455][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:16:12,548][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:16:25,762][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 19:16:29,443][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 19:16:36,001][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:17:20,630][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 19:19:19,074][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 19:19:22,833][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 19:46:25,949][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 19:46:29,545][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 19:49:20,383][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 19:49:22,947][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 19:58:17,098][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:02:37,733][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:03:18,270][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:05:58,287][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:07:10,556][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:11:14,933][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:16:27,132][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 20:16:29,747][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 20:19:21,953][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 20:19:23,069][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 20:22:12,538][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:22:48,803][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:24:04,270][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:24:23,144][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:24:47,735][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:25:30,765][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:26:52,883][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:27:30,784][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:28:01,090][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:28:04,928][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:28:06,040][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:29:18,292][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:29:54,723][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:30:51,485][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:39:25,704][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:40:52,410][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:41:26,081][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:43:03,976][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:43:10,989][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:43:23,711][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:43:29,922][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:43:41,085][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:43:48,674][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:44:01,139][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:46:30,366][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 20:47:55,165][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:48:11,431][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:48:43,243][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:49:23,716][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 20:53:41,089][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:54:25,175][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 20:54:38,687][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 21:00:08,848][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 21:09:15,064][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 21:10:32,289][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 21:14:27,474][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 21:16:28,259][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 21:17:52,796][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 21:19:22,796][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 21:25:14,484][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-25 21:46:30,503][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-25 21:49:23,853][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-26 00:16:29,972][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-26 00:19:23,588][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-26 00:46:30,625][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-26 00:49:24,008][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-26 01:27:59,610][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:206][INFO][用户id:35]
+[2020-11-26 01:27:59,649][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:229][INFO][用户登录成功ohwv35YsdSN8pkO_nNf9umWHkr2A]
+[2020-11-26 01:27:59,829][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:527][INFO][{'gameInfo_value': '{"Name":"微","HeadUrl":"UI/head.png","FirstTime":"","openid":"ohwv35YsdSN8pkO_nNf9umWHkr2A","lastTime":"","Sgin":"1.0.3","Md":100,"JB":1000,"FZ":{"0":true},"Studytype":"学习完毕","StudyTime":20000,"StudyID":"0","homeDJ":{"0":true,"1":true,"2":true},"isNewPeople":true,"CanLoveShare":true}'}]
+[2020-11-26 01:28:19,318][uWSGIWorker1Core3:140515535644416][task_id:django.request][log.py:228][WARNING][Not Found: /api/knowlage.html]
+[2020-11-26 01:28:19,364][uWSGIWorker1Core4:140515527251712][task_id:django.request][log.py:228][WARNING][Not Found: /api/knowlage.html]
+[2020-11-26 01:30:03,434][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:206][INFO][用户id:35]
+[2020-11-26 01:30:03,462][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:229][INFO][用户登录成功ohwv35YsdSN8pkO_nNf9umWHkr2A]
+[2020-11-26 01:30:03,637][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:527][INFO][{'gameInfo_value': '{"Name":"周果心","HeadUrl":"UI/head.png","FirstTime":"","openid":"ohwv35YsdSN8pkO_nNf9umWHkr2A","lastTime":"","Sgin":"1.0.3","Md":100,"JB":1000,"FZ":{"0":true},"Studytype":"学习完毕","StudyTime":20000,"StudyID":"0","homeDJ":{"0":true,"1":true,"2":true},"isNewPeople":true,"CanLoveShare":true}'}]
+[2020-11-26 01:30:32,035][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:206][INFO][用户id:35]
+[2020-11-26 01:30:32,059][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:229][INFO][用户登录成功ohwv35YsdSN8pkO_nNf9umWHkr2A]
+[2020-11-26 01:30:32,360][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:527][INFO][{'gameInfo_value': '{"Name":"萌心","HeadUrl":"UI/head.png","FirstTime":"","openid":"ohwv35YsdSN8pkO_nNf9umWHkr2A","lastTime":"","Sgin":"1.0.3","Md":100,"JB":1000,"FZ":{"0":true},"Studytype":"学习完毕","StudyTime":20000,"StudyID":"0","homeDJ":{"0":true,"1":true,"2":true},"isNewPeople":true,"CanLoveShare":true}'}]
+[2020-11-26 01:30:47,483][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:206][INFO][用户id:35]
+[2020-11-26 01:30:47,518][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:229][INFO][用户登录成功ohwv35YsdSN8pkO_nNf9umWHkr2A]
+[2020-11-26 01:30:47,879][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:527][INFO][{'gameInfo_value': '{"Name":"毕鬼微","HeadUrl":"UI/head.png","FirstTime":"","openid":"ohwv35YsdSN8pkO_nNf9umWHkr2A","lastTime":"","Sgin":"1.0.3","Md":100,"JB":1000,"FZ":{"0":true},"Studytype":"学习完毕","StudyTime":20000,"StudyID":"0","homeDJ":{"0":true,"1":true,"2":true},"isNewPeople":true,"CanLoveShare":true}'}]
+[2020-11-26 01:33:57,403][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:206][INFO][用户id:35]
+[2020-11-26 01:33:57,439][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:229][INFO][用户登录成功ohwv35YsdSN8pkO_nNf9umWHkr2A]
+[2020-11-26 01:33:57,555][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:527][INFO][{'gameInfo_value': '{"Name":"然微","HeadUrl":"UI/head.png","FirstTime":"","openid":"ohwv35YsdSN8pkO_nNf9umWHkr2A","lastTime":"","Sgin":"1.0.3","Md":100,"JB":1000,"FZ":{"0":true},"Studytype":"学习完毕","StudyTime":20000,"StudyID":"0","homeDJ":{"0":true,"1":true,"2":true},"isNewPeople":true,"CanLoveShare":true}'}]
+[2020-11-26 01:35:55,731][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:206][INFO][用户id:35]
+[2020-11-26 01:35:55,758][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:229][INFO][用户登录成功ohwv35YsdSN8pkO_nNf9umWHkr2A]
+[2020-11-26 01:35:55,873][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:527][INFO][{'gameInfo_value': '{"Name":"大","HeadUrl":"UI/head.png","FirstTime":"","openid":"ohwv35YsdSN8pkO_nNf9umWHkr2A","lastTime":"","Sgin":"1.0.3","Md":100,"JB":1000,"FZ":{"0":true},"Studytype":"学习完毕","StudyTime":20000,"StudyID":"0","homeDJ":{"0":true,"1":true,"2":true},"isNewPeople":true,"CanLoveShare":true}'}]
+[2020-11-26 01:37:40,038][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:206][INFO][用户id:35]
+[2020-11-26 01:37:40,080][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:229][INFO][用户登录成功ohwv35YsdSN8pkO_nNf9umWHkr2A]
+[2020-11-26 01:37:40,198][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:527][INFO][{'gameInfo_value': '{"Name":"范","HeadUrl":"UI/head.png","FirstTime":"","openid":"ohwv35YsdSN8pkO_nNf9umWHkr2A","lastTime":"","Sgin":"1.0.3","Md":100,"JB":1000,"FZ":{"0":true},"Studytype":"学习完毕","StudyTime":20000,"StudyID":"0","homeDJ":{"0":true,"1":true,"2":true},"isNewPeople":true,"CanLoveShare":true}'}]
+[2020-11-26 03:16:31,497][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-26 03:19:24,796][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-26 03:46:30,776][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-26 03:49:24,162][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-26 06:16:32,683][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-26 06:19:25,942][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-26 06:46:30,889][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-26 06:49:24,294][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:211][INFO][{'支付回调': None}]
+[2020-11-26 11:10:27,446][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:206][INFO][用户id:31]
+[2020-11-26 11:10:27,485][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:217][INFO][用户登录成功s.u]
+[2020-11-26 11:10:43,179][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-26 11:11:01,569][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:206][INFO][用户id:31]
+[2020-11-26 11:11:01,611][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:217][INFO][用户登录成功s.u]
+[2020-11-26 11:11:53,813][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:412][INFO][{'id': 51, 'is_default': 'n'}]
+[2020-11-26 11:11:53,818][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:412][INFO][{'id': 52, 'is_default': 'y'}]
+[2020-11-26 11:11:55,438][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:412][INFO][{'id': 52, 'is_default': 'n'}]
+[2020-11-26 11:11:55,439][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:412][INFO][{'id': 51, 'is_default': 'y'}]
+[2020-11-26 11:11:55,873][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:412][INFO][{'id': 51, 'is_default': 'n'}]
+[2020-11-26 11:11:55,878][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:412][INFO][{'id': 52, 'is_default': 'y'}]
+[2020-11-26 11:11:56,254][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:412][INFO][{'id': 52, 'is_default': 'n'}]
+[2020-11-26 11:11:56,293][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:412][INFO][{'id': 51, 'is_default': 'y'}]
+[2020-11-26 11:12:24,951][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:412][INFO][{'is_show': 'y', 'id': 51}]
+[2020-11-26 11:12:25,824][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:412][INFO][{'id': 52, 'is_default': 'y'}]
+[2020-11-26 11:12:26,636][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:412][INFO][{'is_show': 'y', 'id': 52}]
+[2020-11-26 11:14:26,789][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:129][INFO][购物车信息s.u]
+[2020-11-26 11:18:59,766][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:206][INFO][用户id:32]
+[2020-11-26 11:18:59,792][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:217][INFO][用户登录成功王小八]
+[2020-11-26 11:20:55,062][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:21:06,773][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:21:09,467][uWSGIWorker1Core0:140515844081408][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:21:21,909][uWSGIWorker1Core2:140515544037120][task_id:django][util.py:83][INFO][{'生成的数据:<xml><appid>wx8b8965c9adb49d33</appid><body>名称:zzz;数量2个</body><mch_id>1602401179</mch_id><nonce_str>f9b3349e4378442eaefa158235e9a30b</nonce_str><notify_url>https://www.menguoli.com/payResult/</notify_url><openid>ow_OS4oCI2_o_SVAvfOGL05FhiDc</openid><out_trade_no>1606360881</out_trade_no><spbill_create_ip>171.88.29.73</spbill_create_ip><total_fee>40</total_fee><trade_type>JSAPI</trade_type><sign>7A18D6C4E7C0BA23034B5DDDA9CC77B4</sign></xml>'}]
+[2020-11-26 11:21:22,174][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:291][INFO][{'微信返回数据': OrderedDict([('xml', OrderedDict([('return_code', 'SUCCESS'), ('return_msg', 'OK'), ('appid', 'wx8b8965c9adb49d33'), ('mch_id', '1602401179'), ('nonce_str', 'HiWLDAp8pXMfGp6B'), ('sign', '94D77B7F2F5A23CFFB72817D02BD73BD'), ('result_code', 'SUCCESS'), ('prepay_id', 'wx26112122145504396e2be72f71fca90000'), ('trade_type', 'JSAPI')]))])}]
+[2020-11-26 11:21:27,744][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:21:32,154][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:21:32,299][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:21:32,448][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:21:35,304][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:21:51,301][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:21:56,192][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:21:58,746][uWSGIWorker1Core2:140515544037120][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:21:59,830][uWSGIWorker1Core6:140515510466304][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:22:00,474][uWSGIWorker1Core4:140515527251712][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:22:00,667][uWSGIWorker1Core1:140515552429824][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:22:00,848][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:22:01,016][uWSGIWorker1Core3:140515535644416][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:22:01,184][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:129][INFO][购物车信息王小八]
+[2020-11-26 11:48:02,779][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-26 11:48:17,560][uWSGIWorker1Core7:140515502073600][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-26 11:56:47,373][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-26 11:56:47,433][uWSGIWorker1Core5:140515518859008][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-26 12:11:45,751][uWSGIWorker1Core0:140150869821184][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-26 12:11:56,371][uWSGIWorker1Core3:140150561384192][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-26 12:11:59,774][uWSGIWorker1Core1:140150578169600][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-26 12:12:01,333][uWSGIWorker1Core7:140150527813376][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-26 12:12:02,796][uWSGIWorker1Core5:140150544598784][task_id:django][views.py:129][INFO][购物车信息small ant]
+[2020-11-26 12:16:16,218][uWSGIWorker1Core2:140150569776896][task_id:django][views.py:206][INFO][用户id:28]
+[2020-11-26 12:16:16,248][uWSGIWorker1Core2:140150569776896][task_id:django][views.py:217][INFO][用户登录成功small ant]
+[2020-11-26 12:16:33,924][uWSGIWorker1Core7:140150527813376][task_id:django.request][log.py:228][INFO][OK: /payResult/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./web/views.py", line 208, in pay
+    params = request.content
+AttributeError: 'WSGIRequest' object has no attribute 'content'
+[2020-11-26 12:19:27,121][uWSGIWorker1Core6:140150536206080][task_id:django.request][log.py:228][INFO][OK: /payResult/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./web/views.py", line 208, in pay
+    params = request.content
+AttributeError: 'WSGIRequest' object has no attribute 'content'
+[2020-11-26 12:25:23,520][uWSGIWorker1Core4:140150552991488][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-26 12:25:25,285][uWSGIWorker1Core3:140150561384192][task_id:django.request][log.py:228][WARNING][Unauthorized: /data/activity/]
+[2020-11-26 12:25:47,569][uWSGIWorker1Core2:140150569776896][task_id:django.request][log.py:228][WARNING][Unauthorized: /data/product/]
+[2020-11-26 12:26:10,351][uWSGIWorker1Core1:140150578169600][task_id:django][views.py:278][INFO][用户登录失败]
+[2020-11-26 12:26:12,066][uWSGIWorker1Core0:140150869821184][task_id:django.request][log.py:228][WARNING][Unauthorized: /data/activity/]
+[2020-11-26 12:26:31,005][uWSGIWorker1Core7:140150527813376][task_id:django.request][log.py:228][WARNING][Unauthorized: /data/product/]
+[2020-11-26 12:46:31,089][uWSGIWorker1Core6:140150536206080][task_id:django.request][log.py:228][INFO][OK: /payResult/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./web/views.py", line 208, in pay
+    params = request.content
+AttributeError: 'WSGIRequest' object has no attribute 'content'
+[2020-11-26 12:49:24,433][uWSGIWorker1Core5:140150544598784][task_id:django.request][log.py:228][INFO][OK: /payResult/]
+Traceback (most recent call last):
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/python3.6.5/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./web/views.py", line 208, in pay
+    params = request.content
+AttributeError: 'WSGIRequest' object has no attribute 'content'
+[2020-11-26 13:18:03,173][Dummy-1:140068155983616][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-26 13:18:15,007][MainThread:139625366365952][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-26 13:19:57,884][MainThread:139773192767232][task_id:django][views.py:124][INFO][Starting scheduler...]
+[2020-11-26 13:20:05,379][MainThread:140405366294272][task_id:django][views.py:124][INFO][Starting scheduler...]
