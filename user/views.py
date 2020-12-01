@@ -63,7 +63,7 @@ class AppViewSet(viewsets.ModelViewSet):
         @apiName 获取全部游戏配置
         @apiGroup DATA
     """
-    queryset = APP.objects.filter(on_line=True).order_by('id')
+    queryset = APP.objects.filter(on_line='1').order_by('id')
     serializer_class = APPSerializer
 
 
