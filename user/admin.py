@@ -30,7 +30,14 @@ class MyUserAdmin(UserAdmin):
 # 注册模型到admin管理
 @admin.register(APP)
 class AppAdmin(admin.ModelAdmin):
-    list_display = ('name', 'app_id')
+    def name_show(self, obj):
+        try:
+            name = App_config.objects.filter(app_id=obj.id, name='name')[0].value
+        except:
+            name = '暂无配置'
+        return name
+
+    list_display = ('name', 'app_id', 'name_show','on_line')
     list_per_page = 100
     search_fields = ['name']
     fieldsets = (

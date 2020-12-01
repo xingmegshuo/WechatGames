@@ -19,6 +19,7 @@ class APP(models.Model):
     name = models.CharField(verbose_name=_('游戏名字'), max_length=100, help_text=_('游戏名称,尽量不用中文, 每次请求携带'))
     app_id = models.CharField(verbose_name=_('APP_ID'), max_length=100, help_text=_('小游戏发布微信平台配置，获取用户信息必须'))
     secret = models.CharField(verbose_name=_('密钥'), max_length=200, help_text=_('小游戏发布微信平台配置，获取用户信息必须'))
+    on_line = models.CharField(max_length=20, default='0', verbose_name=_('是否启动'), choices=ON_LINE_CHOICE)
 
     def __str__(self):
         return self.name
