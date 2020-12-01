@@ -204,10 +204,10 @@ class WxLoginView(APIView):
                 session_key = session_info.get('session_key', None)
                 user = create_or_update_user_info(openid, None)
                 logger.info('用户id:{}'.format(user.id))
-                deal_ip(request, user.id)
+                deal_ip(request, user)
                 record_time(user)
                 token = TokenObtainPairSerializer.get_token(user).access_token
-                login_record = RecordLogin.objects.create(user=user)
+                login_record = RecordLogin.objects.create(user=user, game=app)
                 login_record.save()
                 try:
                     GameInfo.objects.get(user_id=user, game_id=app)

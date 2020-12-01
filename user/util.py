@@ -2,7 +2,7 @@ import geoip2.database
 from .models import Userip
 
 
-def deal_ip(request,id):
+def deal_ip(request, id):
     if 'HTTP_X_FORWARDED_FOR' in request.META:  # 获取ip
         ip = request.META['HTTP_X_FORWARDED_FOR']
         ip = ip.split(",")[0]  # 所以这里是真实的ip

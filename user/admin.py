@@ -13,7 +13,7 @@ class MyUserAdmin(UserAdmin):
         'last_login', 'date_joined', 'nick_name', 'city', 'province', 'country', 'gender', 'openid',
         'unionId', 'login'
     )
-    list_filter = ('is_auth', 'login')
+    list_filter = ('is_auth', 'login', 'nick_name')
     search_fields = [
         'username', 'openid', 'email', 'nick_name', 'unionId'
     ]
@@ -55,14 +55,8 @@ class AppConfigAdmin(admin.ModelAdmin):
 
 @admin.register(Userip)
 class IpAdmin(admin.ModelAdmin):
-    def user_show(self, obj):
-        try:
-            name = MyUser.objects.filter(id=obj.name)[0].nick_name
-        except:
-            name = '暂无授权'
-        return name
 
-    list_display = ('ip', 'user_show', 'count', 'area', 'city', 'country', 'LaL', 'Tl')
+    list_display = ('ip', 'name', 'count', 'area', 'city', 'country', 'LaL', 'Tl')
     search_fields = ['city', 'ip', 'user_show']
     readonly_fields = ('ip', 'count', 'area', 'country', 'province', 'city', 'LaL', 'Tl')
     list_filter = ('city', 'province', 'name')
@@ -82,7 +76,7 @@ class AddressAdmin(admin.ModelAdmin):
 @admin.register(RecordLogin)
 class LoginAdmin(admin.ModelAdmin):
     list_display = ('user', 'game', 'login_time')
-    list_filter = ('user__nick_name', 'game')
+    list_filter = ('user__nick_name', 'game','login_time')
 
 
 admin.site.site_title = "萌果果后台管理"

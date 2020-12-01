@@ -7,8 +7,8 @@ from games.models import *
 @admin.register(GameInfo)
 class GameAdmin(admin.ModelAdmin):
     list_display = ('user_id', 'game_id', 'grade', 'level', 'score', 'is_subscription')
-    search_fields = ['user_id__nick_name', 'game_id__name']
-    list_filter = ('game_id__name', 'user_id__nick_name', 'is_subscription')
+    search_fields = ['user_id', 'game_id']
+    list_filter = ('game_id', 'user_id', 'is_subscription')
     readonly_fields = ('user_id', 'game_id')
 
 
