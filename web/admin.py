@@ -16,3 +16,8 @@ class IpAdmin(admin.ModelAdmin):
 class AllAdmin(admin.ModelAdmin):
     list_display = ('day', 'count')
     list_filter = ('day',)
+
+
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+    list_display = ('img',)
