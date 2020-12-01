@@ -238,20 +238,20 @@ def start_config(request):
     else:
         config.on_line = '0'
     config.save()
-    return redirect('/admin/user/app_config/')
+    return redirect('/MGG/user/app_config/')
 
 
 # 项目配置是否启动
 def start_app(request):
     pk = request.GET.get('id')
     status = request.GET.get('status')
-    config = App.objects.get(id=pk)
+    config = APP.objects.get(id=pk)
     if status == '0':
         config.on_line = '1'
     else:
         config.on_line = '0'
     config.save()
-    return redirect('/admin/user/app/')
+    return redirect('/MGG/user/app/')
 
 
 # 萌游知知，知识是否审核通过
@@ -266,4 +266,4 @@ def review(request):
         config.status = True
         config.is_check = True
     config.save()
-    return redirect('/admin/games/mengyou_knowlage/')
+    return redirect('/MGG/games/mengyou_knowlage/')
