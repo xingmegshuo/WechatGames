@@ -27,6 +27,23 @@ class APP(models.Model):
         except:
             return self.name
 
+    def pass_audit_str(self):
+        parameter_str = 'id={}&status={}'.format(str(self.pk), str(self.on_line))
+        status = '×'
+        title = '停止'
+        if self.on_line == '0':
+            status = '√'
+            title = '启动'
+
+        btn_str = '<a class="btn " href="{}" rel="external nofollow" >' \
+                  '<input ' \
+                  'type="button" id="passButton" ' \
+                  'title="' + title + '" value="' + status + '" >' \
+                                                             '</a>'
+        return format_html(btn_str, '/startApp/?{}'.format(parameter_str))
+
+    pass_audit_str.short_description = _('启动操作')
+
     class Meta:
         verbose_name = _('项目')
         verbose_name_plural = verbose_name

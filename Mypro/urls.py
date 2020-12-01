@@ -32,6 +32,7 @@ router.register(r'product', ProductViewSet)
 # router.register(r'shopping_address', AddressViewSet)
 
 urlpatterns = [
+    re_path(r'^startApp', start_app),
     re_path(r'^startConfig', start_config),
     re_path(r'^passNo', review),
     path('MGG/', admin.site.urls),
