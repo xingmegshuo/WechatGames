@@ -40,3 +40,15 @@ class DayNumber(models.Model):
 
     def __str__(self):
         return str(self.day)
+
+
+# 其它 图片表
+class Image(models.Model):
+    img = models.ImageField(verbose_name='图片', help_text='网站小程序等图片', upload_to='game', null=True, blank=True)
+
+    def __str__(self):
+        return self.img
+
+    class Meta:
+        verbose_name = '网站图片库'
+        verbose_name_plural = verbose_name
