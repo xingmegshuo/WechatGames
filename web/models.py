@@ -44,7 +44,7 @@ class DayNumber(models.Model):
 
 # 其它 图片表
 class Image(models.Model):
-    img = models.ImageField(verbose_name='图片', help_text='网站小程序等图片', upload_to='game', null=True, blank=True)
+    img = models.ImageField(verbose_name='图片', help_text='网站小程序等图片,场景图横：812*375，竖：331*587,头像-二维码:120*120', upload_to='game', null=True, blank=True)
 
     class Meta:
         verbose_name = '网站图片库'
