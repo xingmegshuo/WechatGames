@@ -37,7 +37,7 @@ class AppAdmin(admin.ModelAdmin):
             name = '暂无配置'
         return name
 
-    list_display = ('name', 'app_id', 'name_show','on_line')
+    list_display = ('name', 'app_id', 'name_show', 'on_line')
     list_per_page = 100
     search_fields = ['name']
     fieldsets = (
@@ -48,7 +48,7 @@ class AppAdmin(admin.ModelAdmin):
 @admin.register(App_config)
 class AppConfigAdmin(admin.ModelAdmin):
     list_display = ('name', 'value', 'app_id', 'description', 'on_line', 'pass_audit_str')
-    list_filter = ('on_line', 'app_id__name')
+    list_filter = ('on_line', 'app_id')
     list_per_page = 100
     search_fields = ['app_id__name']
 
@@ -56,8 +56,11 @@ class AppConfigAdmin(admin.ModelAdmin):
 @admin.register(Userip)
 class IpAdmin(admin.ModelAdmin):
     def user_show(self, obj):
-        name = MyUser.objects.filter(id=obj.name)[0].nick_name
-        return name if name != '' else '暂无授权'
+        try:
+            name = MyUser.objects.filter(id=obj.name)[0].nick_name
+        except:
+            name = '暂无授权'
+        return name
 
     list_display = ('ip', 'user_show', 'count', 'area', 'city', 'country', 'LaL', 'Tl')
     search_fields = ['city', 'ip', 'user_show']
@@ -78,8 +81,8 @@ class AddressAdmin(admin.ModelAdmin):
 
 @admin.register(RecordLogin)
 class LoginAdmin(admin.ModelAdmin):
-    list_display = ('user', 'login_time')
-    list_filter = ('user__nick_name',)
+    list_display = ('user', 'game', 'login_time')
+    list_filter = ('user__nick_name', 'game')
 
 
 admin.site.site_title = "萌果果后台管理"

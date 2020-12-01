@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o$u-&*#&&%auvz3zu%-ye!mide!dle7dofiz%3=edzv#(c6d*e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 # Application definition
@@ -138,19 +138,19 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':
         # 'pro',
-        # 'guo',
-            os.environ.get('MYSQL_DATABASE_NAME'),
+        'guo',
+            # os.environ.get('MYSQL_DATABASE_NAME'),
         'USER': 'root',
         'PASSWORD': '528012',
         'HOST':
         # 'localhost',
-        # '119.45.126.111',
+        '119.45.126.111',
         # 'PORT': '3306',
-        # 'PORT': '3307',
-            os.environ.get('MYSQL_PORT_3306_TCP_ADDR'),
-        'OPTIONS': {
-            'init_command': 'SET foreign_key_checks=0;',
-        }
+        'PORT': '3307',
+            # os.environ.get('MYSQL_PORT_3306_TCP_ADDR'),
+        # 'OPTIONS': {
+        #     'init_command': 'SET foreign_key_checks=0;',
+        # }
     }
 }
 

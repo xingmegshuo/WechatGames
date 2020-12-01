@@ -22,7 +22,10 @@ class APP(models.Model):
     on_line = models.CharField(max_length=20, default='0', verbose_name=_('是否启动'), choices=ON_LINE_CHOICE)
 
     def __str__(self):
-        return self.name
+        try:
+            return App_config.objects.filter(app_id=self.id, name='name')[0].value
+        except:
+            return self.name
 
     class Meta:
         verbose_name = _('项目')
@@ -137,6 +140,7 @@ class Userip(models.Model):
 # 用户登录记录
 class RecordLogin(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE, verbose_name=_('用户'), help_text=_('用户'))
+    game = models.ForeignKey(APP, on_delete=models.CASCADE, verbose_name='游戏', help_text=_('游戏'))
     login_time = models.DateTimeField(verbose_name=_('登录时间'), help_text=_('登录时间'), auto_now_add=True)
 
     def __str__(self):

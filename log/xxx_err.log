@@ -1045,3 +1045,97 @@ Traceback (most recent call last):
     return qs._result_cache[0]
 IndexError: list index out of range
 [2020-12-01 12:21:25,680][Thread-2:140692147365632][task_id:django.server][basehttp.py:154][ERROR]["GET /MGG/user/app/ HTTP/1.1" 500 429273]
+[2020-12-01 13:44:29,857][Thread-2:139874935863040][task_id:django.request][log.py:228][ERROR][Internal Server Error: /MGG/user/userip/]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/options.py", line 564, in get_field
+    return self.fields_map[field_name]
+KeyError: 'user_show'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/utils.py", line 278, in lookup_field
+    f = _get_non_gfk_field(opts, name)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/utils.py", line 309, in _get_non_gfk_field
+    field = opts.get_field(name)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/options.py", line 566, in get_field
+    raise FieldDoesNotExist("%s has no field named '%s'" % (self.object_name, field_name))
+django.core.exceptions.FieldDoesNotExist: Userip has no field named 'user_show'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 156, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 154, in _get_response
+    response = response.render()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/templatetags/base.py", line 33, in render
+    return super().render(context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/template/library.py", line 214, in render
+    _dict = self.func(*resolved_args, **resolved_kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/templatetags/admin_list.py", line 341, in result_list
+    'results': list(results(cl))}
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/templatetags/admin_list.py", line 318, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/templatetags/admin_list.py", line 309, in __init__
+    super().__init__(*items)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/templatetags/admin_list.py", line 228, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/utils.py", line 287, in lookup_field
+    value = attr(obj)
+  File "/home/xms/PycharmProjects/Mypro/user/admin.py", line 59, in user_show
+    name = MyUser.objects.filter(id=obj.name)[0].nick_name
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 303, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+[2020-12-01 13:44:29,859][Thread-2:139874935863040][task_id:django.server][basehttp.py:154][ERROR]["GET /MGG/user/userip/ HTTP/1.1" 500 434014]
