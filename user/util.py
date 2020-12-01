@@ -1,6 +1,5 @@
 import geoip2.database
 from .models import Userip
-from .views import logger
 
 
 def deal_ip(request, id):
@@ -14,7 +13,6 @@ def deal_ip(request, id):
         try:
             user = Userip.objects.get(ip=ip)
             user.count += 1
-            logger.info('user:', user.name)
             user.save()
         except:
             response = reader.city(ip)
