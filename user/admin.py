@@ -65,8 +65,10 @@ class IpAdmin(admin.ModelAdmin):
 @admin.register(Address)
 class AddressAdmin(admin.ModelAdmin):
     def user_show(self, obj):
-        return MyUser.objects.filter(unionId=obj.unionId)[0].nick_name
-
+        try:
+            return MyUser.objects.filter(unionId=obj.unionId)[0].nick_name
+        except:
+            return 'none'
     list_display = ('user_show', 'human', 'phone', 'address', 'is_show', 'is_default')
     search_fields = ['phone', 'human', 'unionId', 'address', 'is_default', 'is_show']
     readonly_fields = ('unionId', 'human', 'phone', 'is_show', 'address')
