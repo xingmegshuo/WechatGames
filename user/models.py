@@ -140,7 +140,7 @@ class Userip(models.Model):
 # 用户登录记录
 class RecordLogin(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE, verbose_name=_('用户'), help_text=_('用户'))
-    game = models.ForeignKey(APP, on_delete=models.CASCADE, verbose_name='游戏', help_text=_('游戏'))
+    game = models.ForeignKey(APP, on_delete=models.CASCADE, verbose_name='游戏', help_text=_('游戏'), null=True, blank=True)
     login_time = models.DateTimeField(verbose_name=_('登录时间'), help_text=_('登录时间'), auto_now_add=True)
 
     def __str__(self):
