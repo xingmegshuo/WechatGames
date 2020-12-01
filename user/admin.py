@@ -8,7 +8,7 @@ from user.models import *
 
 @admin.register(MyUser)
 class MyUserAdmin(UserAdmin):
-    list_display = ('nick_name', 'unionId', 'login', 'last_login', 'is_auth')
+    list_display = ('nick_name', 'username', 'unionId', 'login', 'last_login', 'is_auth')
     readonly_fields = (
         'last_login', 'date_joined', 'nick_name', 'city', 'province', 'country', 'gender', 'openid',
         'unionId', 'login'
@@ -55,9 +55,8 @@ class AppConfigAdmin(admin.ModelAdmin):
 
 @admin.register(Userip)
 class IpAdmin(admin.ModelAdmin):
-
     list_display = ('ip', 'name', 'count', 'area', 'city', 'country', 'LaL', 'Tl')
-    search_fields = ['city', 'ip', 'user_show']
+    search_fields = ['city', 'ip', 'name']
     readonly_fields = ('ip', 'count', 'area', 'country', 'province', 'city', 'LaL', 'Tl')
     list_filter = ('city', 'province', 'name')
 
@@ -69,6 +68,7 @@ class AddressAdmin(admin.ModelAdmin):
             return MyUser.objects.filter(unionId=obj.unionId)[0].nick_name
         except:
             return 'none'
+
     list_display = ('user_show', 'human', 'phone', 'address', 'is_show', 'is_default')
     search_fields = ['phone', 'human', 'unionId', 'address', 'is_default', 'is_show']
     readonly_fields = ('unionId', 'human', 'phone', 'is_show', 'address')
@@ -78,7 +78,7 @@ class AddressAdmin(admin.ModelAdmin):
 @admin.register(RecordLogin)
 class LoginAdmin(admin.ModelAdmin):
     list_display = ('user', 'game', 'login_time')
-    list_filter = ('user__nick_name', 'game','login_time')
+    list_filter = ('user__nick_name', 'game', 'login_time')
 
 
 admin.site.site_title = "萌果果后台管理"
