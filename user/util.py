@@ -1,5 +1,6 @@
 import geoip2.database
 from .models import Userip
+from .views import logger
 
 
 def deal_ip(request, id):
@@ -13,14 +14,14 @@ def deal_ip(request, id):
         try:
             user = Userip.objects.get(ip=ip)
             user.count += 1
-            user.name = id.nick_name
+            logger.info('user:', user.name)
             user.save()
         except:
             response = reader.city(ip)
             # 有多种语言，我们这里主要输出英文和中文
             user = Userip()
             user.ip = ip
-            user.name = id.nick_name
+            user.name = id
             user.area = response.continent.names["es"] + '/' + response.continent.names["zh-CN"]
             user.country = response.country.name + '/' + response.country.names[
                 "zh-CN"] + '/' + response.country.iso_code
