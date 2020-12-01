@@ -11,8 +11,10 @@ def deal_ip(request, id):
     if ip not in ['127.0.0.1']:
         reader = geoip2.database.Reader('static/GeoLite2-City/GeoLite2-City.mmdb')
         try:
-            user = Userip.objects.get(ip=ip)
+            user = Userip.objects.filter(ip=ip)[0]
             user.count += 1
+            if user.name == '未知玩家':
+                user.name = id
             user.save()
         except:
             response = reader.city(ip)
