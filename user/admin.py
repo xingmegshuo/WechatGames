@@ -37,7 +37,7 @@ class AppAdmin(admin.ModelAdmin):
             name = '暂无配置'
         return name
 
-    list_display = ('name', 'app_id', 'name_show', 'on_line')
+    list_display = ('name', 'app_id', 'name_show', 'on_line', 'pass_audit_str')
     list_per_page = 100
     search_fields = ['name']
     fieldsets = (
