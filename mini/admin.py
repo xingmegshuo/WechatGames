@@ -43,8 +43,10 @@ class OrderAdmin(admin.ModelAdmin):
 @admin.register(ShoppingCat)
 class CatAdmin(admin.ModelAdmin):
     def user_show(self, obj):
-        return MyUser.objects.filter(unionId=obj.unionId)[0].nick_name
-
+        try:
+            return MyUser.objects.filter(unionId=obj.unionId)[0].nick_name
+        except:
+            return 'none'
     list_display = ('user_show', 'product', 'num', 'create_time', 'is_show')
     list_filter = ('unionId', 'product__name', 'create_time', 'is_show')
     search_fields = ('unionId', 'product__name')
