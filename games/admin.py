@@ -59,3 +59,10 @@ class MailboxAdmin(admin.ModelAdmin):
 @admin.register(DirayImage)
 class DirayImageAdmin(admin.ModelAdmin):
     list_display = ('diray', 'img')
+
+
+@admin.register(Advertising)
+class AdvertisingAdmin(admin.ModelAdmin):
+    list_display = ('title', 'appid', 'logo', 'status')
+    list_filter = ('status',)
+    search_fields = ('title', 'appid')
