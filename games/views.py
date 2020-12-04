@@ -406,7 +406,7 @@ class KnowViewSet(viewsets.ModelViewSet):
 
 class AdersingViewSet(viewsets.ModelViewSet):
     """
-        @api {GET} /data/adersing/ 广告获取
+        @api {GET} /data/advertising/ 广告获取
         @apiVersion 0.0.1
         @apiDescription 获取广告接口
         @apiName 广告获取
