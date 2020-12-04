@@ -1962,6 +1962,17 @@
     "groupTitle": "萌上日记"
   },
   {
+    "type": "GET",
+    "url": "/data/adersing/",
+    "title": "广告获取",
+    "version": "0.0.1",
+    "description": "<p>获取广告接口</p>",
+    "name": "广告获取",
+    "group": "萌游知知",
+    "filename": "./games/views.py",
+    "groupTitle": "萌游知知"
+  },
+  {
     "type": "PUT",
     "url": "/api/knowlage/",
     "title": "更新知识状态",
