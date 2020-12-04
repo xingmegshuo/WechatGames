@@ -29,6 +29,17 @@ define({ "api": [
   },
   {
     "type": "GET",
+    "url": "/data/adersing/",
+    "title": "广告获取",
+    "version": "0.0.1",
+    "description": "<p>获取广告接口</p>",
+    "name": "广告获取",
+    "group": "DATA",
+    "filename": "./games/views.py",
+    "groupTitle": "DATA"
+  },
+  {
+    "type": "GET",
     "url": "/data/app/",
     "title": "游戏配置信息",
     "version": "0.0.1",
@@ -1960,17 +1971,6 @@ define({ "api": [
     },
     "filename": "./games/views.py",
     "groupTitle": "萌上日记"
-  },
-  {
-    "type": "GET",
-    "url": "/data/adersing/",
-    "title": "广告获取",
-    "version": "0.0.1",
-    "description": "<p>获取广告接口</p>",
-    "name": "广告获取",
-    "group": "萌游知知",
-    "filename": "./games/views.py",
-    "groupTitle": "萌游知知"
   },
   {
     "type": "PUT",

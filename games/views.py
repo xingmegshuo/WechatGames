@@ -410,7 +410,7 @@ class AdersingViewSet(viewsets.ModelViewSet):
         @apiVersion 0.0.1
         @apiDescription 获取广告接口
         @apiName 广告获取
-        @apiGroup 萌游知知
+        @apiGroup DATA
 
     """
     queryset = Advertising.objects.all().filter(status=True)
