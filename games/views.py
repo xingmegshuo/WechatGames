@@ -11,7 +11,7 @@ from .models import *
 from user.views import get_parameter_dic, get_app_config, logger
 from web.views import scheduler
 from job.views import send_mes, change_status
-from .serializers import KnowlageSerializer
+from .serializers import KnowlageSerializer, AdversingSerializer
 from django.http import HttpResponse
 
 
@@ -402,6 +402,19 @@ class KnowViewSet(viewsets.ModelViewSet):
     """
     queryset = MengYou_knowlage.objects.all().filter(is_check=True, status=True).order_by('id')
     serializer_class = KnowlageSerializer
+
+
+class AdersingViewSet(viewsets.ModelViewSet):
+    """
+        @api {GET} /data/adersing/ 广告获取
+        @apiVersion 0.0.1
+        @apiDescription 获取广告接口
+        @apiName 广告获取
+        @apiGroup 萌游知知
+
+    """
+    queryset = Advertising.objects.all().filter(status=True).order_by(id)
+    serializer_class = AdversingSerializer
 
 
 class GameInfoView(APIView):
@@ -930,6 +943,3 @@ class DirayImageView(APIView):
         status = 1
         mes = '上传图片成功'
         return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
-
-
-

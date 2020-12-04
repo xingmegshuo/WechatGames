@@ -195,3 +195,19 @@ class DirayImage(models.Model):
     class Meta:
         verbose_name = _('萌上日记,图片库')
         verbose_name_plural = verbose_name
+
+
+# 游戏广告表
+class Advertising(models.Model):
+    title = models.CharField(max_length=200, verbose_name=_('游戏名字'), help_text=_('游戏名字'))
+    logo = models.ImageField(verbose_name=_('图片'), help_text=_('游戏图片144*144大小'), upload_to='game', null=True,
+                             blank=True)
+    appid = models.CharField(max_length=200, verbose_name=_('appid'), help_text=_('appid'))
+    status = models.BooleanField(verbose_name=_('是否删除'), help_text=_('是否删除'), default=False, choices=DELETE_CHOICE)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('游戏广告')
+        verbose_name_plural = verbose_name

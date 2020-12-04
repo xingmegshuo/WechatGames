@@ -7,3 +7,9 @@ class KnowlageSerializer(serializers.ModelSerializer):
         model = MengYou_knowlage
         fields = \
             '__all__'
+
+
+class AdversingSerializer(serializers):
+    class Meta:
+        model = Advertising
+        fields = ('title', 'logo', 'appid')
