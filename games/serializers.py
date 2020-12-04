@@ -9,7 +9,7 @@ class KnowlageSerializer(serializers.ModelSerializer):
             '__all__'
 
 
-class AdversingSerializer(serializers):
+class AdversingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Advertising
         fields = ('title', 'logo', 'appid')
