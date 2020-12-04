@@ -413,7 +413,7 @@ class AdersingViewSet(viewsets.ModelViewSet):
         @apiGroup 萌游知知
 
     """
-    queryset = Advertising.objects.all().filter(status=True).order_by(id)
+    queryset = Advertising.objects.all().filter(status=True)
     serializer_class = AdversingSerializer
 
 
