@@ -41,7 +41,7 @@ class SignView(APIView):
                 ]
             }
 
-            @apiError {String} status 请求状态
+            @apiError {String} status 请求状态,请求状态为0表示签到失败，请求状态为1表示签到成功
             @apiError {String} mes 信息提示
 
             @apiErrorExample Error-Response:
@@ -86,7 +86,7 @@ class SignView(APIView):
             ) for sign in sign_info]}, status=HTTP_204_NO_CONTENT)
         else:
             return Response({
-                'status': 1,
+                'status': 0,
                 'mes': '今日签到已完成！',
                 'time': [model_to_dict(
                     sign,

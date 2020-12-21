@@ -527,7 +527,7 @@
             "type": "String",
             "optional": false,
             "field": "status",
-            "description": "<p>请求状态</p>"
+            "description": "<p>请求状态,请求状态为0表示签到失败，请求状态为1表示签到成功</p>"
           },
           {
             "group": "Error 4xx",
