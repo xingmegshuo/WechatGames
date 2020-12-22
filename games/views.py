@@ -70,7 +70,7 @@ class SignView(APIView):
         if len(today_sign) < 1 and len(sign_info) < 7:
             Sign.objects.create(game_info=game_info)
             sign_info = Sign.objects.filter(game_info=game_info.id)
-            logger.info(request.user.id + '用户签到成功')
+            # logger.info(request.user.id + '用户签到成功')
             return Response({
                 'status': 1,
                 'mes': 'ok,今日签到成功！',
@@ -80,7 +80,7 @@ class SignView(APIView):
                 ) for sign in sign_info]
             }, status=HTTP_200_OK)
         elif len(sign_info) == 7:
-            logger.info(request.user + '七日签到完成')
+            # logger.info(request.user + '七日签到完成')
             return Response({'status': 0, 'mes': 'error, 七日签到完成', 'time': [model_to_dict(
                 sign,
                 fields=['date']
