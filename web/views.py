@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from .util import change_info
 from Mypro import settings
+from django.http import JsonResponse
 import logging
 from apscheduler.schedulers.background import BackgroundScheduler
 from django_apscheduler.jobstores import DjangoJobStore, register_job
@@ -10,9 +11,13 @@ from user.models import App_config, APP
 from games.models import MengYou_knowlage
 from job.models import Jobs, Job
 from job.views import *
+from django.db.models import Q
+from user.views import get_app_config, get_parameter_dic
 from django.utils.timezone import utc
 import datetime
 from django.http import HttpResponse
+from games.models import Advertising
+from django.forms import model_to_dict
 
 job_defaults = {'max_instance': 100, 'misfire_grace_time': 15 * 60, ',coalesce': True}
 scheduler = BackgroundScheduler(timezone=settings.TIME_ZONE, job_defaults=job_defaults)
@@ -267,3 +272,33 @@ def review(request):
         config.is_check = True
     config.save()
     return redirect('/MGG/games/mengyou_knowlage/')
+
+
+# 游戏 启动参数
+def GameStart(request):
+    """
+        @api {GET} /gameStart/ 启动参数
+        @apiVersion 0.0.1
+        @apiDescription 游戏启动信息
+        @apiName 广告获取
+        @apiGroup DATA
+        @apiParam {String} name 小游戏名字 获取单个小游戏的配置
+    """
+    app = get_app_config(request.GET.get('name'))
+    config = App_config.objects.filter(app_id=app).filter(~Q(orther='0'))
+    share_key = list(set([i.description for i in config.filter(orther='1')]))
+    share_config = {i: {j.name: j.value for j in config.filter(orther='1', description=i)} for i in share_key}
+    orther_key = list(set([i.description for i in config.filter(orther='2')]))
+    orther_config = {i: {j.name: j.value for j in config.filter(orther='2', description=i)} for i in orther_key}
+    box = config.filter(orther='3')
+    if len(box) > 0:
+        box = box[0].value.split(',')
+        boxInfo = []
+        for i in box:
+            ad = Advertising.objects.get(id=int(i))
+            print(ad)
+            boxInfo.append({"id": ad.id, "title": ad.title, "logo": "https://www.menguoli.com/"+ad.logo.url, "appid": ad.appid})
+        print(boxInfo)
+    else:
+        boxInfo = "none"
+    return JsonResponse({"shareConfig": share_config, 'ortherMS': orther_config, 'boxInfo': boxInfo})

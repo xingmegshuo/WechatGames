@@ -10,6 +10,12 @@ from django.utils.html import format_html
 USER_CHOICE = ((False, '未授权'), (True, '授权'))
 ON_LINE_CHOICE = (('0', '不启用'), ('1', '启用'))
 DELETE_CHOICE = ((False, '未删除'), (True, '删除'))
+PROPERTY_CHOICE = (
+    ('0', '网站信息设置'),
+    ('1', '分享信息设置'),
+    ('2', '启动参数设置'),
+    ('3', '广告信息设置')
+)
 
 
 # 项目
@@ -105,7 +111,8 @@ class App_config(models.Model):
     value = models.CharField(max_length=200, verbose_name=_('值'), help_text=_('启动参数的值'), null=True, blank=True)
     description = models.CharField(max_length=200, verbose_name=_('参数说明'), help_text=_('启动参数描述，说明'), null=True,
                                    blank=True)
-    orther = models.CharField(max_length=100, verbose_name=_('其他'), help_text=_('其他'), null=True, blank=True)
+    orther = models.CharField(max_length=100, verbose_name=_('其他'), help_text=_('其他'), choices=PROPERTY_CHOICE,
+                              null=True, blank=True)
     on_line = models.CharField(max_length=20, default='0', verbose_name=_('是否启动'), choices=ON_LINE_CHOICE)
     app_id = models.ForeignKey(APP, on_delete=models.CASCADE, verbose_name=_('所属app'), related_name='app_config')
 

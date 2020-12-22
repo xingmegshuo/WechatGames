@@ -15,6 +15,7 @@ from .serializers import KnowlageSerializer, AdversingSerializer
 from django.http import HttpResponse
 
 
+
 class SignView(APIView):
     """
             @api {POST} /api/sign/ 签到接口
@@ -69,7 +70,7 @@ class SignView(APIView):
         if len(today_sign) < 1 and len(sign_info) < 7:
             Sign.objects.create(game_info=game_info)
             sign_info = Sign.objects.filter(game_info=game_info.id)
-            logger.info(request.user + '用户签到成功')
+            logger.info(request.user.id + '用户签到成功')
             return Response({
                 'status': 1,
                 'mes': 'ok,今日签到成功！',

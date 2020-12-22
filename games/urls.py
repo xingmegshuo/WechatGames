@@ -24,4 +24,5 @@ urlpatterns = format_suffix_patterns([
     re_path(r'^dirayImage/$', DirayImageView.as_view()),
     re_path(r'^pay/$', PayApi.as_view()),
     re_path(r'^doc/(?P<path>.*)', api_doc),
+    # re_path(r'^start/$', GameStartView.as_view()),
 ])

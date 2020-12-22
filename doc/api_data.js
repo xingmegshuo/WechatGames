@@ -29,6 +29,30 @@ define({ "api": [
   },
   {
     "type": "GET",
+    "url": "/gameStart/",
+    "title": "启动参数",
+    "version": "0.0.1",
+    "description": "<p>游戏启动信息</p>",
+    "name": "广告获取",
+    "group": "DATA",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>小游戏名字 获取单个小游戏的配置</p>"
+          }
+        ]
+      }
+    },
+    "filename": "./web/views.py",
+    "groupTitle": "DATA"
+  },
+  {
+    "type": "GET",
     "url": "/data/advertising/",
     "title": "广告获取",
     "version": "0.0.1",

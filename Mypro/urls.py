@@ -46,6 +46,7 @@ urlpatterns = [
     re_path(r'^profile/', about_company),
     re_path(r'^project/', about_project),
     re_path(r'^payResult/$', pay),
+    re_path(r'^gameStart/', GameStart),
 
 ]
 
