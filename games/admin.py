@@ -63,6 +63,9 @@ class DirayImageAdmin(admin.ModelAdmin):
 
 @admin.register(Advertising)
 class AdvertisingAdmin(admin.ModelAdmin):
-    list_display = ('title', 'appid', 'logo', 'status')
+    def id(self, obj):
+        return obj.pk
+
+    list_display = ('id', 'title', 'appid', 'logo', 'status')
     list_filter = ('status',)
     search_fields = ('title', 'appid')
