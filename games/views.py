@@ -496,11 +496,11 @@ class GameInfoView(APIView):
 
             @apiParam {String} name 小游戏名字,区分该用户玩过多款小游戏
             @apiParam {String} gameInfo_value 更新哪个内容就传递什么参数和值,可以传递一个或多个
-            @apiExample {data} Example usage:
+            @apiExample {json} Example usage:
                 {
                     "name":"ml",
                     "ortherInfo":"bbbbb",
-                    }
+                }
 
             @apiSuccess {String} gameInfo-grade 等级
             @apiSuccess {String} gameInfo-score 得分

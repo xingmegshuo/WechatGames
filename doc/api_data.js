@@ -48,6 +48,13 @@ define({ "api": [
         ]
       }
     },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "{\n    \"name\":\"ml\",\n}",
+        "type": "json"
+      }
+    ],
     "filename": "./web/views.py",
     "groupTitle": "DATA"
   },
@@ -407,8 +414,8 @@ define({ "api": [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "{\n    \"name\":\"ml\",\n    \"ortherInfo\":\"bbbbb\",\n    }",
-        "type": "data"
+        "content": "{\n    \"name\":\"ml\",\n    \"ortherInfo\":\"bbbbb\",\n}",
+        "type": "json"
       }
     ],
     "success": {

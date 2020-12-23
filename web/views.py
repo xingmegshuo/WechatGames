@@ -283,6 +283,11 @@ def GameStart(request):
         @apiName 广告获取
         @apiGroup DATA
         @apiParam {String} name 小游戏名字 获取单个小游戏的配置
+
+       @apiExample {json} Example usage:
+                {
+                    "name":"ml",
+                }
     """
     app = get_app_config(request.GET.get('name'))
     config = App_config.objects.filter(app_id=app).filter(~Q(orther='0'))
