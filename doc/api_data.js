@@ -91,6 +91,19 @@ define({ "api": [
     "version": "0.0.1",
     "name": "微信授权",
     "group": "GAME",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加次内容请求</p>"
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -100,13 +113,6 @@ define({ "api": [
             "optional": false,
             "field": "openid",
             "description": "<p>wx_login 的返回值</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "jwt",
-            "description": "<p>认证秘钥</p>"
           },
           {
             "group": "Parameter",
@@ -363,7 +369,7 @@ define({ "api": [
     "url": "/api/gameInfo/",
     "title": "更新游戏内容接口",
     "version": "0.0.1",
-    "name": "更新游戏配置信息",
+    "name": "更新用户游戏信息",
     "group": "GAME",
     "header": {
       "fields": {
@@ -398,6 +404,13 @@ define({ "api": [
         ]
       }
     },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "{\n    \"name\":\"ml\",\n    \"ortherInfo\":\"bbbbb\",\n    }",
+        "type": "data"
+      }
+    ],
     "success": {
       "fields": {
         "Success 200": [

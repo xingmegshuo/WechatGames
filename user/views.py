@@ -204,7 +204,10 @@ class WxLoginView(APIView):
                 session_key = session_info.get('session_key', None)
                 user = create_or_update_user_info(openid, None)
                 logger.info('用户id:{}'.format(user.id))
-#                deal_ip(request, user)
+                try:
+                    deal_ip(request, user)
+                except:
+                    logger.info("分析ip地址失败", user.id)
                 record_time(user)
                 token = TokenObtainPairSerializer.get_token(user).access_token
                 login_record = RecordLogin.objects.create(user=user, game=app)
@@ -286,19 +289,17 @@ class WxAuthView(APIView):
     @apiVersion 0.0.1
     @apiName 微信授权
     @apiGroup GAME
+    @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
 
     @apiParam {String} openid wx_login 的返回值
-    @apiParam {String} jwt 认证秘钥
     @apiParam {String} iv 解密参数
     @apiParam {string} encrypteData 解密参数
     @apiParam {string} session_key wx_login 返回参数
     @apiParam {string} name 游戏名字
 
-
     @apiSuccess {String} status 状态码，请求是否成功
     @apiSuccess {String} mes 提示信息
     @apiSuccess {json} user 授权后的用户信息
-
 
     @apiSuccessExample Success-Response:
     HTTP/1.1 200 OK

@@ -133,7 +133,7 @@ class KnowView(APIView):
             recoding = MengYou_recoding.objects.create(game_info=game_info, knowlage_id=params.get('id'))
             # 用户接受订阅
             if game_info.is_subscription is True:
-                pass
+                # pass
                 # to do : add job send_mes
                 # data = {
                 #     'touser': game_info.user_id.openid,
@@ -153,6 +153,7 @@ class KnowView(APIView):
                 # scheduler.start()
                 # time.strftime("%Y-%b-%d %H:%M:%S", recoding.send_time))
                 # scheduler.resume_job('MY'+str(recoding.id))
+                # 一次订阅
                 game_info.is_subscription = False
                 game_info.save()
             scheduler.add_job(change_status, 'date', id='MYCH' + str(recoding.id), run_date=recoding.send_time,
@@ -488,14 +489,18 @@ class GameInfoView(APIView):
         """
             @api {PUT} /api/gameInfo/ 更新游戏内容接口
             @apiVersion 0.0.1
-            @apiName 更新游戏配置信息
+            @apiName 更新用户游戏信息
             @apiGroup GAME
 
             @apiHeader {string} Authorization jwt验证秘钥必须添加此内容请求
 
             @apiParam {String} name 小游戏名字,区分该用户玩过多款小游戏
             @apiParam {String} gameInfo_value 更新哪个内容就传递什么参数和值,可以传递一个或多个
-
+            @apiExample {data} Example usage:
+                {
+                    "name":"ml",
+                    "ortherInfo":"bbbbb",
+                    }
 
             @apiSuccess {String} gameInfo-grade 等级
             @apiSuccess {String} gameInfo-score 得分
