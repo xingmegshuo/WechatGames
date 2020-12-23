@@ -204,7 +204,7 @@ class WxLoginView(APIView):
                 session_key = session_info.get('session_key', None)
                 user = create_or_update_user_info(openid, None)
                 logger.info('用户id:{}'.format(user.id))
-                deal_ip(request, user)
+#                deal_ip(request, user)
                 record_time(user)
                 token = TokenObtainPairSerializer.get_token(user).access_token
                 login_record = RecordLogin.objects.create(user=user, game=app)
