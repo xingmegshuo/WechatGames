@@ -42,8 +42,8 @@ class Voice(models.Model):
     def makeVoice(self):
         import time
         data = {'text': self.content, 'id': int(time.time()), 'language': self.language, 'speed': 0,
-                'speaker': self.human, 'sound': self.sound, 'name': settings.MEDIA_ROOT + 'voice/' + self.name}
-        make_voice()
+                'speaker': self.human, 'sound': self.sound, 'name': settings.MEDIA_ROOT + '/voice/' + self.name}
+        make_voice(data, settings.STATIC_ROOT + 'conf/tcloud_auth.ini')
         # def on_open(ws):
         #     def run(*args):
         #         d = {"common": wsParam.CommonArgs,

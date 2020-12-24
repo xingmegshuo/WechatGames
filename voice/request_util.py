@@ -6,8 +6,8 @@ import hmac
 import hashlib, time
 import requests
 
-auth_file_path = "./conf/tcloud_auth.ini"
-param_file_path = "./conf/request_parameter.ini"
+auth_file_path = "../static/conf/tcloud_auth.ini"
+param_file_path = "../static/conf/request_parameter.ini"
 
 
 class authorization:
@@ -17,8 +17,8 @@ class authorization:
     Expired = 3600
     conf = configparser.ConfigParser()
 
-    def init(self):
-        self.conf.read("./conf/tcloud_auth.ini", encoding="UTF-8")
+    def init(self, config_path):
+        self.conf.read(config_path, coding="UTF-8")
         self.AppId = self.conf.getint("authorization", "AppId")
         self.SecretId = self.conf.get("authorization", "SecretId")
         self.SecretKey = self.conf.get("authorization", "SecretKey")
@@ -64,7 +64,7 @@ class request:
     Volume = 5
     conf = configparser.ConfigParser()
 
-    def init(self):
+    def init(self, ini_pa):
         self.conf.read("./conf/request_parameter.ini", encoding="UTF-8")
         self.Text = self.conf.get("parameter", "Text")
         self.Action = self.conf.get("parameter", "Action")
@@ -102,12 +102,12 @@ class request:
         self.Volume = volume
 
 
-def make_voice(data):
+def make_voice(data, config_path):
     req = request()
     # req.init()
     req.init_param(data.get('text'), 'TextToStreamAudio', 'pcm', 0, 1, data.get('language'), 0, 16000, data.get('id'),
                    data.get('speed'), data.get('speaker'), data.get('sound'))
-    auth = authorization()
+    auth = authorization(config_path)
     auth.init()
     request_data = dict()
     request_data['Action'] = req.Action
@@ -149,6 +149,3 @@ def make_voice(data):
         i = i + 1
         wavfile.writeframes(chunk)
     wavfile.close()
-
-
-
