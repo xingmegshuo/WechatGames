@@ -6,8 +6,8 @@ import hmac
 import hashlib, time
 import requests
 
-auth_file_path = "../static/conf/tcloud_auth.ini"
-param_file_path = "../static/conf/request_parameter.ini"
+auth_file_path = "conf/tcloud_auth.ini"
+param_file_path = "conf/request_parameter.ini"
 
 
 class authorization:
@@ -17,8 +17,9 @@ class authorization:
     Expired = 3600
     conf = configparser.ConfigParser()
 
-    def init(self, config_path):
-        self.conf.read(config_path, coding="UTF-8")
+    def init(self):
+        self.conf.read('/home/xms/PycharmProjects/Mypro/voice/conf/tcloud_auth.ini', encoding="utf-8")
+        print(self.conf)
         self.AppId = self.conf.getint("authorization", "AppId")
         self.SecretId = self.conf.get("authorization", "SecretId")
         self.SecretKey = self.conf.get("authorization", "SecretKey")
@@ -102,13 +103,14 @@ class request:
         self.Volume = volume
 
 
-def make_voice(data, config_path):
+def make_voice(data):
     req = request()
     # req.init()
     req.init_param(data.get('text'), 'TextToStreamAudio', 'pcm', 0, 1, data.get('language'), 0, 16000, data.get('id'),
                    data.get('speed'), data.get('speaker'), data.get('sound'))
-    auth = authorization(config_path)
-    auth.init()
+    auth = authorization()
+    auth.init_auth(appid=1257104003, secret_id='AKIDyigiW4KPHyPh8J75j25tRjgNq5zeoo0L',
+                   secret_key='JPIFYbP80d6PSRAesGOOBi14sQffRs8w')
     request_data = dict()
     request_data['Action'] = req.Action
     request_data['AppId'] = auth.AppId

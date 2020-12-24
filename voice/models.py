@@ -31,7 +31,7 @@ class Voice(models.Model):
     content = models.CharField(
         verbose_name=_('文本内容'), help_text=_('文本内容'), max_length=6000, null=True, blank=True)
     human = models.IntegerField(
-        verbose_name=_('说话人'), help_text=_('说话人可选'), null=True, blank=True,
+        verbose_name=_('说话人'), help_text=_('说话人可选'), null=True, blank=True, choices=HUMANCHOICE,
         default=101016)
 
     url = models.FileField(
@@ -41,51 +41,52 @@ class Voice(models.Model):
 
     def makeVoice(self):
         import time
-        data = {'text': self.content, 'id': int(time.time()), 'language': self.language, 'speed': 0,
+        data = {'text': self.content, 'id': '001', 'language': self.language, 'speed': 0,
                 'speaker': self.human, 'sound': self.sound, 'name': settings.MEDIA_ROOT + '/voice/' + self.name}
-        make_voice(data, settings.STATIC_ROOT + 'conf/tcloud_auth.ini')
-        # def on_open(ws):
-        #     def run(*args):
-        #         d = {"common": wsParam.CommonArgs,
-        #              "business": wsParam.BusinessArgs,
-        #              "data": wsParam.Data,
-        #              }
-        #         d = json.dumps(d)
-        #         print("------>开始发送文本数据")
-        #         ws.send(d)
-        #         if os.path.exists(settings.MEDIA_ROOT + '/voice/' + wsParam.name + '.mp3'):
-        #             os.remove(settings.MEDIA_ROOT + '/voice/' + wsParam.name + '.mp3')
-        #
-        #     thread.start_new_thread(run, ())
-        #
-        # def on_message(ws, message):
-        #     try:
-        #         message = json.loads(message)
-        #         code = message["code"]
-        #         sid = message["sid"]
-        #         audio = message["data"]["audio"]
-        #         audio = base64.b64decode(audio)
-        #         status = message["data"]["status"]
-        #         # print(message)
-        #         if status == 2:
-        #             print("ws is closed")
-        #             ws.close()
-        #         if code != 0:
-        #             errMsg = message["message"]
-        #             print("sid:%s call error:%s code is:%s" % (sid, errMsg, code))
-        #         else:
-        #             with open(settings.MEDIA_ROOT + '/voice/' + wsParam.name + '.mp3', 'ab') as f:
-        #                 f.write(audio)
-        #
-        #     except Exception as e:
-        #         print("receive msg,but parse exception:", e)
-        #
-        # wsParam = Ws_Param(Text=self.content, human=self.human, name=self.name)
-        # websocket.enableTrace(False)
-        # wsUrl = wsParam.create_url()
-        # ws = websocket.WebSocketApp(wsUrl, on_message=on_message, on_error=on_error, on_close=on_close)
-        # ws.on_open = on_open
-        # ws.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE})
+        make_voice(data)
+
+    # def on_open(ws):
+    #     def run(*args):
+    #         d = {"common": wsParam.CommonArgs,
+    #              "business": wsParam.BusinessArgs,
+    #              "data": wsParam.Data,
+    #              }
+    #         d = json.dumps(d)
+    #         print("------>开始发送文本数据")
+    #         ws.send(d)
+    #         if os.path.exists(settings.MEDIA_ROOT + '/voice/' + wsParam.name + '.mp3'):
+    #             os.remove(settings.MEDIA_ROOT + '/voice/' + wsParam.name + '.mp3')
+    #
+    #     thread.start_new_thread(run, ())
+    #
+    # def on_message(ws, message):
+    #     try:
+    #         message = json.loads(message)
+    #         code = message["code"]
+    #         sid = message["sid"]
+    #         audio = message["data"]["audio"]
+    #         audio = base64.b64decode(audio)
+    #         status = message["data"]["status"]
+    #         # print(message)
+    #         if status == 2:
+    #             print("ws is closed")
+    #             ws.close()
+    #         if code != 0:
+    #             errMsg = message["message"]
+    #             print("sid:%s call error:%s code is:%s" % (sid, errMsg, code))
+    #         else:
+    #             with open(settings.MEDIA_ROOT + '/voice/' + wsParam.name + '.mp3', 'ab') as f:
+    #                 f.write(audio)
+    #
+    #     except Exception as e:
+    #         print("receive msg,but parse exception:", e)
+    #
+    # wsParam = Ws_Param(Text=self.content, human=self.human, name=self.name)
+    # websocket.enableTrace(False)
+    # wsUrl = wsParam.create_url()
+    # ws = websocket.WebSocketApp(wsUrl, on_message=on_message, on_error=on_error, on_close=on_close)
+    # ws.on_open = on_open
+    # ws.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE})
 
     def save(self, *args, **kwargs):
         self.makeVoice()

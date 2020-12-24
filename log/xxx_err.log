@@ -4406,3 +4406,312 @@ Traceback (most recent call last):
     auth = authorization(config_path)
 TypeError: object() takes no parameters
 [2020-12-24 18:07:20,338][Thread-2:140190031070976][task_id:django.server][basehttp.py:154][ERROR]["POST /MGG/voice/voice/add/ HTTP/1.1" 500 139282]
+[2020-12-24 18:11:47,859][Thread-6:140377729017600][task_id:django.request][log.py:228][ERROR][Internal Server Error: /MGG/voice/voice/add/]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 604, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1637, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 45, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1525, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1564, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1091, in save_model
+    obj.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 91, in save
+    self.makeVoice()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 46, in makeVoice
+    make_voice(data, settings.STATIC_ROOT + 'conf/tcloud_auth.ini')
+  File "/home/xms/PycharmProjects/Mypro/voice/request_util.py", line 110, in make_voice
+    auth = authorization(config_path)
+TypeError: object() takes no parameters
+[2020-12-24 18:11:47,860][Thread-6:140377729017600][task_id:django.server][basehttp.py:154][ERROR]["POST /MGG/voice/voice/add/ HTTP/1.1" 500 138995]
+[2020-12-24 18:13:12,427][Thread-2:139667359639296][task_id:django.request][log.py:228][ERROR][Internal Server Error: /MGG/voice/voice/add/]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 604, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1637, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 45, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1525, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1564, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1091, in save_model
+    obj.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 91, in save
+    self.makeVoice()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 46, in makeVoice
+    make_voice(data, settings.STATIC_ROOT + 'conf/tcloud_auth.ini')
+  File "/home/xms/PycharmProjects/Mypro/voice/request_util.py", line 109, in make_voice
+    auth = authorization(config_path)
+TypeError: object() takes no parameters
+[2020-12-24 18:13:12,428][Thread-2:139667359639296][task_id:django.server][basehttp.py:154][ERROR]["POST /MGG/voice/voice/add/ HTTP/1.1" 500 138995]
+[2020-12-24 18:14:39,226][Thread-3:140496379934464][task_id:django.request][log.py:228][ERROR][Internal Server Error: /MGG/voice/voice/add/]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 604, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1637, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 45, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1525, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1564, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1091, in save_model
+    obj.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 91, in save
+    self.makeVoice()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 46, in makeVoice
+    make_voice(data)
+TypeError: make_voice() missing 1 required positional argument: 'config_path'
+[2020-12-24 18:14:39,228][Thread-3:140496379934464][task_id:django.server][basehttp.py:154][ERROR]["POST /MGG/voice/voice/add/ HTTP/1.1" 500 134688]
+[2020-12-24 18:33:22,351][Thread-4:139762526631680][task_id:django.request][log.py:228][ERROR][Internal Server Error: /MGG/voice/voice/add/]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 604, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1637, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 45, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1525, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1564, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1091, in save_model
+    obj.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 91, in save
+    self.makeVoice()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 46, in makeVoice
+    make_voice(data, config_path=settings.STATIC_ROOT+'/conf/tcloud_auth.ini')
+  File "/home/xms/PycharmProjects/Mypro/voice/request_util.py", line 111, in make_voice
+    auth.init(config_path)
+  File "/home/xms/PycharmProjects/Mypro/voice/request_util.py", line 21, in init
+    self.conf.read(config_path, coding="UTF-8")
+TypeError: read() got an unexpected keyword argument 'coding'
+[2020-12-24 18:33:22,352][Thread-4:139762526631680][task_id:django.server][basehttp.py:154][ERROR]["POST /MGG/voice/voice/add/ HTTP/1.1" 500 143180]
+[2020-12-24 18:35:35,002][Thread-2:139704292730624][task_id:django.request][log.py:228][ERROR][Internal Server Error: /MGG/voice/voice/add/]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 1138, in _unify_values
+    sectiondict = self._sections[section]
+KeyError: 'authorization'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 604, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1637, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 45, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1525, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1564, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1091, in save_model
+    obj.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 91, in save
+    self.makeVoice()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 46, in makeVoice
+    make_voice(data)
+  File "/home/xms/PycharmProjects/Mypro/voice/request_util.py", line 111, in make_voice
+    auth.init()
+  File "/home/xms/PycharmProjects/Mypro/voice/request_util.py", line 22, in init
+    self.AppId = self.conf.getint("authorization", "AppId")
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 819, in getint
+    fallback=fallback, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 809, in _get_conv
+    **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 803, in _get
+    return conv(self.get(section, option, **kwargs))
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 781, in get
+    d = self._unify_values(section, vars)
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 1141, in _unify_values
+    raise NoSectionError(section)
+configparser.NoSectionError: No section: 'authorization'
+[2020-12-24 18:35:35,003][Thread-2:139704292730624][task_id:django.server][basehttp.py:154][ERROR]["POST /MGG/voice/voice/add/ HTTP/1.1" 500 169767]
+[2020-12-24 18:37:21,668][Thread-2:140666084521728][task_id:django.request][log.py:228][ERROR][Internal Server Error: /MGG/voice/voice/add/]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 1138, in _unify_values
+    sectiondict = self._sections[section]
+KeyError: 'authorization'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 604, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1637, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 45, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1525, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1564, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1091, in save_model
+    obj.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 91, in save
+    self.makeVoice()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 46, in makeVoice
+    make_voice(data)
+  File "/home/xms/PycharmProjects/Mypro/voice/request_util.py", line 111, in make_voice
+    auth.init()
+  File "/home/xms/PycharmProjects/Mypro/voice/request_util.py", line 22, in init
+    self.AppId = self.conf.getint("authorization", "AppId")
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 819, in getint
+    fallback=fallback, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 809, in _get_conv
+    **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 803, in _get
+    return conv(self.get(section, option, **kwargs))
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 781, in get
+    d = self._unify_values(section, vars)
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 1141, in _unify_values
+    raise NoSectionError(section)
+configparser.NoSectionError: No section: 'authorization'
+[2020-12-24 18:37:21,669][Thread-2:140666084521728][task_id:django.server][basehttp.py:154][ERROR]["POST /MGG/voice/voice/add/ HTTP/1.1" 500 169767]
+[2020-12-24 18:38:38,127][Thread-3:139720244295424][task_id:django.request][log.py:228][ERROR][Internal Server Error: /MGG/voice/voice/add/]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 1138, in _unify_values
+    sectiondict = self._sections[section]
+KeyError: 'authorization'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 604, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1637, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 45, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1525, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1564, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1091, in save_model
+    obj.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 91, in save
+    self.makeVoice()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 46, in makeVoice
+    make_voice(data)
+  File "/home/xms/PycharmProjects/Mypro/voice/request_util.py", line 112, in make_voice
+    auth.init()
+  File "/home/xms/PycharmProjects/Mypro/voice/request_util.py", line 23, in init
+    self.AppId = self.conf.getint("authorization", "AppId")
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 819, in getint
+    fallback=fallback, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 809, in _get_conv
+    **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 803, in _get
+    return conv(self.get(section, option, **kwargs))
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 781, in get
+    d = self._unify_values(section, vars)
+  File "/home/xms/.pyenv/versions/3.6.5/lib/python3.6/configparser.py", line 1141, in _unify_values
+    raise NoSectionError(section)
+configparser.NoSectionError: No section: 'authorization'
+[2020-12-24 18:38:38,129][Thread-3:139720244295424][task_id:django.server][basehttp.py:154][ERROR]["POST /MGG/voice/voice/add/ HTTP/1.1" 500 169764]
