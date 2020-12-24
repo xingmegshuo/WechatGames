@@ -17,7 +17,7 @@ class GetVoiceView(APIView):
 
             @apiParam {String} name 文件名字 参数可选
             @apiParam {String} text 文本内容 参数必须
-            @apiParam {string} human 说话人 参数可选
+            @apiParam {string} human 说话人 参数可选 说话人参数0成年女人,1成年男人,101015,男孩,101016,女孩
 
             @apiError {String} status 请求状态1,成功,0失败
             @apiError {String} mes 信息提示
@@ -51,7 +51,7 @@ class GetVoiceView(APIView):
         params = get_parameter_dic(request)
         name = params.get('name', 'demo')
         text = params.get('text', None)
-        human = params.get('human', 'xiaoyan')
+        human = params.get('human', '101016')
         if text is None:
             return Response({
                 'status': 0,
@@ -59,9 +59,9 @@ class GetVoiceView(APIView):
             }, status=HTTP_204_NO_CONTENT)
         else:
             try:
-                voice = Voice.objects.get(content=text, name=name, human=human)
+                voice = Voice.objects.get(content=text, name=name, human=int(human))
             except:
-                voice = Voice(content=text, human=human, name=name)
+                voice = Voice(content=text, human=int(human), name=name)
                 voice.save()
             logger.info('文字转语音')
             return Response({
