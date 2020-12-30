@@ -1,0 +1,178 @@
+{
+    "frames": {
+        "0.png": {
+            "frame": {
+                "h": 102,
+                "idx": 0,
+                "w": 211,
+                "x": 1316,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 102,
+                "w": 211
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "1.png": {
+            "frame": {
+                "h": 128,
+                "idx": 0,
+                "w": 375,
+                "x": 658,
+                "y": 875
+            },
+            "sourceSize": {
+                "h": 128,
+                "w": 375
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "2.png": {
+            "frame": {
+                "h": 157,
+                "idx": 0,
+                "w": 542,
+                "x": 658,
+                "y": 717
+            },
+            "sourceSize": {
+                "h": 157,
+                "w": 542
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "3.png": {
+            "frame": {
+                "h": 188,
+                "idx": 0,
+                "w": 657,
+                "x": 658,
+                "y": 528
+            },
+            "sourceSize": {
+                "h": 188,
+                "w": 657
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "4.png": {
+            "frame": {
+                "h": 223,
+                "idx": 0,
+                "w": 657,
+                "x": 0,
+                "y": 788
+            },
+            "sourceSize": {
+                "h": 223,
+                "w": 657
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "5.png": {
+            "frame": {
+                "h": 263,
+                "idx": 0,
+                "w": 542,
+                "x": 658,
+                "y": 264
+            },
+            "sourceSize": {
+                "h": 263,
+                "w": 542
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "6.png": {
+            "frame": {
+                "h": 263,
+                "idx": 0,
+                "w": 657,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 263,
+                "w": 657
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "7.png": {
+            "frame": {
+                "h": 263,
+                "idx": 0,
+                "w": 657,
+                "x": 658,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 263,
+                "w": 657
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "8.png": {
+            "frame": {
+                "h": 261,
+                "idx": 0,
+                "w": 657,
+                "x": 0,
+                "y": 264
+            },
+            "sourceSize": {
+                "h": 261,
+                "w": 657
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "9.png": {
+            "frame": {
+                "h": 261,
+                "idx": 0,
+                "w": 657,
+                "x": 0,
+                "y": 526
+            },
+            "sourceSize": {
+                "h": 261,
+                "w": 657
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "meta": {
+        "image": "cctx2.png",
+        "prefix": "cctx2/"
+    }
+}

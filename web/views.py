@@ -314,12 +314,12 @@ def Hydor(request):
     n = request.GET.get('n',4)
     l = request.GET.get('l',1)
     m = request.GET.get('m',0)
-    n,l,m = float(m),float(l),float(m)
+    n,l,m = float(n),float(l),float(m)
     import numpy as np
     import matplotlib.pyplot as plt
     from scipy.special import sph_harm
     from scipy.special import assoc_laguerre
-        x = np.linspace(-n ** 2 * 4, n ** 2 * 4, 500)
+    x = np.linspace(-n ** 2 * 4, n ** 2 * 4, 500)
     y = 0  #### the plane locates at y = 0
     z = np.linspace(-n ** 2 * 4, n ** 2 * 4, 500)
     X, Z = np.meshgrid(x, z)
