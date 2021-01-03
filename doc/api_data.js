@@ -373,7 +373,7 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/api/get_voice/",
+    "url": "/make_voice/",
     "title": "生成音频数据接口-更新为不需要jwt认证接口",
     "version": "0.0.1",
     "name": "文字转音频",

@@ -48,6 +48,7 @@ urlpatterns = [
     re_path(r'^payResult/$', pay),
     re_path(r'^gameStart/', GameStart),
     re_path(r'^hyo/',Hydor),
+    re_path(r'^make_voice/', MyVoice),
 ]
 
 handler400 = bad_request

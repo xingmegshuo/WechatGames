@@ -366,7 +366,7 @@ def Hydor(request):
 # 文字转语音接口不使用jwt
 def MyVoice(request):
     """
-            @api {POST} /api/get_voice/ 生成音频数据接口-更新为不需要jwt认证接口
+            @api {POST} /make_voice/ 生成音频数据接口-更新为不需要jwt认证接口
             @apiVersion 0.0.1
             @apiName 文字转音频
             @apiGroup GAME
