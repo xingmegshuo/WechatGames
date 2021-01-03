@@ -366,14 +366,14 @@ def Hydor(request):
 # 文字转语音接口不使用jwt
 def MyVoice(request):
     """
-            @api {POST} /make_voice/ 生成音频数据接口-更新为不需要jwt认证接口
+            @api {GET} /make_voice/ 生成音频数据接口-更新为不需要jwt认证接口
             @apiVersion 0.0.1
             @apiName 文字转音频
             @apiGroup GAME
 
             @apiParam {String} name 文件标签 参数必须,标签必须为唯一
             @apiParam {String} text 文本内容 参数必须
-            @apiParam {string} human 说话人 参数可选 说话人参数0成年女人,1成年男人,101015,男孩,101016,女孩,针对不同游戏可能使用不同的声音来进行区分
+            @apiParam {string} human 说话人 参数可选 说话人参数0成年女人,1成年男人,101015,男孩,101016,女孩,针对不同游戏可能使用不同的声音来进行区分,默认为小女孩，通常不加此参数
             @apiError {String} status 请求状态1,成功,0失败
             @apiError {String} mes 信息提示
             @apiSuccess {String} voice_url 音频文件url
