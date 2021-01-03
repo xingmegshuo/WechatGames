@@ -23,9 +23,20 @@ define({ "api": [
     "url": "",
     "version": "0.0.0",
     "filename": "./doc/main.js",
-    "group": "/home/xms/PycharmProjects/Mypro/doc/main.js",
-    "groupTitle": "/home/xms/PycharmProjects/Mypro/doc/main.js",
+    "group": "/Users/small_ant/Desktop/code/WechatGames/doc/main.js",
+    "groupTitle": "/Users/small_ant/Desktop/code/WechatGames/doc/main.js",
     "name": ""
+  },
+  {
+    "type": "GET",
+    "url": "/data/advertising/",
+    "title": "广告获取",
+    "version": "0.0.1",
+    "description": "<p>获取广告接口</p>",
+    "name": "广告获取",
+    "group": "DATA",
+    "filename": "./games/views.py",
+    "groupTitle": "DATA"
   },
   {
     "type": "GET",
@@ -60,17 +71,6 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/data/advertising/",
-    "title": "广告获取",
-    "version": "0.0.1",
-    "description": "<p>获取广告接口</p>",
-    "name": "广告获取",
-    "group": "DATA",
-    "filename": "./games/views.py",
-    "groupTitle": "DATA"
-  },
-  {
-    "type": "GET",
     "url": "/data/app/",
     "title": "游戏配置信息",
     "version": "0.0.1",
@@ -90,6 +90,103 @@ define({ "api": [
     "group": "DATA",
     "filename": "./user/views.py",
     "groupTitle": "DATA"
+  },
+  {
+    "type": "POST",
+    "url": "/api/get_voice/",
+    "title": "生成音频数据接口-已弃用此接口",
+    "version": "0.0.1",
+    "name": "文字转音频",
+    "group": "Delete",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加次内容请求</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>文件名字 参数可选</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "text",
+            "description": "<p>文本内容 参数必须</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "human",
+            "description": "<p>说话人 参数可选 说话人参数0成年女人,1成年男人,101015,男孩,101016,女孩</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态1,成功,0失败</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>信息提示</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n    'status': 0,\n    \"mes\": \"没有必须参数text\"\n}\n'没有传递要修改的参数，也需要携带token否则就是post的错误提示'",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "voice_url",
+            "description": "<p>音频文件url</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    'status': 1,\n    \"voice_url\":\"static/voice/talk.mp3\"\n}\n'更新后的内容'",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./voice/views.py",
+    "groupTitle": "Delete"
   },
   {
     "type": "POST",
@@ -277,23 +374,10 @@ define({ "api": [
   {
     "type": "POST",
     "url": "/api/get_voice/",
-    "title": "生成音频数据接口",
+    "title": "生成音频数据接口-更新为不需要jwt认证接口",
     "version": "0.0.1",
     "name": "文字转音频",
     "group": "GAME",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>jwt验证秘钥必须添加次内容请求</p>"
-          }
-        ]
-      }
-    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -302,7 +386,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "name",
-            "description": "<p>文件名字 参数可选</p>"
+            "description": "<p>文件标签 参数必须,标签必须为唯一</p>"
           },
           {
             "group": "Parameter",
@@ -316,7 +400,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "human",
-            "description": "<p>说话人 参数可选</p>"
+            "description": "<p>说话人 参数可选 说话人参数0成年女人,1成年男人,101015,男孩,101016,女孩,针对不同游戏可能使用不同的声音来进行区分</p>"
           }
         ]
       }
@@ -343,7 +427,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Error-Response:",
-          "content": "{\n    'status': 0,\n    \"mes\": \"没有必须参数text\"\n}\n'没有传递要修改的参数，也需要携带token否则就是post的错误提示'",
+          "content": "{\n    'status': 0,\n    \"mes\": \"没有必须参数text\"\n}",
           "type": "json"
         }
       ]
@@ -363,12 +447,12 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    'status': 1,\n    \"voice_url\":\"static/voice/talk.mp3\"\n}\n'更新后的内容'",
+          "content": "HTTP/1.1 200 OK\n{\n    'status': 1,\n    \"voice_url\":\"static/voice/talk.mp3\"\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "./voice/views.py",
+    "filename": "./web/views.py",
     "groupTitle": "GAME"
   },
   {

@@ -8,21 +8,18 @@ from .models import *
 
 class GetVoiceView(APIView):
     """
-            @api {POST} /api/get_voice/ 生成音频数据接口
+            @api {POST} /api/get_voice/ 生成音频数据接口-已弃用此接口
             @apiVersion 0.0.1
             @apiName 文字转音频
-            @apiGroup GAME
+            @apiGroup Delete
 
             @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
-
             @apiParam {String} name 文件名字 参数可选
             @apiParam {String} text 文本内容 参数必须
             @apiParam {string} human 说话人 参数可选 说话人参数0成年女人,1成年男人,101015,男孩,101016,女孩
-
             @apiError {String} status 请求状态1,成功,0失败
             @apiError {String} mes 信息提示
             @apiSuccess {String} voice_url 音频文件url
-
 
             @apiSuccessExample Success-Response:
             HTTP/1.1 200 OK
@@ -66,5 +63,5 @@ class GetVoiceView(APIView):
             logger.info('文字转语音')
             return Response({
                 'status': 1,
-                'voice_url': voice.url
+                'voice_url': settings.STATIC_URL+voice.url
             }, status=HTTP_200_OK)

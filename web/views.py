@@ -18,6 +18,7 @@ import datetime
 from django.http import HttpResponse
 from games.models import Advertising
 from django.forms import model_to_dict
+from voice.models import Voice
 
 job_defaults = {'max_instance': 100, 'misfire_grace_time': 15 * 60, ',coalesce': True}
 scheduler = BackgroundScheduler(timezone=settings.TIME_ZONE, job_defaults=job_defaults)
@@ -360,3 +361,53 @@ def Hydor(request):
     except :
         y = None
     return JsonResponse({'src':'https://menguoli.com/static/a.png','r':r.tolist(),'y':y})
+
+
+# 文字转语音接口不使用jwt
+def MyVoice(request):
+    """
+            @api {POST} /api/get_voice/ 生成音频数据接口-更新为不需要jwt认证接口
+            @apiVersion 0.0.1
+            @apiName 文字转音频
+            @apiGroup GAME
+
+            @apiParam {String} name 文件标签 参数必须,标签必须为唯一
+            @apiParam {String} text 文本内容 参数必须
+            @apiParam {string} human 说话人 参数可选 说话人参数0成年女人,1成年男人,101015,男孩,101016,女孩,针对不同游戏可能使用不同的声音来进行区分
+            @apiError {String} status 请求状态1,成功,0失败
+            @apiError {String} mes 信息提示
+            @apiSuccess {String} voice_url 音频文件url
+
+            @apiSuccessExample Success-Response:
+            HTTP/1.1 200 OK
+            {
+                'status': 1,
+                "voice_url":"static/voice/talk.mp3"
+            }
+
+            @apiError {String} mes 错误提示
+
+            @apiErrorExample Error-Response:
+            {
+                'status': 0,
+                "mes": "没有必须参数text"
+            }
+    """
+    name = request.POST.get('name', 'demo')
+    text = request.POST.get('text', None)
+    human = params.POST.get('human', '101016')
+    if text is None:
+        return JsonResponse({
+            'status': 0,
+            'error': '没有必须参数，text'
+        }, status=HTTP_204_NO_CONTENT)
+    else:
+        try:
+            voice = Voice.objects.get(content=text, name=name, human=int(human))
+        except:
+            voice = Voice(content=text, human=int(human), name=name)
+            voice.save()
+        return JsonResponse({
+            'status': 1,
+            'voice_url': settings.STATIC_URL + voice.url
+        }, status=HTTP_200_OK)
