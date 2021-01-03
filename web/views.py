@@ -395,7 +395,7 @@ def MyVoice(request):
     """
     name = request.POST.get('name', 'demo')
     text = request.POST.get('text', None)
-    human = params.POST.get('human', '101016')
+    human = request.POST.get('human', '101016')
     if text is None:
         return JsonResponse({
             'status': 0,
