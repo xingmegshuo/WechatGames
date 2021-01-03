@@ -393,9 +393,9 @@ def MyVoice(request):
                 "mes": "没有必须参数text"
             }
     """
-    name = request.POST.get('name', 'demo')
-    text = request.POST.get('text', 'None')
-    human = request.POST.get('human', '101016')
+    name = request.GET.get('name', 'demo')
+    text = request.GET.get('text', 'None')
+    human = request.GET.get('human', '101016')
     if text == 'None':
         return JsonResponse({
             'status': 0,
