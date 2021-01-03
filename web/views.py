@@ -400,7 +400,7 @@ def MyVoice(request):
         return JsonResponse({
             'status': 0,
             'error': '没有必须参数，text'
-        }, status=HTTP_204_NO_CONTENT)
+        })
     else:
         try:
             voice = Voice.objects.get(content=text, name=name, human=int(human))
@@ -410,4 +410,4 @@ def MyVoice(request):
         return JsonResponse({
             'status': 1,
             'voice_url': settings.STATIC_URL + voice.url
-        }, status=HTTP_200_OK)
+        })
