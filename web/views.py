@@ -324,18 +324,17 @@ def Hydor(request):
     from pathlib import Path
 
     my_file = Path(settings.STATIC_ROOT + str(n) + str(l) + str(m) + ".png")
+    x = np.linspace(-n ** 2 * 4, n ** 2 * 4, 500)
+    y = 0  #### the plane locates at y = 0
+    z = np.linspace(-n ** 2 * 4, n ** 2 * 4, 500)
+    X, Z = np.meshgrid(x, z)
+    rho = np.linalg.norm((X, y, Z), axis=0) / n
+    Lag = assoc_laguerre(2 * rho, n - l - 1, 2 * l + 1)
+    Ylm = sph_harm(m, l, np.arctan2(y, X), np.arctan2(np.linalg.norm((X, y), axis=0), Z))
+    Psi = np.exp(-rho) * np.power((2 * rho), l) * Lag * Ylm
+    density = np.conjugate(Psi) * Psi
+    density = density.real
     if not my_file.is_file():
-        x = np.linspace(-n ** 2 * 4, n ** 2 * 4, 500)
-        y = 0  #### the plane locates at y = 0
-        z = np.linspace(-n ** 2 * 4, n ** 2 * 4, 500)
-        X, Z = np.meshgrid(x, z)
-        rho = np.linalg.norm((X, y, Z), axis=0) / n
-        Lag = assoc_laguerre(2 * rho, n - l - 1, 2 * l + 1)
-        Ylm = sph_harm(m, l, np.arctan2(y, X), np.arctan2(np.linalg.norm((X, y), axis=0), Z))
-        Psi = np.exp(-rho) * np.power((2 * rho), l) * Lag * Ylm
-
-        density = np.conjugate(Psi) * Psi
-        density = density.real
         fig, ax = plt.subplots(figsize=(10, 10))
         ax.imshow(density.real,
                   extent=[-density.max() * 0.2, density.max() * 0.2, -density.max() * 0.2, density.max() * 0.2],
