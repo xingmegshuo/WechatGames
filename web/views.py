@@ -303,7 +303,8 @@ def GameStart(request):
         for i in box:
             ad = Advertising.objects.get(id=int(i))
             # print(ad)
-            boxInfo.append({"id": ad.id, "title": ad.title, "logo": "https://www.menguoli.com/"+ad.logo.url, "appid": ad.appid})
+            boxInfo.append(
+                {"id": ad.id, "title": ad.title, "logo": "https://www.menguoli.com/" + ad.logo.url, "appid": ad.appid})
         # print(boxInfo)
     else:
         boxInfo = "none"
@@ -312,33 +313,37 @@ def GameStart(request):
 
 # 氢原子项目暂时
 def Hydor(request):
-    n = request.GET.get('n',4)
-    l = request.GET.get('l',1)
-    m = request.GET.get('m',0)
-    n,l,m = float(n),float(l),float(m)
+    n = request.GET.get('n', 4)
+    l = request.GET.get('l', 1)
+    m = request.GET.get('m', 0)
+    n, l, m = float(n), float(l), float(m)
     import numpy as np
     import matplotlib.pyplot as plt
     from scipy.special import sph_harm
     from scipy.special import assoc_laguerre
-    x = np.linspace(-n ** 2 * 4, n ** 2 * 4, 500)
-    y = 0  #### the plane locates at y = 0
-    z = np.linspace(-n ** 2 * 4, n ** 2 * 4, 500)
-    X, Z = np.meshgrid(x, z)
-    rho = np.linalg.norm((X, y, Z), axis=0) / n
-    Lag = assoc_laguerre(2 * rho, n - l - 1, 2 * l + 1)
-    Ylm = sph_harm(m, l, np.arctan2(y, X), np.arctan2(np.linalg.norm((X, y), axis=0), Z))
-    Psi = np.exp(-rho) * np.power((2 * rho), l) * Lag * Ylm
+    from pathlib import Path
 
-    density = np.conjugate(Psi) * Psi
-    density = density.real
-    fig, ax = plt.subplots(figsize=(10, 10))
-    ax.imshow(density.real,
-              extent=[-density.max() * 0.2, density.max() * 0.2, -density.max() * 0.2, density.max() * 0.2],
-              cmap='gist_stern')
-    # plt.show()
-    fig.set_facecolor('black')
-    fig.savefig(settings.STATIC_ROOT+"a.png", dpi=300)
-    plt.close()
+    my_file = Path(settings.STATIC_ROOT + str(n) + str(l) + str(m) + ".png")
+    if not my_file.is_file():
+        x = np.linspace(-n ** 2 * 4, n ** 2 * 4, 500)
+        y = 0  #### the plane locates at y = 0
+        z = np.linspace(-n ** 2 * 4, n ** 2 * 4, 500)
+        X, Z = np.meshgrid(x, z)
+        rho = np.linalg.norm((X, y, Z), axis=0) / n
+        Lag = assoc_laguerre(2 * rho, n - l - 1, 2 * l + 1)
+        Ylm = sph_harm(m, l, np.arctan2(y, X), np.arctan2(np.linalg.norm((X, y), axis=0), Z))
+        Psi = np.exp(-rho) * np.power((2 * rho), l) * Lag * Ylm
+
+        density = np.conjugate(Psi) * Psi
+        density = density.real
+        fig, ax = plt.subplots(figsize=(10, 10))
+        ax.imshow(density.real,
+                  extent=[-density.max() * 0.2, density.max() * 0.2, -density.max() * 0.2, density.max() * 0.2],
+                  cmap='gist_stern')
+        # plt.show()
+        fig.set_facecolor('black')
+        fig.savefig(settings.STATIC_ROOT + str(n) + str(l) + str(m) + ".png", dpi=300)
+        plt.close()
     theta1 = np.linspace(0, 2 * np.pi, 181)
     phi1 = np.linspace(0, np.pi, 91)
     theta_2d, phi_2d = np.meshgrid(theta1, phi1)
@@ -353,14 +358,14 @@ def Hydor(request):
     # plt.plot(r[0][1], r[1][1])
     try:
         T = density * (((4 * np.pi) / 3) * (((np.max(X) + X) ** 3) - ((4 * np.pi) / 3 * (X ** 3))))
-    # T = (T - np.min(T)) / (np.max(T) - np.min(T))  # 最值归一化
+        # T = (T - np.min(T)) / (np.max(T) - np.min(T))  # 最值归一化
 
         T = (T - np.min(T)) / (np.max(T) - np.min(T))
         T = T.tolist()[100:250]
         y = [round(x[249:250][0], 6) * 300 for x in T]
-    except :
+    except:
         y = None
-    return JsonResponse({'src':'https://menguoli.com/static/a.png','r':r.tolist(),'y':y})
+    return JsonResponse({'src': settings.STATIC_ROOT + str(n) + str(l) + str(m) + ".png", 'r': r.tolist(), 'y': y})
 
 
 # 文字转语音接口不使用jwt
