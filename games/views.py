@@ -15,7 +15,6 @@ from .serializers import KnowlageSerializer, AdversingSerializer
 from django.http import HttpResponse
 
 
-
 class SignView(APIView):
     """
             @api {POST} /api/sign/ 签到接口
@@ -101,7 +100,7 @@ class KnowView(APIView):
         """
             @api {GET} /api/knowlage/ 知识学习状态
             @apiVersion 0.0.1
-            @apiDescription 获取用户关于此知识的学习状态
+            @apiDescription  调用此接口会提示用户已经学习此知识，可以去获取新的
             @apiName 知识学习状态
             @apiGroup 萌游知知
             @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
@@ -113,75 +112,77 @@ class KnowView(APIView):
             @apiSuccess {String} mes 提示信息
             @apiSuccessExample Success-Response:
             HTTP/1.1 200 OK
-            确定开始学习
+            # 确定开始学习
             {
                 'status': 1,
-                'mes': '用户开始学习此知识'
+                'mes': '用户已经学习此知识'
              }
-             已经开始学习了，等待学习完才能开始新的
-            {
-                "status": 0,
-                "mes": "知识学习开始学习"
-            }
+            #  已经开始学习了，等待学习完才能开始新的
+            # {
+            #     "status": 0,
+            #     "mes": "知识学习开始学习"
+            # }
         """
         params = get_parameter_dic(request)
         user = request.user.id
         game_info = GameInfo.objects.get(user_id=int(user),
                                          game_id=int(get_app_config(params.get('name')).id))
-        recoding = MengYou_recoding.objects.filter(game_info=game_info, knowlage_id=params.get('id'))
-        if len(recoding) == 0:
-            recoding = MengYou_recoding.objects.create(game_info=game_info, knowlage_id=params.get('id'))
-            # 用户接受订阅
-            if game_info.is_subscription is True:
-                # pass
-                # to do : add job send_mes
-                # data = {
-                #     'touser': game_info.user_id.openid,
-                #     'template_id': 'xi8fGRkUN5SldKRNzfvfay9GJwuDEvE8q6yFqH53fgw',
-                #     'data': {
-                #         "character_string1": {"value": '20'},
-                #         "thing2": {"value": '很抱歉'},
-                #         "thing4": {'value': 'ok'},
-                #         "character_string5": {"value": '100'},
-                #         "thing3": {"value": '体力回满了'}
-                #     }
-                # }
-                # scheduler.add_job(send_mes, 'date',
-                #                   id='MY' + str(recoding.id),
-                #                   run_date=recoding.send_time,
-                #                   args=[game_info.game_id.app_id, game_info.game_id.secret, data])
-                # scheduler.start()
-                # time.strftime("%Y-%b-%d %H:%M:%S", recoding.send_time))
-                # scheduler.resume_job('MY'+str(recoding.id))
-                # 一次订阅
-                game_info.is_subscription = False
-                game_info.save()
-            scheduler.add_job(change_status, 'date', id='MYCH' + str(recoding.id), run_date=recoding.send_time,
-                              args=[recoding])
-            return Response({'status': 1, 'mes': '用户开始学习此知识'}, status=HTTP_200_OK)
-        else:
-            return Response({'status': 0, 'mes': '已经开始学习'}, status=HTTP_200_OK)
+        recoding = MengYou_recoding(game_info=game_info, knowlage_id=params.get('id'))
+        recoding.is_over = True
+        recoding.save()
+        # if len(recoding) == 0:
+        #     recoding = MengYou_recoding.objects.create(game_info=game_info, knowlage_id=params.get('id'))
+        # 用户接受订阅
+        # if game_info.is_subscription is True:
+        # pass
+        # to do : add job send_mes
+        # data = {
+        #     'touser': game_info.user_id.openid,
+        #     'template_id': 'xi8fGRkUN5SldKRNzfvfay9GJwuDEvE8q6yFqH53fgw',
+        #     'data': {
+        #         "character_string1": {"value": '20'},
+        #         "thing2": {"value": '很抱歉'},
+        #         "thing4": {'value': 'ok'},
+        #         "character_string5": {"value": '100'},
+        #         "thing3": {"value": '体力回满了'}
+        #     }
+        # }
+        # scheduler.add_job(send_mes, 'date',
+        #                   id='MY' + str(recoding.id),
+        #                   run_date=recoding.send_time,
+        #                   args=[game_info.game_id.app_id, game_info.game_id.secret, data])
+        # scheduler.start()
+        # time.strftime("%Y-%b-%d %H:%M:%S", recoding.send_time))
+        # scheduler.resume_job('MY'+str(recoding.id))
+        # 一次订阅
+        # game_info.is_subscription = False
+        # game_info.save()
+        # scheduler.add_job(change_status, 'date', id='MYCH' + str(recoding.id), run_date=recoding.send_time,
+        #                   args=[recoding])
+        return Response({'status': 1, 'mes': '用户已经学习此知识'}, status=HTTP_200_OK)
+        # else:
+        #     return Response({'status': 0, 'mes': '已经开始学习'}, status=HTTP_200_OK)
 
     def post(self, request):
         """"
         :return 随机返回未学习过的知识
-        @api {POST} /api/knowlage/ 获取知识
+        @api {POST} /api/knowlage/ 获取知识-更新版
         @apiVersion 0.0.1
-        @apiDescription 获取学习知识，随机返回
-        @apiName 获取知识
+        @apiDescription 获取学习知识，随机返回一条,获取已学习知识,分页,20条为一页
+        @apiName 获取知识-或者获取已经学习的知识
         @apiGroup 萌游知知
 
         @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
 
         @apiParam {String} name 游戏名字，参数必须
         @apiParam {String} over 已经学习过的数据，参数可选，不携带就是随机获取一条数据，携带就是获取学习过数据
+        @apiParam {String} page 获取已经学习过的数据页数，参数可选，不携带默认第一页
 
 
         @apiSuccess {String} status 请求状态
         @apiSuccess {String} mes 提示信息
         @apiSuccess {json} knowlage 返回的知识数据
         @apiSuccess {json} knowlage 学习过的知识
-        @apiSuccess {json} knowlageing 学习中
 
         @apiSuccessExample Success-Response:
         HTTP/1.1 200 OK
@@ -195,6 +196,7 @@ class KnowView(APIView):
         {
             "status": 1,
             "mes": "已经学习的知识",
+            "page":"1",
             "knowlage": [
                 {
                     "id": 12,
@@ -206,23 +208,14 @@ class KnowView(APIView):
                 }
             ]
 
-            “knowlage_ing”:[
-                {
-                    "id": 12,
-                    "title": "第2课",
-                    "voice": "/static/voice/第2课.mp3",
-                    "text": "说话内容",
-                    "level": "1",
-                    "status": false
-                }
-            ]
+
         }
         """
         params = get_parameter_dic(request)
         user = request.user.id
         game_info = GameInfo.objects.get(user_id=int(user),
                                          game_id=int(get_app_config(params.get('name')).id))
-        knowlage_ing = None
+        # knowlage_ing = None
         if params.get('over', None) is None:
             knowlage = MengYou_knowlage.objects.exclude(
                 id__in=[i.knowlage.id for i in MengYou_recoding.objects.filter(game_info=game_info)]).filter(
@@ -237,6 +230,11 @@ class KnowView(APIView):
                 status = 0
                 mes = '没有知识'
                 knowlage = None
+            return Response({
+                'status': status,
+                'mes': mes,
+                'knowlage': knowlage,
+            }, status=HTTP_200_OK)
         else:
             knowlage = MengYou_knowlage.objects.filter(
                 id__in=[i.knowlage.id for i in MengYou_recoding.objects.filter(game_info=game_info, is_over=True)],
@@ -246,26 +244,37 @@ class KnowView(APIView):
             knowlage = [model_to_dict(know, fields=['id', 'title', 'voice', 'text', 'img.url', 'level', 'status']) for
                         know in
                         knowlage]
-            knowlage_ing = MengYou_knowlage.objects.filter(
-                id__in=[i.knowlage.id for i in MengYou_recoding.objects.filter(game_info=game_info, is_over=False)],
-                status=True)
-            knowlage_ing = [
-                {**(model_to_dict(know, fields=['id', 'title', 'voice', 'text', 'img.url', 'level', 'status'])),
-                 **(model_to_dict(know.knowlage_recod, fields=['send_time']))}
-                for
-                know in
-                knowlage_ing]
-        return Response({
-            'status': status,
-            'mes': mes,
-            'knowlage': knowlage,
-            'knowlage_ing': knowlage_ing,
-        }, status=HTTP_200_OK)
+            # knowlage_ing = MengYou_knowlage.objects.filter(
+            #     id__in=[i.knowlage.id for i in MengYou_recoding.objects.filter(game_info=game_info, is_over=False)],
+            #     status=True)
+            # knowlage_ing = [
+            #     {**(model_to_dict(know, fields=['id', 'title', 'voice', 'text', 'img.url', 'level', 'status'])),
+            #      **(model_to_dict(know.knowlage_recod, fields=['send_time']))}
+            #     for
+            #     know in
+            #     knowlage_ing]
+            if params.get('page', None) is None:
+                if len(knowlage) > 20:
+                    knowlage = knowlage[:20]
+                page = 1
+            else:
+                page = params.get('page')
+                if int(len(knowlage) / 20) - params.get('page') > 1:
+                    knowlage = knowlage[20 * params.get('page'):20 + 20 * params.get('page')]
+                else:
+                    knowlage = knowlage[20 * params.get('page'):]
+            return Response({
+                'status': status,
+                'mes': mes,
+                'page': page,
+                'knowlage': knowlage,
+                # 'knowlage_ing': knowlage_ing,
+            }, status=HTTP_200_OK)
 
     def put(self, request):
         # to do 修改学习完成的时间
         """
-            @api {PUT} /api/knowlage/ 更新知识状态
+            @api {DELETE} /api/knowlage/ 更新知识状态 弃用
             @apiVersion 0.0.1
             @apiDescription 更新知识学习完成时间，根据知识所需时间添加定时任务，在过程中，用户观看广告减少时间
             @apiName 更新知识学习完成时间

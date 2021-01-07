@@ -39,10 +39,9 @@ class Voice(models.Model):
     language = models.IntegerField(verbose_name=_("转换语言"), help_text=_("转换语言"), default=1, choices=LANGUAGECHOICE)
     sound = models.IntegerField(verbose_name=_('说话声音'), help_text=_('说话声音大小'), default=5, choices=SOUNDCHOICE)
 
-    def makeVoice(self):
-        import time
+    def makeVoice(self, name):
         data = {'text': self.content, 'id': '001', 'language': self.language, 'speed': 0,
-                'speaker': self.human, 'sound': self.sound, 'name': settings.MEDIA_ROOT + '/voice/' + self.name}
+                'speaker': self.human, 'sound': self.sound, 'name': settings.MEDIA_ROOT + '/voice/' + name}
         make_voice(data)
 
     # def on_open(ws):
@@ -89,8 +88,10 @@ class Voice(models.Model):
     # ws.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE})
 
     def save(self, *args, **kwargs):
-        self.makeVoice()
-        self.url.name = 'voice/' + self.name + '.mp3'
+        import datetime
+        name = datetime.datetime.now().strftime("%Y-%m-%d-%H:%M:%S")
+        self.makeVoice(name)
+        self.url.name = settings.MEDIA_URL+'voice/' + name + '.mp3'
         super().save(*args, **kwargs)
 
     def __str__(self):

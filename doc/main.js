@@ -8,7 +8,7 @@ require.config({
         locales: './locales/locale',
         lodash: './vendor/lodash.custom.min',
         pathToRegexp: './vendor/path-to-regexp/index',
-        prismjs: './vendor/prism',
+        prettify: './vendor/prettify/prettify',
         semver: './vendor/semver.min',
         utilsSampleRequest: './utils/send_sample_request',
         webfontloader: './vendor/webfontloader',
@@ -30,12 +30,12 @@ require.config({
             deps: ['jquery', 'handlebars'],
             exports: 'Handlebars'
         },
-        prismjs: {
-            exports: 'Prism'
-        },
+        prettify: {
+            exports: 'prettyPrint'
+        }
     },
     urlArgs: 'v=' + (new Date()).getTime(),
-    waitSeconds: 150
+    waitSeconds: 15
 });
 
 require([
@@ -45,24 +45,20 @@ require([
     'handlebarsExtended',
     'apiProject',
     'apiData',
-    'prismjs',
+    'prettify',
     'utilsSampleRequest',
     'semver',
     'webfontloader',
     'bootstrap',
     'pathToRegexp',
     'list'
-], function($, _, locale, Handlebars, apiProject, apiData, Prism, sampleRequest, semver, WebFont) {
+], function($, _, locale, Handlebars, apiProject, apiData, prettyPrint, sampleRequest, semver, WebFont) {
 
     // Load google web fonts.
     WebFont.load({
         active: function() {
             // Only init after fonts are loaded.
-            init($, _, locale, Handlebars, apiProject, apiData, Prism, sampleRequest, semver);
-        },
-        inactive: function() {
-            // Run init, even if loading fonts fails
-            init($, _, locale, Handlebars, apiProject, apiData, Prism, sampleRequest, semver);
+            init($, _, locale, Handlebars, apiProject, apiData, prettyPrint, sampleRequest, semver);
         },
         google: {
             families: ['Source Code Pro', 'Source Sans Pro:n4,n6,n7']
@@ -70,7 +66,7 @@ require([
     });
 });
 
-function init($, _, locale, Handlebars, apiProject, apiData, Prism, sampleRequest, semver) {
+function init($, _, locale, Handlebars, apiProject, apiData, prettyPrint, sampleRequest, semver) {
     var api = apiData.api;
 
     //
@@ -527,7 +523,6 @@ function init($, _, locale, Handlebars, apiProject, apiData, Prism, sampleReques
 
         // init modules
         sampleRequest.initDynamic();
-        Prism.highlightAll()
     }
     initDynamic();
 
@@ -537,6 +532,9 @@ function init($, _, locale, Handlebars, apiProject, apiData, Prism, sampleReques
             $("." + hashVal.slice(1) + "-init").click();
         }
     }
+
+    // Pre- / Code-Format
+    prettyPrint();
 
     //
     // HTML-Template specific jQuery-Functions
@@ -616,7 +614,7 @@ function init($, _, locale, Handlebars, apiProject, apiData, Prism, sampleReques
     // as these actions modify the content
     // and would make it jump to the wrong position or not jump at all.
     if (window.location.hash) {
-        var id = decodeURI(window.location.hash);
+        var id = window.location.hash;
         if ($(id).length > 0)
             $('html,body').animate({ scrollTop: parseInt($(id).offset().top) }, 0);
     }
@@ -906,5 +904,4 @@ function init($, _, locale, Handlebars, apiProject, apiData, Prism, sampleReques
         });
         return results;
     }
-    Prism.highlightAll()
 }

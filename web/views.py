@@ -13,7 +13,7 @@ from job.models import Jobs, Job
 from job.views import *
 from django.db.models import Q
 from user.views import get_app_config, get_parameter_dic
-from django.utils.timezone import utc
+from django.utils import timezone
 import datetime
 from django.http import HttpResponse
 from games.models import Advertising
@@ -407,11 +407,22 @@ def MyVoice(request):
         })
     else:
         try:
-            voice = Voice.objects.get(content=text, name=name, human=int(human))
+            voice = Voice.objects.get(content=text, human=int(human))
         except:
-            voice = Voice(content=text, human=int(human), name=name)
+            voice = Voice(content=text, human=int(human))
             voice.save()
         return JsonResponse({
             'status': 1,
             'voice_url': settings.MEDIA_URL + str(voice.url)
         })
+
+
+# 获取网络utc时间
+def get_time(request):
+    """
+               @api {GET} /now/ 获取服务器utc时间
+               @apiVersion 0.0.1
+               @apiName 获取服务器utc时间
+               @apiGroup GAME
+    """
+    return JsonResponse({'time': timezone.now().strftime("%Y-%m-%d-%H:%M:%S")})

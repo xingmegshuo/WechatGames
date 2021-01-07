@@ -26,7 +26,7 @@ SECRET_KEY = 'o$u-&*#&&%auvz3zu%-ye!mide!dle7dofiz%3=edzv#(c6d*e'
 # DEBUG = True
 DEBUG = False
 ALLOWED_HOSTS = ['*']
-
+APPEND_SLASH = False
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'games',
     'voice',
     'mini',
+    'mail',
     'analy',
     'job',
 
@@ -138,13 +139,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':
         # 'pro',
-        # 'guo',
+        #     'guo',
             os.environ.get('MYSQL_DATABASE_NAME'),
         'USER': 'root',
         'PASSWORD': '528012',
         'HOST':
         # 'localhost',
-        # '119.45.126.111',
+        #     '119.45.126.111',
         # 'PORT': '3306',
         # 'PORT': '3307',
             os.environ.get('MYSQL_PORT_3306_TCP_ADDR'),

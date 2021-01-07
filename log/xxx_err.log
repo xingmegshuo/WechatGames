@@ -4715,3 +4715,744 @@ Traceback (most recent call last):
     raise NoSectionError(section)
 configparser.NoSectionError: No section: 'authorization'
 [2020-12-24 18:38:38,129][Thread-3:139720244295424][task_id:django.server][basehttp.py:154][ERROR]["POST /MGG/voice/voice/add/ HTTP/1.1" 500 169764]
+[2021-01-07 10:37:36,992][Thread-5:139802362496768][task_id:django.request][log.py:228][ERROR][Internal Server Error: /make_voice/]
+Traceback (most recent call last):
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 410, in MyVoice
+    voice = Voice.objects.get(content=text, name=name, human=int(human))
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+voice.models.Voice.DoesNotExist: Voice matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'test_A' for key 'name'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 413, in MyVoice
+    voice.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 94, in save
+    super().save(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'test_A' for key 'name'")
+[2021-01-07 10:37:37,012][Thread-5:139802362496768][task_id:django.server][basehttp.py:154][ERROR]["GET /make_voice/?name=test_A&text=%E9%AC%BC HTTP/1.1" 500 243476]
+[2021-01-07 10:38:46,189][Thread-6:139802391082752][task_id:django.request][log.py:228][ERROR][Internal Server Error: /make_voice/]
+Traceback (most recent call last):
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 410, in MyVoice
+    voice = Voice.objects.get(content=text, name=name, human=int(human))
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+voice.models.Voice.DoesNotExist: Voice matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'test_A' for key 'name'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 413, in MyVoice
+    voice.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 94, in save
+    super().save(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'test_A' for key 'name'")
+[2021-01-07 10:38:46,190][Thread-6:139802391082752][task_id:django.server][basehttp.py:154][ERROR]["GET /make_voice/?name=test_A&text=%E9%AC%BC HTTP/1.1" 500 245246]
+[2021-01-07 10:40:02,941][Thread-5:139802362496768][task_id:django.request][log.py:228][ERROR][Internal Server Error: /make_voice/]
+Traceback (most recent call last):
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 410, in MyVoice
+    voice = Voice.objects.get(content=text, name=name, human=int(human))
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+voice.models.Voice.DoesNotExist: Voice matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'test_B' for key 'name'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 413, in MyVoice
+    voice.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 94, in save
+    super().save(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'test_B' for key 'name'")
+[2021-01-07 10:40:02,942][Thread-5:139802362496768][task_id:django.server][basehttp.py:154][ERROR]["GET /make_voice/?name=test_B&text=%E7%8E%8B HTTP/1.1" 500 243477]
+[2021-01-07 10:43:18,873][Thread-5:139802362496768][task_id:django.request][log.py:228][ERROR][Internal Server Error: /make_voice/]
+Traceback (most recent call last):
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 410, in MyVoice
+    voice = Voice.objects.get(content=text, name=name, human=int(human))
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+voice.models.Voice.DoesNotExist: Voice matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'test_B' for key 'name'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 413, in MyVoice
+    voice.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 94, in save
+    super().save(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 831, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/base.py", line 869, in _do_insert
+    using=using, raw=raw)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 1136, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1289, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1062, "Duplicate entry 'test_B' for key 'name'")
+[2021-01-07 10:43:18,873][Thread-5:139802362496768][task_id:django.server][basehttp.py:154][ERROR]["GET /make_voice/?name=test_B&text=%E9%AC%BC HTTP/1.1" 500 243478]
+[2021-01-07 10:53:22,371][Thread-2:139833360746240][task_id:django.request][log.py:228][ERROR][Internal Server Error: /make_voice/]
+Traceback (most recent call last):
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 410, in MyVoice
+    voice = Voice.objects.get(content=text, name=name, human=int(human))
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+voice.models.Voice.DoesNotExist: Voice matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 413, in MyVoice
+    voice.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 92, in save
+    name = str(time.now().strftime)
+AttributeError: module 'time' has no attribute 'now'
+[2021-01-07 10:53:22,373][Thread-2:139833360746240][task_id:django.server][basehttp.py:154][ERROR]["GET /make_voice/?name=test_B&text=%E7%8E%8B HTTP/1.1" 500 96366]
+[2021-01-07 10:53:37,880][Thread-3:139833351567104][task_id:django.request][log.py:228][ERROR][Internal Server Error: /make_voice/]
+Traceback (most recent call last):
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 410, in MyVoice
+    voice = Voice.objects.get(content=text, name=name, human=int(human))
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+voice.models.Voice.DoesNotExist: Voice matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 413, in MyVoice
+    voice.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 92, in save
+    name = str(time.now().strftime)
+AttributeError: module 'time' has no attribute 'now'
+[2021-01-07 10:53:37,881][Thread-3:139833351567104][task_id:django.server][basehttp.py:154][ERROR]["GET /make_voice/?name=test_A&text=%E9%AC%BC HTTP/1.1" 500 98396]
+[2021-01-07 10:54:18,300][Thread-2:139641971697408][task_id:django.request][log.py:228][ERROR][Internal Server Error: /make_voice/]
+Traceback (most recent call last):
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 410, in MyVoice
+    voice = Voice.objects.get(content=text, name=name, human=int(human))
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+voice.models.Voice.DoesNotExist: Voice matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 413, in MyVoice
+    voice.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 92, in save
+    name = str(time.now())
+AttributeError: module 'time' has no attribute 'now'
+[2021-01-07 10:54:18,301][Thread-2:139641971697408][task_id:django.server][basehttp.py:154][ERROR]["GET /make_voice/?name=test_B&text=%E7%8E%8B HTTP/1.1" 500 96348]
+[2021-01-07 10:54:38,909][Thread-2:139641971697408][task_id:django.request][log.py:228][ERROR][Internal Server Error: /make_voice/]
+Traceback (most recent call last):
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 410, in MyVoice
+    voice = Voice.objects.get(content=text, name=name, human=int(human))
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+voice.models.Voice.DoesNotExist: Voice matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 413, in MyVoice
+    voice.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 92, in save
+    name = str(time.now())
+AttributeError: module 'time' has no attribute 'now'
+[2021-01-07 10:54:38,909][Thread-2:139641971697408][task_id:django.server][basehttp.py:154][ERROR]["GET /make_voice/?name=test_B&text=%E7%8E%8B HTTP/1.1" 500 96348]
+[2021-01-07 10:54:57,162][Thread-3:139641962256128][task_id:django.request][log.py:228][ERROR][Internal Server Error: /make_voice/]
+Traceback (most recent call last):
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 410, in MyVoice
+    voice = Voice.objects.get(content=text, name=name, human=int(human))
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+voice.models.Voice.DoesNotExist: Voice matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/PycharmProjects/Mypro/web/views.py", line 413, in MyVoice
+    voice.save()
+  File "/home/xms/PycharmProjects/Mypro/voice/models.py", line 92, in save
+    name = str(time.now())
+AttributeError: module 'time' has no attribute 'now'
+[2021-01-07 10:54:57,163][Thread-3:139641962256128][task_id:django.server][basehttp.py:154][ERROR]["GET /make_voice/?name=test_A&text=%E9%AC%BC HTTP/1.1" 500 98378]
+[2021-01-07 11:57:51,710][Thread-2:140326297818880][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 11:57:51,748][Thread-2:140326297818880][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage HTTP/1.1" 500 75409]
+[2021-01-07 11:58:06,012][Thread-3:140326297818880][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 11:58:06,013][Thread-3:140326297818880][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage HTTP/1.1" 500 75409]
+[2021-01-07 13:00:17,947][Thread-2:140462563075840][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/?name=ml (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:00:17,963][Thread-2:140462563075840][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage?name=ml HTTP/1.1" 500 75791]
+[2021-01-07 13:01:07,936][Thread-3:140462563075840][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/?name=ml (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:01:07,937][Thread-3:140462563075840][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage?name=ml HTTP/1.1" 500 75791]
+[2021-01-07 13:01:28,389][Thread-4:140462563075840][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:01:28,390][Thread-4:140462563075840][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage HTTP/1.1" 500 75781]
+[2021-01-07 13:02:43,022][Thread-2:140047988578048][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:02:43,023][Thread-2:140047988578048][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage HTTP/1.1" 500 75781]
+[2021-01-07 13:03:07,151][Thread-2:140308039309056][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:03:07,152][Thread-2:140308039309056][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage HTTP/1.1" 500 75781]
+[2021-01-07 13:03:08,376][Thread-3:140308039309056][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:03:08,377][Thread-3:140308039309056][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage HTTP/1.1" 500 75781]
+[2021-01-07 13:03:09,081][Thread-4:140308039309056][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:03:09,081][Thread-4:140308039309056][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage HTTP/1.1" 500 75781]
+[2021-01-07 13:03:14,858][Thread-5:140308039309056][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:03:14,858][Thread-5:140308039309056][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage HTTP/1.1" 500 75781]
+[2021-01-07 13:03:15,811][Thread-6:140308039309056][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:03:15,812][Thread-6:140308039309056][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage HTTP/1.1" 500 75781]
+[2021-01-07 13:03:16,586][Thread-7:140308039309056][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:03:16,586][Thread-7:140308039309056][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage HTTP/1.1" 500 75781]
+[2021-01-07 13:03:24,903][Thread-8:140308039309056][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/?name=ml (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:03:24,903][Thread-8:140308039309056][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage?name=ml HTTP/1.1" 500 75791]
+[2021-01-07 13:03:25,906][Thread-9:140308039309056][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/?name=ml (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:03:25,906][Thread-9:140308039309056][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage?name=ml HTTP/1.1" 500 75791]
+[2021-01-07 13:04:04,515][Thread-2:139707835741952][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/?name=ml (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:04:04,516][Thread-2:139707835741952][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage?name=ml HTTP/1.1" 500 75791]
+[2021-01-07 13:04:41,319][Thread-3:139707835741952][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/utils/deprecation.py", line 90, in __call__
+    response = self.process_request(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/middleware/common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/knowlage/?name=ml (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2021-01-07 13:04:41,320][Thread-3:139707835741952][task_id:django.server][basehttp.py:154][ERROR]["POST /api/knowlage?name=ml HTTP/1.1" 500 75791]
+[2021-01-07 13:10:45,281][Thread-2:140000002602752][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage/]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/xms/PycharmProjects/Mypro/games/views.py", line 132, in get
+    recoding.save()
+AttributeError: 'QuerySet' object has no attribute 'save'
+[2021-01-07 13:10:45,283][Thread-2:140000002602752][task_id:django.server][basehttp.py:154][ERROR]["GET /api/knowlage/ HTTP/1.1" 500 20955]
+[2021-01-07 13:11:38,551][Thread-2:140350981945088][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/knowlage/]
+Traceback (most recent call last):
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/rest_framework/views.py", line 454, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/rest_framework/views.py", line 491, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/xms/PycharmProjects/Mypro/games/views.py", line 130, in get
+    recoding = MengYou_recoding.objects.get(game_info=game_info, knowlage_id=params.get('id'))
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/xms/.pyenv/versions/3.6.5/envs/django/lib/python3.6/site-packages/django/db/models/query.py", line 399, in get
+    self.model._meta.object_name
+games.models.MengYou_recoding.DoesNotExist: MengYou_recoding matching query does not exist.
+[2021-01-07 13:11:38,554][Thread-2:140350981945088][task_id:django.server][basehttp.py:154][ERROR]["GET /api/knowlage/ HTTP/1.1" 500 21410]
