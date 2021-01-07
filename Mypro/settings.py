@@ -26,7 +26,7 @@ SECRET_KEY = 'o$u-&*#&&%auvz3zu%-ye!mide!dle7dofiz%3=edzv#(c6d*e'
 # DEBUG = True
 DEBUG = False
 ALLOWED_HOSTS = ['*']
-APPEND_SLASH = False
+# APPEND_SLASH = False
 # Application definition
 
 INSTALLED_APPS = [
