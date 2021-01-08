@@ -49,7 +49,6 @@ class GetVoiceView(APIView):
         name = params.get('name', 'demo')
         text = params.get('text', None)
         human = params.get('human', '101016')
-        # return Response({'name': name, 'text': text}, status=HTTP_200_OK)
         if text is None:
             return Response({
                 'status': 0,
@@ -66,3 +65,4 @@ class GetVoiceView(APIView):
                 'status': 1,
                 'voice_url': settings.MEDIA_URL + voice.url
             }, status=HTTP_200_OK)
+        # return Response({'name': name, 'text': text}, status=HTTP_200_OK)
