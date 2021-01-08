@@ -91,7 +91,7 @@ class Voice(models.Model):
         import datetime
         name = datetime.datetime.now().strftime("%Y-%m-%d-%H:%M:%S")
         self.makeVoice(name)
-        self.url.name = settings.MEDIA_URL+'voice/' + name + '.mp3'
+        self.url.name = 'voice/' + name + '.mp3'
         super().save(*args, **kwargs)
 
     def __str__(self):

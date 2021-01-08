@@ -63,5 +63,5 @@ class GetVoiceView(APIView):
             logger.info('文字转语音')
             return Response({
                 'status': 1,
-                'voice_url': settings.STATIC_URL+voice.url
+                'voice_url': voice.url
             }, status=HTTP_200_OK)
