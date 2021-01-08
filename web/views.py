@@ -416,7 +416,7 @@ def MyVoice(request):
             voice.save()
         return JsonResponse({
             'status': 1,
-            'voice_url': settings.MEDIA_URL + str(voice.url)
+            'voice_url': "https://menguoli.com/" + settings.MEDIA_URL + str(voice.url)
         })
 
 
