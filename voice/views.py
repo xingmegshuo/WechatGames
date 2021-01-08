@@ -49,20 +49,20 @@ class GetVoiceView(APIView):
         name = params.get('name', 'demo')
         text = params.get('text', None)
         human = params.get('human', '101016')
-        return Response({'name': name, 'text': text}, status=HTTP_200_OK)
-        # if text is None:
-        #     return Response({
-        #         'status': 0,
-        #         'error': '没有必须参数，text'
-        #     }, status=HTTP_204_NO_CONTENT)
-        # else:
-        #     try:
-        #         voice = Voice.objects.get(content=text, human=int(human))
-        #     except:
-        #         voice = Voice(content=text, human=int(human), name=name)
-        #         voice.save()
-        #     logger.info('文字转语音')
-        #     return Response({
-        #         'status': 1,
-        #         'voice_url': settings.MEDIA_URL + voice.url
-        #     }, status=HTTP_200_OK)
+        # return Response({'name': name, 'text': text}, status=HTTP_200_OK)
+        if text is None:
+            return Response({
+                'status': 0,
+                'error': '没有必须参数，text'
+            }, status=HTTP_204_NO_CONTENT)
+        else:
+            try:
+                voice = Voice.objects.get(content=text, human=int(human))
+            except:
+                voice = Voice(content=text, human=int(human), name=name)
+                voice.save()
+            logger.info('文字转语音')
+            return Response({
+                'status': 1,
+                'voice_url': settings.MEDIA_URL + voice.url
+            }, status=HTTP_200_OK)
