@@ -110,7 +110,7 @@ class MengYou_knowlage(models.Model):
         except:
             voice = Voice.objects.create(content=self.text, name=self.title)
 
-        self.voice = "https://www.menguoli.com" + voice.url
+        self.voice = "https://www.menguoli.com" + voice.url.url
 
     def save(self, *args, **kwargs):
         self.my_voice()
