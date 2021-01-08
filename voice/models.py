@@ -27,7 +27,7 @@ HUMANCHOICE = (
 class Voice(models.Model):
     img = models.FileField(verbose_name=_('图片'), upload_to='game', null=True, default='mp.png')
     name = models.CharField(
-        verbose_name=_('文件名'), help_text=_('文件名'), max_length=50, unique=True, blank=True, null=True, default='demo')
+        verbose_name=_('文件名'), help_text=_('文件名'), max_length=50, blank=True, null=True, default='demo')
     content = models.CharField(
         verbose_name=_('文本内容'), help_text=_('文本内容'), max_length=6000, null=True, blank=True)
     human = models.IntegerField(
