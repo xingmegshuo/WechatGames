@@ -412,7 +412,7 @@ def MyVoice(request):
         try:
             voice = Voice.objects.get(content=text, human=int(human))
         except:
-            voice = Voice(content=text, human=int(human))
+            voice = Voice(content=text, name=name, human=int(human))
             voice.save()
         return JsonResponse({
             'status': 1,
