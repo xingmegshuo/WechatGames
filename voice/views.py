@@ -56,7 +56,7 @@ class GetVoiceView(APIView):
             }, status=HTTP_204_NO_CONTENT)
         else:
             try:
-                voice = Voice.objects.get(content=text, name=name, human=int(human))
+                voice = Voice.objects.get(content=text, human=int(human))
             except:
                 voice = Voice(content=text, human=int(human), name=name)
                 voice.save()
