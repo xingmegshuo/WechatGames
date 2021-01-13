@@ -406,7 +406,7 @@ def MyVoice(request):
     if text == 'None':
         return JsonResponse({
             'status': 0,
-            'error': '没有必须参数，text'
+            'mes': '没有必须参数，text'
         })
     else:
         try:
