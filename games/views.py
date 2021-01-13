@@ -13,6 +13,7 @@ from web.views import scheduler
 from job.views import send_mes, change_status
 from .serializers import KnowlageSerializer, AdversingSerializer
 from django.http import HttpResponse
+from django.utils.timezone import utc, get_default_timezone
 
 
 class SignView(APIView):
@@ -73,25 +74,22 @@ class SignView(APIView):
             return Response({
                 'status': 1,
                 'mes': 'ok,今日签到成功！',
-                'time': [model_to_dict(
-                    sign,
-                    fields=['date']
-                ) for sign in sign_info]
+                'time': [{'date': str(
+                    datetime.datetime.strptime(str(sign.date), "%Y-%m-%d %H:%M:%S.%f") + datetime.timedelta(
+                        hours=8)).replace('T', " ")} for sign in sign_info]
             }, status=HTTP_200_OK)
         elif len(sign_info) == 7:
             # logger.info(request.user + '七日签到完成')
-            return Response({'status': 0, 'mes': 'error, 七日签到完成', 'time': [model_to_dict(
-                sign,
-                fields=['date']
-            ) for sign in sign_info]}, status=HTTP_204_NO_CONTENT)
+            return Response({'status': 0, 'mes': 'error, 七日签到完成', 'time': [{'date': str(
+                datetime.datetime.strptime(str(sign.date), "%Y-%m-%d %H:%M:%S.%f") + datetime.timedelta(
+                    hours=8)).replace('T', " ")} for sign in sign_info]}, status=HTTP_204_NO_CONTENT)
         else:
             return Response({
                 'status': 0,
                 'mes': '今日签到已完成！',
-                'time': [model_to_dict(
-                    sign,
-                    fields=['date']
-                ) for sign in sign_info]
+                'time': [{'date': str(
+                    datetime.datetime.strptime(str(sign.date), "%Y-%m-%d %H:%M:%S.%f") + datetime.timedelta(
+                        hours=8)).replace('T', " ")} for sign in sign_info]
             }, status=HTTP_200_OK)
 
 
@@ -274,11 +272,12 @@ class KnowView(APIView):
     def put(self, request):
         # to do 修改学习完成的时间
         """
-            @api {DELETE} /api/knowlage/ 更新知识状态 弃用
+            @api {PUT} /api/knowlage/ 更新知识状态 弃用
+            @api {PUT} /api/knowlage/ 更新知识状态 弃用
             @apiVersion 0.0.1
             @apiDescription 更新知识学习完成时间，根据知识所需时间添加定时任务，在过程中，用户观看广告减少时间
             @apiName 更新知识学习完成时间
-            @apiGroup 萌游知知
+            @apiGroup Delete
             @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
 
             @apiParam {String} name 游戏名字，参数必须

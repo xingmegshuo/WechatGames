@@ -5,6 +5,9 @@ from games.models import GameInfo
 from user.models import APP
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
+from django.dispatch import receiver
+from django.db.models import signals
+from django.db import transaction
 
 MAILCHOICE = (
     (0, "在线奖励"),
@@ -47,6 +50,29 @@ class SysMail(models.Model):
     def __str__(self):
         return self.title
 
+    #
+    # def onSave(self):
+    #     [self.game_info.add(i.id) for i in GameInfo.objects.filter(game_id=self.game.id)]
+    #
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
+    #     self.onSave()
+    #     super().save(*args, **kwargs)
+
     class Meta:
         verbose_name = _('系统邮件')
         verbose_name_plural = verbose_name
+
+
+def on_transaction_commit(func):
+    def inner(*args, **kwargs):
+        transaction.on_commit(lambda: func(*args, **kwargs))
+
+    return inner
+
+
+@receiver(signals.post_save, sender=SysMail)
+@on_transaction_commit
+def my_model_post_save(sender, instance, created, *args, **kwargs):
+    if created:
+        [instance.game_info.add(i) for i in GameInfo.objects.filter(game_id=instance.game.id)]

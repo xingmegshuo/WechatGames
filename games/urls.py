@@ -5,6 +5,7 @@ from user.views import WxAuthView, WxLoginView
 from web.views import api_doc
 # from voice.views import GetVoiceView
 from mini.views import *
+from mail.views import MyMail
 
 urlpatterns = format_suffix_patterns([
     re_path(r'^wx_login/$', WxLoginView.as_view(), name='wx_login'),
@@ -24,5 +25,6 @@ urlpatterns = format_suffix_patterns([
     re_path(r'^dirayImage/$', DirayImageView.as_view()),
     re_path(r'^pay/$', PayApi.as_view()),
     re_path(r'^doc/(?P<path>.*)', api_doc),
+    re_path(r'^mail/$', MyMail.as_view()),
     # re_path(r'^start/$', GameStartView.as_view()),
 ])

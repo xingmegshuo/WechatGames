@@ -189,6 +189,70 @@
     "groupTitle": "Delete"
   },
   {
+    "type": "PUT",
+    "url": "/api/knowlage/",
+    "title": "更新知识状态 弃用",
+    "version": "0.0.1",
+    "description": "<p>更新知识学习完成时间，根据知识所需时间添加定时任务，在过程中，用户观看广告减少时间</p>",
+    "name": "更新知识学习完成时间",
+    "group": "Delete",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加次内容请求</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>游戏名字，参数必须</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "time",
+            "description": "<p>所减少的时间，以分钟为单位来计算</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>提示信息</p>"
+          }
+        ]
+      }
+    },
+    "filename": "./games/views.py",
+    "groupTitle": "Delete"
+  },
+  {
     "type": "POST",
     "url": "/api/wx_auth/",
     "title": "发起微信授权接口",
@@ -907,6 +971,223 @@
       ]
     },
     "filename": "./games/views.py",
+    "groupTitle": "GAME"
+  },
+  {
+    "type": "GET",
+    "url": "/api/mail/",
+    "title": "获取系统邮件和个人邮件",
+    "version": "0.0.1",
+    "name": "邮件系统",
+    "group": "GAME",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加次内容请求</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>游戏名字，参数必须</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mails",
+            "description": "<p>系统邮件和个人游戏内获得邮件</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"mes\": \"获取个人邮件和系统邮件\",\n    \"mails\": {\n        \"个人邮件\": [\n            {\n                \"id\": 1,\n                \"title\": \"升级奖励\",\n                \"text\": \"恭喜升级了\",\n                \"date\": \"2021-01-13 16:11:00\"\n            }\n        ],\n        \"系统邮件\": []\n    }\n}\n'需要携带token否则就是post的错误提示'",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./mail/views.py",
+    "groupTitle": "GAME"
+  },
+  {
+    "type": "POST",
+    "url": "/api/mail/",
+    "title": "游戏内创建个人邮件",
+    "version": "0.0.1",
+    "name": "邮件系统",
+    "group": "GAME",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加次内容请求</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>游戏名字，参数必须</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>邮件标题，参数必须</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "text",
+            "description": "<p>邮件内容，参数必须</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>提示信息</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"mes\": \"创建个人邮件,游戏中程序调用\"\n}\n\n'需要携带token否则就是post的错误提示' - 仅支持创建个人邮件",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./mail/views.py",
+    "groupTitle": "GAME"
+  },
+  {
+    "type": "POST",
+    "url": "/api/mail/",
+    "title": "游戏内删除系统邮件和个人邮件",
+    "version": "0.0.1",
+    "name": "邮件系统",
+    "group": "GAME",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>jwt验证秘钥必须添加次内容请求 删除个人邮件</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Mid",
+            "description": "<p>邮件id，参数必须 删除系统邮件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>游戏名字，参数必须</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "SysId",
+            "description": "<p>系统邮件Id，参数必须</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>请求状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mes",
+            "description": "<p>提示信息</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"mes\": \"删除邮件\"\n}\n'需要携带token否则就是post的错误提示' - 仅支持创建个人邮件",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./mail/views.py",
     "groupTitle": "GAME"
   },
   {
@@ -2109,70 +2390,6 @@
     },
     "filename": "./games/views.py",
     "groupTitle": "萌上日记"
-  },
-  {
-    "type": "DELETE",
-    "url": "/api/knowlage/",
-    "title": "更新知识状态 弃用",
-    "version": "0.0.1",
-    "description": "<p>更新知识学习完成时间，根据知识所需时间添加定时任务，在过程中，用户观看广告减少时间</p>",
-    "name": "更新知识学习完成时间",
-    "group": "萌游知知",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>jwt验证秘钥必须添加次内容请求</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>游戏名字，参数必须</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "time",
-            "description": "<p>所减少的时间，以分钟为单位来计算</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "status",
-            "description": "<p>请求状态</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "mes",
-            "description": "<p>提示信息</p>"
-          }
-        ]
-      }
-    },
-    "filename": "./games/views.py",
-    "groupTitle": "萌游知知"
   },
   {
     "type": "POST",
