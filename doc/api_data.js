@@ -1128,7 +1128,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>jwt验证秘钥必须添加次内容请求 删除个人邮件</p>"
+            "description": "<p>jwt验证秘钥必须添加次内容请求</p>"
           }
         ]
       }
@@ -1141,21 +1141,21 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "Mid",
-            "description": "<p>邮件id，参数必须 删除系统邮件</p>"
+            "description": "<p>邮件id，参数必须  - 删除个人邮件</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "name",
-            "description": "<p>游戏名字，参数必须</p>"
+            "description": "<p>游戏名字，参数必须  - 删除系统邮件</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "SysId",
-            "description": "<p>系统邮件Id，参数必须</p>"
+            "description": "<p>系统邮件Id，参数必须  - 删除系统邮件</p>"
           }
         ]
       }

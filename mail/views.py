@@ -107,11 +107,9 @@ class MyMail(APIView):
             @apiGroup GAME
 
             @apiHeader {string} Authorization jwt验证秘钥必须添加次内容请求
-            删除个人邮件
-            @apiParam {String} Mid 邮件id，参数必须
-            删除系统邮件
-            @apiParam {String} name 游戏名字，参数必须
-            @apiParam {String} SysId 系统邮件Id，参数必须
+            @apiParam {String} Mid 邮件id，参数必须  - 删除个人邮件
+            @apiParam {String} name 游戏名字，参数必须  - 删除系统邮件
+            @apiParam {String} SysId 系统邮件Id，参数必须  - 删除系统邮件
 
             @apiSuccess {String} status 请求状态
             @apiSuccess {String}  mes 提示信息
