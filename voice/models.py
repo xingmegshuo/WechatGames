@@ -35,7 +35,7 @@ class Voice(models.Model):
         default=101016)
 
     url = models.FileField(
-        verbose_name='链接', help_text='音频地址', unique=True, upload_to='voice', null=True, blank=True)
+        verbose_name='链接', help_text='音频地址', upload_to='voice', null=True, blank=True)
     language = models.IntegerField(verbose_name=_("转换语言"), help_text=_("转换语言"), default=1, choices=LANGUAGECHOICE)
     sound = models.IntegerField(verbose_name=_('说话声音'), help_text=_('说话声音大小'), default=5, choices=SOUNDCHOICE)
 

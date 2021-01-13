@@ -40,7 +40,8 @@ class SysMail(models.Model):
     game = models.ForeignKey(APP, on_delete=models.CASCADE, verbose_name=_('选择游戏'), help_text=_('选择游戏'))
     text = models.TextField(verbose_name=_('邮件内容'), help_text=_('邮件内容'))
     # online = models.IntegerField(default=0, choices=ONLINECHOICE, verbose_name=_('个人邮件是否删除'), help_text=_('个人邮件'))
-    game_info = models.ManyToManyField(GameInfo, verbose_name=_('邮件用户'), help_text=_('邮件与游戏角色绑定'))
+    game_info = models.ManyToManyField(GameInfo, verbose_name=_('邮件用户'), help_text=_('邮件与游戏角色绑定'), blank=True,
+                                       null=True)
     type = models.IntegerField(default=0, choices=MAILCHOICE, verbose_name=_('系统邮件类型'), help_text=_('系统邮件类型'))
 
     def __str__(self):
