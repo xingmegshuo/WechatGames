@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.base import Model
 from user.models import APP
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
@@ -42,9 +43,12 @@ class GameInfo(models.Model):
         default='0')
     is_subscription = models.BooleanField(verbose_name=_('是否订阅'), help_text=_('是否接受订阅，默认关闭'), default=False,
                                           choices=SUBSRAIPTION_CHOICE)
-    ortherInfo = models.TextField(verbose_name=_('其它数据'), help_text=_('其它数据'), default='')
-    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, verbose_name=_('用户'))
-    game_id = models.ForeignKey(APP, on_delete=models.CASCADE, null=True, verbose_name=_('游戏'))
+    ortherInfo = models.TextField(verbose_name=_(
+        '其它数据'), help_text=_('其它数据'), default='')
+    user_id = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, verbose_name=_('用户'))
+    game_id = models.ForeignKey(
+        APP, on_delete=models.CASCADE, null=True, verbose_name=_('游戏'))
 
     def __str__(self):
         return self.user_id.nick_name
@@ -56,7 +60,8 @@ class GameInfo(models.Model):
 
 # 签到记录表
 class Sign(models.Model):
-    date = models.DateTimeField(verbose_name=_('签到时间'), help_text=_('记录签到时间'), default=timezone.now)
+    date = models.DateTimeField(verbose_name=_(
+        '签到时间'), help_text=_('记录签到时间'), default=timezone.now)
     game_info = models.ForeignKey(GameInfo, on_delete=models.CASCADE, verbose_name=_('签到用户'),
                                   help_text=_('签到状态与游戏角色绑定'))
 
@@ -70,20 +75,26 @@ class Sign(models.Model):
 
 # 萌游知知游戏知识库
 class MengYou_knowlage(models.Model):
-    img = models.ImageField(verbose_name=_('图片'), help_text=_('学习图片'), upload_to='MengYou', null=True)
-    title = models.CharField(max_length=500, verbose_name=_('标题'), help_text=_('标题'), null=True)
+    img = models.ImageField(verbose_name=_('图片'), help_text=_(
+        '学习图片'), upload_to='MengYou', null=True)
+    title = models.CharField(max_length=500, verbose_name=_(
+        '标题'), help_text=_('标题'), null=True)
     voice = models.URLField(verbose_name=_('音频数据'), help_text=_('此知识的语音数据'),
                             blank=True, null=True)
-    text = models.TextField(verbose_name=_('文本内容'), help_text=_("文本内容"), null=True)
-    level = models.CharField(max_length=50, verbose_name=_('此条知识适合学习的等级'), help_text=_('学习等级'), default='1')
-    need = models.CharField(max_length=10, help_text=_('学习所需时间,小时单位，请填写多少小时,默认为1'), verbose_name=_('时间'), default='1')
+    text = models.TextField(verbose_name=_(
+        '文本内容'), help_text=_("文本内容"), null=True)
+    level = models.CharField(max_length=50, verbose_name=_(
+        '此条知识适合学习的等级'), help_text=_('学习等级'), default='1')
+    need = models.CharField(max_length=10, help_text=_(
+        '学习所需时间,小时单位，请填写多少小时,默认为1'), verbose_name=_('时间'), default='1')
     is_check = models.BooleanField(verbose_name=_('是否经过审核'), help_text=_('是否审核过,False 未审核，待审核,True 已经审核过'),
                                    default=False, choices=STAATUS_CHOICE)
     status = models.BooleanField(verbose_name=_('审核状态'), help_text=_('审核状态，false未通过，True通过'), default=False,
                                  choices=CHECK_CHOICE)
 
     def pass_audit_str(self):
-        parameter_str = 'id={}&status={}'.format(str(self.pk), str(self.status))
+        parameter_str = 'id={}&status={}'.format(
+            str(self.pk), str(self.status))
         # if self.is_check is False:
         status = '×'
         title = '不通过'
@@ -127,13 +138,16 @@ class MengYou_recoding(models.Model):
                                   help_text=_('学习状态与游戏角色绑定'))
     knowlage = models.ForeignKey(MengYou_knowlage, on_delete=models.CASCADE, verbose_name=_('知识'),
                                  help_text=_('游戏角色与知识id绑定有此条记录说明该角色学习过或正在学习'), related_name='knowlage_recod')
-    is_over = models.BooleanField(verbose_name=_('是否学习完毕'), help_text=_('学习状态'), default=False, choices=OVER_CHOICE)
-    send_time = models.DateTimeField(verbose_name=_('发送订阅消息时间'), help_text=_('学习完成时间'), null=True)
+    is_over = models.BooleanField(verbose_name=_('是否学习完毕'), help_text=_(
+        '学习状态'), default=False, choices=OVER_CHOICE)
+    send_time = models.DateTimeField(verbose_name=_(
+        '发送订阅消息时间'), help_text=_('学习完成时间'), null=True)
 
     def on_save(self):
         import datetime
         if self.game_info.is_subscription is True:
-            self.send_time = datetime.datetime.now() + datetime.timedelta(hours=float(self.knowlage.need))
+            self.send_time = datetime.datetime.now(
+            ) + datetime.timedelta(hours=float(self.knowlage.need))
 
     def save(self, *args, **kwargs):
         self.on_save()
@@ -148,14 +162,20 @@ class MengYou_recoding(models.Model):
 class Diray(models.Model):
     game_info = models.ForeignKey(GameInfo, on_delete=models.CASCADE, verbose_name=_('日记用户'),
                                   help_text=_('日记与游戏角色绑定'))
-    text = models.TextField(verbose_name=_('日记内容'), help_text=_("日记内容"), null=True)
-    date = models.DateTimeField(verbose_name=_('日记时间'), help_text=_('日记时间'), auto_now_add=True)
-    title = models.CharField(max_length=200, verbose_name=_('日记标题'), help_text=_('日记标题'))
+    text = models.TextField(verbose_name=_(
+        '日记内容'), help_text=_("日记内容"), null=True)
+    date = models.DateTimeField(verbose_name=_(
+        '日记时间'), help_text=_('日记时间'), auto_now_add=True)
+    title = models.CharField(
+        max_length=200, verbose_name=_('日记标题'), help_text=_('日记标题'))
     weather = models.IntegerField(verbose_name=_('天气状态'), help_text=_('天气状态'), choices=WEATHER_CHOICE, null=True,
                                   blank=True)
-    mood = models.IntegerField(verbose_name=_('心情状态'), help_text=_('心情状态'), choices=MOOD_CHOICE, null=True, blank=True)
-    public = models.BooleanField(verbose_name=_('是否公开'), help_text=_('是否公开'), default=True, choices=PUBLIC_CHOICE)
-    status = models.BooleanField(verbose_name=_('是否删除'), help_text=_('是否删除'), default=False, choices=DELETE_CHOICE)
+    mood = models.IntegerField(verbose_name=_('心情状态'), help_text=_(
+        '心情状态'), choices=MOOD_CHOICE, null=True, blank=True)
+    public = models.BooleanField(verbose_name=_('是否公开'), help_text=_(
+        '是否公开'), default=True, choices=PUBLIC_CHOICE)
+    status = models.BooleanField(verbose_name=_('是否删除'), help_text=_(
+        '是否删除'), default=False, choices=DELETE_CHOICE)
 
     def __str__(self):
         return self.game_info.user_id.__str__() + '-' + self.title
@@ -170,10 +190,14 @@ class Diray(models.Model):
 class Mailbox(models.Model):
     game_info = models.ForeignKey(GameInfo, on_delete=models.CASCADE, verbose_name=_('日记用户'),
                                   help_text=_('信箱与游戏角色绑定'))
-    diray = models.ForeignKey(Diray, on_delete=models.CASCADE, verbose_name=_('日记'), help_text=_('日记'))
-    status = models.BooleanField(verbose_name=_('是否删除'), help_text=_('是否删除'), default=False, choices=DELETE_CHOICE)
-    date = models.DateTimeField(verbose_name=_('日记进入时间'), help_text=_('日记进入时间'), auto_now_add=True)
-    favor = models.BooleanField(verbose_name=_('是否收藏'), help_text=_('是否收藏'), default=False, choices=FAVOR_CHOICE)
+    diray = models.ForeignKey(
+        Diray, on_delete=models.CASCADE, verbose_name=_('日记'), help_text=_('日记'))
+    status = models.BooleanField(verbose_name=_('是否删除'), help_text=_(
+        '是否删除'), default=False, choices=DELETE_CHOICE)
+    date = models.DateTimeField(verbose_name=_(
+        '日记进入时间'), help_text=_('日记进入时间'), auto_now_add=True)
+    favor = models.BooleanField(verbose_name=_('是否收藏'), help_text=_(
+        '是否收藏'), default=False, choices=FAVOR_CHOICE)
 
     def __str__(self):
         return self.game_info.user_id.__str__() + '-' + self.diray.title
@@ -186,8 +210,10 @@ class Mailbox(models.Model):
 
 # 萌上日记 图片表
 class DirayImage(models.Model):
-    diray = models.ForeignKey(Diray, on_delete=models.CASCADE, verbose_name=_('日记图片'), help_text=_('日记图片'))
-    img = models.ImageField(verbose_name=_('图片'), help_text=_('日记图片'), upload_to='MengShang', null=True, blank=True)
+    diray = models.ForeignKey(
+        Diray, on_delete=models.CASCADE, verbose_name=_('日记图片'), help_text=_('日记图片'))
+    img = models.ImageField(verbose_name=_('图片'), help_text=_(
+        '日记图片'), upload_to='MengShang', null=True, blank=True)
 
     def __str__(self):
         return self.diray.game_info.user_id.__str__() + '-' + self.diray.title
@@ -199,11 +225,14 @@ class DirayImage(models.Model):
 
 # 游戏广告表
 class Advertising(models.Model):
-    title = models.CharField(max_length=200, verbose_name=_('游戏名字'), help_text=_('游戏名字'))
+    title = models.CharField(
+        max_length=200, verbose_name=_('游戏名字'), help_text=_('游戏名字'))
     logo = models.ImageField(verbose_name=_('图片'), help_text=_('游戏图片144*144大小'), upload_to='game', null=True,
                              blank=True)
-    appid = models.CharField(max_length=200, verbose_name=_('appid'), help_text=_('appid'))
-    status = models.BooleanField(verbose_name=_('是否删除'), help_text=_('是否删除'), default=False, choices=DELETE_CHOICE)
+    appid = models.CharField(
+        max_length=200, verbose_name=_('appid'), help_text=_('appid'))
+    status = models.BooleanField(verbose_name=_('是否删除'), help_text=_(
+        '是否删除'), default=False, choices=DELETE_CHOICE)
 
     def __str__(self):
         return self.title

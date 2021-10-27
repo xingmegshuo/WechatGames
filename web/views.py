@@ -1,3 +1,4 @@
+from typing_extensions import runtime
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from .util import change_info
@@ -14,14 +15,16 @@ from job.views import *
 from django.db.models import Q
 from user.views import get_app_config, get_parameter_dic
 from django.utils import timezone
-import datetime
+import time
 from django.http import HttpResponse
 from games.models import Advertising
 from django.forms import model_to_dict
 from voice.models import Voice
 
-job_defaults = {'max_instance': 100, 'misfire_grace_time': 15 * 60, ',coalesce': True}
-scheduler = BackgroundScheduler(timezone=settings.TIME_ZONE, job_defaults=job_defaults)
+job_defaults = {'max_instance': 100,
+                'misfire_grace_time': 15 * 60, ',coalesce': True}
+scheduler = BackgroundScheduler(
+    timezone=settings.TIME_ZONE, job_defaults=job_defaults)
 scheduler.add_jobstore(DjangoJobStore())
 
 logger = logging.getLogger('django')
@@ -37,7 +40,8 @@ def parse_job(jobs):
             else:
                 run_job[j.name] = None
             j.on_line = True
-            logger.info('获取' + str(len(Job.objects.filter(job=j, on_line=False))) + '个任务:' + j.name)
+            logger.info(
+                '获取' + str(len(Job.objects.filter(job=j, on_line=False))) + '个任务:' + j.name)
             j.save()
     else:
         run_job = None
@@ -87,8 +91,7 @@ def add_once(once_jobs):
                 if j.on_line is False and j.is_over is False:
                     if j.parameters is None:
                         scheduler.add_job(eval(k), 'date', id=k + str(j.id),
-                                          run_date=
-                                          # '2020-10-22 13:20:16'
+                                          run_date=  # '2020-10-22 13:20:16'
                                           j.next_run
                                           )
                     else:
@@ -205,7 +208,8 @@ def api_doc(request, path):
     """
     if path == '':
         path = 'index.html'
-    response = serve(request, path, document_root=settings.APIDOC_ROOT, show_indexes=True)
+    response = serve(
+        request, path, document_root=settings.APIDOC_ROOT, show_indexes=True)
     return response
 
 
@@ -293,9 +297,11 @@ def GameStart(request):
     app = get_app_config(request.GET.get('name'))
     config = App_config.objects.filter(app_id=app).filter(~Q(orther='0'))
     share_key = list(set([i.description for i in config.filter(orther='1')]))
-    share_config = {i: {j.name: j.value for j in config.filter(orther='1', description=i)} for i in share_key}
+    share_config = {i: {j.name: j.value for j in config.filter(
+        orther='1', description=i)} for i in share_key}
     orther_key = list(set([i.description for i in config.filter(orther='2')]))
-    orther_config = {i: {j.name: j.value for j in config.filter(orther='2', description=i)} for i in orther_key}
+    orther_config = {i: {j.name: j.value for j in config.filter(
+        orther='2', description=i)} for i in orther_key}
     box = config.filter(orther='3')
     if len(box) > 0:
         box = box[0].value.split(',')
@@ -324,31 +330,36 @@ def Hydor(request):
         from scipy.special import assoc_laguerre
         from pathlib import Path
 
-        my_file = Path(settings.STATIC_ROOT + str(n) + str(l) + str(m) + ".png")
+        my_file = Path(settings.STATIC_ROOT + str(n) +
+                       str(l) + str(m) + ".png")
         x = np.linspace(-n ** 2 * 4, n ** 2 * 4, 500)
-        y = 0  #### the plane locates at y = 0
+        y = 0  # the plane locates at y = 0
         z = np.linspace(-n ** 2 * 4, n ** 2 * 4, 500)
         X, Z = np.meshgrid(x, z)
         rho = np.linalg.norm((X, y, Z), axis=0) / n
         Lag = assoc_laguerre(2 * rho, n - l - 1, 2 * l + 1)
-        Ylm = sph_harm(m, l, np.arctan2(y, X), np.arctan2(np.linalg.norm((X, y), axis=0), Z))
+        Ylm = sph_harm(m, l, np.arctan2(y, X), np.arctan2(
+            np.linalg.norm((X, y), axis=0), Z))
         Psi = np.exp(-rho) * np.power((2 * rho), l) * Lag * Ylm
         density = np.conjugate(Psi) * Psi
         density = density.real
         if not my_file.is_file():
             fig, ax = plt.subplots(figsize=(10, 10))
             ax.imshow(density.real,
-                      extent=[-density.max() * 0.2, density.max() * 0.2, -density.max() * 0.2, density.max() * 0.2],
+                      extent=[-density.max() * 0.2, density.max() *
+                              0.2, -density.max() * 0.2, density.max() * 0.2],
                       cmap='gist_stern')
             # plt.show()
             fig.set_facecolor('black')
-            fig.savefig(settings.STATIC_ROOT + str(n) + str(l) + str(m) + ".png", dpi=300)
+            fig.savefig(settings.STATIC_ROOT + str(n) +
+                        str(l) + str(m) + ".png", dpi=300)
             plt.close()
         theta1 = np.linspace(0, 2 * np.pi, 181)
         phi1 = np.linspace(0, np.pi, 91)
         theta_2d, phi_2d = np.meshgrid(theta1, phi1)
         Ylm1 = sph_harm(abs(m), l, theta_2d, phi_2d)
-        xyz_2d = np.array([np.sin(phi_2d) * np.sin(theta_2d), np.sin(phi_2d) * np.cos(theta_2d), np.cos(phi_2d)])
+        xyz_2d = np.array([np.sin(phi_2d) * np.sin(theta_2d),
+                          np.sin(phi_2d) * np.cos(theta_2d), np.cos(phi_2d)])
         if m < 0:
             Ylm1 = np.sqrt(2) * (-1) ** m * Ylm1.imag
         else:
@@ -357,7 +368,8 @@ def Hydor(request):
 
         # plt.plot(r[0][1], r[1][1])
         try:
-            T = density * (((4 * np.pi) / 3) * (((np.max(X) + X) ** 3) - ((4 * np.pi) / 3 * (X ** 3))))
+            T = density * (((4 * np.pi) / 3) * (((np.max(X) + X)
+                           ** 3) - ((4 * np.pi) / 3 * (X ** 3))))
             # T = (T - np.min(T)) / (np.max(T) - np.min(T))  # 最值归一化
 
             T = (T - np.min(T)) / (np.max(T) - np.min(T))
@@ -429,3 +441,45 @@ def get_time(request):
                @apiGroup GAME
     """
     return JsonResponse({'time': timezone.now().strftime("%Y-%m-%d-%H:%M:%S")})
+
+
+def send_message(app_id, app_secret, data):
+    r = requests.get(
+        url='https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + app_id + '&secret=' + app_secret)
+    token = json.loads(r.text)['access_token']
+    mes_url = 'https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=' + token
+    data["access_token"] = token
+    r = requests.post(mes_url, json.dumps(data), headers={
+        'Content-type': 'application/raw'})
+    result = json.dumps(r.text)
+    logger.info('发送订阅消息')
+    logger.info('subscription:{}'.format(result))
+
+# 订阅消息
+
+
+def subscribe(request):
+    name = request.GET.get("name", "null")
+    openid = request.GET.get('user', 'null')
+    dateSend = request.GET.get('date', 'null')
+    templateId = request.GET.get('template', 'null')
+    data = request.GET.get('data', '')
+    if name == "null" or openid == 'null' or dateSend == 'null' or templateId == 'nul':
+        return JsonResponse({"status": "error", 'msg': '缺少必须数据'})
+    appid = get_app_config(name).app_id
+    secert = get_app_config(name).secert
+    if appid == '' or secert == '':
+        return JsonResponse({"status": 'error', 'msg': '获取数据出错'})
+    runtime = time.localtime(int(dateSend))
+    param = {
+        'touser': openid,
+        'template_id': templateId,
+        #  "page": "index",
+        'data': json.loads(data)
+    }
+    scheduler.add_job(send_message, id=openid,
+                      run_date=time.strftime("%Y-%m-%d %H:%M:%S", runtime),
+                      args=[appid, secert, param]
+                      )
+
+    return JsonResponse({"status": 'ok', 'msg': '添加成功'})
