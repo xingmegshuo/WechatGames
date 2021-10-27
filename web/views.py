@@ -467,7 +467,7 @@ def subscribe(request):
     if name == "null" or openid == 'null' or dateSend == 'null' or templateId == 'nul':
         return JsonResponse({"status": "error", 'msg': '缺少必须数据'})
     appid = get_app_config(name).app_id
-    secert = get_app_config(name).secert
+    secert = get_app_config(name).secret
     if appid == '' or secert == '':
         return JsonResponse({"status": 'error', 'msg': '获取数据出错'})
     runtime = time.localtime(int(dateSend))
