@@ -487,7 +487,7 @@ def subscribe(request):
 
 
 def signFun(data):
-
+    secret = 'MGG20190920Bocai94xhn20211030Key'
     keys = sorted(data.keys())
     string_sign = "&".join("{}={}".format(
         k, str(data[k])) for k in keys)+"&key=" + secret
@@ -512,7 +512,6 @@ def getRedpack(openId, amount, desc, match_appid):
     key = "apiclient_key.pem"
     cert = "apiclient_cert.pem"
 
-    secret = 'MGG20190920Bocai94xhn20211030Key'
     mch_id = '1253975301'
     # 构造红包数据
     props = {
