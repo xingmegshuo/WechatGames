@@ -92,7 +92,7 @@ def add_once(once_jobs):
                 if j.on_line is False and j.is_over is False:
                     if j.parameters is None:
                         scheduler.add_job(eval(k), 'date', id=k + str(j.id),
-                                          run_date=# '2020-10-22 13:20:16'
+                                          run_date=  # '2020-10-22 13:20:16'
                                           j.next_run
                                           )
                     else:
@@ -509,8 +509,8 @@ def getRedpack(openId, amount, desc, match_appid):
 
     # 查寻actId有效性(现在限制条件为一个活动一个用户只能领一个红包，可能存在改actId突破这一限制)
     URL = "https://api.mch.weixin.qq.com/mmpaymkttransfers/promotion/transfers"
-    key = "apiclient_key.pem"
-    cert = "apiclient_cert.pem"
+    key = "/WechatGames/web/apiclient_key.pem"
+    cert = "/WechatGames/web/apiclient_cert.pem"
 
     mch_id = '1253975301'
     # 构造红包数据
