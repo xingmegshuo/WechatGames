@@ -16,6 +16,7 @@ from django.db.models import Q
 from user.views import get_app_config, get_parameter_dic
 from django.utils import timezone
 import time
+import hashlib
 from django.http import HttpResponse
 from games.models import Advertising
 from django.forms import model_to_dict
@@ -91,7 +92,7 @@ def add_once(once_jobs):
                 if j.on_line is False and j.is_over is False:
                     if j.parameters is None:
                         scheduler.add_job(eval(k), 'date', id=k + str(j.id),
-                                          run_date=  # '2020-10-22 13:20:16'
+                                          run_date=# '2020-10-22 13:20:16'
                                           j.next_run
                                           )
                     else:
@@ -483,3 +484,61 @@ def subscribe(request):
                       )
 
     return JsonResponse({"status": 'ok', 'msg': '添加成功'})
+
+
+def signFun(data):
+
+    keys = sorted(data.keys())
+    string_sign = "&".join("{}={}".format(
+        k, str(data[k])) for k in keys)+"&key=" + secret
+    return hashlib.md5(string_sign.encode('utf-8')).hexdigest().upper()
+
+
+def dict_to_xml(d):
+    '''
+    Turn a simple dict of key/value pairs into XML
+    '''
+
+    xml = "<xml>{0}</xml>".format(
+        "".join(["<{0}>{1}</{0}>".format(k, v) for k, v in d.items()]))
+
+    return xml
+
+
+def getRedpack(openId, amount, desc, match_appid):
+
+    # 查寻actId有效性(现在限制条件为一个活动一个用户只能领一个红包，可能存在改actId突破这一限制)
+    URL = "https://api.mch.weixin.qq.com/mmpaymkttransfers/promotion/transfers"
+    key = "apiclient_key.pem"
+    cert = "apiclient_cert.pem"
+
+    secret = 'MGG20190920Bocai94xhn20211030Key'
+    mch_id = '1253975301'
+    # 构造红包数据
+    props = {
+        'nonce_str': openId[:8]+mch_id,  # 随机字符串
+        'mchid': mch_id,  # 商户号
+        'partner_trade_no': mch_id + openId[:8],  # 28=10+14+4 订单号
+        'mch_appid': match_appid,  # appid
+        'openid': openId,  # 用户
+        'check_name': 'NO_CHECK',
+        'amount': amount,  # 金额
+        'desc': desc  # 描述
+    }
+    props['sign'] = signFun(data=props)
+    data = dict_to_xml(props)
+    res = requests.post(
+        URL, data=data.encode('utf8'), cert=(cert, key))
+    logger.info('pay:{}'.format(res.text()))
+
+
+def subscribe(request):
+    name = request.GET.get("name", "null")
+    openid = request.GET.get('user', 'null')
+    amount = request.GET.get('amount', 'null')
+    desc = request.GET.get('desc', 'null')
+    if name == "null" or openid == 'null' or amount == 'null' or desc == 'nul':
+        return JsonResponse({"status": "error", 'msg': '缺少必须数据'})
+    appid = get_app_config(name).app_id
+    getRedpack(openid, amount, desc, appid)
+    return JsonResponse({"status": "ok", "msg": "已经付款"})
