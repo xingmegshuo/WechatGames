@@ -532,7 +532,7 @@ def getRedpack(openId, amount, desc, match_appid):
     logger.info('pay:{}'.format(res.text()))
 
 
-def subscribe(request):
+def pay(request):
     name = request.GET.get("name", "null")
     openid = request.GET.get('user', 'null')
     amount = request.GET.get('amount', 'null')
