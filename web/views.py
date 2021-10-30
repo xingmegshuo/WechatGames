@@ -517,7 +517,7 @@ def getRedpack(openId, amount, desc, match_appid):
     props = {
         'nonce_str': openId[:8]+mch_id,  # 随机字符串
         'mchid': mch_id,  # 商户号
-        'partner_trade_no': mch_id + int(time.time()),  # 28=10+14+4 订单号
+        'partner_trade_no': mch_id + str(int(time.time())),  # 28=10+14+4 订单号
         'mch_appid': match_appid,  # appid
         'openid': openId,  # 用户
         'check_name': 'NO_CHECK',
