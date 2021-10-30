@@ -528,7 +528,7 @@ def getRedpack(openId, amount, desc, match_appid):
     data = dict_to_xml(props)
     res = requests.post(
         URL, data=data.encode('utf8'), cert=(cert, key))
-    logger.info('pay:{}'.format(res))
+    logger.info('pay:{}'.format(res.text))
 
 
 def pay(request):
