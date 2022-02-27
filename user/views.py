@@ -376,11 +376,17 @@ class RegisterView(APIView):
         params = get_parameter_dic(request)
         if params.get("account", "") != "" and params.get("password", "") != "":
             # return Response({'status': 1, "mes": params})
-
-            user = create_or_update_user_info(
-                params['password'], {'unionId': params['account']})
-            token = TokenObtainPairSerializer.get_token(user).access_token
-            return Response(
+            users = MyUser.objects.filter(unionId=params['account'])
+            if len(users) > 0:
+                return Response({
+                    "status": 1,
+                    "mes": '用户已经注册'
+                })
+            else:
+                user = create_or_update_user_info(
+                    params['password'], {'unionId': params['account']})
+                token = TokenObtainPairSerializer.get_token(user).access_token
+                return Response(
                 {
                     'status': 1,
                     'jwt': str(token),
@@ -405,7 +411,8 @@ class LoginView(APIView):
     def post(self, request):
         params = get_parameter_dic(request)
         if params.get("account", "") != "" and params.get("password", "") != "":
-            user = create_or_update_user_info(params['password'])
+            user = create_or_update_user_info(
+                params['password'], {'unionId': params['account']})
             token = TokenObtainPairSerializer.get_token(user).access_token
             return Response(
                 {
