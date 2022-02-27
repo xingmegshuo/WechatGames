@@ -375,18 +375,18 @@ class RegisterView(APIView):
     def post(self, request):
         params = get_parameter_dic(request)
         if params.get("account", "") != "" and params.get("password", "") != "":
-            return Response({'status': 1, "mes": params})
+            # return Response({'status': 1, "mes": params})
 
-        #     user = create_or_update_user_info(
-        #         params['password'], {'unionId': params['account']})
-        #     token = TokenObtainPairSerializer.get_token(user).access_token
-        #     return Response(
-        #         {
-        #             'status': 1,
-        #             'jwt': str(token),
-        #             'user': user
-        #         },
-        #         status=HTTP_200_OK)
+            user = create_or_update_user_info(
+                params['password'], {'unionId': params['account']})
+            token = TokenObtainPairSerializer.get_token(user).access_token
+            return Response(
+                {
+                    'status': 1,
+                    'jwt': str(token),
+                    'user': user
+                },
+                status=HTTP_200_OK)
         else:
             return Response({'status': 1, 'mes': '账号或密码不能为空'})
 
@@ -397,7 +397,7 @@ class LoginView(APIView):
 
     def post(self, request):
         params = get_parameter_dic(request)
-        if params["account"] != "" and params["password"] != "":
+        if params.get("account", "") != "" and params.get("password", "") != "":
             user = create_or_update_user_info(params['password'])
             token = TokenObtainPairSerializer.get_token(user).access_token
             return Response(
