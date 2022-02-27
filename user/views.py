@@ -374,7 +374,7 @@ class RegisterView(APIView):
 
     def post(self, request):
         params = get_parameter_dic(request)
-        if params["account"] != "" and params["password"] != "":
+        if params.get("account", "") != "" and params.get("password", "") != "":
             return Response({'status': 1, "mes": params})
 
         #     user = create_or_update_user_info(
