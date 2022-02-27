@@ -369,8 +369,8 @@ class WxAuthView(APIView):
 
 
 class RegisterView(APIView):
-    def post(se
-        params=get_parameter_dic(request)lf, request):
+    def post(self, request):
+        params = get_parameter_dic(request)
         if params["account"] != "" and params["password"] != "":
             user = create_or_update_user_info(
                 params['password'], {'unionId': params['account']})
@@ -389,7 +389,7 @@ class RegisterView(APIView):
 
 class LoginView(APIView):
     def post(self, request):
-        params = get_parameter_dic(request):
+        params = get_parameter_dic(request)
         if params["account"] != "" and params["password"] != "":
             user = create_or_update_user_info(params['password']})
             token = TokenObtainPairSerializer.get_token(user).access_token
@@ -407,15 +407,15 @@ class LoginView(APIView):
 class ChangePwdView(APIView):
     def post(self, request):
         params=get_parameter_dic(request)
-        id = request.user.id
+        id=request.user.id
         if params["oldpassword"] != params["newpassword"] and params["newpassword"] != "":
-            user=MyUser.objects.get(id=id)
-            user.__dict__.update({"openId":params["newpassword"]})
+            user=MyUser.objects.get(id = id)
+            user.__dict__.update({"openId": params["newpassword"]})
             user.save()
             token=TokenObtainPairSerializer.get_token(user).access_token
             return Response({
                 'status': 1,
-                'mes':'更新密码成功'
+                'mes': '更新密码成功'
                 }, status = HTTP_200_OK)
 
         else:
