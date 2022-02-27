@@ -369,6 +369,9 @@ class WxAuthView(APIView):
 
 
 class RegisterView(APIView):
+    authentication_classes = []
+    permission_classes = []
+
     def post(self, request):
         params = get_parameter_dic(request)
         if params["account"] != "" and params["password"] != "":
@@ -388,6 +391,9 @@ class RegisterView(APIView):
 
 
 class LoginView(APIView):
+    authentication_classes = []
+    permission_classes = []
+
     def post(self, request):
         params = get_parameter_dic(request)
         if params["account"] != "" and params["password"] != "":
@@ -399,24 +405,25 @@ class LoginView(APIView):
                     'jwt': str(token),
                     'user': user
                 },
-                status = HTTP_200_OK)
+                status=HTTP_200_OK)
 
         else:
             return Response({'status': 1, 'mes': '账号或密码不能为空'})
 
+
 class ChangePwdView(APIView):
     def post(self, request):
-        params=get_parameter_dic(request)
-        id=request.user.id
+        params = get_parameter_dic(request)
+        id = request.user.id
         if params["oldpassword"] != params["newpassword"] and params["newpassword"] != "":
-            user=MyUser.objects.get(id = id)
+            user = MyUser.objects.get(id=id)
             user.__dict__.update({"openId": params["newpassword"]})
             user.save()
-            token=TokenObtainPairSerializer.get_token(user).access_token
+            token = TokenObtainPairSerializer.get_token(user).access_token
             return Response({
                 'status': 1,
                 'mes': '更新密码成功'
-                }, status = HTTP_200_OK)
+            }, status=HTTP_200_OK)
 
         else:
             return Response({'status': 1, 'mes': '账号或密码不能为空'})
