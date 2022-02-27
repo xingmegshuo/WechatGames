@@ -46,7 +46,8 @@ def api_doc(request, path):
     """
     if path == '':
         path = 'index.html'
-    response = serve(request, path, document_root=settings.APIDOC_ROOT, show_indexes=True)
+    response = serve(
+        request, path, document_root=settings.APIDOC_ROOT, show_indexes=True)
     return response
 
 
@@ -89,7 +90,8 @@ def create_or_update_user_info(openid, user_info):
     """
     if openid:
         if user_info:
-            user, created = MyUser.objects.update_or_create(openid=openid, defaults=user_info)
+            user, created = MyUser.objects.update_or_create(
+                openid=openid, defaults=user_info)
         else:
             user, created = MyUser.objects.get_or_create(openid=openid)
         return user
@@ -335,7 +337,8 @@ class WxAuthView(APIView):
         try:
             encryptedData = params['encrypteData'].replace(' ', '+')
             iv = params['iv'].replace(' ', '+')
-            crypt = WXBizDataCrypt(get_app_config(params.get('name')).app_id, params.get('session_key'))
+            crypt = WXBizDataCrypt(get_app_config(
+                params.get('name')).app_id, params.get('session_key'))
             user_info_raw = crypt.decrypt(encryptedData, iv)
             logger.info("user_info: {0}".format(user_info_raw))
             if user_info_raw:
@@ -363,3 +366,57 @@ class WxAuthView(APIView):
                 'status': 1,
                 'mes': '请检查参数'
             })
+
+
+class RegisterView(APIView):
+    def post(se
+        params=get_parameter_dic(request)lf, request):
+        if params["account"] != "" and params["password"] != "":
+            user = create_or_update_user_info(
+                params['password'], {'unionId': params['account']})
+            token = TokenObtainPairSerializer.get_token(user).access_token
+            return Response(
+                {
+                    'status': 1,
+                    'jwt': str(token),
+                    'user': user
+                },
+                status=HTTP_200_OK)
+
+        else:
+            return Response({'status': 1, 'mes': '账号或密码不能为空'})
+
+
+class LoginView(APIView):
+    def post(self, request):
+        params = get_parameter_dic(request):
+        if params["account"] != "" and params["password"] != "":
+            user = create_or_update_user_info(params['password']})
+            token = TokenObtainPairSerializer.get_token(user).access_token
+            return Response(
+                {
+                    'status': 1,
+                    'jwt': str(token),
+                    'user': user
+                },
+                status = HTTP_200_OK)
+
+        else:
+            return Response({'status': 1, 'mes': '账号或密码不能为空'})
+
+class ChangePwdView(APIView):
+    def post(self, request):
+        params=get_parameter_dic(request)
+        id = request.user.id
+        if params["oldpassword"] != params["newpassword"] and params["newpassword"] != "":
+            user=MyUser.objects.get(id=id)
+            user.__dict__.update({"openId":params["newpassword"]})
+            user.save()
+            token=TokenObtainPairSerializer.get_token(user).access_token
+            return Response({
+                'status': 1,
+                'mes':'更新密码成功'
+                }, status = HTTP_200_OK)
+
+        else:
+            return Response({'status': 1, 'mes': '账号或密码不能为空'})
