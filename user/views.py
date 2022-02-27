@@ -391,7 +391,7 @@ class LoginView(APIView):
     def post(self, request):
         params = get_parameter_dic(request)
         if params["account"] != "" and params["password"] != "":
-            user = create_or_update_user_info(params['password']})
+            user = create_or_update_user_info(params['password'])
             token = TokenObtainPairSerializer.get_token(user).access_token
             return Response(
                 {
