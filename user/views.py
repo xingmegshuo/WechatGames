@@ -384,7 +384,14 @@ class RegisterView(APIView):
                 {
                     'status': 1,
                     'jwt': str(token),
-                    'user': user
+                    'user': model_to_dict(
+                        user,
+                        fields=[
+                            'nick_name', 'last_login', 'avatar_url', 'gender',
+                            'city', 'province', 'country', 'login', 'unionId',
+                            'company', 'restaurant', 'current_role',
+                            'is_owner', 'is_client', 'is_manager'
+                        ])
                 },
                 status=HTTP_200_OK)
         else:
@@ -404,7 +411,14 @@ class LoginView(APIView):
                 {
                     'status': 1,
                     'jwt': str(token),
-                    'user': user
+                    'user': model_to_dict(
+                        user,
+                        fields=[
+                            'nick_name', 'last_login', 'avatar_url', 'gender',
+                            'city', 'province', 'country', 'login', 'unionId',
+                            'company', 'restaurant', 'current_role',
+                            'is_owner', 'is_client', 'is_manager'
+                        ])
                 },
                 status=HTTP_200_OK)
 
