@@ -385,9 +385,8 @@ class RegisterView(APIView):
                     'user': user
                 },
                 status=HTTP_200_OK)
-
         else:
-            return Response({'status': 1, 'mes': '账号或密码不能为空'})
+            return Response({'status': 1, 'mes': '账号或密码不能为空'}, status=HTTP_204_NO_CONTENT)
 
 
 class LoginView(APIView):
@@ -408,7 +407,7 @@ class LoginView(APIView):
                 status=HTTP_200_OK)
 
         else:
-            return Response({'status': 1, 'mes': '账号或密码不能为空'})
+            return Response({'status': 1, 'mes': '账号或密码不能为空'}, status=HTTP_204_NO_CONTENT)
 
 
 class ChangePwdView(APIView):
@@ -426,4 +425,4 @@ class ChangePwdView(APIView):
             }, status=HTTP_200_OK)
 
         else:
-            return Response({'status': 1, 'mes': '账号或密码不能为空'})
+            return Response({'status': 1, 'mes': '账号或密码不能为空'}, status=HTTP_204_NO_CONTENT)
