@@ -374,19 +374,20 @@ class RegisterView(APIView):
 
     def post(self, request):
         params = get_parameter_dic(request)
-        if params["account"] != "" and params["password"] != "":
-            user = create_or_update_user_info(
-                params['password'], {'unionId': params['account']})
-            token = TokenObtainPairSerializer.get_token(user).access_token
-            return Response(
-                {
-                    'status': 1,
-                    'jwt': str(token),
-                    'user': user
-                },
-                status=HTTP_200_OK)
-        else:
-            return Response({'status': 1, 'mes': '账号或密码不能为空'}, status=HTTP_204_NO_CONTENT)
+        return Response({'status': 1, "mes": params})
+        # if params["account"] != "" and params["password"] != "":
+        #     user = create_or_update_user_info(
+        #         params['password'], {'unionId': params['account']})
+        #     token = TokenObtainPairSerializer.get_token(user).access_token
+        #     return Response(
+        #         {
+        #             'status': 1,
+        #             'jwt': str(token),
+        #             'user': user
+        #         },
+        #         status=HTTP_200_OK)
+        # else:
+        #     return Response({'status': 1, 'mes': '账号或密码不能为空'})
 
 
 class LoginView(APIView):
