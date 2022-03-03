@@ -69,3 +69,10 @@ class AdvertisingAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'appid', 'logo', 'status')
     list_filter = ('status',)
     search_fields = ('title', 'appid')
+
+
+@admin.register(ConvertCode)
+class CodeAdmin(admin.ModelAdmin):
+    def id(self,obj):
+        return obj.pk
+    list_display = ('code','id','value','arrtibute','codeType')``

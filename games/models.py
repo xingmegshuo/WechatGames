@@ -1,3 +1,5 @@
+from random import choice
+from tabnanny import verbose
 from django.db import models
 from django.db.models.base import Model
 from user.models import APP
@@ -14,6 +16,8 @@ OVER_CHOICE = ((False, '未完成学习'), (True, '完成学习'))
 PUBLIC_CHOICE = ((False, '不公开'), (True, '公开'))
 DELETE_CHOICE = ((False, '未删除'), (True, '删除'))
 FAVOR_CHOICE = ((False, '不收藏'), (True, '收藏'))
+CODE_CHOICE = ((1, '通用兑换码'), (2, "一次性兑换码"), (3, '月卡'))
+CODETYPE_CHOICE = ((True, '随机生成'), (False, '自定义'))
 
 WEATHER_CHOICE = (
     (0, '晴天'),
@@ -28,9 +32,62 @@ MOOD_CHOICE = (
     (4, '委屈')
 )
 
+# 兑换码
+
+
+class ConvertCode(models.model):
+    code = models.CharField(
+        verbose_name=_('兑换码'), help_text=_('兑换码'), max_length=8, null=False, blank=True)
+    value = models.CharField(
+        verbose_name=_("兑换码内容"), help_text=_('兑换码内容'), max_length=5000, null=True, blank=True, default='')
+    arrtibute = models.IntegerField(
+        verbose_name=_('类型'), help_text=_('兑换码类型,1.通用兑换码,2.一次性兑换码,3.月卡'), choice=CODE_CHOICE)
+    codeType = models.BooleanField(
+        verbose_name=_('自定义或者生成'), help_text=_('true自动生成'), choice=CODETYPE_CHOICE)
+
+    inviald = models.BooleanField(
+        verbose_name=_('是否有效'), help_text=_('true有效'), default=True)
+
+    def __str__(self):
+        return self.code
+
+    class Meta:
+        verbose_name = _("兑换码信息")
+        verbose_name_plural = verbose_name
+
+# 兑换码使用记录
+
+
+class CodeHistory(models.Model):
+    user_id = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, verbose_name=_('用户'))
+    code_id = models.ForeignKey(
+        ConvertCode, on_delete=models.CASCADE, null=True, verbose_name=_('兑换码'))
+
+    class Meta:
+        verbose_name = _('兑换码使用信息')
+        verbose_name_plural = verbose_name
+
+# 好友关系
+
+
+class Ship(models.model):
+    inviter_id = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, verbose_name=_('发起者'))
+    teacher_id = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, verbose_name=_('师傅'))
+    student_id = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, verbose_name=_('徒弟'))
+    inviald = models.BooleanField(verbose_name=_('关系成立'),default=False)
+
+    class Meta:
+        verbose_name = _('师徒关系')
+        verbose_name_plural = verbose_name
 
 # Create your models here.
 # 游戏信息
+
+
 class GameInfo(models.Model):
     grade = models.CharField(
         verbose_name=_('等级'), help_text=_('等级'), max_length=20, null=True, blank=True, default='1')
