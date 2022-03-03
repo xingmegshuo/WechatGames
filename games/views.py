@@ -1,4 +1,5 @@
 from ast import Param
+from string import ascii_letters
 from django.shortcuts import render
 
 # Create your views here.
@@ -982,9 +983,13 @@ class CodeView(APIView):
         params = get_parameter_dic(request)
         user = MyUser.objects.get(id=request.user.id)
         try:
-            c = ConvertCode.objects.get(code=params.get('code'))
+            import string
+            codes = "".join([i.lower() for i in param.get(
+                'code') if i in string.ascii_letters])
+
+            c = ConvertCode.objects.get(code=codes)
             historys = CodeHistory.objects.filter(
-            user_id=user, code_id=c.id)
+                user_id=user, code_id=c.id)
             if len(historys) > 0:
                 return Response({'status': 1, 'mes': '已经使用过'}, status=HTTP_200_OK)
             else:
@@ -1013,60 +1018,58 @@ class InviterView(APIView):
         for m in messages:
             data = {}
             data['inviter'] = model_to_dict(m.inviter_id,
-                           fields=['nick_name', 'last_login', 'avatar_url', 'gender',
-                                   'city', 'province', 'country', 'login', 'unionId',
-                                   'company'])
+                                            fields=['nick_name', 'last_login', 'avatar_url', 'gender',
+                                                    'city', 'province', 'country', 'login', 'unionId',
+                                                    'company'])
             if m.teacher_id == user:
-                data['ship']="邀请你成为他的师傅"
+                data['ship'] = "邀请你成为他的师傅"
             else:
-                data['ship']= '邀请你成为他的徒弟'
-            data['ship_id']=m.id
+                data['ship'] = '邀请你成为他的徒弟'
+            data['ship_id'] = m.id
 
         info = {
             'teachers': [model_to_dict(i.teacher_id,
                                        fields=['nick_name', 'last_login', 'avatar_url', 'gender',
                                                'city', 'province', 'country', 'login', 'unionId',
                                                'company']) for i in teachers],
-            'students':[model_to_dict(i.student_id,
+            'students': [model_to_dict(i.student_id,
                                        fields=['nick_name', 'last_login', 'avatar_url', 'gender',
                                                'city', 'province', 'country', 'login', 'unionId',
                                                'company']) for i in students],
             'messages': ship,
         }
-        return Response({'status': 1, 'mes': '师徒邀请信息','info':info})
+        return Response({'status': 1, 'mes': '师徒邀请信息', 'info': info})
 
     # 获取邀请码，和发送邀请
     def post(self, request):
         user = MyUser.objects.get(id=request.user.id)
         param = get_parameter_dic(request)
-        if param.get('code','')=='':
+        if param.get('code', '') == '':
             # ship = Ship.objects.create(inviter_id=user)
             # ship.save()
-            return Response({'status': 1, 'mes': '我的邀请码','info':"000"+str(user.id)})
+            return Response({'status': 1, 'mes': '我的邀请码', 'info': "000"+str(user.id)})
 
         else:
-            ship = Ship.objects.create(code=param.get('code'),inviter_id=
-                MyUser.objects.get(id=param.get('code')[3:]))
-            if param.get('ship','')=='1':
-                ship.student_id = user #拜师
+            ship = Ship.objects.create(code=param.get(
+                'code'), inviter_id=MyUser.objects.get(id=param.get('code')[3:]))
+            if param.get('ship', '') == '1':
+                ship.student_id = user  # 拜师
             else:
-                ship.teacher_id = user #收徒
+                ship.teacher_id = user  # 收徒
             ship.save()
-            return Response({'status':1,'mes':'发送申请成功'})
+            return Response({'status': 1, 'mes': '发送申请成功'})
 
     # 同意
     def put(self, request):
         param = get_parameter_dic(request)
-        if param.get('ship_id','') == '' or param.get('res','') == '':
-            return Response({'status':1,'mes':'参数不足'})
+        if param.get('ship_id', '') == '' or param.get('res', '') == '':
+            return Response({'status': 1, 'mes': '参数不足'})
         else:
             ship = Ship.objects.get(id=param.get('ship_id'))
             if param.get('res') == '1':
-                ship.inviald=True    #同意
+                ship.inviald = True  # 同意
                 ship.code = ""
             else:
                 ship.code = ""
             ship.save()
-            return Response({'status':1,'mes':'处理完成'})
-
-
+            return Response({'status': 1, 'mes': '处理完成'})
