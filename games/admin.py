@@ -75,4 +75,4 @@ class AdvertisingAdmin(admin.ModelAdmin):
 class CodeAdmin(admin.ModelAdmin):
     def id(self,obj):
         return obj.pk
-    list_display = ('code','id','value','arrtibute','codeType')``
+    list_display = ('code','id','value','arrtibute','codeType')
