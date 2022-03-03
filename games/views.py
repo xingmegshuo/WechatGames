@@ -980,7 +980,7 @@ class DirayImageView(APIView):
 class CodeView(APIView):
     def post(self, request):
         params = get_parameter_dic(request)
-        user = request.user
+        user = MyUser.objects.get(id=request.user.id)
         # try:
         c = ConvertCode.objects.get(code=params.get('code'))
         historys = CodeHistory.objects.filter(
