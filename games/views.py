@@ -4,7 +4,6 @@ from django.shortcuts import render
 # Create your views here.
 import datetime
 from django.forms import model_to_dict
-from WechatGames.user.models import MyUser
 from rest_framework.response import Response
 from rest_framework.status import *
 from rest_framework.views import APIView
