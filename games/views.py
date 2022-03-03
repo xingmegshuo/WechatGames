@@ -1014,10 +1014,6 @@ class InviterView(APIView):
             code='', inviald=True, student_id=user).all()
         messages = Ship.objects.filter(
             inviald=False, inviter_id=user).all()
-        return Response({"len": len(messages), 'u': model_to_dict(user,
-                                            fields=['nick_name', 'last_login', 'avatar_url', 'gender',
-                                                    'city', 'province', 'country', 'login', 'unionId',
-                                                    'company'])})
         ship = []
         for m in messages:
             data = {}
@@ -1030,6 +1026,7 @@ class InviterView(APIView):
             else:
                 data['ship'] = '邀请你成为他的徒弟'
             data['ship_id'] = m.id
+            ship.append(data)
 
         info = {
             'teachers': [model_to_dict(i.teacher_id,
