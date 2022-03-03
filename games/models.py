@@ -78,7 +78,10 @@ class Ship(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, verbose_name=_('师傅'))
     student_id = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, verbose_name=_('徒弟'))
-    inviald = models.BooleanField(verbose_name=_('关系成立'),default=False)
+    inviald = models.BooleanField(verbose_name=_('关系成立'), default=False)
+    code = models.CharField(
+        max_length=8, null=True, default="abc000"
+    )
 
     class Meta:
         verbose_name = _('师徒关系')
