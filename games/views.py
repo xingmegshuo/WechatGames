@@ -1015,7 +1015,7 @@ class InviterView(APIView):
             data['inviter'] = model_to_dict(MyUser.objects.get(id=m.user_id),
                            fields=['nick_name', 'last_login', 'avatar_url', 'gender',
                                    'city', 'province', 'country', 'login', 'unionId',
-                                   'company']
+                                   'company'])
             if m.teacher_id == user:
                 data['ship']="邀请你成为他的师傅"
             else:
