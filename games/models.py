@@ -41,9 +41,9 @@ class ConvertCode(models.Model):
     value = models.CharField(
         verbose_name=_("兑换码内容"), help_text=_('兑换码内容'), max_length=5000, null=True, blank=True, default='')
     arrtibute = models.IntegerField(
-        verbose_name=_('类型'), help_text=_('兑换码类型,1.通用兑换码,2.一次性兑换码,3.月卡'), choice=CODE_CHOICE)
+        verbose_name=_('类型'), help_text=_('兑换码类型,1.通用兑换码,2.一次性兑换码,3.月卡'), choices=CODE_CHOICE)
     codeType = models.BooleanField(
-        verbose_name=_('自定义或者生成'), help_text=_('true自动生成'), choice=CODETYPE_CHOICE)
+        verbose_name=_('自定义或者生成'), help_text=_('true自动生成'), choices=CODETYPE_CHOICE)
 
     inviald = models.BooleanField(
         verbose_name=_('是否有效'), help_text=_('true有效'), default=True)
