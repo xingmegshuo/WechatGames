@@ -37,7 +37,7 @@ MOOD_CHOICE = (
 
 class ConvertCode(models.Model):
     code = models.CharField(
-        verbose_name=_('兑换码'), help_text=_('兑换码'), max_length=8, null=False, blank=True)
+        verbose_name=_('兑换码'), help_text=_('兑换码'), max_length=8, null=False, blank=True,unique=True)
     value = models.CharField(
         verbose_name=_("兑换码内容"), help_text=_('兑换码内容'), max_length=5000, null=True, blank=True, default='')
     arrtibute = models.IntegerField(
@@ -50,6 +50,16 @@ class ConvertCode(models.Model):
 
     def __str__(self):
         return self.code
+    
+    def on_save(self):
+        if self.codeType:
+            import string,random
+            d = string.ascii_letters
+            self.code = "".join([random.choice(d) for i in range(6)])
+
+    def save(self, *args, **kwargs):
+        self.on_save()
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = _("兑换码信息")
@@ -73,15 +83,16 @@ class CodeHistory(models.Model):
 
 class Ship(models.Model):
     inviter_id = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE,related_name='Ship_inviter_id', null=True, verbose_name=_('发起者'))
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='Ship_inviter_id', null=True, verbose_name=_('发起者'))
     teacher_id = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE,related_name='Ship_teacher_id', null=True, verbose_name=_('师傅'))
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='Ship_teacher_id', null=True, verbose_name=_('师傅'))
     student_id = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='Ship_student_id',null=True, verbose_name=_('徒弟'))
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='Ship_student_id', null=True, verbose_name=_('徒弟'))
     inviald = models.BooleanField(verbose_name=_('关系成立'), default=False)
     code = models.CharField(
-        max_length=8, null=True, default="abc000"
+        max_length=8, null=True, default="share000"
     )
+
 
     class Meta:
         verbose_name = _('师徒关系')

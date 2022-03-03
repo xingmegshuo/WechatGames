@@ -1,14 +1,19 @@
+from ast import Param
 from django.shortcuts import render
 
 # Create your views here.
 import datetime
 from django.forms import model_to_dict
+from WechatGames.user.models import MyUser
 from rest_framework.response import Response
 from rest_framework.status import *
 from rest_framework.views import APIView
 from rest_framework import viewsets
 from .models import *
 from user.views import get_parameter_dic, get_app_config, logger
+
+from user.models improt MyUser
+
 from web.views import scheduler
 from job.views import send_mes, change_status
 from .serializers import KnowlageSerializer, AdversingSerializer
@@ -125,7 +130,8 @@ class KnowView(APIView):
         user = request.user.id
         game_info = GameInfo.objects.get(user_id=int(user),
                                          game_id=int(get_app_config(params.get('name')).id))
-        recoding = MengYou_recoding(game_info=game_info, knowlage_id=params.get('id'))
+        recoding = MengYou_recoding(
+            game_info=game_info, knowlage_id=params.get('id'))
         recoding.is_over = True
         recoding.save()
         # if len(recoding) == 0:
@@ -235,7 +241,8 @@ class KnowView(APIView):
             }, status=HTTP_200_OK)
         else:
             knowlage = MengYou_knowlage.objects.filter(
-                id__in=[i.knowlage.id for i in MengYou_recoding.objects.filter(game_info=game_info, is_over=True)],
+                id__in=[i.knowlage.id for i in MengYou_recoding.objects.filter(
+                    game_info=game_info, is_over=True)],
                 status=True)
             status = 1
             mes = '已经学习过知识'
@@ -258,7 +265,8 @@ class KnowView(APIView):
             else:
                 page = params.get('page')
                 if int(len(knowlage) / 20) - params.get('page') > 1:
-                    knowlage = knowlage[20 * params.get('page'):20 + 20 * params.get('page')]
+                    knowlage = knowlage[20 *
+                                        params.get('page'):20 + 20 * params.get('page')]
                 else:
                     knowlage = knowlage[20 * params.get('page'):]
             return Response({
@@ -289,10 +297,12 @@ class KnowView(APIView):
         user = request.user.id
         game_info = GameInfo.objects.get(user_id=int(user),
                                          game_id=int(get_app_config(params.get('name')).id))
-        recoding = MengYou_recoding.objects.filter(game_info=game_info, knowlage_id=params.get('id'))
+        recoding = MengYou_recoding.objects.filter(
+            game_info=game_info, knowlage_id=params.get('id'))
         # 分钟为单位
         shorten_time = params.get('time')
-        recoding.send_time = recoding.send_time - datetime.timedelta(minutes=float(shorten_time))
+        recoding.send_time = recoding.send_time - \
+            datetime.timedelta(minutes=float(shorten_time))
         recoding.save()
         if game_info.is_subscription is True:
             pass
@@ -357,9 +367,11 @@ class Ranking(APIView):
 
         try:
             if As_ds is None or As_ds == 'as':
-                game_info = GameInfo.objects.filter(game_id=app).order_by('-' + cod)[:num]
+                game_info = GameInfo.objects.filter(
+                    game_id=app).order_by('-' + cod)[:num]
             else:
-                game_info = GameInfo.objects.filter(game_id=app).order_by(cod)[:num]
+                game_info = GameInfo.objects.filter(
+                    game_id=app).order_by(cod)[:num]
             status = 1
             mes = '排序数据'
             info = [{**(model_to_dict(info, fields=['level', 'grade', 'score', 'property'])),
@@ -410,7 +422,8 @@ class KnowViewSet(viewsets.ModelViewSet):
         }
 
     """
-    queryset = MengYou_knowlage.objects.all().filter(is_check=True, status=True).order_by('id')
+    queryset = MengYou_knowlage.objects.all().filter(
+        is_check=True, status=True).order_by('id')
     serializer_class = KnowlageSerializer
 
 
@@ -629,7 +642,8 @@ class DirayView(APIView):
           """
         user = request.user.id
         name = get_parameter_dic(request).get('name')
-        game_info = GameInfo.objects.get(user_id=int(user), game_id=get_app_config(name))
+        game_info = GameInfo.objects.get(
+            user_id=int(user), game_id=get_app_config(name))
         diray = Diray.objects.filter(game_info=game_info, status=False)
         if len(diray) > 0:
             status = 1
@@ -689,7 +703,8 @@ class DirayView(APIView):
         params = get_parameter_dic(request)
         app = get_app_config(params.get('name'))
         game_info = GameInfo.objects.get(user_id=int(user), game_id=app)
-        diray = Diray.objects.create(game_info=game_info, title=params.get('title'), text=params.get('content'))
+        diray = Diray.objects.create(game_info=game_info, title=params.get(
+            'title'), text=params.get('content'))
         if params.get('status'):
             diray.status = params.get('status')
         if params.get('public'):
@@ -808,7 +823,8 @@ class MailboxView(APIView):
         """
         user = request.user.id
         params = get_parameter_dic(request)
-        game_info = GameInfo.objects.get(user_id=int(user), game_id=get_app_config(params.get('name')))
+        game_info = GameInfo.objects.get(user_id=int(
+            user), game_id=get_app_config(params.get('name')))
         mailbox = Mailbox.objects.filter(game_info=game_info, status=False)
         if len(mailbox) > 0:
             status = 1
@@ -858,9 +874,12 @@ class MailboxView(APIView):
         """
         user = request.user.id
         params = get_parameter_dic(request)
-        game_info = GameInfo.objects.get(user_id=int(user), game_id=get_app_config(params.get('name')))
-        mailbox = [i.diray.id for i in Mailbox.objects.filter(game_info=game_info)]
-        new_Diray = Diray.objects.filter(public=True, status=False).exclude(game_info=game_info, id__in=mailbox).first()
+        game_info = GameInfo.objects.get(user_id=int(
+            user), game_id=get_app_config(params.get('name')))
+        mailbox = [i.diray.id for i in Mailbox.objects.filter(
+            game_info=game_info)]
+        new_Diray = Diray.objects.filter(public=True, status=False).exclude(
+            game_info=game_info, id__in=mailbox).first()
         if new_Diray:
             mail = Mailbox.objects.create(game_info=game_info, diray=new_Diray)
             status = 1
@@ -957,3 +976,96 @@ class DirayImageView(APIView):
         status = 1
         mes = '上传图片成功'
         return Response({'status': status, 'mes': mes}, status=HTTP_200_OK)
+
+
+class CodeView(APIView):
+    def post(self, request):
+        params = get_parameter_dic(request)
+        user = request.user.id
+        if params.get('code', '') != '':
+            c = ConvertCode.objects.get(code=params.get('code'))
+            historys = CodeHistory.objects.filter(
+                user_id=user, code_id=c.id).all()
+            if len(historys) > 0:
+                return Response({'status': 1, 'mes': '已经使用过'}, status=HTTP_200_OK)
+            else:
+                hs = CodeHistory.objects.create(user_id=user, code_id=c.id)
+                hs.save()
+                if c.arrtibute == 2:
+                    c.inviald = False
+                    c.save()
+                return Response({'status': 1, 'mes': "兑换成功", 'info': model_to_dict(c, fields=['code', 'arrtibute', 'value'])}, status=HTTP_200_OK)
+        else:
+            return Response({'status': 1, 'mes': '兑换码不正确'}, status=HTTP_200_OK)
+
+
+class InviterView(APIView):
+    # 获取邀请信息
+    def get(self, request):
+        user = request.user.id
+        students = Ship.objects.filter(
+            code='', inviald=True, teacher_id=user).all()
+        teachers = Ship.objects.filter(
+            code='', inviald=True, student_id=user).all()
+        messages = Ship.objects.filter(
+            inviald=False, inviter_id=user).exclude(code='').all()
+        ship = []
+        for m in messages:
+            data = {}
+            data['inviter'] = model_to_dict(MyUser.objects.get(id=m.user_id),
+                           fields=['nick_name', 'last_login', 'avatar_url', 'gender',
+                                   'city', 'province', 'country', 'login', 'unionId',
+                                   'company']
+            if m.teacher_id == user:
+                data['ship']="邀请你成为他的师傅"
+            else:
+                data['ship']= '邀请你成为他的徒弟'
+            data['ship_id']=m.id
+
+        info = {
+            'teachers': [model_to_dict(MyUser.objects.get(id=i.teacher_id),
+                                       fields=['nick_name', 'last_login', 'avatar_url', 'gender',
+                                               'city', 'province', 'country', 'login', 'unionId',
+                                               'company']) for i in teachers],
+            'students':[model_to_dict(MyUser.objects.get(id=i.student_id),
+                                       fields=['nick_name', 'last_login', 'avatar_url', 'gender',
+                                               'city', 'province', 'country', 'login', 'unionId',
+                                               'company']) for i in students],
+            'messages': ship,
+        }
+        return Response({'status': 1, 'mes': '师徒邀请信息','info':info})
+
+    # 获取邀请码，和发送邀请
+    def post(self, request):
+        user = request.user.id
+        param = get_parameter_dic(request)
+        if param.get('code','')=='':
+            # ship = Ship.objects.create(inviter_id=user)
+            # ship.save()
+            return Response({'status': 1, 'mes': '我的邀请码','info':"share000"+str(user)})
+
+        else:
+            ship = Ship.objects.create(code=param.get('code'),inviter_id=param.get('code')[8:])
+            if param.get('ship','')=='1':
+                ship.student_id = user #拜师
+            else:
+                ship.teacher_id = user #收徒
+            ship.save()
+            return Response({'status':1,'mes':'发送申请成功'})
+
+    # 同意
+    def put(self, request):
+        param = get_parameter_dic(request)
+        if param.get('ship_id','') == '' or param.get('res','') == '':
+            return Response({'status':1,'mes':'参数不足'})
+        else:
+            ship = Ship.objects.get(id=param.get('ship_id'))
+            if param.get('res') == '1':
+                ship.inviald=True    #同意
+                ship.code = ""
+            else:
+                ship.code = ""
+            ship.save()
+            return Response({'status':1,'mes':'处理完成'})
+
+
