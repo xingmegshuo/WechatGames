@@ -981,21 +981,21 @@ class CodeView(APIView):
     def post(self, request):
         params = get_parameter_dic(request)
         user = request.user.id
-        try:
-            c = ConvertCode.objects.get(code=params.get('code'))
-            historys = CodeHistory.objects.filter(
-                user_id=user, code_id=c.id)
-            if len(historys) > 0:
-                return Response({'status': 1, 'mes': '已经使用过'}, status=HTTP_200_OK)
-            else:
-                hs = CodeHistory.objects.create(user_id=user, code_id=c.id)
-                hs.save()
-                if c.arrtibute == 2:
-                    c.inviald = False
-                    c.save()
-                return Response({'status': 1, 'mes': "兑换成功", 'info': model_to_dict(c, fields=['code', 'arrtibute', 'value'])}, status=HTTP_200_OK)
-        except:
-            return Response({'status': 1, 'mes': '兑换码不正确'}, status=HTTP_200_OK)
+        # try:
+        c = ConvertCode.objects.get(code=params.get('code'))
+        historys = CodeHistory.objects.filter(
+            user_id=user, code_id=c.id)
+        if len(historys) > 0:
+            return Response({'status': 1, 'mes': '已经使用过'}, status=HTTP_200_OK)
+        else:
+            hs = CodeHistory.objects.create(user_id=user, code_id=c.id)
+            hs.save()
+            if c.arrtibute == 2:
+                c.inviald = False
+                c.save()
+            return Response({'status': 1, 'mes': "兑换成功", 'info': model_to_dict(c, fields=['code', 'arrtibute', 'value'])}, status=HTTP_200_OK)
+        # except:
+            # return Response({'status': 1, 'mes': '兑换码不正确'}, status=HTTP_200_OK)
 
 
 class InviterView(APIView):

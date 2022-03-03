@@ -54,7 +54,7 @@ class ConvertCode(models.Model):
     def on_save(self):
         if self.codeType:
             import string,random
-            d = string.ascii_letters
+            d = string.ascii_lowercase
             self.code = "".join([random.choice(d) for i in range(6)])
 
     def save(self, *args, **kwargs):
