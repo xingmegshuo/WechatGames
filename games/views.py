@@ -981,21 +981,21 @@ class CodeView(APIView):
     def post(self, request):
         params = get_parameter_dic(request)
         user = MyUser.objects.get(id=request.user.id)
-        # try:
-        c = ConvertCode.objects.get(code=params.get('code'))
-        historys = CodeHistory.objects.filter(
+        try:
+            c = ConvertCode.objects.get(code=params.get('code'))
+            historys = CodeHistory.objects.filter(
             user_id=user, code_id=c.id)
-        if len(historys) > 0:
-            return Response({'status': 1, 'mes': '已经使用过'}, status=HTTP_200_OK)
-        else:
-            hs = CodeHistory.objects.create(user_id=user, code_id=c)
-            hs.save()
-            if c.arrtibute == 2:
-                c.inviald = False
-                c.save()
-            return Response({'status': 1, 'mes': "兑换成功", 'info': model_to_dict(c, fields=['code', 'arrtibute', 'value'])}, status=HTTP_200_OK)
-        # except:
-            # return Response({'status': 1, 'mes': '兑换码不正确'}, status=HTTP_200_OK)
+            if len(historys) > 0:
+                return Response({'status': 1, 'mes': '已经使用过'}, status=HTTP_200_OK)
+            else:
+                hs = CodeHistory.objects.create(user_id=user, code_id=c)
+                hs.save()
+                if c.arrtibute == 2:
+                    c.inviald = False
+                    c.save()
+                return Response({'status': 1, 'mes': "兑换成功", 'info': model_to_dict(c, fields=['code', 'arrtibute', 'value'])}, status=HTTP_200_OK)
+        except:
+            return Response({'status': 1, 'mes': '兑换码不正确'}, status=HTTP_200_OK)
 
 
 class InviterView(APIView):
@@ -1042,11 +1042,11 @@ class InviterView(APIView):
         if param.get('code','')=='':
             # ship = Ship.objects.create(inviter_id=user)
             # ship.save()
-            return Response({'status': 1, 'mes': '我的邀请码','info':"share000"+str(user.id)})
+            return Response({'status': 1, 'mes': '我的邀请码','info':"000"+str(user.id)})
 
         else:
             ship = Ship.objects.create(code=param.get('code'),inviter_id=
-                MyUser.objects.get(id=param.get('code')[8:]))
+                MyUser.objects.get(id=param.get('code')[3:]))
             if param.get('ship','')=='1':
                 ship.student_id = user #拜师
             else:
