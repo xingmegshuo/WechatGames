@@ -1014,7 +1014,7 @@ class InviterView(APIView):
             code='', inviald=True, student_id=user).all()
         messages = Ship.objects.filter(
             inviald=False, inviter_id=user).exclude(code='').all()
-        return Response({'l':len(students),'b':len(teachers)})
+        # return Response({'l':len(students),'b':len(teachers)})
         ship = []
         for m in messages:
             data = {}
