@@ -35,7 +35,7 @@ MOOD_CHOICE = (
 # 兑换码
 
 
-class ConvertCode(models.model):
+class ConvertCode(models.Model):
     code = models.CharField(
         verbose_name=_('兑换码'), help_text=_('兑换码'), max_length=8, null=False, blank=True)
     value = models.CharField(
@@ -71,7 +71,7 @@ class CodeHistory(models.Model):
 # 好友关系
 
 
-class Ship(models.model):
+class Ship(models.Model):
     inviter_id = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, verbose_name=_('发起者'))
     teacher_id = models.ForeignKey(
