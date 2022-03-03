@@ -988,7 +988,7 @@ class CodeView(APIView):
         if len(historys) > 0:
             return Response({'status': 1, 'mes': '已经使用过'}, status=HTTP_200_OK)
         else:
-            hs = CodeHistory.objects.create(user_id=user, code_id=c.id)
+            hs = CodeHistory.objects.create(user_id=user, code_id=c)
             hs.save()
             if c.arrtibute == 2:
                 c.inviald = False
@@ -1001,7 +1001,8 @@ class CodeView(APIView):
 class InviterView(APIView):
     # 获取邀请信息
     def get(self, request):
-        user = request.user.id
+        user = MyUser.objects.get(id=request.user.id)
+
         students = Ship.objects.filter(
             code='', inviald=True, teacher_id=user).all()
         teachers = Ship.objects.filter(
@@ -1036,7 +1037,7 @@ class InviterView(APIView):
 
     # 获取邀请码，和发送邀请
     def post(self, request):
-        user = request.user.id
+        user = MyUser.objects.get(id=request.user.id)
         param = get_parameter_dic(request)
         if param.get('code','')=='':
             # ship = Ship.objects.create(inviter_id=user)
