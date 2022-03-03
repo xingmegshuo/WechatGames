@@ -1013,14 +1013,13 @@ class InviterView(APIView):
         teachers = Ship.objects.filter(
             code='', inviald=True, student_id=user).all()
         messages = Ship.objects.filter(
-            inviald=False, inviter_id=user).all()
+            inviald=False, inviter_id=user).exclude(code='').all()
         ship = []
         for m in messages:
             data = {}
             data['inviter'] = model_to_dict(m.inviter_id,
                                             fields=['nick_name', 'last_login', 'avatar_url', 'gender',
-                                                    'city', 'province', 'country', 'login', 'unionId',
-                                                    'company'])
+                                                    'city', 'province', 'country', 'login', 'unionId'])
             if m.teacher_id == user:
                 data['ship'] = "邀请你成为他的师傅"
             else:
@@ -1031,12 +1030,10 @@ class InviterView(APIView):
         info = {
             'teachers': [model_to_dict(i.teacher_id,
                                        fields=['nick_name', 'last_login', 'avatar_url', 'gender',
-                                               'city', 'province', 'country', 'login', 'unionId',
-                                               'company']) for i in teachers],
+                                               'city', 'province', 'country', 'login', 'unionId',]) for i in teachers],
             'students': [model_to_dict(i.student_id,
                                        fields=['nick_name', 'last_login', 'avatar_url', 'gender',
-                                               'city', 'province', 'country', 'login', 'unionId',
-                                               'company']) for i in students],
+                                               'city', 'province', 'country', 'login', 'unionId']) for i in students],
             'messages': ship,
         }
         return Response({'status': 1, 'mes': '师徒邀请信息', 'info': info})
