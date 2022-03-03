@@ -984,7 +984,7 @@ class CodeView(APIView):
         user = MyUser.objects.get(id=request.user.id)
         try:
             import string
-            codes = "".join([i.lower() for i in param.get(
+            codes = "".join([i.lower() for i in params.get(
                 'code') if i in string.ascii_letters])
 
             c = ConvertCode.objects.get(code=codes)
