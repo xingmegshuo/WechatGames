@@ -981,10 +981,10 @@ class CodeView(APIView):
     def post(self, request):
         params = get_parameter_dic(request)
         user = request.user.id
-        if params.get('code', '') != '':
+        try:
             c = ConvertCode.objects.get(code=params.get('code'))
             historys = CodeHistory.objects.filter(
-                user_id=user, code_id=c.id).all()
+                user_id=user, code_id=c.id)
             if len(historys) > 0:
                 return Response({'status': 1, 'mes': '已经使用过'}, status=HTTP_200_OK)
             else:
@@ -994,7 +994,7 @@ class CodeView(APIView):
                     c.inviald = False
                     c.save()
                 return Response({'status': 1, 'mes': "兑换成功", 'info': model_to_dict(c, fields=['code', 'arrtibute', 'value'])}, status=HTTP_200_OK)
-        else:
+        except:
             return Response({'status': 1, 'mes': '兑换码不正确'}, status=HTTP_200_OK)
 
 
