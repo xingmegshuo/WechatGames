@@ -1013,7 +1013,7 @@ class InviterView(APIView):
         teachers = Ship.objects.filter(
             code='', inviald=True, student_id=user).all()
         messages = Ship.objects.filter(
-            inviald=False, inviter_id=user).exclude(code='').all()
+            inviald=False, inviter_id=user).all()
         ship = []
         for m in messages:
             data = {}
