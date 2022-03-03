@@ -12,7 +12,7 @@ from rest_framework import viewsets
 from .models import *
 from user.views import get_parameter_dic, get_app_config, logger
 
-from user.models improt MyUser
+from user.models import MyUser
 
 from web.views import scheduler
 from job.views import send_mes, change_status
