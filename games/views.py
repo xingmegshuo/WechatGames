@@ -1028,10 +1028,10 @@ class InviterView(APIView):
             ship.append(data)
 
         info = {
-            'teachers': [model_to_dict(i.teacher_id,
+            'teachers': [model_to_dict(MyUser.objects.get(id=i.teacher_id.id),
                                        fields=['nick_name', 'last_login', 'avatar_url', 'gender',
-                                               'city', 'province', 'country', 'login', 'unionId',]) for i in teachers],
-            'students': [model_to_dict(i.student_id,
+                                               'city', 'province', 'country', 'login', 'unionId', ]) for i in teachers],
+            'students': [model_to_dict(MyUser.objects.get(id=i.student_id.id),
                                        fields=['nick_name', 'last_login', 'avatar_url', 'gender',
                                                'city', 'province', 'country', 'login', 'unionId']) for i in students],
             'messages': ship,
