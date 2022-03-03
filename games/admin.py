@@ -72,7 +72,7 @@ class AdvertisingAdmin(admin.ModelAdmin):
 
 
 @admin.register(ConvertCode)
-class CodeAdmin(admin.ModelAdmin):
+class CovertCodeAdmin(admin.ModelAdmin):
     def id(self,obj):
         return obj.pk
     list_display = ('code','id','value','arrtibute','codeType')
