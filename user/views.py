@@ -387,19 +387,20 @@ class RegisterView(APIView):
                     params['password'], {'unionId': params['account']})
                 token = TokenObtainPairSerializer.get_token(user).access_token
                 return Response(
-                {
-                    'status': 1,
-                    'jwt': str(token),
-                    'user': model_to_dict(
-                        user,
-                        fields=[
-                            'nick_name', 'last_login', 'avatar_url', 'gender',
-                            'city', 'province', 'country', 'login', 'unionId',
-                            'company', 'restaurant', 'current_role',
-                            'is_owner', 'is_client', 'is_manager'
-                        ])
-                },
-                status=HTTP_200_OK)
+                    {
+                        'status': 1,
+                        'jwt': str(token),
+                        'user': model_to_dict(
+                            user,
+                            fields=[
+                                'nick_name', 'last_login', 'avatar_url', 'gender',
+                                'city', 'province', 'country', 'login', 'unionId',
+                                'company', 'restaurant', 'current_role',
+                                'is_owner', 'is_client', 'is_manager'
+                            ])
+                    },
+                    status=HTTP_200_OK)
+          
         else:
             return Response({'status': 1, 'mes': '账号或密码不能为空'})
 
@@ -411,24 +412,26 @@ class LoginView(APIView):
     def post(self, request):
         params = get_parameter_dic(request)
         if params.get("account", "") != "" and params.get("password", "") != "":
-            user = create_or_update_user_info(
-                params['password'], {'unionId': params['account']})
-            token = TokenObtainPairSerializer.get_token(user).access_token
-            return Response(
-                {
-                    'status': 1,
-                    'jwt': str(token),
-                    'user': model_to_dict(
-                        user,
-                        fields=[
-                            'nick_name', 'last_login', 'avatar_url', 'gender',
-                            'city', 'province', 'country', 'login', 'unionId',
-                            'company', 'restaurant', 'current_role',
-                            'is_owner', 'is_client', 'is_manager'
-                        ])
-                },
-                status=HTTP_200_OK)
-
+            user = MyUser.objects.get(
+                unionId=params['account'], openId=params['password'])
+            if user:
+                token = TokenObtainPairSerializer.get_token(user).access_token
+                return Response(
+                    {
+                        'status': 1,
+                        'jwt': str(token),
+                        'user': model_to_dict(
+                            user,
+                            fields=[
+                                'nick_name', 'last_login', 'avatar_url', 'gender',
+                                'city', 'province', 'country', 'login', 'unionId',
+                                'company', 'restaurant', 'current_role',
+                                'is_owner', 'is_client', 'is_manager'
+                            ])
+                    },
+                    status=HTTP_200_OK)
+            else:
+                return Response({'status': 1, 'mes': '账号或密码不正确'}, status=HTTP_204_NO_CONTENT)
         else:
             return Response({'status': 1, 'mes': '账号或密码不能为空'}, status=HTTP_204_NO_CONTENT)
 
