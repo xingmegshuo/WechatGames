@@ -412,16 +412,16 @@ class LoginView(APIView):
     def post(self, request):
         params = get_parameter_dic(request)
         if params.get("account", "") != "" and params.get("password", "") != "":
-            user = MyUser.objects.get(
+            user = MyUser.objects.filter(
                 unionId=params['account'], openid=params['password'])
-            if user:
-                token = TokenObtainPairSerializer.get_token(user).access_token
+            if len(user)>1:
+                token = TokenObtainPairSerializer.get_token(user[0]).access_token
                 return Response(
                     {
                         'status': 1,
                         'jwt': str(token),
                         'user': model_to_dict(
-                            user,
+                            user[0],
                             fields=[
                                 'nick_name', 'last_login', 'avatar_url', 'gender',
                                 'city', 'province', 'country', 'login', 'unionId',
