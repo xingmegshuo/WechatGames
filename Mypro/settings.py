@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o$u-&*#&&%auvz3zu%-ye!mide!dle7dofiz%3=edzv#(c6d*e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 ALLOWED_HOSTS = ['*']
 # APPEND_SLASH = False
 # Application definition
@@ -61,7 +61,8 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.SessionAuthentication',
         # 'rest_framework.authentication.TokenAuthentication',
         # 'rest_framework_simplejwt.authentication.JWTAuthentication',  # 通过 JWT 进行用户验证，验证过程需要访问数据库
-        'rest_framework_simplejwt.authentication.JWTTokenUserAuthentication',  # 通过 JWT 的 Token 进行用户验证，验证过程不需要访问数据库
+        # 通过 JWT 的 Token 进行用户验证，验证过程不需要访问数据库
+        'rest_framework_simplejwt.authentication.JWTTokenUserAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
@@ -151,7 +152,7 @@ DATABASES = {
             os.environ.get('MYSQL_PORT_3306_TCP_ADDR'),
         'OPTIONS': {
             'init_command': 'SET foreign_key_checks=0;',
-        }
+                }
     }
 }
 
@@ -253,8 +254,10 @@ LOGGING = {
             'level': 'INFO',
             'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，根据时间自动切
             'filename': os.path.join(BASE_LOG_DIR, "xxx_info.log"),  # 日志文件
-            'backupCount': 3,  # 备份数为3  xx.log --> xx.log.2018-08-23_00-00-00 --> xx.log.2018-08-24_00-00-00 --> ...
-            'when': 'D',  # 每天一切， 可选值有S/秒 M/分 H/小时 D/天 W0-W6/周(0=周一) midnight/如果没指定时间就默认在午夜
+            # 备份数为3  xx.log --> xx.log.2018-08-23_00-00-00 --> xx.log.2018-08-24_00-00-00 --> ...
+            'backupCount': 3,
+            # 每天一切， 可选值有S/秒 M/分 H/小时 D/天 W0-W6/周(0=周一) midnight/如果没指定时间就默认在午夜
+            'when': 'D',
             'formatter': 'standard',
             'encoding': 'utf-8',
         },
