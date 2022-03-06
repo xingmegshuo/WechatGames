@@ -381,7 +381,7 @@ class RegisterView(APIView):
                 return Response({
                     "status": 1,
                     "mes": '用户已经注册'
-                })
+                }, HTTP_200_OK)
             else:
                 user = create_or_update_user_info(
                     params['password'], {'unionId': params['account']})
@@ -402,7 +402,7 @@ class RegisterView(APIView):
                     status=HTTP_200_OK)
           
         else:
-            return Response({'status': 1, 'mes': '账号或密码不能为空'})
+            return Response({'status': 1, 'mes': '账号或密码不能为空'}, HTTP_200_OK)
 
 
 class LoginView(APIView):
@@ -431,9 +431,9 @@ class LoginView(APIView):
                     },
                     status=HTTP_200_OK)
             else:
-                return Response({'status': 1, 'mes': '账号或密码不正确'}, status=HTTP_204_NO_CONTENT)
+                return Response({'status': 1, 'mes': '账号或密码不正确'}, status=HTTP_200_OK)
         else:
-            return Response({'status': 1, 'mes': '账号或密码不能为空'}, status=HTTP_204_NO_CONTENT)
+            return Response({'status': 1, 'mes': '账号或密码不能为空'}, status=HTTP_200_OK)
 
 
 class ChangePwdView(APIView):
@@ -451,4 +451,4 @@ class ChangePwdView(APIView):
             }, status=HTTP_200_OK)
 
         else:
-            return Response({'status': 1, 'mes': '账号或密码不能为空'}, status=HTTP_204_NO_CONTENT)
+            return Response({'status': 1, 'mes': '账号或密码不能为空'}, status=HTTP_200_OK)

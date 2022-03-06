@@ -1037,7 +1037,7 @@ class InviterView(APIView):
                                                'city', 'province', 'country', 'login', 'unionId']) for i in students],
             'messages': ship,
         }
-        return Response({'status': 1, 'mes': '师徒邀请信息', 'info': info})
+        return Response({'status': 1, 'mes': '师徒邀请信息', 'info': info}, HTTP_200_OK)
 
     # 获取邀请码，和发送邀请
     def post(self, request):
@@ -1046,7 +1046,7 @@ class InviterView(APIView):
         if param.get('code', '') == '':
             # ship = Ship.objects.create(inviter_id=user)
             # ship.save()
-            return Response({'status': 1, 'mes': '我的邀请码', 'info': "000"+str(user.id)})
+            return Response({'status': 1, 'mes': '我的邀请码', 'info': "000"+str(user.id)}, HTTP_200_OK)
 
         else:
             ship = Ship.objects.create(code=param.get(
@@ -1056,13 +1056,13 @@ class InviterView(APIView):
             else:
                 ship.teacher_id = user  # 收徒
             ship.save()
-            return Response({'status': 1, 'mes': '发送申请成功'})
+            return Response({'status': 1, 'mes': '发送申请成功'}, HTTP_200_OK)
 
     # 同意
     def put(self, request):
         param = get_parameter_dic(request)
         if param.get('ship_id', '') == '' or param.get('res', '') == '':
-            return Response({'status': 1, 'mes': '参数不足'})
+            return Response({'status': 1, 'mes': '参数不足'},HTTP_200_OK)
         else:
             ship = Ship.objects.get(id=param.get('ship_id'))
             if param.get('res') == '1':
@@ -1071,4 +1071,4 @@ class InviterView(APIView):
             else:
                 ship.code = ""
             ship.save()
-            return Response({'status': 1, 'mes': '处理完成'})
+            return Response({'status': 1, 'mes': '处理完成'}, HTTP_200_OK)
