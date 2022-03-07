@@ -418,9 +418,9 @@ class LoginView(APIView):
                 token = TokenObtainPairSerializer.get_token(user[0]).access_token
                 app = get_app_config("ChangeGod")
                 try:
-                    GameInfo.objects.get(user_id=user, game_id=)
+                    GameInfo.objects.get(user_id=user, game_id=app)
                 except:
-                    GameInfo.objects.create(user_id=user, game_id=)
+                    GameInfo.objects.create(user_id=user, game_id=app)
                 return Response(
                     {
                         'status': 1,
