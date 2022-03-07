@@ -400,7 +400,7 @@ class RegisterView(APIView):
                             ])
                     },
                     status=HTTP_200_OK)
-          
+
         else:
             return Response({'status': 1, 'mes': '账号或密码不能为空'}, HTTP_200_OK)
 
@@ -414,13 +414,14 @@ class LoginView(APIView):
         if params.get("account", "") != "" and params.get("password", "") != "":
             user = MyUser.objects.filter(
                 unionId=params['account'], openid=params['password'])
-            if len(user)>0:
-                token = TokenObtainPairSerializer.get_token(user[0]).access_token
+            if len(user) > 0:
+                token = TokenObtainPairSerializer.get_token(
+                    user[0]).access_token
                 app = get_app_config("ChangeGod")
                 try:
-                    GameInfo.objects.get(user_id=user, game_id=app)
+                    GameInfo.objects.get(user_id=user[0], game_id=app)
                 except:
-                    GameInfo.objects.create(user_id=user, game_id=app)
+                    GameInfo.objects.create(user_id=user[0], game_id=app)
                 return Response(
                     {
                         'status': 1,
