@@ -414,7 +414,7 @@ class LoginView(APIView):
         if params.get("account", "") != "" and params.get("password", "") != "":
             user = MyUser.objects.filter(
                 unionId=params['account'], openid=params['password'])
-            if len(user)>1:
+            if len(user)>0:
                 token = TokenObtainPairSerializer.get_token(user[0]).access_token
                 return Response(
                     {
