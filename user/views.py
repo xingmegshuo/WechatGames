@@ -416,6 +416,11 @@ class LoginView(APIView):
                 unionId=params['account'], openid=params['password'])
             if len(user)>0:
                 token = TokenObtainPairSerializer.get_token(user[0]).access_token
+                app = get_app_config("ChangeGod")
+                try:
+                    GameInfo.objects.get(user_id=user, game_id=)
+                except:
+                    GameInfo.objects.create(user_id=user, game_id=)
                 return Response(
                     {
                         'status': 1,
