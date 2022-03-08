@@ -575,7 +575,7 @@ class GameInfoView(APIView):
             if dic.get('avatar_url','') != "":
                 palyer.avatar_url = dic['avatar_url']
             if dic.get('nick_name','') != '':
-                palyer.nick_name = dic['avatar_url']
+                palyer.nick_name = dic['nick_name']
             palyer.save()
             game_info.__dict__.update(dic)
             game_info.save()
