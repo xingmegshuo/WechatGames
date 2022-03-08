@@ -571,6 +571,12 @@ class GameInfoView(APIView):
                 'mes': '没有更改信息'
             }, status=HTTP_200_OK)
         else:
+            palyer = MyUser.objects.get(id=user)
+            if dic.get('avatar_url','') != "":
+                palyer.avatar_url = dic['avatar_url']
+            if dic.get('nick_name','') != '':
+                palyer.nick_name = dic['avatar_url']
+            palyer.save()
             game_info.__dict__.update(dic)
             game_info.save()
             return Response(
