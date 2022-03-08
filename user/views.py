@@ -454,8 +454,8 @@ class ChangePwdView(APIView):
                 # token = TokenObtainPairSerializer.get_token(user).access_token
                 return Response({
                     'status': 1,
-                 'mes': '更新密码成功'
-                }, status=HTTP_200_OK)
+                    'mes': '更新密码成功'
+                    }, status=HTTP_200_OK)
             else:
                 return Response({
                     'status':1,
