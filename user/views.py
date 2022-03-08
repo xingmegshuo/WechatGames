@@ -446,15 +446,21 @@ class ChangePwdView(APIView):
     def post(self, request):
         params = get_parameter_dic(request)
         id = request.user.id
-        if params["oldpassword"] != params["newpassword"] and params["newpassword"] != "":
+        if params["oldpassword"] != '' and params["newpassword"] != "":
             user = MyUser.objects.get(id=id)
-            user.__dict__.update({"openId": params["newpassword"]})
-            user.save()
-            token = TokenObtainPairSerializer.get_token(user).access_token
-            return Response({
-                'status': 1,
-                'mes': '更新密码成功'
-            }, status=HTTP_200_OK)
+            if user.openId == params['oldpassword']:
+                user.__dict__.update({"openId": params["newpassword"]})
+                user.save()
+                # token = TokenObtainPairSerializer.get_token(user).access_token
+                return Response({
+                    'status': 1,
+                 'mes': '更新密码成功'
+                }, status=HTTP_200_OK)
+            else:
+                return Response({
+                    'status':1,
+                    'mes':'旧密码不正确'
+                }, status=HTTP_200_OK)
 
         else:
             return Response({'status': 1, 'mes': '账号或密码不能为空'}, status=HTTP_200_OK)
