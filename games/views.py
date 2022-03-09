@@ -991,7 +991,7 @@ class CodeView(APIView):
         try:
             import string
             codes = "".join([i.lower() if i in string.ascii_letters else i for i in params.get(
-                'code']))
+                'code')])
 
             c = ConvertCode.objects.get(code=codes)
             historys = CodeHistory.objects.filter(
