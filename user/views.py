@@ -376,7 +376,7 @@ class RegisterView(APIView):
         params = get_parameter_dic(request)
         if params.get("account", "") != "" and params.get("password", "") != "":
             # return Response({'status': 1, "mes": params})
-            users = MyUser.objects.filter(openid=params['account']])
+            users = MyUser.objects.filter(openid=params['account'])
             if len(users) > 0:
                 return Response({
                     "status": 1,
