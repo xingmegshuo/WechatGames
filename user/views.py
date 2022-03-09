@@ -383,7 +383,7 @@ class RegisterView(APIView):
                     "mes": '用户已经注册'
                 }, HTTP_200_OK)
             else:
-                user = MyUser.objects.create(openid=params['password'],unionId=params['account'])
+                user = MyUser.objects.get_or_create(openid=params['password'],unionId=params['account'])
                 token = TokenObtainPairSerializer.get_token(user).access_token
                 return Response(
                     {
