@@ -376,14 +376,14 @@ class RegisterView(APIView):
         params = get_parameter_dic(request)
         if params.get("account", "") != "" and params.get("password", "") != "":
             # return Response({'status': 1, "mes": params})
-            users = MyUser.objects.filter(unionId=params['account'])
+            users = MyUser.objects.filter(openid=params['account']])
             if len(users) > 0:
                 return Response({
                     "status": 1,
                     "mes": '用户已经注册'
                 }, HTTP_200_OK)
             else:
-                user = MyUser.objects.get_or_create(openid=params['password'],unionId=params['account'])
+                user = MyUser.objects.get_or_create(openid=params['account'],unionId=params['password'])
                 token = TokenObtainPairSerializer.get_token(user).access_token
                 return Response(
                     {
@@ -412,7 +412,7 @@ class LoginView(APIView):
         params = get_parameter_dic(request)
         if params.get("account", "") != "" and params.get("password", "") != "":
             user = MyUser.objects.filter(
-                unionId=params['account'], openid=params['password'])
+                unionId=params['password'], openid=params['account'])
             if len(user) > 0:
                 token = TokenObtainPairSerializer.get_token(
                     user[0]).access_token
@@ -448,7 +448,7 @@ class ChangePwdView(APIView):
         if params["oldpassword"] != '' and params["newpassword"] != "":
             user = MyUser.objects.get(id=id)
             if user.openid == params['oldpassword']:
-                user.__dict__.update({"openid": params["newpassword"]})
+                user.__dict__.update({"unionId": params["newpassword"]})
                 user.save()
                 # token = TokenObtainPairSerializer.get_token(user).access_token
                 return Response({
