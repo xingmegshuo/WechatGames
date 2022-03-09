@@ -383,7 +383,8 @@ class RegisterView(APIView):
                     "mes": '用户已经注册'
                 }, HTTP_200_OK)
             else:
-                user = MyUser.objects.get_or_create(openid=params['account'],unionId=params['password'])
+                user = MyUser.objects.create(
+                    openid=params['account'], unionId=params['password'])
                 token = TokenObtainPairSerializer.get_token(user).access_token
                 return Response(
                     {
@@ -454,11 +455,11 @@ class ChangePwdView(APIView):
                 return Response({
                     'status': 1,
                     'mes': '更新密码成功'
-                    }, status=HTTP_200_OK)
+                }, status=HTTP_200_OK)
             else:
                 return Response({
-                    'status':1,
-                    'mes':'旧密码不正确'
+                    'status': 1,
+                    'mes': '旧密码不正确'
                 }, status=HTTP_200_OK)
 
         else:
