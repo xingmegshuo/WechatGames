@@ -448,7 +448,7 @@ class ChangePwdView(APIView):
         id = request.user.id
         if params["oldpassword"] != '' and params["newpassword"] != "":
             user = MyUser.objects.get(id=id)
-            if user.openid == params['oldpassword']:
+            if user.unionId == params['oldpassword']:
                 user.__dict__.update({"unionId": params["newpassword"]})
                 user.save()
                 # token = TokenObtainPairSerializer.get_token(user).access_token
