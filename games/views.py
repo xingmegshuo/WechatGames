@@ -1078,3 +1078,34 @@ class InviterView(APIView):
                 ship.code = ""
             ship.save()
             return Response({'status': 1, 'mes': '处理完成'}, HTTP_200_OK)
+
+
+
+class InviterNewView(APIView):
+    def get(self,request):
+        user = MyUser.objects.get(id=request.user.id)
+        frends = MyUser.objects.filter(code="god"+str(user.id),inviter_id=user).all()
+        inby = MyUser.objects.get(student_id=user)
+        inviter = [model_to_dict(MyUser.objects.get(id=i.student_id.id),
+                                       fields=['nick_name', 'last_login', 'avatar_url', 'gender',
+                                               'city', 'province', 'country', 'login', 'unionId', ]) for i in frends]      
+        inviterby= model_to_dict(inby, fields=['nick_name', 'last_login', 'avatar_url', 'gender',
+                                               'city', 'province', 'country', 'login', 'unionId', ])
+
+        return Response({'status':1,'mes':"inviter,我的邀请,inviterby,我的邀请人",'data':{'inviter':inviter,'inviterby':inviterby}},HTTP_200_OK)
+
+    def post(self,request):
+        param = get_parameter_dic(request)
+        user = MyUser.objects.get(id=request.user.id)
+        if param.get('code', '') == '':
+            # ship = Ship.objects.create(inviter_id=user)
+            # ship.save()
+            return Response({'status': 1, 'mes': '我的邀请码', 'info': "god"+str(user.id)}, HTTP_200_OK)
+
+        else:
+            ship = Ship.objects.create(code=param.get(
+                'code'), inviter_id=MyUser.objects.get(id=param.get('code')[3:]))
+            
+            ship.student_id = user  # 拜师
+            ship.save()
+            return Response({'status': 1, 'mes': '绑定邀请关系成功'}, HTTP_200_OK)
