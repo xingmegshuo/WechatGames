@@ -1088,10 +1088,10 @@ class InviterNewView(APIView):
         inby = Ship.objects.exclude(code="").filter(student_id=user)
         inviter = [model_to_dict(MyUser.objects.get(id=i.student_id.id),
                                  fields=['nick_name', 'last_login', 'avatar_url', 'gender',
-                                         'city', 'province', 'country', 'login', 'unionId', ]) for i in frends]
+                                         'city', 'province', 'country', 'login', 'openid', ]) for i in frends]
         if len(inby) > 0:
             inviterby = model_to_dict(inby[0], fields=['nick_name', 'last_login', 'avatar_url', 'gender',
-                                                    'city', 'province', 'country', 'login', 'unionId', ])
+                                                    'city', 'province', 'country', 'login', 'openid', ])
         else:
             inviterby = {}
         return Response({'status': 1, 'mes': "inviter,我的邀请,inviterby,我的邀请人", 'data': {'inviter': inviter, 'inviterby': inviterby}}, HTTP_200_OK)
