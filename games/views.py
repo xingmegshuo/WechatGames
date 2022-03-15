@@ -572,9 +572,9 @@ class GameInfoView(APIView):
             }, status=HTTP_200_OK)
         else:
             palyer = MyUser.objects.get(id=user)
-            if dic.get('avatar_url','') != "":
+            if dic.get('avatar_url', '') != "":
                 palyer.avatar_url = dic['avatar_url']
-            if dic.get('nick_name','') != '':
+            if dic.get('nick_name', '') != '':
                 palyer.nick_name = dic['nick_name']
             palyer.save()
             game_info.__dict__.update(dic)
@@ -1057,7 +1057,7 @@ class InviterView(APIView):
         else:
             ship = Ship.objects.create(code=param.get(
                 'code'), inviter_id=MyUser.objects.get(id=param.get('code')[3:]))
-            
+
             if param.get('ship', '') == '1':
                 ship.student_id = user  # 拜师
             else:
@@ -1069,7 +1069,7 @@ class InviterView(APIView):
     def put(self, request):
         param = get_parameter_dic(request)
         if param.get('ship_id', '') == '' or param.get('res', '') == '':
-            return Response({'status': 1, 'mes': '参数不足'},HTTP_200_OK)
+            return Response({'status': 1, 'mes': '参数不足'}, HTTP_200_OK)
         else:
             ship = Ship.objects.get(id=param.get('ship_id'))
             if param.get('res') == '1':
@@ -1081,23 +1081,23 @@ class InviterView(APIView):
             return Response({'status': 1, 'mes': '处理完成'}, HTTP_200_OK)
 
 
-
 class InviterNewView(APIView):
-    def get(self,request):
+    def get(self, request):
         user = MyUser.objects.get(id=request.user.id)
-        frends = Ship.objects.filter(code="god"+str(user.id),inviter_id=user).all()
+        frends = Ship.objects.filter(
+            code="god"+str(user.id), inviter_id=user).all()
         inby = Ship.objects.exclude(code="").filter(student_id=user)
         inviter = [model_to_dict(MyUser.objects.get(id=i.student_id.id),
-                                       fields=['nick_name', 'last_login', 'avatar_url', 'gender',
-                                               'city', 'province', 'country', 'login', 'unionId', ]) for i in frends]      
-        if len(inby) >0:
-            inviterby= model_to_dict(inby, fields=['nick_name', 'last_login', 'avatar_url', 'gender',
-                                               'city', 'province', 'country', 'login', 'unionId', ])
+                                 fields=['nick_name', 'last_login', 'avatar_url', 'gender',
+                                         'city', 'province', 'country', 'login', 'unionId', ]) for i in frends]
+        if len(inby) > 0:
+            inviterby = model_to_dict(inby, fields=['nick_name', 'last_login', 'avatar_url', 'gender',
+                                                    'city', 'province', 'country', 'login', 'unionId', ])
         else:
-            inviterby={}
-        return Response({'status':1,'mes':"inviter,我的邀请,inviterby,我的邀请人",'data':{'inviter':inviter,'inviterby':inviterby}},HTTP_200_OK)
+            inviterby = {}
+        return Response({'status': 1, 'mes': "inviter,我的邀请,inviterby,我的邀请人", 'data': {'inviter': inviter, 'inviterby': inviterby}}, HTTP_200_OK)
 
-    def post(self,request):
+    def post(self, request):
         param = get_parameter_dic(request)
         user = MyUser.objects.get(id=request.user.id)
         if param.get('code', '') == '':
@@ -1107,12 +1107,12 @@ class InviterNewView(APIView):
 
         else:
             friends = Ship.objects.filter(student_id=user).exclude(code="")
-            if len(friends) >0:
-                return Response('status':0,'mes':'已经绑定了邀请关系',HTTP_200_OK)
+            if len(friends) > 0:
+                return Response('status': 0, 'mes': '已经绑定了邀请关系', HTTP_200_OK)
             else:
                 ship = Ship.objects.create(code=param.get(
                     'code'), inviter_id=MyUser.objects.get(id=param.get('code')[3:]))
-            
+
                 ship.student_id = user  # 拜师
                 ship.save()
                 return Response({'status': 1, 'mes': '绑定邀请关系成功'}, HTTP_200_OK)
