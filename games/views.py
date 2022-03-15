@@ -1092,9 +1092,9 @@ class InviterNewView(APIView):
                                                'city', 'province', 'country', 'login', 'unionId', ]) for i in frends]      
         if len(inby) >0:
             inviterby= model_to_dict(inby, fields=['nick_name', 'last_login', 'avatar_url', 'gender',
+                                               'city', 'province', 'country', 'login', 'unionId', ])
         else:
-            inviterby={}                                       'city', 'province', 'country', 'login', 'unionId', ])
-
+            inviterby={}
         return Response({'status':1,'mes':"inviter,我的邀请,inviterby,我的邀请人",'data':{'inviter':inviter,'inviterby':inviterby}},HTTP_200_OK)
 
     def post(self,request):
