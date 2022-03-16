@@ -1056,18 +1056,18 @@ class InviterView(APIView):
             return Response({'status': 1, 'mes': '我的邀请码', 'info': "000"+str(user.id)}, HTTP_200_OK)
 
         else:
-            try:
-                ship = Ship.objects.create(code="0x"+param.get(
-                    'code'), inviter_id=MyUser.objects.get(id=param.get('code')[3:]))
+            # try:
+            ship = Ship.objects.create(code="0x"+param.get(
+                'code'), inviter_id=MyUser.objects.get(id=param.get('code')[3:]))
 
-                if param.get('ship', '') == '1':
-                    ship.student_id = user  # 拜师
-                else:
-                    ship.teacher_id = user  # 收徒
-                ship.save()
-                return Response({'status': 1, 'mes': '发送申请成功'}, HTTP_200_OK)
-            except:
-                return Response({'status': 0, 'mes': '邀请码无效'}, HTTP_200_OK)
+            if param.get('ship', '') == '1':
+                ship.student_id = user  # 拜师
+            else:
+                ship.teacher_id = user  # 收徒
+            ship.save()
+            return Response({'status': 1, 'mes': '发送申请成功'}, HTTP_200_OK)
+            # except:
+                # return Response({'status': 0, 'mes': '邀请码无效'}, HTTP_200_OK)
     # 同意
 
     def put(self, request):
