@@ -1032,7 +1032,7 @@ class InviterView(APIView):
             else:
                 data['ship'] = '邀请你成为他的徒弟'
             data['ship_id'] = m.id
-            if ship.code[:2] == "0x":
+            if m.code[:2] == "0x":
                 ship.append(data)
 
         info = {
