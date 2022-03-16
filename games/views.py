@@ -1090,7 +1090,7 @@ class InviterNewView(APIView):
         user = MyUser.objects.get(id=request.user.id)
         frends = Ship.objects.filter(
             code="000"+str(user.id), inviter_id=user).all()
-        inby = Ship.objects.exclude(code="").filter(student_id=user)
+        inby = Ship.objects.exclude(code="").filter(student_id=user.id)
         inviter = [model_to_dict(MyUser.objects.get(id=i.student_id.id),
                                  fields=['nick_name', 'last_login', 'avatar_url', 'gender',
                                          'city', 'province', 'country', 'login', 'openid', ]) for i in frends]
