@@ -1104,22 +1104,22 @@ class InviterNewView(APIView):
     def post(self, request):
         param = get_parameter_dic(request)
         user = MyUser.objects.get(id=request.user.id)
-        # if param.get('code', '') == '':
+        if param.get('code', '') == '':
         # ship = Ship.objects.create(inviter_id=user)
         # ship.save()
-        # return Response({'status': 1, 'mes': '我的邀请码', 'info': "god"+str(user.id)}, HTTP_200_OK)
+            return Response({'status': 0, 'mes': '没有填写邀请码' }, HTTP_200_OK)
 
-        # else:
-        friends = Ship.objects.filter(student_id=user).exclude(code="")
-        if len(friends) > 0:
-            return Response({'status': 0, 'mes': '已经绑定了邀请关系'}, HTTP_200_OK)
         else:
-            if param.get('code')[:3] == "000" and MyUser.objects.get(id=parm.get('code')[3:]):
-                ship = Ship.objects.create(code=param.get(
-                    'code'), inviter_id=MyUser.objects.get(id=MyUser.objects.get(id=parm.get('code')[3:])))
-
-                ship.student_id = user  # 拜师
-                ship.save()
-                return Response({'status': 1, 'mes': '绑定邀请关系成功'}, HTTP_200_OK)
+            friends = Ship.objects.filter(student_id=user).exclude(code="")
+            if len(friends) > 0:
+                return Response({'status': 0, 'mes': '已经绑定了邀请关系'}, HTTP_200_OK)
             else:
-                return Response({'status': 0, 'mes': '邀请码无效'}, HTTP_200_OK)
+                if param.get('code')[:3] == "000" and MyUser.objects.get(id=parm.get('code')[3:]):
+                    ship = Ship.objects.create(code=param.get(
+                        'code'), inviter_id=MyUser.objects.get(id=MyUser.objects.get(id=parm.get('code')[3:])))
+
+                    ship.student_id = user  # 拜师
+                    ship.save()
+                    return Response({'status': 1, 'mes': '绑定邀请关系成功'}, HTTP_200_OK)
+                else:
+                    return Response({'status': 0, 'mes': '邀请码无效'}, HTTP_200_OK)
