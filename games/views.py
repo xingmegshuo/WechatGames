@@ -1094,12 +1094,12 @@ class InviterNewView(APIView):
         inviter = [model_to_dict(MyUser.objects.get(id=i.student_id.id),
                                  fields=['nick_name', 'last_login', 'avatar_url', 'gender',
                                          'city', 'province', 'country', 'login', 'openid', ]) for i in frends]
+        inviterby = {}
+
         if len(inby) > 0:
             inviterby = model_to_dict(MyUser.objects.get(id=inby[0].inviter_id), fields=['nick_name', 'last_login', 'avatar_url', 'gender',
                                                        'city', 'province', 'country', 'login', 'openid', ])
-        else:
-            inviterby = {}
-        return Response({'status': 1, 'mes': "inviter,我的邀请,inviterby,我的邀请人", 'data': {'inviter': inviter, 'inviterby': inby}}, HTTP_200_OK)
+        return Response({'status': 1, 'mes': "inviter,我的邀请,inviterby,我的邀请人", 'data': {'inviter': inviter, 'inviterby': inviterby,'len':len(inby)}}, HTTP_200_OK)
 
     def post(self, request):
         param = get_parameter_dic(request)
