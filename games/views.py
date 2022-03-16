@@ -1058,7 +1058,7 @@ class InviterView(APIView):
         else:
             # try:
             ship = Ship.objects.create(code="0x"+param.get(
-                'code'[2:]), inviter_id=MyUser.objects.get(id=param.get('code')[3:]))
+                'code')[2:], inviter_id=MyUser.objects.get(id=param.get('code')[3:]))
 
             if param.get('ship', '') == '1':
                 ship.student_id = user  # 拜师
