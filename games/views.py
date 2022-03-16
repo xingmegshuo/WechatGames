@@ -1114,9 +1114,9 @@ class InviterNewView(APIView):
             if len(friends) > 0:
                 return Response({'status': 0, 'mes': '已经绑定了邀请关系'}, HTTP_200_OK)
             else:
-                if param.get('code')[:3] == "000" and MyUser.objects.get(id=parm.get('code')[3:]):
+                if param.get('code')[:3] == "000" and MyUser.objects.get(id=param.get('code')[3:]):
                     ship = Ship.objects.create(code=param.get(
-                        'code'), inviter_id=MyUser.objects.get(id=MyUser.objects.get(id=parm.get('code')[3:])))
+                        'code'), inviter_id=MyUser.objects.get(id=MyUser.objects.get(id=param.get('code')[3:])))
 
                     ship.student_id = user  # 拜师
                     ship.save()
